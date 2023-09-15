@@ -2,6 +2,9 @@
 
 * {
     font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -24,19 +27,20 @@ form {
     left: 50%;
     transform: translate(-50%);
     width: 50%;
+    height: auto;
     display: grid;
     grid-template-columns: auto min-content;
-    grid-template-rows: min-content;
+    grid-template-rows: auto;
 }
 
 textarea {
-    width: 100%;
-    height: max-content;
+    width: 104%;
+    height: auto;
     resize: none;
     border: none;
     border-radius: 1em;
     outline: none;
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 0.5em;
     box-shadow: 0 0 0.2em rgb(95, 88, 176);
     overflow: hidden;
