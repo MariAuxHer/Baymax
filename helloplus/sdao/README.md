@@ -6,8 +6,7 @@ This also uses docker to maintain a consistant development environment.
 
 # To run the test server using docker:
 
-docker build -t django-serve .
-docker compose up -d
+docker build -t django-serve . && docker compose up -d
 
 # To run the test server from here:
 python version: 3.11
