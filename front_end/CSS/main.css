@@ -27,16 +27,13 @@ form {
     left: 50%;
     transform: translate(-50%);
     width: 50%;
-    height: auto;
     display: grid;
     grid-template-columns: auto min-content;
-    grid-template-rows: auto;
 }
 
 textarea {
     width: 104%;
     height: auto;
-    resize: none;
     border: none;
     border-radius: 1em;
     outline: none;
@@ -44,6 +41,7 @@ textarea {
     padding: 0.5em;
     box-shadow: 0 0 0.2em rgb(95, 88, 176);
     overflow: hidden;
+    resize: none;
 }
 
 button {
