@@ -5,4 +5,4 @@ I essentially create a 'hello world' type program using the Django framework for
 
 
 ## Running the Server
-We can run this server by running doing `py manage.py runserver` in terminal and then traveling to [localhost](http://127.0.0.1:8000/polls/)
+We can run this server by running `py manage.py runserver` and then traveling to [localhost](http://127.0.0.1:8000/polls/)
