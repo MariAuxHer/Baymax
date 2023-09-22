@@ -1,8 +1,10 @@
 # Malware Classifier using a Multilayer Perceptron
 
-## What the program does? 
+## What does the program do? 
 
-This program classifies apk files as malware or benign using a simple Multi-Layer Perceptron neural network. The features fed to the model as well as their respective labels are in the asm_feature.csv file. The program divides the dataset into a training set to train the model and the testing set to measure the accuracy of the model/s predictions. 
+The program classifies APK files as malware or benign using a Multilayer Perceptron neural network.
+The features and labels are obtained from the 'asm_feature.csv' file.
+The dataset is divided into a training set for model training and a testing set for accuracy measurement.
 
 ## How to run the program? 
 
@@ -33,4 +35,5 @@ This program classifies apk files as malware or benign using a simple Multi-Laye
 
 ## How that technology might be used in the group project? 
 
-In our project, we need to do the same data preprocessing I did for this malware classifier - for instance, dropping columns from the csv file that contain irrelevant information. In addition, for the Machine Learning model we will use in our project, we may need to add a multilayer perceptron - similar to the one used in this malware classifier - following the transformer layer. The transformer can handle the input sequences and capture long-range dependencies, while the multilayer perceptron can process extracted features or embeddings from the transformr layers. 
+In our project, we can apply similar data preprocessing techniques used in this malware classifier, such as removing irrelevant columns from the CSV file. Additionally, we may incorporate a multilayer perceptron, similar to the one utilized in this malware classifier, after the transformer layer in our Machine Learning model. This approach allows the transformer to handle input sequences, capturing 
+long-range dependencies, while the multilayer perceptron processes extracted features or embeddings from the transformer layers.
