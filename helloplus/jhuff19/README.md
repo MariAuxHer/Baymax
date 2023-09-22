@@ -1,4 +1,4 @@
-#DataFrameColumnCodeGenerator.ipynb
+# DataFrameColumnCodeGenerator.ipynb
 
 This python notebook defines a function that generates code to isolate individual columns of a pandas dataframe.
 Each line generated contains the code for generating a variable from a column name as well as a comment that 
