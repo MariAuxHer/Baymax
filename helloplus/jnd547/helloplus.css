@@ -1,0 +1,51 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+#answerbox {
+    width: 25%;
+    height: 10%;
+    resize: none;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 20px 20px;
+
+    /* margin: auto;
+    position: fixed;
+    left: 30%;
+    right: 30%; */
+    
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    align-content: center;
+    
+    
+    
+}
+
+.button {
+    width: 25%;
+/*     
+    border-radius: 8px; */
+    
+    display: block;
+    margin: 0 auto;
+    
+}
+
+
+#outcome_text {
+    height: 100px;
+    width: 100px;
+    font-size: larger;
+
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    align-content: center;
+}
