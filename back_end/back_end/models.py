@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 # Holds Interactions
 class Conversation(models.Model):
@@ -12,11 +10,13 @@ class Conversation(models.Model):
     name = models.CharField(max_length=100)
 
     def save(self, *args, **kwargs):
-        if not self.pk:
+        # set the times on creation
+        if not self.pk: # pk isn't assigned until after creation, so this checks for if a save is a creation
             self.creation_time = timezone.now()
             self.last_accessed = timezone.now()
         super(Conversation, self).save(*args, **kwargs)
 
+    # updates the access time manually
     def update_access_time(self):
         self.last_accessed = timezone.now()
         self.save()
@@ -27,14 +27,9 @@ class Conversation(models.Model):
 # Holds prompt and responses
 class Interaction(models.Model):
     conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
+
     prompt : str =  models.CharField(max_length=1000)
     LLMresponse : str = models.CharField(max_length=1000)
-
-# updates the time on the conversation when a new interaction is saved
-@receiver(post_save, sender=Interaction)
-def update_time_accessed(sender, instance, **kwargs):
-    if (instance.conversation):
-        instance.conversation.update_access_time()
 
 # holds medical service information
 class Provider(models.Model):

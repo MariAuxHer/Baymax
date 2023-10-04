@@ -29,7 +29,9 @@ class ConversationViewSet(viewsets.ModelViewSet):
         return Response(user_conversations_serializer.data)
     
     def create(self, request):
+        
         new_conversation = Conversation(owner = request.user)
+        new_conversation.name = request.data['name']
 
         new_conversation.save()
 
