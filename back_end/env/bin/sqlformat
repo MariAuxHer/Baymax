@@ -1,4 +1,4 @@
-#!/home/nevets/code/Baymax/env/bin/python3.11
+#!/home/nevets/code/Baymax/back_end/env/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys
