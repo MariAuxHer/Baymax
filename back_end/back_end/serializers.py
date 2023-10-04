@@ -2,17 +2,11 @@ from back_end.models import Conversation, Interaction
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-
-# class ProfileSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = Profile
-#         fields = '__all__'
-
-
 class InteractionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Interaction
         fields = '__all__'
+        read_only_fields = ['LLMresponse', 'owner']
 
 class ConversationSerializer(serializers.HyperlinkedModelSerializer):
     interaction_set = InteractionSerializer(many=True, required=False)
@@ -20,7 +14,7 @@ class ConversationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Conversation
         fields = '__all__'
-        read_only_fields = ['owner', 'last_accessed', 'creation_time']
+        read_only_fields = ['owner', 'last_accessed', 'creation_time', 'interaction_set']
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     conversation_set = ConversationSerializer(many=True)

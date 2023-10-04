@@ -26,6 +26,7 @@ class Conversation(models.Model):
     
 # Holds prompt and responses
 class Interaction(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
 
     prompt : str =  models.CharField(max_length=1000)

@@ -1,9 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound
 from rest_framework import viewsets, permissions
 from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer
 from back_end.models import Conversation, Interaction
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,31 +19,35 @@ class ConversationViewSet(viewsets.ModelViewSet):
     """
     queryset = Conversation.objects.all()
     serializer_class = ConversationSerializer
+    interaction_set = InteractionSerializer(many=True)
     permission_classes = [permissions.IsAuthenticated]
+
     
     def list(self, request):
         filtered_queryset = Conversation.objects.filter(owner = request.user)
-
         user_conversations_serializer = ConversationSerializer(filtered_queryset, many=True, context={'request': request})
         return Response(user_conversations_serializer.data)
     
     def create(self, request):
-        
         new_conversation = Conversation(owner = request.user)
         new_conversation.name = request.data['name']
-
         new_conversation.save()
-
         return Response(ConversationSerializer(new_conversation, context={'request': request}).data)
     
 
 class InteractionViewSet(viewsets.ModelViewSet):
     queryset = Interaction.objects.all()
     serializer_class = InteractionSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-# class ProfileViewSet(viewsets.ModelViewSet):
-#     queryset = Profile.objects.all()
-#     serializer_class = ProfileSerializer
+    def list(self, request):
+        filtered_queryset = Interaction.objects.filter(owner = request.user)
+        user_interactions_serializer = InteractionSerializer(filtered_queryset, many=True, context={'request': request})
+        return Response(user_interactions_serializer.data)
+    
+    # def create(self, request): # it doesnt check if u are the owner, but it will atleast make you the new owner of the interaction
+    #     return Response(InteractionSerializer(Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation =))
 
+# default page response
 def index(request):
     return HttpResponse("test")
