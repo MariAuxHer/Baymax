@@ -29,5 +29,5 @@ router.register(r'interactions', views.InteractionViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('', include(router.urls))
+    path('api/', include(router.urls))
 ]

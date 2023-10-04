@@ -6,9 +6,16 @@ from django.dispatch import receiver
 
 # Holds Interactions
 class Conversation(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    last_accessed = models.DateTimeField()
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    last_accessed = models.DateTimeField(null=True)
+    creation_time = models.DateTimeField(null=True)
     name = models.CharField(max_length=100)
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.creation_time = timezone.now()
+            self.last_accessed = timezone.now()
+        super(Conversation, self).save(*args, **kwargs)
 
     def update_access_time(self):
         self.last_accessed = timezone.now()
