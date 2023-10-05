@@ -1,9 +1,11 @@
 from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound
 from rest_framework import viewsets, permissions
 from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer
+
 from back_end.models import Conversation, Interaction
 from django.contrib.auth.models import User
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -19,10 +21,8 @@ class ConversationViewSet(viewsets.ModelViewSet):
     """
     queryset = Conversation.objects.all()
     serializer_class = ConversationSerializer
-    interaction_set = InteractionSerializer(many=True)
     permission_classes = [permissions.IsAuthenticated]
 
-    
     def list(self, request):
         filtered_queryset = Conversation.objects.filter(owner = request.user)
         user_conversations_serializer = ConversationSerializer(filtered_queryset, many=True, context={'request': request})
@@ -34,6 +34,16 @@ class ConversationViewSet(viewsets.ModelViewSet):
         new_conversation.save()
         return Response(ConversationSerializer(new_conversation, context={'request': request}).data)
     
+    @action(detail=True, methods=['post'], serializer_class=InteractionSerializer)
+    def add_interaction(self, request, pk):
+        c = Conversation.objects.get(pk=pk)
+
+        Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c)
+
+        print("attempting to post to {id}".format(id = pk))
+        return HttpResponse("attempting to post to {id}".format(id = pk))
+        pass
+    
 
 class InteractionViewSet(viewsets.ModelViewSet):
     queryset = Interaction.objects.all()
@@ -44,9 +54,6 @@ class InteractionViewSet(viewsets.ModelViewSet):
         filtered_queryset = Interaction.objects.filter(owner = request.user)
         user_interactions_serializer = InteractionSerializer(filtered_queryset, many=True, context={'request': request})
         return Response(user_interactions_serializer.data)
-    
-    # def create(self, request): # it doesnt check if u are the owner, but it will atleast make you the new owner of the interaction
-    #     return Response(InteractionSerializer(Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation =))
 
 # default page response
 def index(request):
