@@ -23,11 +23,11 @@ router = routers.DefaultRouter()
 
 router.register(r'conversations', views.ConversationViewSet)
 router.register(r'users', views.UserViewSet)
-router.register(r'interactions', views.InteractionViewSet)
-# router.register(r'profiles', views.ProfileViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/login', views.login),
+    path('api/logout', views.logout),
 ]
