@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, permissions
 from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer
 
@@ -36,13 +37,12 @@ class ConversationViewSet(viewsets.ModelViewSet):
     
     @action(detail=True, methods=['post'], serializer_class=InteractionSerializer)
     def add_interaction(self, request, pk):
-        c = Conversation.objects.get(pk=pk)
+        c = get_object_or_404(Conversation, pk=pk)
+        i = Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c)
 
-        Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c)
+        serializer = InteractionSerializer(i, context={'request': request})
+        return Response(serializer.data)
 
-        print("attempting to post to {id}".format(id = pk))
-        return HttpResponse("attempting to post to {id}".format(id = pk))
-        pass
     
 
 class InteractionViewSet(viewsets.ModelViewSet):

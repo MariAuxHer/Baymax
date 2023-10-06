@@ -9,7 +9,7 @@ class InteractionSerializer(serializers.HyperlinkedModelSerializer):
         read_only_fields = ['LLMresponse', 'owner', 'conversation']
 
 class ConversationSerializer(serializers.HyperlinkedModelSerializer):
-    # interaction_set = InteractionSerializer(many=True, required=False)
+    interaction_set = InteractionSerializer(many=True, required=False)
 
     class Meta:
         model = Conversation
