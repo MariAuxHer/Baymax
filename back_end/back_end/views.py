@@ -2,16 +2,12 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, permissions
 from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer
-from rest_framework.views import APIView
 
 from back_end.models import Conversation, Interaction
 from django.contrib.auth.models import User 
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from django.contrib.auth import authenticate, login
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.authtoken.models import Token
-from rest_framework import status
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -52,22 +48,3 @@ class ConversationViewSet(viewsets.ModelViewSet):
 def index(request):
     return HttpResponse("test")
 
-class LoginView(APIView):
-    def post(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
-
-        # Authenticate user
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            token, created = Token.objects.get_or_create(user=user)
-            if (not created):
-                return Response({'detail': 'Failed token creation.'})
-            
-            return Response({'token': token.key}, status=status.HTTP_200_OK)
-        else:
-            return Response({'detail': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-    
-def logout(request):
-    logout(request)
