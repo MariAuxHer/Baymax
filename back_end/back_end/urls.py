@@ -26,5 +26,6 @@ router.register(r'conversations', views.ConversationViewSet, basename = 'convers
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(auth.urls)),
-    path('data/', include(router.urls)),
+    path('api/', include(router.urls)),
+    path('', views.index)
 ]
