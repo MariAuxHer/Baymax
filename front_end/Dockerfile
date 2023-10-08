@@ -11,4 +11,4 @@ ENV PATH app/node_modules/.bin:$PATH
 
 COPY . /app/front_end
 # start app
-CMD ["nodejs", "index.html"]
+CMD ["nodejs", "JS/server.js"]
