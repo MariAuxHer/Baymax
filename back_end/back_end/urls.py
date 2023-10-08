@@ -21,13 +21,14 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 
-router.register(r'conversations', views.ConversationViewSet)
+router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
 router.register(r'users', views.UserViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('api/', include(router.urls)),
-    path('api/login', views.login),
+    path('api/login', views.LoginView.as_view()),
     path('api/logout', views.logout),
 ]
