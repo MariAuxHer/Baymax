@@ -21,8 +21,11 @@ import auth.urls
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
 
+router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
+router.register(r'interactions', views.InteractionViewSet, basename = 'interaction')    
+router.register(r'users', views.UserViewSet, basename = 'user')
+    
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(auth.urls)),

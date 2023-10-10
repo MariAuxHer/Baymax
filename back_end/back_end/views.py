@@ -40,7 +40,17 @@ class ConversationViewSet(viewsets.ModelViewSet):
         i = Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c) 
         serializer = InteractionSerializer(i, context={'request': request})
         return Response(serializer.data)
-    
+
+class InteractionViewSet(viewsets.ModelViewSet):
+    queryset = Interaction.objects.all()
+    serializer_class = InteractionSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def list(self, request):
+        filtered_queryset = Interaction.objects.filter(owner = request.user)
+        user_interactions_serializer = InteractionSerializer(filtered_queryset, many=True, context={'request': request})
+        return Response(user_interactions_serializer.data)
+   
 # default page response
 def index(request):
     return HttpResponse("test")

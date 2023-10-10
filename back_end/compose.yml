@@ -1,8 +1,0 @@
-services:
-  back_end:
-    image:  back_end
-    working_dir:  /app 
-    volumes:
-        - ./:/app
-    ports:
-      - "8000:8000"

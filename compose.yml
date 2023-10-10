@@ -29,7 +29,7 @@ services:
   reverse_proxy:
     build: ./nginx
     ports:
-      - 81:80
+      - 80:80
     depends_on:
       - back_end
       - front_end
