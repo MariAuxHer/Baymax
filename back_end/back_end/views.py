@@ -30,17 +30,14 @@ class ConversationViewSet(viewsets.ModelViewSet):
     
     # auto associate the owner with the newly created conversation
     def create(self, request):
-        new_conversation = Conversation(owner = request.user)
-        new_conversation.name = request.data['name']
-        new_conversation.save()
+        new_conversation = Conversation.objects.create(owner = request.user, name = request.data['name'])
         return Response(ConversationSerializer(new_conversation, context={'request': request}).data)
     
     # allow API user to add new interactions to Conversation Instances
     @action(detail=True, methods=['post'], serializer_class=InteractionSerializer)
     def add_interaction(self, request, pk):
         c = get_object_or_404(Conversation, pk=pk)
-        i = Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c)
-
+        i = Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c) 
         serializer = InteractionSerializer(i, context={'request': request})
         return Response(serializer.data)
     
