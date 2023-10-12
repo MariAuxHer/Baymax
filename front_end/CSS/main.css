@@ -69,3 +69,16 @@ img {
     width: 2em;
     margin: auto;
 }
+
+#toLoginPage {
+    position: absolute;
+    top: 2em; 
+    right: 4em;
+    color: #000000;
+    font-size: 30px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    
+}

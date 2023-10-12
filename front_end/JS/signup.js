@@ -1,3 +1,4 @@
+// Redirect to Login Page
 document.getElementById('toLoginPage').addEventListener('click', function() {
     window.location.href = 'login.html';
 });
