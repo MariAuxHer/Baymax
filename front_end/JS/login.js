@@ -4,7 +4,20 @@ document.getElementById('toLoginPage').addEventListener('click', function() {
 });
 
 
-// // Redirect to Chat Page
-// document.getElementById('header1').addEventListener('click', function() {
-//     window.location.href = 'http://127.0.0.1:5500/index.html';
-// });
+// Allowing the user to login
+document.getElementById('submit').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const loginInfo = {
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value
+    };
+
+    // Debugging
+    console.log(loginInfo.username);
+    console.log(loginInfo.password);
+    
+
+    // TODO: Send to backend for verification
+    // ...
+})
