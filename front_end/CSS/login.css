@@ -16,10 +16,13 @@ body {
     grid-template-rows: max-content auto max-content; */
 }
 
+a {
+    text-decoration: none;
+}
+
 h1 {
     margin: 1em 2em;
     font-size: 4em;
-    /* cursor: pointer; */
 }
 
 h2 {
@@ -97,8 +100,13 @@ input {
     
 }
 
-a {
-    margin-top: 10px;
+#toSignUp {
     color: #7161ff;
-    text-decoration: none;
+    margin-top: 10px;
 }
+
+#toIndex {
+    color: #000000;
+}
+
+

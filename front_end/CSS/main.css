@@ -16,6 +16,10 @@ body {
     grid-template-rows: max-content auto max-content; */
 }
 
+a {
+    text-decoration: none;
+}
+
 h1 {
     margin: 1em 2em;
     font-size: 4em;
@@ -81,4 +85,8 @@ img {
     background-color: transparent;
     cursor: pointer;
     
+}
+
+#toIndex {
+    color: #000000;
 }
