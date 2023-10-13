@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+* {
+    font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(222, 222, 255);
+    width: 100%;
+    height: 100%;
+    /* display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content auto max-content; */
+}
+
+h1 {
+    margin: 1em 2em;
+    font-size: 4em;
+}
+
+form {
+    margin: auto;
+    position: fixed;
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+    display: grid;
+    grid-template-columns: auto min-content;
+}
+
+textarea, .textarea_replacement {
+    resize: none;
+    width: 100%;
+    border: none;
+    border-radius: 1em;
+    outline: none;
+    font-size: 1.3em;
+    box-shadow: 0 0 0.2em rgb(95, 88, 176);
+    overflow: hidden;   
+    background: #fff; 
+    padding: 0.7em 0.7em;
+}
+
+button {
+    color: #fff;
+    background: rgb(255, 44, 44);
+    width: 3.5em;
+    height: 3.5em;
+    display: grid;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0 0 0.2em rgb(21, 21, 21);
+    margin-left: 0.5em;
+}
+
+button:hover {
+    background: rgb(255, 82, 82);
+}
+
+button:active {
+    background: rgb(205, 40, 40);
+}
+
+img {
+    width: 2em;
+    margin: auto;
+}
