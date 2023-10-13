@@ -5,31 +5,34 @@
 - Group: Baymax
 
 ### What you planned to do
-- [Initial fine-tuning working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
+- [Initial fine-tuning of NHS-LLM Model](https://github.com/MariAuxHer/Baymax/issues/2)
 - [Run Tutorial for Text Classification](https://github.com/MariAuxHer/Baymax/issues/3)
 - [Take ML course](https://github.com/MariAuxHer/Baymax/issues/1)
-- Parse the doctor database and implement a data structure to classify the doctors information based on    their specialization and region.
+- [Classify doctor's information](https://github.com/MariAuxHer/Baymax/issues/6)
+- Review and understand backend's code.
 
 ### What you did not do
+- I have not yet fine-tuned the NHS-LLM model. 
 - I wanted to advance more on the LLM model - get more accurate predictions.  
 
 ### What problems you encountered
 - The existing NHS-LLM model is very lightweight, which results in innacurate predictions. 
-We need to add more instruction-based 
-Finding a tutorial that is comprable our use cases is very difficult
-- Converting tutorials to a usable model can get very complicated
-- The LLM is very light right now and can be very innacurate
+- We need to either add more instruction-based data to our dataset or change the hyperparameters of the model
+to see if we get better predictions. 
 
 ### Issues you worked on
-- [Develop Working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
+- [Initial fine-tuning of NHS-LLM Model](https://github.com/MariAuxHer/Baymax/issues/2)
 - [Run Tutorial for Text Classification](https://github.com/MariAuxHer/Baymax/issues/3)
 - [Take ML course](https://github.com/MariAuxHer/Baymax/issues/1)
+- [Classify doctor's information based on parsed data](https://github.com/MariAuxHer/Baymax/issues/6)
 
 ### Files you worked on
-- text_classification_testing.ipynb
-- Light_NHS_LLM.ipynb
+- classify_doctor_info.cpp
+- Light_NHS_LLM.ipynb (run it with Jordan)
+- Fixed the settings.py file in the back_end folder. 
 
 ### What you accomplished
-- We now have a better understanding of transformers and how they will be implemented for our app
-- We now have a trained LLM that we can use for responding to user input with medical information (including sources)
-- We now have the basis of a model that will be able to classify user text input into different required medical specializations when we train it on different data
+- Get a better understanding of transformers (mainly decoders-only and encoders-only) and how to use them in our software. 
+- Find a trained LLM that we will use to provide the user with preliminary advice and potential diagnoses.
+- Determine the model we will use (encoder-only transformer) to classify user text input into different required medical specializations. 
+- Parse and classify doctor's information. 
