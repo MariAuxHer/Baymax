@@ -34,6 +34,10 @@ class Interaction(models.Model):
 
 # holds medical service information
 class Provider(models.Model):
-    name : str = models.CharField(max_length=500)
+    prov : str = models.CharField(max_length=500) # provider name
     location : str = models.CharField(max_length=500)
+    m_address : str = models.CharField(max_length=500) # mailing address
+    phone : str = models.CharField(max_length=500)
+    
+    
     # populate more fields or do it in code
