@@ -5,7 +5,7 @@
 - Group: Baymax
 
 ### What you planned to do
-- [Develop Working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
+- [Initial Fine-Tuning of Working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
 - [Run Tutorial for Text Classification](https://github.com/MariAuxHer/Baymax/issues/3)
 - [Take ML course](https://github.com/MariAuxHer/Baymax/issues/1)
 
@@ -19,7 +19,7 @@
 - The LLM is very light right now and can be very innacurate
 
 ### Issues you worked on
-- [Develop Working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
+- [Initial Fine-Tuning of Working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
 - [Run Tutorial for Text Classification](https://github.com/MariAuxHer/Baymax/issues/3)
 - [Take ML course](https://github.com/MariAuxHer/Baymax/issues/1)
 
