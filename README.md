@@ -1,6 +1,9 @@
 # Baymax
 COSC340 Project
 
+## Contributors
+Maria Hernandez, Steven Dao, Vineeth Konjeti, Amal Sam, Casey Collins, Jordan Huff, Jonathan Tran
+
 ## Backend:
 Requirements:
 
