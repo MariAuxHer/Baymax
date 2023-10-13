@@ -11,25 +11,12 @@ services:
     expose:
       - 8000
 
-  front_end:
-    stdin_open: true
-    build: ./front_end
-    volumes:
-      - ./front_end:/app
-      - /app/node_modules
-
-    expose:
-      - 5173
-
-    environment:
-      - NODE_ENV=development
-    depends_on:
-      - back_end
-
   reverse_proxy:
-    build: ./nginx
+    build:
+      context: ./
+      dockerfile: ./nginx/Dockerfile
+    
     ports:
       - 80:80
     depends_on:
       - back_end
-      - front_end
