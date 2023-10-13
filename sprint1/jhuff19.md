@@ -5,7 +5,7 @@
 - Group: Baymax
 
 ### What you planned to do
-- [Fine-Tuning Working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
+- [Develop Working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
 - [Run Tutorial for Text Classification](https://github.com/MariAuxHer/Baymax/issues/3)
 - [Take ML course](https://github.com/MariAuxHer/Baymax/issues/1)
 
