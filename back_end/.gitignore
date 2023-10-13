@@ -5,8 +5,8 @@ __pycache__/
 *.pyd
 
 # Databases
-*.sqlite3
-db.sqlite3
+# *.sqlite3
+# db.sqlite3
 
 # env
 env/
