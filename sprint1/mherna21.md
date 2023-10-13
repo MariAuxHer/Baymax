@@ -12,7 +12,7 @@
 - Review and understand backend's code.
 
 ## What you did not do
-- I have not yet fine-tuned the NHS-LLM model. 
+- I have not yet fully fine-tuned the NHS-LLM model. 
 - I wanted to advance more on the LLM model - get more accurate predictions.  
 
 ## What problems you encountered
