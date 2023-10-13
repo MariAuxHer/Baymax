@@ -4,7 +4,7 @@
 ## For the ChatBox interactions and preliminary advice
 
 
-1. Generate instruction-based datasets: An instruction-based dataset is a collection of tasks and solutions that we cab use to fine-tune a pre-trained Large Language Model to perform different tasks including: Questions and Answers, Multiple Choice Questions, Medical Tasks (e.g., diagnosis). 
+1. Generate instruction-based datasets: An instruction-based dataset is a collection of tasks and solutions that we can use to fine-tune a pre-trained Large Language Model to perform different tasks including: Questions and Answers, Multiple Choice Questions, Medical Tasks (e.g., diagnosis). 
 
 - Use the information provided in the NHS dataset - which contains definitions of diseases together with the corresponding symptoms and medications - to generate these instructions-based datasets. write a prompt where we ask. We need to write a prompt where we ask a Teacher model like ChatGPT to generate instructions (tasks) based on a context, which will be the text scraped from the [NHS.UK] (https://www.nhs.uk/conditions/) website. 
 
