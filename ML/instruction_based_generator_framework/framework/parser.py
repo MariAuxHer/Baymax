@@ -1,3 +1,4 @@
+
 r'''
 Parsers are used to parse the output from a Teacher (OpenAI, Google, ...) into the right format. The purpose of the paraser is to
  parse the new output and append it to the prepared_data. Every parser will receive:
