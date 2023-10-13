@@ -1,0 +1,35 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+
+  back_end:
+    build: ./back_end
+    volumes:
+      - ./back_end:/app
+    expose:
+      - 8000
+
+  front_end:
+    stdin_open: true
+    build: ./front_end
+    volumes:
+      - ./front_end:/app
+      - /app/node_modules
+
+    expose:
+      - 5173
+
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - back_end
+
+  reverse_proxy:
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - back_end
+      - front_end

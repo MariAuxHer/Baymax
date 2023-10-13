@@ -16,6 +16,10 @@ body {
     grid-template-rows: max-content auto max-content; */
 }
 
+a {
+    text-decoration: none;
+}
+
 h1 {
     margin: 0.5em 0.7em;
     font-size: 3em;
@@ -68,4 +72,21 @@ button:active {
 img {
     width: 2em;
     margin: auto;
+}
+
+#toLoginPage {
+    position: absolute;
+    top: 2em; 
+    right: 4em;
+    color: #000000;
+    font-size: 30px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    
+}
+
+#toIndex {
+    color: #000000;
 }
