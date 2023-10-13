@@ -1,4 +1,15 @@
-# ignore the env folder
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Databases
+*.sqlite3
+db.sqlite3
+
+# env
 env/
-__pycache__
+
+# secrets
 ssl/
