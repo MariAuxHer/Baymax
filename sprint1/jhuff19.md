@@ -1,8 +1,8 @@
 # Sprint 1
 
-Name: Jordan Huff
-Github: jordantrh
-Group: Baymax
+- Name: Jordan Huff
+- Github: jordantrh
+- Group: Baymax
 
 ### What you planned to do
 - [Develop Working LLM Model from NHS Dataset](https://github.com/MariAuxHer/Baymax/issues/2)
