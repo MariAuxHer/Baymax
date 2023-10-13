@@ -10,4 +10,6 @@ ENV PYTHONUNBUFFERED 1
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
+
+RUN python3.11 manage.py migrate 
 CMD ["python3.11","manage.py","runserver","0.0.0.0:8000"]
