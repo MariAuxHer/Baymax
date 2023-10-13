@@ -1,0 +1,6 @@
+Cardiology New_York Dr_Smith 123_Main_St,_New_York,_NY
+Dermatology Los_Angeles Dr_Johnson 456_Elm_St,_Los_Angeles,_CA
+Dermatology Los_Angeles Dr_Pedro 456_Elm_St,_Los_Angeles,_CA
+Dermatology New_York Dr_Alison 456_Elm_St,_Los_Angeles,_CA
+Cardiology New_York Dr_Joseph 123_Main_St,_New_York,_NY
+Cardiology Tennessee Dr_Sussy 123_Main_St,_New_York,_NY

@@ -8,12 +8,15 @@
     <title>Baymax</title>
 </head>
 <body>
-    <h1>Baymax</h1>
-    <form>
-        <textarea class="textarea_default"></textarea>
-        <button><img src="images/paper-plane.png" alt=""></button>
+    <h1 id="header1"><a href="index.html" id="toIndex">Baymax</a></h1>
+    
+    <form id="message_form" method="post" action="URL">
+        <textarea id="message_textarea" name="message"></textarea>
+        <button id="submit_message" type="submit"><img src="images/paper-plane.png" alt=""></button>
         <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
     </form>
-    <script src="./front_end/JS/textarea_replacement.js"></script>
+
+    <button id="toLoginPage">Login</button>
+    <script src="JS/textarea_replacement.js"></script>
 </body>
 </html>
