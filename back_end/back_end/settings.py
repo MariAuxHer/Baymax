@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'back_end',
     'rest_framework', 
-    'authentication'
+    'back_end_auth',
 ]
 
 MIDDLEWARE = [
