@@ -21,3 +21,4 @@ document.getElementById('submit').addEventListener('click', function(event) {
     // TODO: Send to backend for verification
     // ...
 })
+
