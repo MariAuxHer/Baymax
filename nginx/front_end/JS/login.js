@@ -1,7 +1,23 @@
+// Redirect to Login Page
 document.getElementById('toLoginPage').addEventListener('click', function() {
-    window.location.href = 'http://127.0.0.1:5500/login.html?';
+    window.location.href = 'login.html';
 });
 
-// document.getElementById('header1').addEventListener('click', function() {
-//     window.location.href = 'http://127.0.0.1:5500/index.html';
-// });
+
+// Allowing the user to login
+document.getElementById('submit').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const loginInfo = {
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value
+    };
+
+    // Debugging
+    console.log(loginInfo.username);
+    console.log(loginInfo.password);
+    
+
+    // TODO: Send to backend for verification
+    // ...
+})
