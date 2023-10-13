@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-npi_table = pd.read_csv('npidata_pfile_20230918-20230924.csv')
+npi_table = pd.read_csv("C:\\Users\\vpk12\\OneDrive\\Desktop\\CS340\\final\\Baymax\\back_end\\back_end\\Data\\npidata_pfile_20230918-20230924.csv")
 
 columns_to_drop = ['NPI Deactivation Reason Code', 'NPI Deactivation Date', 'Replacement NPI', 'NPI Reactivation Date', 'Provider Gender Code']
 
