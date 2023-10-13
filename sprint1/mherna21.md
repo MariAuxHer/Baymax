@@ -5,14 +5,14 @@
 - Group: Baymax
 
 ## What you planned to do
-- [Run NHS-LLM Model](https://github.com/MariAuxHer/Baymax/issues/2)
+- [Initial fine-tuning of NHS-LLM Model](https://github.com/MariAuxHer/Baymax/issues/2)
 - [Run Tutorial for Text Classification](https://github.com/MariAuxHer/Baymax/issues/3)
 - [Take ML course](https://github.com/MariAuxHer/Baymax/issues/1)
 - [Classify doctor's information](https://github.com/MariAuxHer/Baymax/issues/6)
 - Review and understand backend's code.
 
 ## What you did not do
-- I have not yet fine-tuned the NHS-LLM model. 
+- I have not yet fully fine-tuned the NHS-LLM model. 
 - I wanted to advance more on the LLM model - get more accurate predictions.  
 
 ## What problems you encountered
@@ -21,7 +21,7 @@
 to see if we get better predictions. 
 
 ## Issues you worked on
-- [Run NHS-LLM Model](https://github.com/MariAuxHer/Baymax/issues/2)
+- [Initial fine-tuning of NHS-LLM Model](https://github.com/MariAuxHer/Baymax/issues/2)
 - [Run Tutorial for Text Classification](https://github.com/MariAuxHer/Baymax/issues/3)
 - [Take ML course](https://github.com/MariAuxHer/Baymax/issues/1)
 - [Classify doctor's information based on parsed data](https://github.com/MariAuxHer/Baymax/issues/6)
