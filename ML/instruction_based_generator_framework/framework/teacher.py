@@ -1,3 +1,4 @@
+
 import openai
 
 def ask_openai(prompt, config):
