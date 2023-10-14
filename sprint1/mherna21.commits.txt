@@ -76,3 +76,266 @@
 07f175d8 (MariAuxiHer 2023-10-13 15:09:44 -0400 76) }
 b9717a91 (MariAuxiHer 2023-10-13 13:08:09 -0400  28) CSRF_TRUSTED_ORIGINS = ['http://localhost']
 f52a14c7 (MariAuxiHer 2023-10-13 12:37:12 -0400  40)     'rest_framework', 
+68be506a (MariAuxiHer 2023-10-13 19:27:01 -0400  1) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  2) import logging
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  3) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  4) def add_tokens_to_model_and_tokenizer(config, tokenizer, model):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  5)     ntkns = tokenizer.add_tokens(list(config.special_tokens.values()))
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  6)     logging.warning(f"Added: {ntkns} tokens to the tokenizer")
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  7)     if ntkns > 0:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  8)         input_embeddings = model.get_input_embeddings().weight.data
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  9)         output_embeddings = model.get_output_embeddings().weight.data
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 10)         input_embeddings_avg = input_embeddings[:-ntkns].mean(dim=0, keepdim=True)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 11)         output_embeddings_avg = output_embeddings[:-ntkns].mean(dim=0, keepdim=True)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 12)         model.resize_token_embeddings(len(tokenizer))
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 13)         input_embeddings[-ntkns:] = input_embeddings_avg
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 14)         output_embeddings[-ntkns:] = output_embeddings_avg 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 15)     
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 16)     # Set the eos and pad tokens properly
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 17)     tokenizer.add_special_tokens({"eos_token": config.special_tokens.eos, "pad_token": config.special_tokens.pad})
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 18)     model.config.eos_token_id = tokenizer.eos_token_id
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 19) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 20)     assert model.get_input_embeddings().num_embeddings == len(tokenizer)
+132a781d (MariAuxiHer 2023-10-13 19:27:40 -0400   1) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400   2) r'''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400   3) Parsers are used to parse the output from a Teacher (OpenAI, Google, ...) into the right format. The purpose of the paraser is to
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400   4)  parse the new output and append it to the prepared_data. Every parser will receive:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400   5)     - data: the new data output from a Teacher model
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400   6)     - prepared_data: the dataset we are creating, in other words old data that was output by a parser
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400   7)     - prompt_config: the prompt_config for the current prompt as a dictionary (taken from the .yaml file)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400   8)     - config: general config, ie the whole .yaml file as a python-box (can be used as a dictionary)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400   9)     - row: the row from the original CSV that was used for context to generate the `data`, can be empty given the use-case
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  10)     - raw_data_id: the ID of the `data` in the raw_data CSV (used to store the raw output from OpenAI)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  11)     - prompt_text: the prepared prompt that was used to generate `data`
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  12) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  13) If we are running the paraser for the first time the `prepared_data` will be empty (None) and it is up to us to define how that prepared_data (e.g. CSV) should look. Every parser can have different columns depending on the use-case.
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  14) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  15) If the parser will output the final prepeared data that will be used for model training, it should append special tokens: config.special_tokens.[user, ai, eos, eod],
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  16) have a look at the functions below (e.g. csv_qa_parser).
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  17) '''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  18) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  19) import pandas as pd
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  20) from io import StringIO
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  21) import re
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  22) import logging
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  23) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  24) def csv_qa_parser(data, prepared_data, prompt_config, config, row, raw_data_id, prompt_text):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  25)     r''' Expects data in the CSV format, with the separator `;`, the dataframe has to have two columns: `Question`, `Answer`
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  26)     '''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  27)     qa_pairs = None
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  28)     df = pd.read_csv(StringIO(data), sep=';')
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  29) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  30)     # Strip everything
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  31)     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  32) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  33)     ref_col = prompt_config.get('reference_column_to_append', None)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  34)     if ref_col and row is not None and ref_col in row and row[ref_col]:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  35)         # Means we want to append a reference at the end of each Answer
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  36)         to_append = f"\nReferences:\n- {row[ref_col]}"
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  37)         df['Answer'] = df['Answer'] + to_append
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  38)     df['Question'] += f' {config.special_tokens.eos}' # Every Q/A pair is independent
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  39)     df['Answer'] += f' {config.special_tokens.eos} {config.special_tokens.eod}'
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  40)     qa_pairs = [f'{config.special_tokens.user} {q.strip()} {config.special_tokens.ai} {a.strip()}' for q,a in df[['Question', 'Answer']].values]
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  41) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  42)     new_data = pd.DataFrame([[text, raw_data_id] for text in qa_pairs], columns=['text', 'raw_data_id'])
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  43)     if prepared_data is None:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  44)         prepared_data = new_data
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  45)     else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  46)         prepared_data = pd.concat([prepared_data, new_data], ignore_index=True)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  47) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  48)     return prepared_data
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  49) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  50) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  51) instruction_text = re.compile(r'Instruction:?(.*?)Input:', re.DOTALL)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  52) input_text = re.compile(r'Input:?(.*?)Output:?', re.DOTALL)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  53) output_text = re.compile(r'Output:?(.*?)$', re.DOTALL)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  54) def task_parser(data, prepared_data, prompt_config, row, config, raw_data_id, prompt_text):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  55)     r''' This parser can be used with prompts similar to Alpaca, it expects `data` in the following format:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  56)         Task:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  57)         Instruction:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  58)         Input:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  59)         Output:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  60)         
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  61)         Task:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  62)         Instruction:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  63)         Input:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  64)         Output:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  65)     .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  66)     .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  67)     .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  68)     '''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  69)     tasks = re.split(r'[1-9 \.]*Task[:\s]*', str(data))
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  70)     st = config.special_tokens
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  71)     new_data = []
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  72)     for task in tasks:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  73)         task = task.strip()
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  74)         ins = re.search(instruction_text, task).group(1).strip()
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  75)         inp = re.search(input_text, task).group(1).strip()
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  76)         out = re.search(output_text, task).group(1).strip()
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  77) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  78)         if inp:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  79)             if inp.startswith('"'):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  80)                 inp = inp[1:]
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  81)             if inp.endswith('"'):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  82)                 inp = inp[:-1]
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  83)             if inp == '<noinput>':
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  84)                 inp = ''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  85)             else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  86)                 inp = '\n' + str(inp)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  87) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  88)         if ins and out:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  89)             if inp in ins:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  90)                 new_data.append((len(prepared_data), f'{st.user} {ins} {st.eos} {st.ai} {out} {st.eos} {st.eod}', raw_data_id))
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  91)             else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  92)                 new_data.append((len(prepared_data), f'{st.user} {ins}{inp} {st.eos} {st.ai} {out} {st.eos} {st.eod}', raw_data_id))
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  93)     
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  94)     new_data = pd.DataFrame(new_data, columns=['text', 'raw_data_id'])
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  95)     if prepared_data is None:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  96)         prepared_data = new_data
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  97)     else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  98)         prepared_data = pd.concat([prepared_data, new_data], ignore_index=True)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  99) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 100)     return prepared_data   
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 101) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 102) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 103) def simple_task_parser(data, prepared_data, prompt_config, row, config, raw_data_id, prompt_text):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 104)     r''' This parser can be used with prompts similar to Alpaca, but that only have Instructions, it expects data :
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 105)         Task Number:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 106)         Instruction:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 107)         
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 108)         Task Number:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 109)         Instruction:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 110)         
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 111)     This parser is used as an intermediate, so the output is a csv with columns `text`, `instruction`, `raw_data_id`
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 112)     .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 113)     .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 114)     .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 115)     '''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 116)     tasks = [x.replace("Instruction:", "").strip() for x in re.split(r'[1-9 \.]*Task Number[:\s]*[\d\n]*', str(data)) if x.strip()]
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 117)     new_data = []
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 118)     for task in tasks:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 119)         task = task.strip()
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 120)    
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 121)     new_data = pd.DataFrame([[[row['text']], task, raw_data_id] for task in tasks], columns=['text', 'instruction', 'raw_data_id'])
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 122)     if prepared_data is None:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 123)         prepared_data = new_data
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 124)     else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 125)         prepared_data = pd.concat([prepared_data, new_data], ignore_index=True)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 126) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 127)     return prepared_data   
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 128) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 129) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 130) def medical_conversation_parser(data, prepared_data, prompt_config, config, row, raw_data_id, prompt_text):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 131)     r''' It expects data to be in form of a conversation, like:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 132)         Patient: <some text>
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 133)         AI-Assistant: <some text>
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 134)         Patient: <some text>
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 135)         .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 136)         .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 137)         .
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 138)     The actor names 'Patient' and 'AI-Assistant" have to match exactlty 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 139)     '''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 140)     conversation = None
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 141) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 142)     # Merge the extractions into one conversation
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 143)     data = re.split(r'\s*(Patient\s*:|AI-Assistant\s*:)\s*', data)[1:]
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 144)     if len(data) > 0:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 145)         conversation = ""
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 146)         to_append = None
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 147) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 148)         ref_col = prompt_config.get('reference_column_to_append', None)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 149)         if ref_col and ref_col in row and row[ref_col]:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 150)             # Means we want to append a reference at the end of each Answer
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 151)             to_append = f"\nReferences:\n- {row[ref_col]}"
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 152) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 153)         actor = None
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 154)         for message in data:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 155)             message = message.strip()
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 156)             if message in ['Patient:', 'AI-Assistant:', 'Patient', 'AI-Assistant', 'Patient :', 'AI-Assistant :']:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 157)                 actor = message
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 158)             elif actor is not None: #TODO: Make this nicer
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 159)                 if actor in ['Patient:', 'Patient :', 'Patient']:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 160)                     conversation += f'{config.special_tokens.user} {message} {config.special_tokens.eos} '
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 161)                 elif actor in ['AI-Assistant:', 'AI-Assistant :', 'AI-Assistant']:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 162)                     conversation += f'{config.special_tokens.ai} {message}'
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 163)                     if to_append is not None and to_append:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 164)                         conversation += to_append
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 165)                     conversation += f" {config.special_tokens.eos} "
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 166)         if conversation:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 167)             conversation = conversation.strip() + f" {config.special_tokens.eod}"
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 168) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 169)     new_data = pd.DataFrame([[conversation, raw_data_id]], columns=['text', 'raw_data_id'])
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 170)     if prepared_data is None:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 171)         prepared_data = new_data
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 172)     else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 173)         prepared_data = pd.concat([prepared_data, new_data], ignore_index=True)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 174) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 175)     return prepared_data
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 176) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 177) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 178) def csv_ner_parser(data, prepared_data, prompt_config, config, row, raw_data_id, prompt_text):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 179)     r''' Expects data in CSV format, using the `;` separator
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 180)     '''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 181)     df = pd.read_csv(StringIO(data), sep=';', engine='python')
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 182)     df['raw_data_id'] = raw_data_id
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 183) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 184)     if prepared_data is None:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 185)         prepared_data = df
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 186)     else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 187)         prepared_data = pd.concat([prepared_data, df], ignore_index=True)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 188) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 189)     return prepared_data
+56209efe (MariAuxiHer 2023-10-13 19:28:31 -0400  1) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  2) import json
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  3) import hashlib
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  4) import os
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  5) import logging
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  6) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  7) def add_to_prompt_database(text, description, parser, database_path, force_replace=False):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  8)     r''' The database is a simple json file where all the prompts are saved.
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  9)     '''
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 10)     if os.path.exists(database_path):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 11)         logging.info(f"Loading db from: {database_path}")
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 12)         db = json.load(open(database_path, 'r'))
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 13)         hashes = set([prompt['hash'] for prompt in db])
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 14)     else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 15)         db = []
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 16)         hashes = set()
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 17) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 18)     # Good enough for what we need 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 19)     h = hashlib.sha256(text.encode("utf-8")).hexdigest()[:10]
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 20)     if force_replace and h in hashes:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 21)         logging.warning("Found an existing prompt with the same hash, it will be replaced with the new one.")
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 22)         # Remove the prompt with the hash as the current one
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 23)         db = [prompt for prompt in db if prompt['hash'] != h]
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 24)         hashes = set([prompt['hash'] for prompt in db])
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 25)     if h not in hashes:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 26)         db.append({
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 27)                   'hash': h,
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 28)                   'text': text,
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 29)                   'description': description,
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 30)                   'parser': parser
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 31)                   })
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 32)         
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 33)         json.dump(db, open(database_path, 'w'), indent=2)
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 34)         logging.warning(f"Added prompt: {h}")
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 35)     else:
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 36)         logging.warning("The prompt is already in the database. It will not be added, you can use force_replace if you really want to add it.")
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 37) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 38)     return db
+7a462d30 (MariAuxiHer 2023-10-13 19:29:02 -0400  1) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  2) import openai
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  3) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  4) def ask_openai(prompt, config):
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  5)     response = openai.ChatCompletion.create(
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  6)         model = config.teacher.model,
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  7)         messages = [
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  8)             {"role": "user", "content": prompt},
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400  9)         ]
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 10)     )
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 11) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 12)     message = None
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 13)     if response['choices'][0]['finish_reason'] == 'stop':
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 14)         message = response['choices'][0]['message']['content']
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 15) 
+90fa73d5 (MariAuxiHer 2023-10-13 19:18:22 -0400 16)     return message
