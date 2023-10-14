@@ -27,3 +27,8 @@ div.addEventListener("keydown", function(event) {   // pressing enter will submi
 document.getElementById('toLoginPage').addEventListener('click', function() {
     window.location.href = 'login.html';
 });
+
+// Redirect to About Page
+document.getElementById('toAboutPage').addEventListener('click', function() {
+    window.location.href = 'about.html';
+
