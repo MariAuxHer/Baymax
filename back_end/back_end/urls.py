@@ -20,15 +20,15 @@ from . import views
 import back_end_auth.urls
 from rest_framework import routers
 
-router = routers.DefaultRouter()
+api_router = routers.DefaultRouter()
 
-router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
-router.register(r'interactions', views.InteractionViewSet, basename = 'interaction')    
-router.register(r'users', views.UserViewSet, basename = 'user')
+api_router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
+api_router.register(r'interactions', views.InteractionViewSet, basename = 'interaction')    
+api_router.register(r'users', views.UserViewSet, basename = 'user')
     
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(back_end_auth.urls)),
-    path('', include(router.urls)),
+    path('api/', include(api_router.urls)),
     path('', views.index)
 ]
