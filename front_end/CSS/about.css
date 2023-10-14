@@ -57,3 +57,36 @@ h2 {
     font-weight: bold;
 }
 
+#toLoginPage {
+    position: absolute;
+    top: 2em; 
+    right: 4em;
+    color: #000000;
+    font-size: 30px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    
+}
+
+#toAboutPage {
+    position: absolute;
+    top: 2em; 
+    right: 4em;
+    color: #000000;
+    font-size: 30px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    
+}
+
+#toSignUp {
+    color: #7161ff;
+    margin-top: 10px;
+}
+
+#toIndex {
+    color: #000000;
+}
+
