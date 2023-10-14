@@ -1,0 +1,35 @@
+/* CSS for the about page */
+* {
+    font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(222, 222, 255);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    margin: 1em 2em;
+    font-size: 4em;
+}
+
+h2 {
+    margin: 0.5em 0.5em;
+    font-size: 2.5em;
+}
+
+.content {
+    margin: 2em;
+    text-align: center;
+}
+
+#toIndex {
+    color: #000000;
+}
+
