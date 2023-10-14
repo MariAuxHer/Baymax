@@ -100,18 +100,6 @@ input {
     
 }
 
-#toAboutPage {
-    position: absolute;
-    top: 2em; 
-    right: 8em;
-    color: #000000;
-    font-size: 30px;
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
-    
-}
-
 #toSignUp {
     color: #7161ff;
     margin-top: 10px;
@@ -120,6 +108,5 @@ input {
 #toIndex {
     color: #000000;
 }
-
 
 
