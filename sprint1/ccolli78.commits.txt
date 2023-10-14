@@ -1,9 +1,26 @@
 index.html
-If you look in the dev branch "blame" doesn't give me credit for these I guess since the directory structure was changed and some had to edit some paths. Currently main does give me credit for these lines though.
-
 lines 1-6
 lines 8-17
 lines 21-23
+
+44299215 (Casey                2023-09-15 09:52:41 -0400  1) <!DOCTYPE html>
+44299215 (Casey                2023-09-15 09:52:41 -0400  2) <html lang="en">
+44299215 (Casey                2023-09-15 09:52:41 -0400  3) <head>
+44299215 (Casey                2023-09-15 09:52:41 -0400  4)     <meta charset="UTF-8">
+44299215 (Casey                2023-09-15 09:52:41 -0400  5)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+44299215 (Casey                2023-09-15 09:52:41 -0400  6)     <link rel="stylesheet" type="text/css" href="front_end/CSS/main.css">
+44299215 (Casey                2023-09-15 09:52:41 -0400  7)     <title>Baymax</title>
+44299215 (Casey                2023-09-15 09:52:41 -0400  8) </head>
+44299215 (Casey                2023-09-15 09:52:41 -0400  9) <body>
+44299215 (Casey                2023-09-15 09:52:41 -0400 10)     <h1>Baymax</h1>
+44299215 (Casey                2023-09-15 09:52:41 -0400 11)     <form>
+21e02d0d (Chesed Casey Collins 2023-09-21 11:02:25 -0400 12)         <textarea class="textarea_default"></textarea>
+44299215 (Casey                2023-09-15 09:52:41 -0400 13)         <button><img src="front_end/images/paper-plane.png" alt=""></button>
+a8612869 (Casey                2023-09-15 09:57:21 -0400 14)         <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
+44299215 (Casey                2023-09-15 09:52:41 -0400 15)     </form>
+21e02d0d (Chesed Casey Collins 2023-09-21 11:02:25 -0400 16)     <script src="./front_end/JS/textarea_replacement.js"></script>
+44299215 (Casey                2023-09-15 09:52:41 -0400 17) </body>
+44299215 (Casey                2023-09-15 09:52:41 -0400 18) </html>
 
 main.css
 
