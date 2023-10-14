@@ -1,0 +1,14 @@
+index.html
+If you look in the dev branch "blame" doesn't give me credit for these I guess since the directory structure was changed and some had to edit some paths. Currently main does give me credit for these lines though.
+
+lines 1-6
+lines 8-17
+lines 21-23
+
+main.css
+
+lines 1-18
+lines 23-74
+
+textarea_replacement.js
+lines 1-24
