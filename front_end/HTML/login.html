@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" type="text/css" href="front_end/CSS/login.css"> -->
-    <link rel="stylesheet" type="text/css" href="CSS/signup.css">
-    <title>Baymax | Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="CSS/login.css">
+    <title>Baymax | Login</title>
 </head>
 <body>
     <h1 id="header1"><a href="index.html" id="toIndex">Baymax</a></h1>
 
     <form>
-        <h2>Create Your Account</h2>
+        <h2>Log In To Your Account</h2>
         <div class="user">
             Username:
             <input type="text" id="username">
@@ -20,15 +20,14 @@
             Password:
             <input type="text" id="password">
         </div>
-        <div class="email">
-            Email:
-            <input type="text" id="email">
-        </div>
-        <button id="submit">Create</button>
-    </form>
-    
-    <button id="toLoginPage">Login</button>
+        <button id="submit">Login</button>
 
-    <script src="JS/signup.js"></script>
+        <a href="signup.html" id="toSignUp">Don't have an account?</a>
+    </form>
+
+    <button id="toLoginPage">Login</button>
+    <button id="toAboutPage">About</button>
+    
+    <script src="JS/login.js"></script>
 </body>
 </html>
