@@ -33,11 +33,11 @@ class Interaction(models.Model):
     LLMresponse : str = models.CharField(max_length=1000)
 
 # holds medical service information
-class Provider(models.Model):
-    prov : str = models.CharField(max_length=500) # provider name
-    location : str = models.CharField(max_length=500)
-    m_address : str = models.CharField(max_length=500) # mailing address
-    phone : str = models.CharField(max_length=500)
+# class Provider(models.Model):
+#     prov : str = models.CharField(max_length=500) # provider name
+#     location : str = models.CharField(max_length=500)
+#     m_address : str = models.CharField(max_length=500) # mailing address
+#     phone : str = models.CharField(max_length=500)
     
     
     # populate more fields or do it in code

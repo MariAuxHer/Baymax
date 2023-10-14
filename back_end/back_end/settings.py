@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'back_end',
+    'back_end_auth',
     'rest_framework', 
-    'back_end_auth'
 ]
 
 REST_FRAMEWORK = {

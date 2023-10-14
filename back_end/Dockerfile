@@ -12,5 +12,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 RUN python3.11 manage.py migrate 
-
 ENTRYPOINT [ "/app/docker-entrypoint.sh" ]
