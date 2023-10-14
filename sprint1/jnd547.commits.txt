@@ -2,7 +2,7 @@
 d12fef5b (Jonathan Tran        2023-10-10 03:03:01 -0400  6)     <!-- <link rel="stylesheet" type="text/css" href="front_end/CSS/main.css"> -->
 d12fef5b (Jonathan Tran        2023-10-10 03:03:01 -0400  7)     <link rel="stylesheet" type="text/css" href="CSS/main.css">
 d76cf897 (unknown       2023-10-12 15:20:18 -0400 11)     <h1 id="header1"><a href="index.html" id="toIndex">Baymax</a></h1>
-d76cf897 (unknown       2023-10-12 15:20:18 -0400 25)         <a href="signup.html" id="toSignUp">Don't have an account?</a>
+d76cf897 (unknown       2023-10-12 15:20:18 -0400 19)         <button id="toLoginPage">Login</button>
 
 
 
