@@ -31,4 +31,4 @@ document.getElementById('toLoginPage').addEventListener('click', function() {
 // Redirect to About Page
 document.getElementById('toAboutPage').addEventListener('click', function() {
     window.location.href = 'about.html';
-
+});
