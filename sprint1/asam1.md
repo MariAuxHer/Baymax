@@ -42,6 +42,4 @@ Name: Amal Sam, GitHub ID: amals610, Group: Baymax
 
 ## What I accomplished
 
-Front end developement, and web development in general, is still new to me, so there is a lot to learn. I was able to complete the login and and signup pages after doing some research and learning along the way. The layout and formatting for these pages match up with index.html. I also linked all three pages together. You are able to get from one page to any other page in some way.
-
-Lastly, I retrieved data from the input boxes and prepared for them to be sent to the back end for verification or account creation. I put the data in a struct, which will be sent to the back end. This format can be changed later if necessary. After doing more reading on fetch requests, I will implement actually sending the data.
+So for this Sprint I was able to create a page to showcase all the developers on this page. I also did some debugging for my peer's pages. Front_end work is still new to me, but I am finding it pretty fun. I only need some images for the about page and buttons redirecting it back to the main page. Overall I think we made good progress for the first sprint. In the upcoming weeks my peers and I will do more research on the various ways to fetch and request so that we can implement that into the front_end of our project. 
