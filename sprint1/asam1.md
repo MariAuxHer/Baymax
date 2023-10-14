@@ -32,7 +32,7 @@ Name: Amal Sam, GitHub ID: amals610, Group: Baymax
 - Baymax/front_end/index.html (partially)
 - Baymax/front_end/login.html (partially)
 - Baymax/front_end/signup.html (partially)
-- cdBaymax/front_end/about.css
+- Baymax/front_end/about.css
 - Baymax/front_end/main.css (partially)
 - Baymax/front_end/login.css (partially)
 - Baymax/front_end/signup.css (partially)
