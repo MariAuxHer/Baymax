@@ -11,24 +11,29 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 # Create your views here.
 # authentication
 class csrfView(APIView):
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [AllowAny]
     
+    @staticmethod
     def get(request):
         response = Response({'detail': 'CSRF cookie set'})
         response['X-CSRFToken'] = get_token(request)
-        return response
+        return response 
 
-def logout_view(request):
-    if not request.user.is_authenticated:
-        return Response({'detail': 'You\'re not logged in.'}, status=400)
+class LogoutView(APIView):
+    permission_classes = [AllowAny]
+    
+    @staticmethod
+    def get(request):
+        if not request.user.is_authenticated:
+            return Response({'detail': 'You\'re not logged in.'}, status=400)
 
-    logout(request)
-    return Response({'detail': 'Successfully logged out.'})
+        logout(request)
+        return Response({'detail': 'Successfully logged out.'})
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
 
+    @staticmethod
     def post(request):
         username = request.data['username']
         password = request.data['password']
