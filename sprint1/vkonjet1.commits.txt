@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-back_end/back_end/Data/parse.ipynb:
-=======
 ML/Data/parse.ipynb:
->>>>>>> fd3615122c015e0275f872442c9da5ce43a88ec2
 
 import pandas as pd
 npi_table = pd.read_csv('npidata_pfile_20230918-20230924.csv')
@@ -91,11 +87,7 @@ empty
 
 
 
-<<<<<<< HEAD
-back_end/back_end/Data/parse.py:
-=======
 ML/Data/parse.py:
->>>>>>> fd3615122c015e0275f872442c9da5ce43a88ec2
 
 import pandas as pd
 
