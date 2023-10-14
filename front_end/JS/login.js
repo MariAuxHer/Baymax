@@ -3,6 +3,10 @@ document.getElementById('toLoginPage').addEventListener('click', function() {
     window.location.href = 'login.html';
 });
 
+// Redirect to About Page
+document.getElementById('toAboutPage').addEventListener('click', function() {
+    window.location.href = 'about.html';
+});
 
 // Allowing the user to login
 document.getElementById('submit').addEventListener('click', function(event) {
