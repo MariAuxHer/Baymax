@@ -1,0 +1,301 @@
+Light_NHS_LLM.ipynb:
+
+# necessary package installations -- this cell will autorestart the notebook (ie kill it, you will see notifications for the session crashing, but that is fine)
+! pip install --upgrade opengpt
+! pip install accelerate
+! pip install pandas
+! pip install datasets
+! pip install pickle
+! pip install transformers
+
+import os
+os.kill(os.getpid(), 9)
+
+from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments, pipeline
+import pickle
+import pandas as pd
+import datasets
+
+
+from opengpt.config import Config
+from opengpt.model_utils import add_tokens_to_model_and_tokenizer
+from opengpt.dataset_utils import create_labels, pack_examples
+from opengpt.data_collator import DataCollatorWithPadding
+
+# switches runtime to GPU
+!nvcc --version
+
+# loads the config
+config = Config(yaml_path='./example_train_config.yaml')
+
+# this config can be used as a template
+config.train.to_dict()
+
+# loads the GPT-2 model and tokenizer
+model = AutoModelForCausalLM.from_pretrained(config.train.model)
+tokenizer = AutoTokenizer.from_pretrained(config.train.model)
+tokenizer.model_max_length = config.train.max_seq_len
+
+# expands tokenizer/model with the necessary special tokens for conversational LLMs
+add_tokens_to_model_and_tokenizer(config, tokenizer, model)
+
+# defines the csv datasets to be used
+config.train.datasets = ['./prepared_generated_data_for_nhs_uk_qa.csv',
+                         './prepared_generated_data_for_nhs_uk_conversations.csv',
+                         './prepared_generated_data_for_medical_tasks.csv']
+
+# loads datasets and shuffles if needed
+train_dataset = datasets.Dataset.from_csv(config.train.datasets)
+if config.train.shuffle_dataset:
+    train_dataset = train_dataset.shuffle()
+    print("Shuffling dataset!")
+
+# checks the size of the dataset and columns
+train_dataset
+
+# text part used to train model with special tokens
+train_dataset[0]['text']
+
+# removes everything but text
+to_remove = list(train_dataset.column_names)
+to_remove.remove('text')
+train_dataset = train_dataset.remove_columns(to_remove)
+
+# ignores max_seq_len warning, it is handled by the packer or data_collator
+train_dataset = train_dataset.map(
+    lambda examples: tokenizer(examples['text'], add_special_tokens=False),
+    batched=True,
+    num_proc=1,
+    remove_columns=["text"])
+# creates labels for supervised training (meaning we do not train on questions, but only on answers)
+train_dataset = train_dataset.map(
+    lambda examples: create_labels(examples, config, tokenizer),
+    batched=True,
+    batch_size=1000,
+    num_proc=1,
+)
+# we only do packing for the train set
+train_dataset = train_dataset.map(
+    lambda examples: pack_examples(examples, config.train.max_seq_len, packing_type=config.train.packing_type),
+    batched=True,
+    batch_size=1000,
+    num_proc=1,
+)
+
+# checks the new train_dataset (take note of how the labels look). The USER (Question) part of the input should have a label of -100,
+# and the AI part (Answer) should have labels equal to input_ids
+for i in range(100):
+    print(train_dataset[0]['input_ids'][i], train_dataset[0]['labels'][i], train_dataset[0]['attention_mask'][i])
+
+# loads the HF training arguments and make the data collator, you can try increasing the LR or the number of epochs - it could improve the performance of GPT-2.
+# check HF Hub for better models with better results
+training_args = TrainingArguments(**config.train.hf_training_arguments.to_dict())
+dc = DataCollatorWithPadding(tokenizer.pad_token_id, config.train.ignore_index, max_seq_len=config.train.max_seq_len)
+
+# uses HF trainer to train our models
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=None,
+    data_collator=dc,
+)
+
+# runs training, ignore AdamW warnings
+trainer.train()
+
+gen = pipeline(model=model, tokenizer=tokenizer, task='text-generation', device=model.device)
+
+t = "<|user|> What is diabetes? <|eos|> <|ai|>" # The format with special tokens is required, because of training
+print(gen(t, do_sample=True, max_length=128, temperature=0.2)[0]['generated_text'])
+
+ # Let's try some examples we used to test the NHS-LLM.  Obviously the result is not the best, what is good is the reference is correct - but the explanation makes no sense
+t = "<|user|> What is vitamin d3 and should I take it? <|eos|> <|ai|>"
+print(gen(t, do_sample=True, max_length=128, temperature=0.2)[0]['generated_text'])
+
+# A bit better, it even correctly expanded the abbreviation for hypertension
+t = "<|user|> What is HTN? <|eos|> <|ai|>"
+print(gen(t, do_sample=True, max_length=128, temperature=0.2)[0]['generated_text'])
+
+# Let us try a question that has nothing to do with healthcare - this proves that the model is generalising a bit (but the reference makes no sense)
+t = "<|user|> What is the capital of France? <|eos|> <|ai|>"
+print(gen(t, do_sample=True, max_length=128, temperature=0.2)[0]['generated_text'])
+
+# And a couple more healthcare quesetions, e.g. an MCQ (The correct answer is A)
+t = "<|user|> Choose the correct statement about laparoscopic liver resection efficacy from the following options: a) there is no difference in the overall patient survival rate or disease-free survival rate between laparoscopic liver resection and open resection, b) laparoscopic liver resection has a higher patient survival rate than open resection, c) laparoscopic liver resection has a lower disease-free survival rate than open resection. <|eos|> <|ai|>"
+print(gen(t, do_sample=True, max_length=128, temperature=0.2)[0]['generated_text'])
+
+
+
+  
+text_classification_testing.ipynb:
+  
+import matplotlib.pyplot as plt
+import os
+import re
+import shutil
+import string
+import tensorflow as tf
+
+from tensorflow.keras import layers
+from tensorflow.keras import losses
+
+print(tf.__version__)
+
+dataset_dir = os.path.join(os.path.dirname(dataset), 'aclImdb')
+
+url = "https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz"
+
+dataset = tf.keras.utils.get_file("aclImdb_v1", url,
+                                    untar=True, cache_dir='.',
+                                    cache_subdir='')
+
+dataset_dir = os.path.join(os.path.dirname(dataset), 'aclImdb')
+
+train_dir = os.path.join(dataset_dir, 'train')
+os.listdir(train_dir)
+
+# displaying sample file
+
+sample_file = os.path.join(train_dir, 'pos/1181_9.txt')
+with open(sample_file) as f:
+  print(f.read())
+
+remove_dir = os.path.join(train_dir, 'unsup')
+shutil.rmtree(remove_dir)
+
+batch_size = 32
+seed = 42
+
+# creates training dataset
+raw_train_ds = tf.keras.utils.text_dataset_from_directory(
+    'aclImdb/train', 
+    batch_size=batch_size, 
+    validation_split=0.2, 
+    subset='training', 
+    seed=seed)
+
+# creates validation dataset
+raw_val_ds = tf.keras.utils.text_dataset_from_directory(
+    'aclImdb/train', 
+    batch_size=batch_size, 
+    validation_split=0.2, 
+    subset='validation', 
+    seed=seed)
+
+# creates test dataset
+raw_test_ds = tf.keras.utils.text_dataset_from_directory(
+    'aclImdb/test', 
+    batch_size=batch_size)
+
+for text_batch, label_batch in raw_train_ds.take(1):
+  for i in range(3):
+    print("Review", text_batch.numpy()[i])
+    print("Label", label_batch.numpy()[i])
+
+print("Label 0 corresponds to", raw_train_ds.class_names[0])
+print("Label 1 corresponds to", raw_train_ds.class_names[1])
+
+# standardization for removing html tags
+def custom_standardization(input_data):
+  lowercase = tf.strings.lower(input_data)
+  stripped_html = tf.strings.regex_replace(lowercase, '<br />', ' ')
+  return tf.strings.regex_replace(stripped_html,
+                                  '[%s]' % re.escape(string.punctuation),
+                                  '')
+
+max_features = 10000
+sequence_length = 250
+
+vectorize_layer = layers.TextVectorization(
+    standardize=custom_standardization,
+    max_tokens=max_features,
+    output_mode='int',
+    output_sequence_length=sequence_length)
+
+# Make a text-only dataset (without labels), then call adapt
+train_text = raw_train_ds.map(lambda x, y: x)
+vectorize_layer.adapt(train_text)
+
+def vectorize_text(text, label):
+  text = tf.expand_dims(text, -1)
+  return vectorize_layer(text), label
+
+# retrieve a batch (of 32 reviews and labels) from the dataset
+text_batch, label_batch = next(iter(raw_train_ds))
+first_review, first_label = text_batch[0], label_batch[0]
+print("Review", first_review)
+print("Label", raw_train_ds.class_names[first_label])
+print("Vectorized review", vectorize_text(first_review, first_label))
+
+print("1287 ---> ",vectorize_layer.get_vocabulary()[1287])
+print(" 313 ---> ",vectorize_layer.get_vocabulary()[313])
+print('Vocabulary size: {}'.format(len(vectorize_layer.get_vocabulary())))
+
+train_ds = raw_train_ds.map(vectorize_text)
+val_ds = raw_val_ds.map(vectorize_text)
+test_ds = raw_test_ds.map(vectorize_text)
+
+AUTOTUNE = tf.data.AUTOTUNE
+
+train_ds = train_ds.cache().prefetch(buffer_size=AUTOTUNE)
+val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+test_ds = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
+
+embedding_dim = 16
+
+model = tf.keras.Sequential([
+  layers.Embedding(max_features + 1, embedding_dim),
+  layers.Dropout(0.2),
+  layers.GlobalAveragePooling1D(),
+  layers.Dropout(0.2),
+  layers.Dense(1)])
+
+model.summary()
+
+model.compile(loss=losses.BinaryCrossentropy(from_logits=True),
+              optimizer='adam',
+              metrics=tf.metrics.BinaryAccuracy(threshold=0.0))
+
+epochs = 10
+history = model.fit(
+    train_ds,
+    validation_data=val_ds,
+    epochs=epochs)
+
+loss, accuracy = model.evaluate(test_ds)
+
+print("Loss: ", loss)
+print("Accuracy: ", accuracy)
+
+history_dict = history.history
+history_dict.keys()
+
+acc = history_dict['binary_accuracy']
+val_acc = history_dict['val_binary_accuracy']
+loss = history_dict['loss']
+val_loss = history_dict['val_loss']
+
+epochs = range(1, len(acc) + 1)
+
+# "bo" is for "blue dot"
+plt.plot(epochs, loss, 'bo', label='Training loss')
+# b is for "solid blue line"
+plt.plot(epochs, val_loss, 'b', label='Validation loss')
+plt.title('Training and validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.show()
+
+plt.plot(epochs, acc, 'bo', label='Training acc')
+plt.plot(epochs, val_acc, 'b', label='Validation acc')
+plt.title('Training and validation accuracy')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend(loc='lower right')
+
+plt.show()
+
+  
