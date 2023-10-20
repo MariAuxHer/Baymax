@@ -24,4 +24,5 @@ document.getElementById('submit').addEventListener('click', function(event) {
 
     // TODO: Send to backend for verification
     // ...
+    fetch('http://localhost:8000').then(res => console.log(res));
 })
