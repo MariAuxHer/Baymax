@@ -8,6 +8,7 @@ const WHOAMI_URL = REST_BASE_URL + 'whoami'
 
 let csrfToken
 let sessionid
+let cookies
 
 /*
     Returns the Json after calling the CSRF_URL for a CSRF Token
@@ -49,9 +50,10 @@ async function login(csrf_token = null, data = {}) {
         })
     }
 
+    cookies = response.headers.getSetCookie() 
     // print body
     console.log("COOOOOKIES: ")
-    console.log(response.headers.getSetCookie())
+    console.log(cookies)
     console.log()
 }
 
@@ -91,14 +93,22 @@ async function logout(sessionid, csrf_token) {
 
 async function whoami(csrf_token, data = {}) {
     console.log("using token: " + csrfToken)
+    console.log(cookies[1].substring(10, 42))
+    
+    // data.sessionid = cookies[1].substring(10, 42) // session in body
+    console.log(JSON.stringify(data))
+
+    header = {     
+        "csrftoken": csrf_token,
+        "Content-Type": "application/json"
+    }
+    
     const response = await fetch(WHOAMI_URL, {
         method: "POST",
-        headers: {
-            "csrftoken": csrf_token,
-            "Content-Type": "application/json"
-        },
-        // body: JSON.stringify(data),
+        headers: header,
+        body: JSON.stringify(data),
         credentials: "same-origin",
+        // credentials: "include",
       })
 
     if (response.ok) {
