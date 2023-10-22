@@ -1,56 +1,51 @@
 from rest_framework.response import Response
+from django.http import JsonResponse
 from rest_framework.views import APIView
+import json
 
 from django.contrib.auth import authenticate, login, logout
 
 from django.middleware.csrf import get_token
+from django.views.decorators.http import require_POST
 
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 # authentication
-class csrfView(APIView):
-    permission_classes = [AllowAny]
-    
-    @staticmethod
-    def get(request):
-        response = Response({'detail': 'CSRF cookie set'})
-        response['X-CSRFToken'] = get_token(request)
-        return response 
+def get_csrf(request):
+    response = JsonResponse({'detail': 'CSRF cookie set'})
+    response['X-CSRFToken'] = get_token(request)
+    return response
 
-class LogoutView(APIView):
-    permission_classes = [AllowAny]
-    
-    @staticmethod
-    def get(request):
-        if not request.user.is_authenticated:
-            return Response({'detail': 'You\'re not logged in.'}, status=400)
 
-        logout(request)
-        return Response({'detail': 'Successfully logged out.'})
+@require_POST
+def login_view(request):
+    body = json.loads(request.body)
+    username = body['username']
+    password = body['password']
 
-class LoginView(APIView):
-    permission_classes = [AllowAny]
+    if username is None or password is None:
+        return JsonResponse({'detail': 'Please provide username and password.'}, status=400)
 
-    @staticmethod
-    def post(request):
-        username = request.data['username']
-        password = request.data['password']
+    user = authenticate(username=username, password=password)
 
-        if username is None or password is None:
-            return Response({'detail': 'Please provide username and password.'}, status=400)
+    if user is None:
+        return JsonResponse({'detail': 'Invalid credentials.'}, status=400)
 
-        user = authenticate(username=username, password=password)
+    login(request, user)
+    return JsonResponse({'detail': 'Successfully logged in.'})
 
-        if user is None:
-            return Response({'detail': 'Invalid credentials.'}, status=400)
 
-        login(request, user)
-        return Response({'detail': 'Successfully logged in.'})
+def logout_view(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({'detail': 'You\'re not logged in.'}, status=400)
+
+    logout(request)
+    return JsonResponse({'detail': 'Successfully logged out.'})
     
 class SessionView(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
     @staticmethod
@@ -59,7 +54,7 @@ class SessionView(APIView):
 
 
 class WhoAmIView(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticated]
 
     @staticmethod

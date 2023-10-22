@@ -17,12 +17,11 @@ class ConversationSerializer(serializers.HyperlinkedModelSerializer):
         read_only_fields = ['id', 'owner', 'last_accessed', 'creation_time', 'interaction_set']
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    conversation_set = ConversationSerializer(many=True)
 
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups', 'conversation_set']
-        read_only_fields = ['url, groups']
+        fields = ['url', 'username', 'email', 'groups', 'is_staff']
+        read_only_fields = ['url, groups', 'is_staff']
 
 
 
