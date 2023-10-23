@@ -45,7 +45,10 @@ class ConversationViewSet(viewsets.ModelViewSet):
             serializer = InteractionSerializer(i, context={'request': request})
             return Response(serializer.data)
 
+<<<<<<< HEAD
         # perhaps redundant since this information can be gotten from the general Conversation View Set
+=======
+>>>>>>> cd82b5c74f631850572a81ca26fb1bbfa941969d
         if (request.method == "GET"):
             c = get_object_or_404(Conversation, pk=pk)
             interactions = Interaction.objects.filter(conversation = c).order_by("-creation_time")
