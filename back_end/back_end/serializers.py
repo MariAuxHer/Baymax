@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 class InteractionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Interaction
-        fields = ['url','LLMresponse', 'owner', 'conversation', 'prompt', 'creation_time']
-        read_only_fields = ['url','LLMresponse', 'owner', 'conversation', 'creation_time']
+        fields = ['url', 'LLMresponse', 'owner', 'conversation', 'prompt', 'creation_time']
+        read_only_fields = ['url', 'LLMresponse', 'owner', 'conversation', 'creation_time']
 
 class ConversationSerializer(serializers.HyperlinkedModelSerializer):
     interaction_set = serializers.SerializerMethodField('get_interaction_set')

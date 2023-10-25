@@ -37,6 +37,7 @@ class ConversationViewSet(viewsets.ModelViewSet):
     # allow API user to add new interactions to Conversation Instances
     @action(detail=True, methods=['post', 'get'], serializer_class=InteractionSerializer)
     def interactions(self, request, pk):
+        # add the ability to post a new prompt
         if (request.method == "POST"):
             if (not pk): return Response({"detail": "Missing PK."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -52,7 +53,6 @@ class ConversationViewSet(viewsets.ModelViewSet):
             return Response(InteractionSerializer(interactions, context={'request': request}, many=True).data)
 
         return Response({"detail": "Error."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
     def destroy(self, request, pk=None):
         if (not pk): 
             return Response({"detail": "Deletion Failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -74,6 +74,20 @@ class InteractionViewSet(viewsets.ModelViewSet):
         
         Interaction.objects.get(pk=pk).delete()
         return Response({"detail": "Conversation successfully removed."}, status=status.HTTP_200_OK)
+    
+    def update(self, request, pk=None):
+        if (not pk): 
+            return Response({"detail": "PUT failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+        interaction = get_object_or_404(Interaction, pk=pk)
+        new_prompt = request.data['prompt']
+        if (new_prompt):
+            interaction.prompt = new_prompt 
+
+        interaction.generate_LLMResponse()
+        interaction.save()
+
+        return Response(InteractionSerializer(interaction, context = {'request': request}).data)
    
 # default page response
 def index(request):
