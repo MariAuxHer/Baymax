@@ -1,3 +1,4 @@
+const { create } = require('domain')
 var fs = require('fs')
 
 const HOST = 'localhost:80'
@@ -8,6 +9,7 @@ const LOGIN_URL = REST_AUTH_URL + 'login'
 const LOGOUT_URL = REST_AUTH_URL + 'logout'
 const SESSION_URL = REST_AUTH_URL + 'session'
 const WHOAMI_URL = REST_AUTH_URL + 'whoami'
+const CREATE_USER_URL = REST_API_URL + "createuser"
 
 const CONVERSATIONS_URL = REST_API_URL + 'conversations'
 
@@ -44,7 +46,7 @@ async function fetch_csrf() {
         return 
     }
 
-    return response.headers.get("X-CSRFToken")
+    cookies['csrftoken'] = response.headers.get("X-CSRFToken")
 }
 
 async function login(username, password) {
@@ -284,13 +286,48 @@ async function post_conversation(name) {
     console.log("POST_CONVERSATION End")
 }
 
+async function create_user(username, password, email) {
+    console.log("CREATE_USER Start")
+    const response = await fetch(CREATE_USER_URL, {
+        method: "POST",
+        headers: {
+            "Cookie": `csrftoken=${cookies['csrftoken']}`,
+            "X-CSRFToken": cookies['csrftoken'],
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password,
+            email: email,
+        })
+    })
+
+    
+    if (response.ok) {
+        console.log("CREATE_USER POST Response OK")
+        const json = await response.json()
+        console.log(JSON.stringify(json))
+    } else {
+        console.log("CREATE_USER Response NOT OK")
+        response.text().then((data) => {
+            if (data) {
+                fs.writeFile("createUser_html.html", data, (err) => {
+                    if (err) console.log(`error: ${err}`)
+                })
+            } else {
+                console.log("data is null")
+            }
+        })
+    }
+
+    console.log("CREATE_USER End")
+}
+
 // Main
 
 async function main() {
     fetch_csrf()
-    .then( (data) => {
-        cookies['csrftoken'] = data
-    })
+    .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
     .then(() => login("test", "test"))
     .then(() => whoami())
     .then(() => session())
@@ -298,6 +335,10 @@ async function main() {
     .then(() => fetch_csrf())
     .then(() => post_conversation("data one two"))
     .then(() => logout())   
+    .then(() => fetch_csrf())
+    .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
+    .then(() => login("test2", "aMoreSophosticatedPassword100"))
+    .then(() => logout())
 }
 
 main(); 
