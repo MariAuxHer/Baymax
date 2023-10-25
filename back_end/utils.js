@@ -342,6 +342,11 @@ async function main() {
     // .then(() => fetch_csrf())
     .then(() => create_user("test", "NotTooShortOfAPassword", "stevendao100@gmail.com"))
     .then(() => login("test", "NotTooShortOfAPassword"))
+    .then(() => whoami())
+    .then(() => session())
+    .then(() => get_conversations())
+    .then(() => fetch_csrf())
+    .then(() => post_conversation("data one two"))
     .then(() => logout())
     
 }
