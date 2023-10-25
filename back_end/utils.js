@@ -327,7 +327,7 @@ async function create_user(username, password, email) {
 
 async function main() {
     fetch_csrf()
-    .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
+    .then(() => create_user("test", "test", "stevendao100@gmail.com"))
     .then(() => login("test", "test"))
     .then(() => whoami())
     .then(() => session())
