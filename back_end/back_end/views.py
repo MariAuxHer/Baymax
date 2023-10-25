@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
+from rest_framework.views import APIView
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -89,6 +90,27 @@ class InteractionViewSet(viewsets.ModelViewSet):
 
         return Response(InteractionSerializer(interaction, context = {'request': request}).data)
    
+class CreateUser(APIView):
+    def post(self, request, format=None):
+        username = request.data['username']
+        password = request.data['password']
+        email = request.data['email']
+
+        if (not username or not password or not email):
+            return Response({'detail' : 'Missing one or more of the following fields: username, password, email.'}, status = status.HTTP_400_BAD_REQUEST)
+
+        user, created = User.objects.get_or_create(username = username)
+        if (not created):
+            return Response({'detail': 'Username already taken.'}, status = status.HTTP_409_CONFLICT)
+        else:
+            user.set_password(password)
+            user.email = email
+            user.save()
+            return Response(UserSerializer(user, context = {'request': request}).data, status = status.HTTP_200_OK)
+
+    def get(self, request, format=None):
+        return Response({'detail': 'There is no GET here.'}, status = status.HTTP_403_FORBIDDEN)
+    
 # default page response
 def index(request):
     return Response({"detail": "This page doesn't have anything right now, but this message is intended."})

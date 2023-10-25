@@ -30,5 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(back_end_auth.urls)),
     path('api/', include(api_router.urls)),
+    path('api/createuser', views.CreateUser.as_view()),
     path('', views.index)
 ]
