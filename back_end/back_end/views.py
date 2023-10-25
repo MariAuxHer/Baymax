@@ -2,6 +2,10 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, permissions
 from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer
+from django.contrib.auth.password_validation import validate_password, password_validators_help_texts
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
+from django.contrib.auth.validators import UnicodeUsernameValidator
 
 from back_end.models import Conversation, Interaction
 from django.contrib.auth.models import User 
@@ -98,15 +102,39 @@ class CreateUser(APIView):
 
         if (not username or not password or not email):
             return Response({'detail' : 'Missing one or more of the following fields: username, password, email.'}, status = status.HTTP_400_BAD_REQUEST)
+        
 
-        user, created = User.objects.get_or_create(username = username)
-        if (not created):
+        # check username
+        try:
+            UnicodeUsernameValidator( username )
+        except ValidationError:
+            return Response({'detail': 'Invalid username. ' + UnicodeUsernameValidator.message}, status = status.HTTP_400_BAD_REQUEST)
+        
+        # check if username is taken
+        if (User.objects.filter(username = username).count() != 0):
             return Response({'detail': 'Username already taken.'}, status = status.HTTP_409_CONFLICT)
-        else:
-            user.set_password(password)
-            user.email = email
-            user.save()
-            return Response(UserSerializer(user, context = {'request': request}).data, status = status.HTTP_200_OK)
+        
+        # validate password
+        try:
+            validate_password(password)
+        except ValidationError:
+            help_text = " ".join(password_validators_help_texts())
+            return Response({'detail': help_text}, status = status.HTTP_400_BAD_REQUEST)
+
+        # validate email
+        try:
+            validate_email(email)
+
+        except ValidationError:
+            return Response({'detail': 'Invalid email.'}, status = status.HTTP_400_BAD_REQUEST)
+        
+        # create user and set details
+        user = User.objects.create(username = username, email = email)
+        user.set_password(password)
+        user.save()
+
+        # return the new serialized user
+        return Response(UserSerializer(user, context = {'request': request}).data, status = status.HTTP_200_OK)
 
     def get(self, request, format=None):
         return Response({'detail': 'There is no GET here.'}, status = status.HTTP_403_FORBIDDEN)

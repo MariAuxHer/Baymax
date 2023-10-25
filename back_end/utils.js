@@ -327,18 +327,23 @@ async function create_user(username, password, email) {
 
 async function main() {
     fetch_csrf()
-    .then(() => create_user("test", "test", "stevendao100@gmail.com"))
-    .then(() => login("test", "test"))
-    .then(() => whoami())
-    .then(() => session())
-    .then(() => get_conversations())
-    .then(() => fetch_csrf())
-    .then(() => post_conversation("data one two"))
-    .then(() => logout())   
-    .then(() => fetch_csrf())
-    .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
-    .then(() => login("test2", "aMoreSophosticatedPassword100"))
+    // .then(() => create_user("test", "test", "stevendao100@gmail.com"))
+    // .then(() => login("test", "test"))
+    // .then(() => whoami())
+    // .then(() => session())
+    // .then(() => get_conversations())
+    // .then(() => fetch_csrf())
+    // .then(() => post_conversation("data one two"))
+    // .then(() => logout())   
+    // .then(() => fetch_csrf())
+    // .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
+    // .then(() => login("test2", "aMoreSophosticatedPassword100"))
+    // .then(() => logout())
+    // .then(() => fetch_csrf())
+    .then(() => create_user("test", "NotTooShortOfAPassword", "stevendao100@gmail.com"))
+    .then(() => login("test", "NotTooShortOfAPassword"))
     .then(() => logout())
+    
 }
 
 main(); 
