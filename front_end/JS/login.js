@@ -8,6 +8,19 @@ document.getElementById('toAboutPage').addEventListener('click', function() {
     window.location.href = 'about.html';
 });
 
+
+
+
+
+
+
+
+
+const login = async () => {
+    
+}
+
+
 // Allowing the user to login
 document.getElementById('submit').addEventListener('click', function(event) {
     event.preventDefault();
@@ -24,5 +37,8 @@ document.getElementById('submit').addEventListener('click', function(event) {
 
     // TODO: Send to backend for verification
     // ...
-    fetch('http://localhost:8000').then(res => console.log(res));
+    fetch('http://backend/auth/csrf').then(csrftoken => console.log(csrftoken));
+
+    
+
 })
