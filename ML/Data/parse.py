@@ -49,8 +49,18 @@ columns_to_drop = ['Provider Organization Name (Legal Business Name)',
 
 npi_table = npi_table.drop(columns=columns_to_drop)
 
-mailing_address = npi_table['Provider First Line Business Mailing Address'].str.cat([
-    npi_table['Provider Second Line Business Mailing Address']], sep=' ', na_rep='').str.strip()
+add_cols = [
+    'Provider First Line Business Mailing Address',
+    'Provider Second Line Business Mailing Address',
+    'Provider Business Mailing Address City Name',
+    'Provider Business Mailing Address State Name',
+    'Provider Business Mailing Address Postal Code',
+    'Provider Business Mailing Address Country Code (If outside U.S.)'
+]
+
+mailing_address = npi_table.apply(lambda row: ', '.join(map(str, row[add_cols].dropna())), axis=1)
+
+
 columns_to_drop = npi_table.filter(like="Address").columns
 npi_table = npi_table.drop(columns=columns_to_drop)
 
