@@ -14,6 +14,13 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 # authentication
 
 class CSRF(APIView):
+
+    """
+    In the CSRF class, the get method creates and sends a csrftoken to the client by calling 
+    get_token(request). This token is then added to the HTTP response header as X-CSRFToken.
+    
+    The CSRF view responds to a GET request by generating a CSRF token using Django's get_token method.
+    """
     permission_classes = [AllowAny]
 
     @staticmethod
@@ -39,7 +46,11 @@ class LoginView(APIView):
 
         if user is None:
             return Response({'detail': 'Invalid credentials.'}, status = status.HTTP_404_NOT_FOUND)
-
+        
+        """ 
+        When a user logs in successfully, the login(request, user) call in the LoginView class will initiate a session for the user. 
+        Django's SessionMiddleware automatically manages the sessionid cookie, which is sent back to the client in the HTTP response.
+        """
         login(request, user)
         return Response({'detail': 'Successfully logged in.'}, status = status.HTTP_200_OK)
     
