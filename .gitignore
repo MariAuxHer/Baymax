@@ -1,3 +1,9 @@
+## front_end
+
+node_modules
+
+## back_end
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
@@ -18,3 +24,7 @@ ssl/
 
 # util.js logs
 logs/
+
+# static files from django
+static/
+
