@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+</body>
+    <script src="JS/utils.js"></script>
+
+    <button onclick="set_csrf()">Clear</button>
+
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username">
+        <label for="password">Password:</label>
+        <input type="text" id="password">
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Call the login function with the username and password
+            login(username, password)
+            .then( (data) => {
+                if (data) {
+                console.log("Logged in")
+            } else {
+                console.log("Failed login")
+            }
+            })
+            
+        });
+    </script>
+</html>
