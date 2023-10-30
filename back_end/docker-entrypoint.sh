@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Install dependencies
+echo "Installing python dependencies"
+pip install -r requirements.txt
+
 # Apply database migrations
 echo "Apply database migrations"
 python3.11 manage.py makemigrations back_end
