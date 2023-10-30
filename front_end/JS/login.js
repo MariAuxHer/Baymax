@@ -13,7 +13,7 @@ document.getElementById('toAboutPage').addEventListener('click', function() {
 
 
 
-
+let test = ['1', '0'];
 let cookies = {};
 
 const login = async (loginInfo) => {
@@ -63,3 +63,5 @@ document.getElementById('submit').addEventListener('click', function(event) {
     });
 
 })
+window.sharedData = test;
+
