@@ -14,8 +14,6 @@ services:
   reverse_proxy:
     build:
       context: ./
-      volumes:
-        - ./front_end:/app
       dockerfile: ./nginx/Dockerfile
     volumes:
       - ./front_end:/app  
