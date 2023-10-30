@@ -40,34 +40,13 @@ form {
     height: 50vh;
 }
 
-.user {
+.info {
     justify-content: center;
     font-size: 1.2em;
-    
-}
-
-.pass {
-    justify-content: center;
-    font-size: 1.2em;
-    margin-top: 10px;
-    margin-left: 10px;
     margin-bottom: 10px;
 }
 
 
-.email {
-    justify-content: center;
-    font-size: 1.2em;
-    margin-left: 10px;
-    margin-bottom: 10px;
-}
-
-.location {
-    justify-content: center;
-    font-size: 1.2em;
-    /* margin-left: 49px; */
-    margin-bottom: 15px;
-}
 
 
 button {
@@ -124,5 +103,5 @@ button:active {
 
 #toInfoChange {
     color: #7161ff;
-    margin-top: 10px;
+    margin-top: 20px;
 }
