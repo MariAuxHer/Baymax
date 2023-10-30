@@ -23,22 +23,66 @@ a {
 h1 {
     margin: 1em 2em;
     font-size: 4em;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#messages {
+    margin: auto;
+    margin-bottom: 13em;
+    margin-top: 13em;
+    width: 40%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: min-content;
+    background: #fff; 
+    box-shadow: 0 0 0.2em rgb(95, 88, 176);
+    padding: 0.7em 0.7em;
+    border-radius: 1em;
+}
+
+.left, .right {
+    width: 70%;
+    margin: 1em;
+    padding: 1em;
+    box-shadow: 0 0 0.1em rgb(0, 0, 0);
+    overflow: hidden;
+    padding: 0.7em 0.7em;
+    border-radius: 1em;
+    color: #fff;
+}
+
+.left  {
+    justify-self: start;
+    background: #70737c;
+}
+
+.right {
+    justify-self: end;
+    background: #4b71ee;
 }
 
 form {
+    background: rgb(222, 222, 255);
     margin: auto;
     position: fixed;
-    bottom: 7%;
+    bottom: 0;
     left: 50%;
     transform: translate(-50%);
-    width: 50%;
+    width: 100%;
+    height: 12em;
     display: grid;
-    grid-template-columns: auto min-content;
+    grid-template-columns: 70% 30%;
 }
 
 textarea, .textarea_replacement {
+    justify-self: end;
     resize: none;
-    width: 100%;
+    width: 60%;
+    height: min-content;
+    max-height: 5rem;
+    margin: 2rem 0;
     border: none;
     border-radius: 1em;
     outline: none;
@@ -50,6 +94,7 @@ textarea, .textarea_replacement {
 }
 
 button {
+    margin: 2rem 0;
     color: #fff;
     background: rgb(255, 44, 44);
     width: 3.5em;
