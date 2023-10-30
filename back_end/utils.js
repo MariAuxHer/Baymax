@@ -18,6 +18,7 @@ const WHOAMI_URL = REST_AUTH_URL + 'whoami'
 const CREATE_USER_URL = REST_API_URL + "createuser"
 
 const CONVERSATIONS_URL = REST_API_URL + 'conversations'
+const LOGS_DIR = 'logs/'
 
 // Object to hold cookie values
 let cookies = {}
@@ -52,7 +53,7 @@ async function fetch_csrf() {
     if (!response.ok) {
         response.text().then((data) => {
             if (data) {
-                fs.writeFile("getcsrf_html.html", data, (err) => {
+                fs.writeFile(LOGS_DIR + "getcsrf_html.html", data, (err) => {
                     if (err) console.log(`error: ${err}`)
                 })
             } else {
@@ -110,7 +111,7 @@ async function login(username, password) {
         console.log("LOGIN Response NOT OK")
         await response.text().then((data) => {
             if (data) {
-                fs.writeFile("login_html.html", data, (err) => {
+                fs.writeFile( LOGS_DIR + "login_html.html", data, (err) => {
                     if (err) console.log(`error: ${err}`)
                 })
             } else {
@@ -189,7 +190,7 @@ async function logout() {
         console.log("LOGOUT Response NOT OK")
         response.text().then((data) => {
             if (data) {
-                fs.writeFile("logout_html.html", data, (err) => {
+                fs.writeFile(LOGS_DIR + "logout_html.html", data, (err) => {
                     if (err) console.log(`error: ${err}`)
                 })
             } else {
@@ -234,7 +235,7 @@ async function whoami() {
         console.log("WHOAMI Response NOT OK")
         response.text().then((data) => {
             if (data) {
-                fs.writeFile("whoami_html.html", data, (err) => {
+                fs.writeFile(LOGS_DIR + "whoami_html.html", data, (err) => {
                     if (err) console.log(`error: ${err}`)
                 })
             } else {
@@ -275,7 +276,7 @@ async function session() {
         console.log("SESSION Response NOT OK")
         response.text().then((data) => {
             if (data) {
-                fs.writeFile("session_html.html", data, (err) => {
+                fs.writeFile(LOGS_DIR +  "session_html.html", data, (err) => {
                     if (err) console.log(`error: ${err}`)
                 })
             } else {
@@ -315,7 +316,7 @@ async function get_conversations() {
         console.log("CONVERSATIONS Response NOT OK")
         response.text().then((data) => {
             if (data) {
-                fs.writeFile("conversations_html.html", data, (err) => {
+                fs.writeFile(LOGS_DIR + "conversations_html.html", data, (err) => {
                     if (err) console.log(`error: ${err}`)
                 })
             } else {
@@ -356,7 +357,7 @@ async function post_conversation(name) {
         console.log("CONVERSATIONS POST Response NOT OK")
         response.text().then((data) => {
             if (data) {
-                fs.writeFile("conversationsPOST_html.html", data, (err) => {
+                fs.writeFile(LOGS_DIR + "conversationsPOST_html.html", data, (err) => {
                     if (err) console.log(`error: ${err}`)
                 })
             } else {
@@ -402,7 +403,7 @@ async function create_user(username, password, email) {
         console.log("CREATE_USER Response NOT OK")
         response.text().then((data) => {
             if (data) {
-                fs.writeFile("createUser_html.html", data, (err) => {
+                fs.writeFile(LOGS_DIR + "createUser_html.html", data, (err) => {
                     if (err) console.log(`error: ${err}`)
                 })
             } else {
