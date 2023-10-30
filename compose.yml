@@ -15,6 +15,8 @@ services:
     build:
       context: ./
       dockerfile: ./nginx/Dockerfile
+    volumes:
+      - ./front_end:/app/front_end  
     
     ports:
       - 80:80
