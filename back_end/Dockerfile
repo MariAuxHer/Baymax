@@ -7,6 +7,12 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY . .
+COPY . /app
 
-ENTRYPOINT [ "/app/docker-entrypoint.sh" ]
+# CMD START 
+# Install dependencies
+
+CMD ["bash", "/app/docker-entrypoint.sh"]
+
+# CMD END
+# ENTRYPOINT [ "./app/docker-entrypoint.sh" ]
