@@ -46,7 +46,7 @@ class LoginView(APIView):
         user = authenticate(username=username, password=password)
 
         if user is None:
-            return Response({'detail': 'Invalid credentials.'}, status = status.HTTP_404_NOT_FOUND)
+            return Response({'detail': 'Invalid credentials.'}, status = status.HTTP_401_UNAUTHORIZED)
         
         """ 
         When a user logs in successfully, the login(request, user) call in the LoginView class will initiate a session for the user. 
