@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd .
+
 # Install dependencies
 echo "Installing python dependencies"
 pip install -r requirements.txt
