@@ -27,6 +27,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['http://localhost']
 
+# Specify custom user model
+AUTH_USER_MODEL = 'back_end.CustomUser' 
+
 # Application definition
 
 INSTALLED_APPS = [
