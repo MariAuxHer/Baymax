@@ -9,10 +9,5 @@ ENV PYTHONUNBUFFERED 1
 
 COPY . /app
 
-# CMD START 
-# Install dependencies
-
-CMD ["bash", "/app/docker-entrypoint.sh"]
-
 # CMD END
-# ENTRYPOINT [ "./app/docker-entrypoint.sh" ]
+ENTRYPOINT [ "./docker-entrypoint.sh" ]
