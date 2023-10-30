@@ -35,7 +35,7 @@ let logged_in = false
 
 // Function to fetch a CSRF token from the server -> sends a GET request to the server's /csrf endpoint.
 async function fetch_csrf() {
-
+    console.log("FETCH START")
     // Prepare headers for the request
     header = {
         "Content-Type": "application/json",
@@ -70,7 +70,22 @@ async function fetch_csrf() {
     // On a successful response, extract the X-CSRFToken from the response headers
     // and store it in the cookies object for later use.
     // On the server side, in views.py, the CSRF class's get method sets the X-CSRFToken header.
-    cookies['csrftoken'] = response.headers.get("X-CSRFToken")
+    // cookies['csrftoken'] = response.headers.get("X-CSRFToken")
+    // console.log(response)
+    // console.log("HEADER COOKIE: " + response.headers.get("X-CSRFToken"))
+    if (response.headers.has("Set-Cookie")) {
+        console.log("true")
+    } else {
+        console.log("false")
+    }
+
+    local_cookies = response.headers.getSetCookie() 
+    info = local_cookies[0].split(';')
+            pair = info[0].split('=') 
+            cookies[pair[0]] = pair[1]
+
+    console.log(response.headers.getSetCookie())
+    console.log("FETCH END")
 }
 
 // Function to perform login
@@ -80,7 +95,7 @@ async function login(username, password) {
     // Before proceeding with login, ensure that a CSRF token has been fetched.
     if (!cookies['csrftoken']) {
         console.log("csrfToken is null. Canceling Login.")
-        return
+        return false
     }
 
     // Make a POST request to the LOGIN_URL to perform login.
@@ -431,18 +446,18 @@ async function main() {
     // .then(() => post_conversation("data one two"))
     // .then(() => logout())   
     // .then(() => fetch_csrf())
-    // .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
-    // .then(() => login("test2", "aMoreSophosticatedPassword100"))
-    // .then(() => logout())
+    .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
+    .then(() => login("test2", "aMoreSophosticatedPassword100"))
+    .then(() => logout())
     // .then(() => fetch_csrf())
     // .then(() => create_user("test", "NotTooShortOfAPassword", "stevendao100@gmail.com"))
-    .then(() => login("test", "test"))
-    .then(() => whoami())
-    .then(() => session())
-    .then(() => get_conversations())
-    .then(() => fetch_csrf())
+    // .then(() => login("test", "test"))
+    // .then(() => whoami())
+    // .then(() => session())
+    // .then(() => get_conversations())
+    // .then(() => fetch_csrf())
     // .then(() => post_conversation("demo data"))
-    .then(() => logout())
+    // .then(() => logout())
     
 }
 
