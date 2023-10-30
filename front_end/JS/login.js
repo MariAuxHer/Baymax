@@ -17,6 +17,7 @@ document.getElementById('toAboutPage').addEventListener('click', function() {
 let cookies = {};
 
 const login = async (loginInfo) => {
+    //const res = await fetch('http://localhost:8000/auth/login', {
     const res = await fetch('http://backend/auth/login', {
         method: 'POST',
         headers: {
@@ -30,6 +31,8 @@ const login = async (loginInfo) => {
             password: loginInfo.password
         })
     })
+
+    return res;
 }
 
 
@@ -49,9 +52,14 @@ document.getElementById('submit').addEventListener('click', function(event) {
 
     // TODO: Send to backend for verification
     // ...
-    fetch('http://backend/auth/csrf').then(res => console.log(res));
-    cookies['csrftoken'] = res.headers.get('X-CSRFToken');
+    let response; 
+    // fetch('http://localhost:8000/auth/csrf').then(res => {
+    fetch('http://backend/auth/csrf').then(res => {
+        console.log(res)
+        cookies['csrftoken'] = res.headers.get('X-CSRFToken')
+        console.log(cookies['csrftoken'])
 
-    login(loginInfo);
+        (response = login(loginInfo)).then(console.log(response))
+    });
 
 })
