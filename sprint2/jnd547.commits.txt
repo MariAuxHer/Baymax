@@ -1,0 +1,213 @@
+// From login.js
+d12fef5b (Jonathan Tran 2023-10-10 03:03:01 -0400  4) });
+d12fef5b (Jonathan Tran 2023-10-10 03:03:01 -0400  5) 
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 11) 
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 12) 
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 13) 
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 14) 
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 15) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 16) let test = ['1', '0'];
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 17) let cookies = {};
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 18) 
+f8c15ba2 (Jonathan Tran 2023-10-29 20:54:56 -0400 19) const login = async (loginInfo) => {
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 20)     //const res = await fetch('http://localhost:8000/auth/login', {
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 21)     const res = await fetch('http://backend/auth/login', {
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 22)         method: 'POST',
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 23)         headers: {
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 24)             "Content-Type": "application/json",
+f8c15ba2 (Jonathan Tran 2023-10-29 20:54:56 -0400 25)             "X-CSRFToken": cookies['csrftoken'],
+f8c15ba2 (Jonathan Tran 2023-10-29 20:54:56 -0400 26)             "Cookie": `csrftoken=${cookies['csrftoken']}`
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 27)         },
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 28) 
+f8c15ba2 (Jonathan Tran 2023-10-29 20:54:56 -0400 29)         body: JSON.stringify({
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 30)             username: loginInfo.username,
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 31)             password: loginInfo.password
+f8c15ba2 (Jonathan Tran 2023-10-29 20:54:56 -0400 32)         })
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 33)     })
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 34) 
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 35)     return res;
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 36) }
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 37) 
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 38) 
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 42)     
+a10a401b (Jonathan Tran 2023-10-29 20:49:36 -0400 47)     
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 55)     let response; 
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 56)     // fetch('http://localhost:8000/auth/csrf').then(res => {
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 57)     fetch('http://backend/auth/csrf').then(res => {
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 58)         console.log(res)
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 59)         cookies['csrftoken'] = res.headers.get('X-CSRFToken')
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 60)         console.log(cookies['csrftoken'])
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 61) 
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 62)         (response = login(loginInfo)).then(console.log(response))
+cfaac040 (Jonathan Tran 2023-10-30 00:07:02 -0400 63)     });
+4d0fd3bf (Jonathan Tran 2023-10-29 15:43:18 -0400 64) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 66) window.sharedData = test;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 67) 
+
+
+
+// From textarea_replacement.js
+baf961f2 (Jonathan Tran        2023-10-30 01:50:48 -0400 31) // Redirect to Profile Page
+baf961f2 (Jonathan Tran        2023-10-30 01:50:48 -0400 32) document.getElementById('toProfilePage').addEventListener('click', function() {
+baf961f2 (Jonathan Tran        2023-10-30 01:50:48 -0400 33)     window.location.href = 'profile.html';
+baf961f2 (Jonathan Tran        2023-10-30 01:50:48 -0400 34) });
+baf961f2 (Jonathan Tran        2023-10-30 01:50:48 -0400 35) 
+
+
+
+
+// From profile.html
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  1) <!DOCTYPE html>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  2) <html lang="en">
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  3) <head>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  4)     <meta charset="UTF-8">
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  5)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  6)     <link rel="stylesheet" type="text/css" href="CSS/profile.css">
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  7)     <title>Baymax | Profile</title>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  8) </head>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  9) <body>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 10)     <h1 id="header1"><a href="index.html" id="toIndex">Baymax</a></h1>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 11) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 12)     <form>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 13)         <h2>Profile Information</h2>
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 14) 
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 15)         <div class="info" id="user">
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 16)             Username: yourUsernameHere
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 17)         </div>
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 18)         <div class="info" id="pass">
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 19)             Password: yourPasswordHere
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 20)         </div>
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 21)         <div class="info" id="email">
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 22)             Email: yourEmailHere
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 23)         </div>
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 24)         <div class="info" id="city">
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 25)             City: yourCityHere
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 26)         </div>
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 27)         <div class="info" id="state">
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 28)             State: yourStateHere
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 29)         </div>
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 30)         <div class="info" id="zipcode">
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 31)             Zip Code: yourZipCodeHere
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 32)         </div>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 33) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 34)         <a href="" id="toInfoChange">Change profile information</a>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 35)     </form>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 36)     
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 37)     <button id="toLoginPage">Logout</button>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 38)     <button id="toAboutPage">About</button>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 39)     <script src="JS/signup.js"></script>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 40) </body>
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 41) </html>
+
+
+
+
+
+// From profile.css
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   1) @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   2) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   3) * {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   4)     font-family: 'Comfortaa', cursive;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   5)     margin: 0;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   6)     padding: 0;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   7)     box-sizing: border-box;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   8) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400   9) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  10) body {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  11)     background: rgb(222, 222, 255);
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  12)     width: 100%;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  13)     height: 100%;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  14)     /* display: grid;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  15)     grid-template-columns: 100%;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  16)     grid-template-rows: max-content auto max-content; */
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  17) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  18) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  19) a {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  20)     text-decoration: none;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  21) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  22) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  23) h1 {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  24)     margin: 1em 2em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  25)     font-size: 4em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  26)     /* cursor: pointer; */
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  27) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  28) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  29) h2 {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  30)     margin: 0.5em 0.5em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  31)     font-size: 2.5em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  32) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  33) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  34) form {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  35)     margin: 0.5em 0.5em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  36)     display: flex;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  37)     flex-direction: column;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  38)     align-items: center; /* Center horizontally */
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  39)     justify-content: center; /* Center vertically */
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  40)     height: 50vh;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  41) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  42) 
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400  43) .info {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  44)     justify-content: center;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  45)     font-size: 1.2em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  46)     margin-bottom: 10px;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  47) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  48) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  49) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  50) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  51) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  52) button {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  53)     color: rgb(39, 37, 37);
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  54)     background: rgb(255, 44, 44);
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  55)     display: grid;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  56)     border: none;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  57)     width: 100px;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  58)     height: 25px;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  59)     box-shadow: 0 0 0.2em rgb(21, 21, 21);
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  60)     font-size: large;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  61)     align-content: center;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  62)     border-radius: 1em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  63)     outline: none;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  64)     cursor: pointer;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  65) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  66) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  67) button:hover {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  68)     background: rgb(255, 82, 82);
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  69) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  70) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  71) button:active {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  72)     background: rgb(205, 40, 40);
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  73) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  74) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  75) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  76) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  77) #toLoginPage {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  78)     position: absolute;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  79)     top: 2em; 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  80)     right: 4em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  81)     color: #000000;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  82)     font-size: 30px;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  83)     border: none;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  84)     box-shadow: none;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  85)     background-color: transparent;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  86) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  87) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  88) #toAboutPage {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  89)     position: absolute;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  90)     top: 2em; 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  91)     right: 8em;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  92)     color: #000000;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  93)     font-size: 30px;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  94)     border: none;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  95)     box-shadow: none;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  96)     background-color: transparent;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  97)     
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  98) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400  99) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 100) #toIndex {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 101)     color: #000000;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 102) }
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 103) 
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 104) #toInfoChange {
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 105)     color: #7161ff;
+45760385 (Jonathan Tran 2023-10-30 15:37:50 -0400 106)     margin-top: 20px;
+baf961f2 (Jonathan Tran 2023-10-30 01:50:48 -0400 107) }
