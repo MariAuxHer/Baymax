@@ -5,7 +5,7 @@ from back_end.serializers import ConversationSerializer, UserSerializer, Interac
 from django.contrib.auth.password_validation import validate_password, password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-from django.contrib.auth.validators import UnicodeUsernameValidator
+from django.contrib.auth.validators import UnicodeUsernameValidator, ASCIIUsernameValidator
 
 from back_end.models import Conversation, Interaction
 from django.contrib.auth.models import User 
@@ -105,10 +105,11 @@ class CreateUser(APIView):
         
 
         # check username
+        username_validator = ASCIIUsernameValidator() 
         try:
-            UnicodeUsernameValidator( username )
+            username_validator(username)
         except ValidationError:
-            return Response({'detail': 'Invalid username. ' + UnicodeUsernameValidator.message}, status = status.HTTP_400_BAD_REQUEST)
+            return Response({'detail': 'Invalid username. ' + username_validator.message}, status = status.HTTP_400_BAD_REQUEST)
         
         # check if username is taken
         if (User.objects.filter(username = username).count() != 0):
