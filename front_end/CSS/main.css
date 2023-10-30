@@ -11,12 +11,9 @@ html {
 }
 
 body {
-    background: rgb(233, 233, 255);
+    background: rgb(222, 222, 255);
     width: 100%;
     height: 100%;
-    /* display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: max-content auto max-content; */
 }
 
 a {
@@ -114,7 +111,7 @@ aside > button {
 }
 
 form {
-    background:rgba(233, 233, 255, 0.95);
+    background:rgba(222, 222, 255, 0.95);
     margin: auto;
     position: fixed;
     bottom: 0;
