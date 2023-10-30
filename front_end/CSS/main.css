@@ -47,7 +47,7 @@ aside {
 
 aside > button {
     margin: 1em;
-    font-size: 1.5em;
+    font-size: 1.3em;
     border: none;
     box-shadow: none;
     background-color: transparent;
@@ -83,27 +83,27 @@ aside > button {
     width: fit-content;
     margin: 1em;
     padding: 1em;
-    box-shadow: 0 0 0.1em rgb(0, 0, 0);
     overflow: hidden;
     padding: 0.7em 0.7em;
     border-radius: 1em;
-    color: #fff;
 }
 
 .left  {
     justify-self: start;
-    background: rgba(112, 115, 124, 0.5);
+    line-height: 1.8em;
     grid-column: 1/3;
 }
 
 .right {
     justify-self: end;
-    background: rgba(75, 113, 238, 0.8);
+    background: rgba(252, 245, 221, 0.8);
+    box-shadow: 0 0 0.1em rgb(107, 100, 100);
     grid-column: 2/4;
+    color: #5d5d5d;
 }
 
 form {
-    background: rgba(222, 222, 255, 0.95);
+    background:rgba(233, 233, 255, 0.95);
     margin: auto;
     position: fixed;
     bottom: 0;
