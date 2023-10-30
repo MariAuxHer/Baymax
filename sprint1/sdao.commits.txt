@@ -1,0 +1,360 @@
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  1) from back_end.models import Conversation, Interaction
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  2) from rest_framework import serializers
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  3) from django.contrib.auth.models import User
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  4) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  5) class InteractionSerializer(serializers.HyperlinkedModelSerializer):
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  6)     class Meta:
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  7)         model = Interaction
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  8)         fields = '__all__'
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400  9)         read_only_fields = ['LLMresponse', 'owner', 'conversation']
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 10) 
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 11) class ConversationSerializer(serializers.HyperlinkedModelSerializer):
+43e5dce2 (Steven Dao 2023-10-05 22:41:43 -0400 12)     interaction_set = InteractionSerializer(many=True, required=False)
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 13) 
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 14)     class Meta:
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 15)         model = Conversation
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 16)         fields = '__all__'
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400 17)         read_only_fields = ['id', 'owner', 'last_accessed', 'creation_time', 'interaction_set']
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 18) 
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 19) class UserSerializer(serializers.HyperlinkedModelSerializer):
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 20)     conversation_set = ConversationSerializer(many=True)
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 21) 
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 22)     class Meta:
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 23)         model = User
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 24)         fields = ['url', 'username', 'email', 'groups', 'conversation_set']
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500 25)         read_only_fields = ['url, groups']
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400 26) 
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400 27) 
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400 28) 
+
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400  1) from django.db import models
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400  2) from django.contrib.auth.models import User
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400  3) from django.utils import timezone
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400  4) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  5) # Holds Interactions
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400  6) class Conversation(models.Model):
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400  7)     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400  8)     last_accessed = models.DateTimeField(null=True)
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400  9)     creation_time = models.DateTimeField(null=True)
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 10)     name = models.CharField(max_length=100)
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 11) 
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 12)     def save(self, *args, **kwargs):
+5ced9131 (Steven Dao 2023-10-04 14:23:49 -0400 13)         # set the times on creation
+5ced9131 (Steven Dao 2023-10-04 14:23:49 -0400 14)         if not self.pk: # pk isn't assigned until after creation, so this checks for if a save is a creation
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 15)             self.creation_time = timezone.now()
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 16)             self.last_accessed = timezone.now()
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 17)         super(Conversation, self).save(*args, **kwargs)
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 18) 
+5ced9131 (Steven Dao 2023-10-04 14:23:49 -0400 19)     # updates the access time manually
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 20)     def update_access_time(self):
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 21)         self.last_accessed = timezone.now()
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 22)         self.save()
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 23) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 24)     def __str__(self):
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 25)         return self.name
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 26)     
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 27) # Holds prompt and responses
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 28) class Interaction(models.Model):
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 29)     conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400 30)     owner = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
+5ced9131 (Steven Dao 2023-10-04 14:23:49 -0400 31) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 32)     prompt : str =  models.CharField(max_length=1000)
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 33)     LLMresponse : str = models.CharField(max_length=1000)
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 34) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 35) # holds medical service information
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 36) class Provider(models.Model):
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 38)     location : str = models.CharField(max_length=500)
+c5d2a730 (Steven Dao 2023-09-28 08:41:01 -0400 43)     # populate more fields or do it in code
+
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500  1) from django.http import HttpResponse
+43e5dce2 (Steven Dao 2023-10-05 22:41:43 -0400  2) from django.shortcuts import get_object_or_404
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  3) from rest_framework import viewsets, permissions
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  4) from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400  5) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400  6) from back_end.models import Conversation, Interaction
+0d9b2aca (Steven Dao 2023-10-05 23:59:25 -0400  7) from django.contrib.auth.models import User 
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400  8) from rest_framework.response import Response
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400  9) from rest_framework.decorators import action
+0d57cc6e (Steven Dao 2023-10-07 21:25:44 -0500 10) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 11) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 12) class UserViewSet(viewsets.ModelViewSet):
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 13)     """
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 14)     API endpoint that allows users to be viewed or edited.
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 15)     """
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 16)     queryset = User.objects.all().order_by('-date_joined')
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 17)     serializer_class = UserSerializer
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 18)     permission_classes = [permissions.IsAuthenticated]
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 19) 
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 20) class ConversationViewSet(viewsets.ModelViewSet):
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 21)     """
+0d9b2aca (Steven Dao 2023-10-05 23:59:25 -0400 22)     API endpoint that allows Conversations to be viewed or edited.
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 23)     """
+234024f8 (Steven Dao 2023-10-04 00:06:24 -0400 24)     serializer_class = ConversationSerializer
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 25)     permission_classes = [permissions.IsAuthenticated]
+4038507a (Steven Dao 2023-10-04 16:08:09 -0400 26) 
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500 27)     # Only allow the user to conrol their own Conversations
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500 28)     def get_queryset(self):
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500 29)         return Conversation.objects.filter(owner = self.request.user)
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 30)     
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500 31)     # auto associate the owner with the newly created conversation
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 32)     def create(self, request):
+6b58b340 (Steven Dao 2023-10-10 11:58:21 -0500 33)         new_conversation = Conversation.objects.create(owner = request.user, name = request.data['name'])
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 34)         return Response(ConversationSerializer(new_conversation, context={'request': request}).data)
+eb1891ba (Steven Dao 2023-10-04 13:07:47 -0400 35)     
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500 36)     # allow API user to add new interactions to Conversation Instances
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400 37)     @action(detail=True, methods=['post'], serializer_class=InteractionSerializer)
+834ddaa8 (Steven Dao 2023-10-05 14:11:42 -0400 38)     def add_interaction(self, request, pk):
+43e5dce2 (Steven Dao 2023-10-05 22:41:43 -0400 39)         c = get_object_or_404(Conversation, pk=pk)
+6b58b340 (Steven Dao 2023-10-10 11:58:21 -0500 40)         i = Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c) 
+43e5dce2 (Steven Dao 2023-10-05 22:41:43 -0400 41)         serializer = InteractionSerializer(i, context={'request': request})
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500 42)         return Response(serializer.data)
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 43) 
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 44) class InteractionViewSet(viewsets.ModelViewSet):
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 45)     queryset = Interaction.objects.all()
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 46)     serializer_class = InteractionSerializer
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 47)     permission_classes = [permissions.IsAuthenticated]
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 48) 
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 49)     def list(self, request):
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 50)         filtered_queryset = Interaction.objects.filter(owner = request.user)
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 51)         user_interactions_serializer = InteractionSerializer(filtered_queryset, many=True, context={'request': request})
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 52)         return Response(user_interactions_serializer.data)
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 53)    
+4038507a (Steven Dao 2023-10-04 16:08:09 -0400 54) # default page response
+dc9a01e6 (Steven Dao 2023-09-27 21:05:11 -0400 55) def index(request):
+42e25d03 (Steven Dao 2023-10-07 19:13:46 -0500 56)     return HttpResponse("test")
+0d9b2aca (Steven Dao 2023-10-05 23:59:25 -0400 57) 
+
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  1) """
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  2) URL configuration for back_end project.
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  3) 
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  4) The `urlpatterns` list routes URLs to views. For more information please see:
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  5)     https://docs.djangoproject.com/en/4.2/topics/http/urls/
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  6) Examples:
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  7) Function views
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  8)     1. Add an import:  from my_app import views
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400  9)     2. Add a URL to urlpatterns:  path('', views.home, name='home')
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 10) Class-based views
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 11)     1. Add an import:  from other_app.views import Home
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 12)     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 13) Including another URLconf
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 14)     1. Import the include() function: from django.urls import include, path
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 15)     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 16) """
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 17) from django.contrib import admin
+234024f8 (Steven Dao  2023-10-04 00:06:24 -0400 18) from django.urls import path, include
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 19) from . import views
+234024f8 (Steven Dao  2023-10-04 00:06:24 -0400 21) from rest_framework import routers
+234024f8 (Steven Dao  2023-10-04 00:06:24 -0400 22) 
+234024f8 (Steven Dao  2023-10-04 00:06:24 -0400 23) router = routers.DefaultRouter()
+42e25d03 (Steven Dao  2023-10-07 19:13:46 -0500 24) 
+f1cf2135 (Steven Dao  2023-10-10 12:44:31 -0500 25) router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
+f1cf2135 (Steven Dao  2023-10-10 12:44:31 -0500 26) router.register(r'interactions', views.InteractionViewSet, basename = 'interaction')    
+f1cf2135 (Steven Dao  2023-10-10 12:44:31 -0500 27) router.register(r'users', views.UserViewSet, basename = 'user')
+f1cf2135 (Steven Dao  2023-10-10 12:44:31 -0500 28)     
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 29) urlpatterns = [
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 30)     path('admin/', admin.site.urls),
+f672420f (Steven Dao  2023-10-08 00:10:33 -0500 32)     path('api/', include(router.urls)),
+f672420f (Steven Dao  2023-10-08 00:10:33 -0500 33)     path('', views.index)
+dc9a01e6 (Steven Dao  2023-09-27 21:05:11 -0400 34) ]
+
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  1) from django.urls import path
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  2) from . import views
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  3) 
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  4) urlpatterns = [
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  5)     path('csrf', views.get_csrf, name='api-csrf'),
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  6)     path('login', views.login_view, name='api-login'),
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  7)     path('logout', views.logout_view, name='api-logout'),
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  8)     path('session', views.SessionView.as_view(), name='api-session'),
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500  9)     path('whoami', views.WhoAmIView.as_view(), name='api-whoami'),
+0d57cc6e back_end/auth/urls.py (Steven Dao 2023-10-07 21:25:44 -0500 10) ]
+
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  1) from django.http import JsonResponse
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  2) from rest_framework.views import APIView
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  3) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  4) from django.contrib.auth import authenticate, login, logout
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  5) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  6) from django.middleware.csrf import get_token
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  7) from django.views.decorators.http import require_POST
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  8) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500  9) from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 10) from rest_framework.permissions import IsAuthenticated
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 11) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 12) # Create your views here.
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 13) # authentication
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 14) def get_csrf(request):
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 15)     response = JsonResponse({'detail': 'CSRF cookie set'})
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 16)     response['X-CSRFToken'] = get_token(request)
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 17)     return response
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 18) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 19) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 20) @require_POST
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 21) def login_view(request):
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 22)     username = request.data['username']
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 23)     password = request.data['password']
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 24) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 25)     if username is None or password is None:
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 26)         return JsonResponse({'detail': 'Please provide username and password.'}, status=400)
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 27) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 28)     user = authenticate(username=username, password=password)
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 29) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 30)     if user is None:
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 31)         return JsonResponse({'detail': 'Invalid credentials.'}, status=400)
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 32) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 33)     login(request, user)
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 34)     return JsonResponse({'detail': 'Successfully logged in.'})
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 35) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 36) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 37) def logout_view(request):
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 38)     if not request.user.is_authenticated:
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 39)         return JsonResponse({'detail': 'You\'re not logged in.'}, status=400)
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 40) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 41)     logout(request)
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 42)     return JsonResponse({'detail': 'Successfully logged out.'})
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 43) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 44) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 45) class SessionView(APIView):
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 46)     authentication_classes = [SessionAuthentication, BasicAuthentication]
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 47)     permission_classes = [IsAuthenticated]
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 48) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 49)     @staticmethod
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 50)     def get(request, format=None):
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 51)         return JsonResponse({'isAuthenticated': True})
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 52) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 53) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 54) class WhoAmIView(APIView):
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 55)     authentication_classes = [SessionAuthentication, BasicAuthentication]
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 56)     permission_classes = [IsAuthenticated]
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 57) 
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 58)     @staticmethod
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 59)     def get(request, format=None):
+0d57cc6e back_end/auth/views.py (Steven Dao 2023-10-07 21:25:44 -0500 60)         return JsonResponse({'username': request.user.username})
+
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  1) #back_end/Dockerfile
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  2) 
+389d8a52 (Steven Dao 2023-10-03 20:47:36 -0400  3) FROM python:3.11
+389d8a52 (Steven Dao 2023-10-03 20:47:36 -0400  4) WORKDIR /app
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  5) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  6) # set environment variables
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  7) ENV PYTHONDONTWRITEBYTECODE 1
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  8) ENV PYTHONUNBUFFERED 1
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  9) 
+389d8a52 (Steven Dao 2023-10-03 20:47:36 -0400 10) COPY requirements.txt .
+389d8a52 (Steven Dao 2023-10-03 20:47:36 -0400 11) RUN pip install -r requirements.txt
+389d8a52 (Steven Dao 2023-10-03 20:47:36 -0400 12) COPY . .
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 13) CMD ["python3.11","manage.py","runserver","0.0.0.0:8000"]
+
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  1) # front_end/Dockerfile
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  2) 
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  3) # pull official base image
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  4) FROM node:18-slim
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  5) 
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  6) # set working directory
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  7) WORKDIR /app
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  8) 
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500  9) # add `/usr/src/app/node_modules/.bin` to $PATH
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500 10) ENV PATH app/node_modules/.bin:$PATH
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500 11) 
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500 12) COPY . /app/front_end
+f52745da (Steven Dao 2023-10-07 21:53:00 -0500 13) # start app
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 14) CMD ["nodejs", "JS/server.js"]
+
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 1) # nginx/Dockerfile
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 2) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 3) FROM nginx:latest
+3379bd26 (Steven Dao 2023-10-13 08:41:02 -0400 4) WORKDIR /app
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 5) COPY ./nginx.conf /etc/nginx/nginx.conf
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 6) COPY ./front_end /app
+
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  1) user www-data;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  2) worker_processes auto;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  3) pid /run/nginx.pid;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  4) include /etc/nginx/modules-enabled/*.conf;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  5) 
+3379bd26 (Steven Dao 2023-10-13 08:41:02 -0400  6) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  7) events {
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  8)   worker_connections 1024;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  9) }
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 10) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 11) http {
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 12)   upstream back_end {
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 13)     server back_end:8000;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 14)   }
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 15) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 16)   upstream front_end {
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 17)     server front_end:5173;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 18)   }
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 19) 
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 20)   server { 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 21)     listen 80;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 22) 
+3379bd26 (Steven Dao 2023-10-13 08:41:02 -0400 23)     # http2_max_requests 500000;  
+f672420f (Steven Dao 2023-10-08 00:10:33 -0500 24)     server_name test_server 127.0.0.1;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 25) 
+0b23141f (Steven Dao 2023-10-13 10:07:24 -0400 26)     location /admin {
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 27)       proxy_pass              http://back_end;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 28)       proxy_http_version  1.1;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 29)       proxy_redirect      default;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 30)       proxy_set_header    Upgrade $http_upgrade;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 31)       proxy_set_header    Connection "upgrade";
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 32)       proxy_set_header    Host $host:$server_port;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 33)       proxy_set_header    X-Real-IP $remote_addr;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 34)       proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 35)       proxy_set_header    X-Forwarded-Host $server_name;
+f672420f (Steven Dao 2023-10-08 00:10:33 -0500 36)       proxy_set_header    X-Forwarded-Proto $scheme;
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 37)     }
+3379bd26 (Steven Dao 2023-10-13 08:41:02 -0400 38) 
+0b23141f (Steven Dao 2023-10-13 10:07:24 -0400 39)     location / {
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 40)       root /app;
+0b23141f (Steven Dao 2023-10-13 10:07:24 -0400 41)       autoindex on;
+0b23141f (Steven Dao 2023-10-13 10:07:24 -0400 42)     }
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 43) 
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 44)     # location /static {
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 45)     #   proxy_pass              http://back_end;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 46)     #   proxy_http_version  1.1;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 47)     #   proxy_redirect      default;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 48)     #   proxy_set_header    Upgrade $http_upgrade;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 49)     #   proxy_set_header    Connection "upgrade";
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 50)     #   proxy_set_header    Host $host:$server_port;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 51)     #   proxy_set_header    X-Real-IP $remote_addr;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 52)     #   proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 53)     #   proxy_set_header    X-Forwarded-Host $server_name;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 54)     #   proxy_set_header    X-Forwarded-Proto $scheme;
+c2bb3ea6 (Steven Dao 2023-10-13 11:10:36 -0400 55)     # }
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 56)   }
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 57) }
+
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  1) # docker-compose.yml
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  2) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  3) version: '3.8'
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  4) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  5) services:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  6) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  7)   back_end:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  8)     build: ./back_end
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500  9)     volumes:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 10)       - ./back_end:/app
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 11)     expose:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 12)       - 8000
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 13) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 14)   front_end:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 15)     stdin_open: true
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 16)     build: ./front_end
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 17)     volumes:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 18)       - ./front_end:/app
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 19)       - /app/node_modules
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 20) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 21)     expose:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 22)       - 5173
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 23) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 24)     environment:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 25)       - NODE_ENV=development
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 26)     depends_on:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 27)       - back_end
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 28) 
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 29)   reverse_proxy:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 30)     build: ./nginx
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 31)     ports:
+f1cf2135 (Steven Dao 2023-10-10 12:44:31 -0500 32)       - 80:80
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 33)     depends_on:
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 34)       - back_end
+5a431a7a (Steven Dao 2023-10-07 22:39:28 -0500 35)       - front_end

@@ -1,3 +1,9 @@
+## front_end
+
+node_modules
+
+## back_end
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
@@ -6,4 +12,19 @@ __pycache__/
 
 # Databases
 *.sqlite3
-db.sqlite3
+
+# migrations
+migrations/
+
+# env
+env/
+
+# secrets
+ssl/
+
+# util.js logs
+logs/
+
+# static files from django
+static/
+

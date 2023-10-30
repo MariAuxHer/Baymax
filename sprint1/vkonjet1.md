@@ -19,8 +19,9 @@ Lack of proper communication between me and the other members, I didn't know we 
 
 
 ### Files you worked on
-- back_end/back_end/Data/parse.ipynb
-- back_end/back_end/Data/parse.py
+- ML/Data/parse.ipynb
+- ML/Data/parse.py
+- parsed_npidata.csv
 - README.md
 
 ### What you accomplished

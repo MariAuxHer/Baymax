@@ -7,7 +7,11 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# install python dependencies
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+
+# copy files into container
 COPY . .
-CMD ["python3.11","manage.py","runserver","0.0.0.0:8000"]
+
+ENTRYPOINT [ "/app/docker-entrypoint.sh" ]

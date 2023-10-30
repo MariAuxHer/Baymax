@@ -1,4 +1,0 @@
-# ignore the env folder
-env/
-__pycache__
-ssl/
