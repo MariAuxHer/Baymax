@@ -1,5 +1,4 @@
 
-
 import openai
 import json
 import re
@@ -252,6 +251,8 @@ medical_specializations = {
     "transportation brokerist": "Transportation Broker",
     "transportation network companyist": "Transportation Network Company"
 }
+
+
 
 # set the API_KEY I can't set mine because if I do, openai will disable my api key
 # This code wont work without an API_KEY though. For the next sprint, I will switch to 
