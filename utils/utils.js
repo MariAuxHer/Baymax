@@ -6,6 +6,9 @@ const { create } = require('domain')
 // Import the 'fs' (File System) module for file operations
 var fs = require('fs')
 
+// pretty json
+const prettyjson = require('prettyjson')
+
 // Define constants for server host and URL endpoints
 const HOST = 'localhost:80'
 const REST_AUTH_URL = `http://${HOST}/auth/`
@@ -311,7 +314,7 @@ async function get_conversations() {
     if (response.ok) {
         console.log("CONVERSATIONS Response OK")
         const json = await response.json()
-        console.log(JSON.stringify(json))
+        console.log(prettyjson.render(json))
     } else {
         console.log("CONVERSATIONS Response NOT OK")
         response.text().then((data) => {
@@ -352,7 +355,7 @@ async function post_conversation(name) {
     if (response.ok) {
         console.log("CONVERSATIONS POST Response OK")
         const json = await response.json()
-        console.log(JSON.stringify(json))
+        console.log(prettyjson.render(json))
     } else {
         console.log("CONVERSATIONS POST Response NOT OK")
         response.text().then((data) => {
@@ -432,13 +435,13 @@ async function main() {
     // .then(() => login("test2", "aMoreSophosticatedPassword100"))
     // .then(() => logout())
     // .then(() => fetch_csrf())
-    .then(() => create_user("test", "NotTooShortOfAPassword", "stevendao100@gmail.com"))
-    .then(() => login("test", "NotTooShortOfAPassword"))
+    // .then(() => create_user("test", "NotTooShortOfAPassword", "stevendao100@gmail.com"))
+    .then(() => login("test", "test"))
     .then(() => whoami())
     .then(() => session())
     .then(() => get_conversations())
     .then(() => fetch_csrf())
-    .then(() => post_conversation("data one two"))
+    // .then(() => post_conversation("demo data"))
     .then(() => logout())
     
 }
