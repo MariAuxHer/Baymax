@@ -17,6 +17,7 @@ services:
       dockerfile: ./nginx/Dockerfile
     volumes:
       - ./front_end:/app/front_end  
+      - ./back_end/static:/app/static
     
     ports:
       - 80:80

@@ -21,17 +21,71 @@ a {
 }
 
 h1 {
-    margin: 1em 2em;
-    font-size: 4em;
+    margin: 0.5em 0.7em;
+    font-size: 3em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#toIndex {
+    color: #ff3535;
+}
+
+aside {
+    position: fixed;
+    height: 4.3em;
+    top:0;
+    width: 100%;
+    background: #292828;
+    display: grid;
+    grid-template-areas: "about profile login";
+    grid-template-columns: auto min-content min-content;
+}
+
+aside > button {
+    margin: 1em;
+    font-size: 1.3em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+
+#toLoginPage:hover, #toProfilePage:hover, #toAboutPage:hover {
+    color: #fdfdfd;
+}
+
+#toLoginPage:active, #toProfilePage:active, #toAboutPage:active {
+    color: #ada8a8;
+}
+
+#toLoginPage {
+    grid-area: login;   
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: #fff; 
+}
+
+#toProfilePage {
+    grid-area: profile;    
+}
+
+#toAboutPage {
+    justify-self: end;
+    grid-area: about;
 }
 
 h2 {
     margin: 0.5em 0.5em;
-    font-size: 2.5em;
+    font-size: 2.2em;
 }
 
 form {
-    margin: 0.5em 0.5em;
+    margin: auto;
+    margin-top: 13%;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center horizontally */
@@ -55,7 +109,7 @@ form {
     margin-bottom: 15px;
 }
 
-button {
+button#submit {
     color: rgb(39, 37, 37);
     background: rgb(255, 44, 44);
     display: grid;
@@ -70,11 +124,11 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button#submit:hover {
     background: rgb(255, 82, 82);
 }
 
-button:active {
+button#submit:active {
     background: rgb(205, 40, 40);
 }
 
@@ -87,7 +141,7 @@ input {
     border-radius: 1em;
     outline: none;
 }
-
+/*
 #toLoginPage {
     position: absolute;
     top: 2em; 
@@ -111,14 +165,10 @@ input {
     background-color: transparent;
     
 }
-
+*/
 #toSignUp {
     color: #7161ff;
     margin-top: 10px;
-}
-
-#toIndex {
-    color: #000000;
 }
 
 
