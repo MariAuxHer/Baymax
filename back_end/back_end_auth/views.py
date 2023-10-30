@@ -27,6 +27,7 @@ class CSRF(APIView):
     def get(request, format=None):
         response = Response({'detail': 'CSRF cookie set'})
         response['X-CSRFToken'] = get_token(request)
+        # response['Access-Control-Allow-Origin'] = '*'
         return response
     
     def post(request, format=None):
