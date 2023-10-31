@@ -8,16 +8,15 @@ Name: Amal Sam, GitHub ID: amals610, Group: Baymax
 
 ## What I did not do
 
-- Still struggling with figuring out how to send and receive requests with backend.
+- Still struggling with complete functionality out how to send and receive requests with backend. Teamate was able to get a response, but had an issue
+  regarding the correct tokens. 
 
 ## What Problems I encountered
 
-- .
+- I ran into some issues trying to fix code done by my peers. I was reworking some of my files and they had implemented different things which
+  I needed to go back and look over to make sure I knew where to continue from. 
 
 ## Issues I worked on
-
-- [Issue #24: Create About Page](https://github.com/MariAuxHer/Baymax/issues/24)
-- [Issue #25: Structuring About Page](https://github.com/MariAuxHer/Baymax/issues/25)
 - [Issue #26: Connect About page with other UI pages](https://github.com/MariAuxHer/Baymax/issues/26)
 - [Issue #27: Complete About page with everyone's images and credentials](https://github.com/MariAuxHer/Baymax/issues/27) 
 
