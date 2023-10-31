@@ -182,3 +182,21 @@ img {
     width: 2em;
     margin: auto;
 }
+
+/* Collapsible Panel Styles */
+.panel {
+    background-color: #f1f1f1;
+    margin: 10px;
+}
+
+.collapsible {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.content {
+    display: none;
+    padding: 10px;
+}

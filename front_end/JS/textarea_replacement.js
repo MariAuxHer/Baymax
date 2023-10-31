@@ -37,3 +37,17 @@ document.getElementById('toProfilePage').addEventListener('click', function() {
 document.getElementById('toAboutPage').addEventListener('click', function() {
     window.location.href = 'about.html';
 });
+
+// panel.js
+const coll = document.querySelectorAll(".collapsible");
+coll.forEach((button) => {
+    button.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+});
+
