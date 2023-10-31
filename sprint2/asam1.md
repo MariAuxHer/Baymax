@@ -3,8 +3,8 @@
 Name: Amal Sam, GitHub ID: amals610, Group: Baymax
 
 ## What I planned to do
-- [Issue #26: Connect About page with other UI pages](https://github.com/MariAuxHer/Baymax/issues/26)
 - [Issue #27: Complete About page with everyone's images and credentials](https://github.com/MariAuxHer/Baymax/issues/27)
+- [Issue #65: Fixing connection bugs between pages and styling](https://github.com/MariAuxHer/Baymax/issues/65)
 
 ## What I did not do
 
@@ -18,7 +18,7 @@ Name: Amal Sam, GitHub ID: amals610, Group: Baymax
 
 ## Issues I worked on
 - [Issue #26: Connect About page with other UI pages](https://github.com/MariAuxHer/Baymax/issues/26)
-- [Issue #27: Complete About page with everyone's images and credentials](https://github.com/MariAuxHer/Baymax/issues/27) 
+- [Issue #65: Fixing connection bugs between pages and styling](https://github.com/MariAuxHer/Baymax/issues/65)
 
 ## Files I worked on
 
@@ -30,6 +30,7 @@ Name: Amal Sam, GitHub ID: amals610, Group: Baymax
 - Baymax/front_end/main.css (partially)
 - Baymax/front_end/login.css (partially)
 - Baymax/front_end/signup.css (partially)
+- Baymax/front_end/JS/about.js
 - Baymax/front_end/login.js (partially)
 - Baymax/front_end/signup.js (partially)
 - Baymax/front_end/textarea_replacement.js (partially)
