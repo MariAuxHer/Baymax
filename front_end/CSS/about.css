@@ -1,4 +1,5 @@
 /* CSS for the about page */
+
 * {
     font-family: 'Comfortaa', cursive;
     margin: 0;
@@ -17,8 +18,8 @@ a {
 
 
 h1 {
-    margin: 0.26em 0.7em;
-    font-size: 2.3em;
+    margin: 0.23em 0.7em;
+    font-size: 2.5em;
     position: fixed;
     top: 0;
     left: 0;
@@ -77,6 +78,7 @@ aside > button {
 h2 {
     margin: 0.3em 0.5em;
     font-size: 3.5em;
+    color: #3b3bf2;
 }
 
 .content {
