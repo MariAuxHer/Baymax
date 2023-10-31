@@ -1,0 +1,18 @@
+about.js
+*********************************************************
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  1) // Redirect to Login Page
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  2) document.getElementById('toLoginPage').addEventListener('click', function() {
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  3)     window.location.href = 'login.html';
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  4) });
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  5)
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  6) // Redirect to About Page
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  7) document.getElementById('toAboutPage').addEventListener('click', function() {
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  8)     window.location.href = 'about.html';
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  9) });
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 10)
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 11) // Redirect to Profile Page
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 12) document.getElementById('toProfilePage').addEventListener('click', function() {
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 13)     window.location.href = 'profile.html';
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 14) });
+***********************************************************
+
