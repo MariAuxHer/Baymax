@@ -183,20 +183,22 @@ img {
     margin: auto;
 }
 
-/* Collapsible Panel Styles */
-.panel {
+#panelContainer {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Start hidden outside the viewport */
     background-color: #f1f1f1;
-    margin: 10px;
-}
-
-.collapsible {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.content {
-    display: none;
-    padding: 10px;
-}
+    transition: 0.3s;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  #togglePanelButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+  }
+  

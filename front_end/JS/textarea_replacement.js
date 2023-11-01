@@ -51,3 +51,17 @@ coll.forEach((button) => {
     });
 });
 
+const toggleButton = document.getElementById("togglePanelButton");
+const panelContainer = document.getElementById("panelContainer");
+
+toggleButton.addEventListener("click", function () {
+  if (panelContainer.style.left === "0px" || panelContainer.style.left === "") {
+    // Panel is currently visible; hide it
+    panelContainer.style.left = "-250px";
+  } else {
+    // Panel is hidden; show it
+    panelContainer.style.left = "0px";
+  }
+});
+
+
