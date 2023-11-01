@@ -1,5 +1,5 @@
 about.js
-*********************************************************
+
 1f35cb61 (amals610 2023-10-31 03:46:07 -0400  1) // Redirect to Login Page
 1f35cb61 (amals610 2023-10-31 03:46:07 -0400  2) document.getElementById('toLoginPage').addEventListener('click', function() {
 1f35cb61 (amals610 2023-10-31 03:46:07 -0400  3)     window.location.href = 'login.html';
@@ -15,4 +15,114 @@ about.js
 1f35cb61 (amals610 2023-10-31 03:46:07 -0400 13)     window.location.href = 'profile.html';
 1f35cb61 (amals610 2023-10-31 03:46:07 -0400 14) });
 ***********************************************************
+about.css
+
+4a536820 (amals610             2023-10-13 21:15:20 -0400   1) /* CSS for the about page */
+1f35cb61 (amals610             2023-10-31 03:46:07 -0400   2)
+4a536820 (amals610             2023-10-13 21:15:20 -0400   3) * {
+4a536820 (amals610             2023-10-13 21:15:20 -0400   4)     font-family: 'Comfortaa', cursive;
+4a536820 (amals610             2023-10-13 21:15:20 -0400   5)     margin: 0;
+4a536820 (amals610             2023-10-13 21:15:20 -0400   6)     padding: 0;
+4a536820 (amals610             2023-10-13 21:15:20 -0400   7)     box-sizing: border-box;
+4a536820 (amals610             2023-10-13 21:15:20 -0400   8) }
+4a536820 (amals610             2023-10-13 21:15:20 -0400   9)
+4a536820 (amals610             2023-10-13 21:15:20 -0400  10) body {
+4a536820 (amals610             2023-10-13 21:15:20 -0400  11)     background: rgb(222, 222, 255);
+4a536820 (amals610             2023-10-13 21:15:20 -0400  12) }
+4a536820 (amals610             2023-10-13 21:15:20 -0400  13)
+4a536820 (amals610             2023-10-13 21:15:20 -0400  14) a {
+4a536820 (amals610             2023-10-13 21:15:20 -0400  15)     text-decoration: none;
+ab048759 (amals610             2023-10-13 21:26:18 -0400  16)     color: #000000; /* Black color for links */
+4a536820 (amals610             2023-10-13 21:15:20 -0400  17) }
+4a536820 (amals610             2023-10-13 21:15:20 -0400  18)
+1f35cb61 (amals610             2023-10-31 03:46:07 -0400  21)     margin: 0.23em 0.7em;
+1f35cb61 (amals610             2023-10-31 03:46:07 -0400  22)     font-size: 2.5em;
+4a536820 (amals610             2023-10-13 21:15:20 -0400  76) }
+4a536820 (amals610             2023-10-13 21:15:20 -0400  77)
+4a536820 (amals610             2023-10-13 21:15:20 -0400  78) h2 {
+994672aa (amals610             2023-10-30 22:26:18 -0400  79)     margin: 0.3em 0.5em;
+994672aa (amals610             2023-10-30 22:26:18 -0400  80)     font-size: 3.5em;
+1f35cb61 (amals610             2023-10-31 03:46:07 -0400  81)     color: #3b3bf2;
+4a536820 (amals610             2023-10-13 21:15:20 -0400  82) }
+4a536820 (amals610             2023-10-13 21:15:20 -0400  83)
+4a536820 (amals610             2023-10-13 21:15:20 -0400  84) .content {
+4a536820 (amals610             2023-10-13 21:15:20 -0400  85)     margin: 2em;
+4a536820 (amals610             2023-10-13 21:15:20 -0400  87)     text-align: center;
+4a536820 (amals610             2023-10-13 21:15:20 -0400  88) }
+4a536820 (amals610             2023-10-13 21:15:20 -0400  89)
+ab048759 (amals610             2023-10-13 21:26:18 -0400  90) .hero-container {
+ab048759 (amals610             2023-10-13 21:26:18 -0400  91)     display: flex;
+ab048759 (amals610             2023-10-13 21:26:18 -0400  92)     justify-content: space-around;
+ab048759 (amals610             2023-10-13 21:26:18 -0400  93)     flex-wrap: wrap;
+ab048759 (amals610             2023-10-13 21:26:18 -0400  94)     margin-top: 2em;
+ab048759 (amals610             2023-10-13 21:26:18 -0400  95) }
+ab048759 (amals610             2023-10-13 21:26:18 -0400  96)
+ab048759 (amals610             2023-10-13 21:26:18 -0400  97) .hero {
+994672aa (amals610             2023-10-30 22:26:18 -0400  98)     width: 150px;
+ab048759 (amals610             2023-10-13 21:26:18 -0400  99)     margin: 1em;
+ab048759 (amals610             2023-10-13 21:26:18 -0400 100)     text-align: center;
+ab048759 (amals610             2023-10-13 21:26:18 -0400 101) }
+ab048759 (amals610             2023-10-13 21:26:18 -0400 102)
+ab048759 (amals610             2023-10-13 21:26:18 -0400 103) .hero img {
+994672aa (amals610             2023-10-30 22:26:18 -0400 104)     min-width: 125%;
+994672aa (amals610             2023-10-30 22:26:18 -0400 105)     max-width: 125%;
+994672aa (amals610             2023-10-30 22:26:18 -0400 106)     height: auto; /*Allows the image to maintain its aspect ratio. */
+994672aa (amals610             2023-10-30 22:26:18 -0400 107)     min-height: 275px;
+994672aa (amals610             2023-10-30 22:26:18 -0400 108)     max-height: 275px;
+994672aa (amals610             2023-10-30 22:26:18 -0400 109)     border: 2px solid #000000;
+ab048759 (amals610             2023-10-13 21:26:18 -0400 110)     border-radius: 10px;
+ab048759 (amals610             2023-10-13 21:26:18 -0400 111) }
+ab048759 (amals610             2023-10-13 21:26:18 -0400 112)
+994672aa (amals610             2023-10-30 22:26:18 -0400 113)
+ab048759 (amals610             2023-10-13 21:26:18 -0400 114) .hero-info {
+ab048759 (amals610             2023-10-13 21:26:18 -0400 115)     margin-top: 10px;
+ab048759 (amals610             2023-10-13 21:26:18 -0400 116) }
+ab048759 (amals610             2023-10-13 21:26:18 -0400 117)
+ab048759 (amals610             2023-10-13 21:26:18 -0400 118) .hero-name {
+ab048759 (amals610             2023-10-13 21:26:18 -0400 119)     font-weight: bold;
+4a536820 (amals610             2023-10-13 21:15:20 -0400 120) }
+0343debf (amals610             2023-10-13 22:24:18 -0400 122) #toLoginPage {
+0343debf (amals610             2023-10-13 22:24:18 -0400 123)     position: absolute;
+0343debf (amals610             2023-10-13 22:24:18 -0400 124)     top: 2em;
+0343debf (amals610             2023-10-13 22:24:18 -0400 125)     right: 4em;
+0343debf (amals610             2023-10-13 22:24:18 -0400 126)     color: #000000;
+0343debf (amals610             2023-10-13 22:24:18 -0400 127)     font-size: 30px;
+0343debf (amals610             2023-10-13 22:24:18 -0400 128)     border: none;
+0343debf (amals610             2023-10-13 22:24:18 -0400 129)     box-shadow: none;
+0343debf (amals610             2023-10-13 22:24:18 -0400 130)     background-color: transparent;
+0343debf (amals610             2023-10-13 22:24:18 -0400 131)
+0343debf (amals610             2023-10-13 22:24:18 -0400 132) }
+0343debf (amals610             2023-10-13 22:24:18 -0400 133)
+0343debf (amals610             2023-10-13 22:24:18 -0400 134) #toAboutPage {
+0343debf (amals610             2023-10-13 22:24:18 -0400 135)     position: absolute;
+0343debf (amals610             2023-10-13 22:24:18 -0400 136)     top: 2em;
+254f9a5f (amals610             2023-10-13 22:25:28 -0400 137)     right: 8em;
+0343debf (amals610             2023-10-13 22:24:18 -0400 138)     color: #000000;
+0343debf (amals610             2023-10-13 22:24:18 -0400 139)     font-size: 30px;
+0343debf (amals610             2023-10-13 22:24:18 -0400 140)     border: none;
+0343debf (amals610             2023-10-13 22:24:18 -0400 141)     box-shadow: none;
+0343debf (amals610             2023-10-13 22:24:18 -0400 142)     background-color: transparent;
+0343debf (amals610             2023-10-13 22:24:18 -0400 143)
+0343debf (amals610             2023-10-13 22:24:18 -0400 144) }
+0343debf (amals610             2023-10-13 22:24:18 -0400 146)
+*****************************************************************
+about.js 
+
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  1) // Redirect to Login Page
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  2) document.getElementById('toLoginPage').addEventListener('click', function() {
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  3)     window.location.href = 'login.html';
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  4) });
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  5)
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  6) // Redirect to About Page
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  7) document.getElementById('toAboutPage').addEventListener('click', function() {
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  8)     window.location.href = 'about.html';
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400  9) });
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 10)
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 11) // Redirect to Profile Page
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 12) document.getElementById('toProfilePage').addEventListener('click', function() {
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 13)     window.location.href = 'profile.html';
+1f35cb61 (amals610 2023-10-31 03:46:07 -0400 14) });
+********************************************************************
+index.html
+
 

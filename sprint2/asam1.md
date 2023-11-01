@@ -5,6 +5,7 @@ Name: Amal Sam, GitHub ID: amals610, Group: Baymax
 ## What I planned to do
 - [Issue #27: Complete About page with everyone's images and credentials](https://github.com/MariAuxHer/Baymax/issues/27)
 - [Issue #65: Fixing connection bugs between pages and styling](https://github.com/MariAuxHer/Baymax/issues/65)
+- [Issue #66: Creating Conversation collapsable Panel](https://github.com/MariAuxHer/Baymax/issues/66)
 
 ## What I did not do
 
@@ -14,27 +15,27 @@ Name: Amal Sam, GitHub ID: amals610, Group: Baymax
 ## What Problems I encountered
 
 - I ran into some issues trying to fix code done by my peers. I was reworking some of my files and they had implemented different things which
-  I needed to go back and look over to make sure I knew where to continue from. 
+  I needed to go back and look over to make sure I knew where to continue from. I also had some trouble with the Panel, it kept bugging out and wouldn't stay in
+  the correct spot.
 
 ## Issues I worked on
 - [Issue #26: Connect About page with other UI pages](https://github.com/MariAuxHer/Baymax/issues/26)
 - [Issue #65: Fixing connection bugs between pages and styling](https://github.com/MariAuxHer/Baymax/issues/65)
+- [Issue #66: Creating Conversation collapsable Panel](https://github.com/MariAuxHer/Baymax/issues/66)
 
 ## Files I worked on
 
 - Baymax/front_end/about.html
 - Baymax/front_end/index.html (partially)
-- Baymax/front_end/login.html (partially)
-- Baymax/front_end/signup.html (partially)
-- Baymax/front_end/about.css
-- Baymax/front_end/main.css (partially)
-- Baymax/front_end/login.css (partially)
-- Baymax/front_end/signup.css (partially)
+- Baymax/front_end/CSS/about.css
+- Baymax/front_end/CSS/main.css (partially)
 - Baymax/front_end/JS/about.js
-- Baymax/front_end/login.js (partially)
-- Baymax/front_end/signup.js (partially)
 - Baymax/front_end/textarea_replacement.js (partially)
+- Baymax/front_end/CSS/profile.css (partially)
 
 ## What I accomplished
+- This Sprint I was able to finish up the about page and any other bugs that was found with it(such as button issues/redirecting to other pages).
+  There were also some other issues in some of my peers code that messed up the presentation of the website and I was able to fix that. I was able to implement
+  the collapsable panel where past conversation and the new conversation button will be held. I wil implementing the complete functionality for it in the upcoming 
+  sprint. Overall front-end presentation is coming along great just ned to move focus to implementing connection between back and front-end.
 
-So for this Sprint I was able to create a page to showcase all the developers on this page. I also did some debugging for my peer's pages. Front_end work is still new to me, but I am finding it pretty fun. I only need some images for the about page and buttons redirecting it back to the main page. Overall I think we made good progress for the first sprint. In the upcoming weeks my peers and I will do more research on the various ways to fetch and request so that we can implement that into the front_end of our project. 
