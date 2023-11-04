@@ -26,6 +26,7 @@ async function set_csrf() {
 
     // check response and log if status not ok
     if (log_response(response, 'setcsrf')) {
+        console.log("FETCH END")
         return false
     }
 
@@ -39,13 +40,11 @@ async function set_csrf() {
 async function login(username, password) {
     console.log("LOGIN START")
 
+    // check for a csft cookie
     csrftoken = document_get_cookie_value('csrftoken')
-
-    // Before proceeding with login, ensure that a CSRF token has been fetched. 
-    // if not, perhaps request the cookie again or have the user refresh 
-    //  the page (assuming we have it set up to auto fetch the csrf on page load)
     if (!csrftoken) {
         console.log("csrfToken cookie is null. Canceling Login.")
+        console.log("LOGIN END")
         return false
     }
 
@@ -63,6 +62,7 @@ async function login(username, password) {
 
     if (!log_response(response, "login")) {
         console.log("Aborting log in")
+        console.log("LOGIN END")
         return false
     }
     
