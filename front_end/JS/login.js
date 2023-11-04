@@ -1,17 +1,16 @@
 // Redirect to Login Page
 document.getElementById('toLoginPage').addEventListener('click', function() {
-    window.location.href = 'login.html';
+    window.location.pathname = 'html/login.html';
 });
 
 // Redirect to About Page
 document.getElementById('toAboutPage').addEventListener('click', function() {
-    window.location.href = 'about.html';
+    window.location.pathname = 'html/about.html';
 });
 
-
-
-
-
+document.getElementById('toProfilePage').addEventListener('click', function() {
+    window.location.pathname = 'html/profile.html';
+});
 
 let test = ['1', '0'];
 let cookies = {};

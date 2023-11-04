@@ -104,10 +104,10 @@ async function whoami() {
     })
     
     if (log_response(response, "whoami")) {
-        const data = await response.json()
-        if (data.username) {
-            console.log(`I AM USER: ${data.username}`)
-            data = data.username
+        const json = await response.json()
+        if (json.username) {
+            console.log(`I AM USER: ${json.username}`)
+            return json.username
         } else {
             console.error("Response is missing a username in the body!")
         }
@@ -116,7 +116,7 @@ async function whoami() {
     } 
 
     console.log("WHOAMI End")
-    return data
+    return null
 }
 
 /*
