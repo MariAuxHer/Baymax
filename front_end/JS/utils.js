@@ -1,5 +1,3 @@
-const { Console } = require("console")
-
 const HOST = window.location.host
 const REST_AUTH_URL = `http://${HOST}/auth/`
 const REST_API_URL =  `http://${HOST}/api/`
@@ -104,22 +102,21 @@ async function whoami() {
             "Content-Type": "application/json"
         }
     })
-    const data = await response.json()
-
-    if (!log_response(response, "whoami")) {
-        console.log("WHOAMI End")
-        return null; 
+    
+    if (log_response(response, "whoami")) {
+        const data = await response.json()
+        if (data.username) {
+            console.log(`I AM USER: ${data.username}`)
+            data = data.username
+        } else {
+            console.error("Response is missing a username in the body!")
+        }
+    } else {
+        console.error("Request error")
     } 
 
-    if (data.username) {
-        console.log("WHOAMI End")
-        console.log(`I AM USER: ${data.username}`)
-        return data.username
-    } else {
-        console.error("Response is missing a username in the body!")
-        console.log("WHOAMI End")
-        return null
-    }
+    console.log("WHOAMI End")
+    return data
 }
 
 /*
@@ -135,22 +132,134 @@ async function session() {
         }
     })
 
-    const data = response.json()
-
-    if (!log_response(response, "session")) {
-        console.log("Failed to capture response.")
-        return false
-    }
-
-    if (data.isAuthenticated) {
-        console.log("Current session is authenticated.")
-        console.log("SESSION End")
-        return false
+    if (log_response(response, "session")) {
+        const data = await response.json()
+        if (data.isAuthenticated) {
+            console.log("Current session is authenticated.")
+            return true
+        } else {
+            console.log("Current session is not authenticated.")
+        }
     } else {
-        console.log("Current session is not authenticated.")
-        console.log("SESSION End")
-        return true
+        console.error("Failed to capture response.")
     }
+
+    console.log("SESSION End")
+    return false
+}
+
+async function get_conversations() {
+    console.log("GET_CONVERSATIONS Start")
+    const response = await fetch (CONVERSATIONS_URL, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    if (log_response(response, "get_conversations")) {
+        console.log("CONVERSATIONS Response OK")
+        return await response.json()
+    } else {
+        console.log("CONVERSATIONS Response NOT OK")
+    }
+
+    console.log("GET_CONVERSATIONS End")
+    return null
+}
+
+/*
+ * Testing function that calls and prints results of get_conversations(). 
+ * It still returns the result of get_conversations as the return of this function.
+ */
+async function log_conversations() {
+    const data = await get_conversations()
+    console.log(data)
+
+    return data
+}
+
+/*
+ * Posts a conversation to the current user's account. Returns the conversation object that was created. Returns null if failed.
+ */
+async function post_conversation(name) {
+    console.log("POST_CONVERSATION Start")
+
+    // check for a csft cookie
+    csrftoken = document_get_cookie_value('csrftoken')
+    if (!csrftoken) {
+        console.log("csrfToken cookie is null. Canceling Login.")
+        console.log("POST_CONVERSATION End")
+        return null
+    }
+
+    const response = await fetch(CONVERSATIONS_URL + "/", {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": csrftoken,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name: name
+        })
+    })
+
+    if (log_response(response, "post_conversations")) {
+        console.log("CONVERSATIONS POST Response OK")
+        const json = await response.json()
+        return json
+    } else {
+        console.log("CONVERSATIONS Response NOT OK")
+    }
+
+    console.log("POST_CONVERSATION End")
+    return null
+}
+
+/*
+ * Testing function that calls and prints results of post_conversation. 
+ * It still returns the result of post_conversations as the return of this function.
+ */
+async function log_conversation(name) {
+    const data = await post_conversation(name)
+    console.log(data)
+    return data
+}
+
+async function create_user(username, password, email) {
+    console.log("CREATE_USER Start")
+
+    // check for a csft cookie
+    csrftoken = document_get_cookie_value('csrftoken')
+    if (!csrftoken) {
+        console.log("csrfToken cookie is null. Canceling Login.")
+        console.log("CREATE_USER End")
+        return null
+    }
+
+    const response = await fetch(CREATE_USER_URL, {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": csrftoken,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password,
+            email: email,
+        })
+    })
+    
+    if (log_response(response, "create_user")) {
+        console.log("CREATE_USER POST Response OK")
+        const json = await response.json()
+        return json
+    } else {
+        console.log("CREATE_USER Response NOT OK")
+    }
+
+    console.log("CREATE_USER End")
+    return null
 }
 
 /*
