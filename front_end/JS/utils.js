@@ -43,7 +43,7 @@ async function login(username, password) {
 
     // Before proceeding with login, ensure that a CSRF token has been fetched. 
     // if not, perhaps request the cookie again or have the user refresh 
-    // the page (assuming we have it set up to auto fetch the csrf on page load)
+    //  the page (assuming we have it set up to auto fetch the csrf on page load)
     if (!csrftoken) {
         console.log("csrfToken cookie is null. Canceling Login.")
         return false
