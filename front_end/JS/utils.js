@@ -1,3 +1,5 @@
+const { Console } = require("console")
+
 const HOST = window.location.host
 const REST_AUTH_URL = `http://${HOST}/auth/`
 const REST_API_URL =  `http://${HOST}/api/`
@@ -117,6 +119,37 @@ async function whoami() {
         console.error("Response is missing a username in the body!")
         console.log("WHOAMI End")
         return null
+    }
+}
+
+/*
+ * Returns true if the current session is authenticated with the back end. Returns false otherwise. 
+ */
+async function session() {
+    console.log("SESSION Start")
+
+    const response = await fetch(SESSION_URL, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    const data = response.json()
+
+    if (!log_response(response, "session")) {
+        console.log("Failed to capture response.")
+        return false
+    }
+
+    if (data.isAuthenticated) {
+        console.log("Current session is authenticated.")
+        console.log("SESSION End")
+        return false
+    } else {
+        console.log("Current session is not authenticated.")
+        console.log("SESSION End")
+        return true
     }
 }
 
