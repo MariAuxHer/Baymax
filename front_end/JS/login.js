@@ -1,20 +1,3 @@
-// Redirect to Login Page
-document.getElementById('toLoginPage').addEventListener('click', function() {
-    window.location.pathname = 'html/login.html';
-});
-
-// Redirect to About Page
-document.getElementById('toAboutPage').addEventListener('click', function() {
-    window.location.pathname = 'html/about.html';
-});
-
-document.getElementById('toProfilePage').addEventListener('click', function() {
-    window.location.pathname = 'html/profile.html';
-    // Consider using pathname instead of HREF
-    // https://developer.mozilla.org/en-US/docs/Web/API/Location
-    
-});
-
 let test = ['1', '0'];
 let cookies = {};
 
