@@ -70,6 +70,10 @@ async function login(username, password) {
     return true
 }
 
+/*
+ * Logs the current user out based on the session cookie. If there is user logged in at the moment nothing is done.
+ * This function doesn't return anything. 
+ */
 async function logout() {
     console.log("LOGOUT Start")
 
@@ -80,13 +84,40 @@ async function logout() {
         }
     })
 
-    if (!log_response(response, "logout")) {
-        console.log("Not logged in.")
-        return false; 
-    }
+    log_response(response, "logout")
     
     console.log("LOGOUT End")
-    return true;
+}
+
+/*
+ * Returns the user name of the current logged in user based on the session cookie. 
+ * Returns null on failure. i.e. user is not logged in. 
+ */
+async function whoami() {
+    console.log("WHOAMI Start")
+    
+    const response = await fetch(WHOAMI_URL, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const data = await response.json()
+
+    if (!log_response(response, "whoami")) {
+        console.log("WHOAMI End")
+        return null; 
+    } 
+
+    if (data.username) {
+        console.log("WHOAMI End")
+        console.log(`I AM USER: ${data.username}`)
+        return data.username
+    } else {
+        console.error("Response is missing a username in the body!")
+        console.log("WHOAMI End")
+        return null
+    }
 }
 
 /*
