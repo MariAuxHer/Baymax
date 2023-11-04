@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-</body>
-    <script src="../JS/utils.js"></script>
-
-    <button onclick="set_csrf()">Clear</button>
-
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username">
-        <label for="password">Password:</label>
-        <input type="text" id="password">
-        <button type="submit">Login</button>
-    </form>
-
+    <header>
+        <script src="../JS/utils.js"></script>
+    </header>
+    <body onload="set_csrf()">
+        <button onclick="set_csrf()">Get CSRF</button>
+        
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username">
+            <label for="password">Password:</label>
+            <input type="text" id="password">
+            <button type="submit">Login</button>
+        </form>
+        
+        <button onclick="logout()"> Logout </button>
+    </body>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the form from actually submitting

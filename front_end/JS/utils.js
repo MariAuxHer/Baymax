@@ -70,6 +70,25 @@ async function login(username, password) {
     return true
 }
 
+async function logout() {
+    console.log("LOGOUT Start")
+
+    const response = await fetch(LOGOUT_URL, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    if (!log_response(response, "logout")) {
+        console.log("Not logged in.")
+        return false; 
+    }
+    
+    console.log("LOGOUT End")
+    return true;
+}
+
 /*
  * Returns a cookie value based on the passed key. Returns undefined if cookie doesn't exist.
  */
