@@ -10,6 +10,9 @@ document.getElementById('toAboutPage').addEventListener('click', function() {
 
 document.getElementById('toProfilePage').addEventListener('click', function() {
     window.location.pathname = 'html/profile.html';
+    // Consider using pathname instead of HREF
+    // https://developer.mozilla.org/en-US/docs/Web/API/Location
+    
 });
 
 let test = ['1', '0'];
