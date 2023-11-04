@@ -6,7 +6,7 @@ if (loginElement) {
     })
 }
 
-// Redirect to Login Pagev============
+// Assign Profile Page Button
 const profileElement = document.getElementById('toProfilePage')
 if (profileElement) {
     profileElement.addEventListener('click', () => {
@@ -14,6 +14,7 @@ if (profileElement) {
     })
 }
 
+// Assign About Page Button
 const aboutElement = document.getElementById('toAboutPage')
 if (aboutElement) {
     aboutElement.addEventListener('click', () => {

@@ -23,21 +23,6 @@ div.addEventListener("keydown", function(event) {   // pressing enter will submi
     }
 });
 
-// Redirect to Login Page
-document.getElementById('toLoginPage').addEventListener('click', function() {
-    window.location.href = 'html/login.html';
-});
-
-// Redirect to Profile Page
-document.getElementById('toProfilePage').addEventListener('click', function() {
-    window.location.href = 'html/profile.html';
-});
-
-// Redirect to About Page
-document.getElementById('toAboutPage').addEventListener('click', function() {
-    window.location.href = 'html/about.html';
-});
-
 // panel.js
 const coll = document.querySelectorAll(".collapsible");
 coll.forEach((button) => {
