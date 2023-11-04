@@ -60,12 +60,14 @@ class LoginView(APIView):
 
 class LogoutView(APIView):
     authentication_classes = [SessionAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get(self, request, format = None):
-        # if not request.user.is_authenticated:
-        #     return JsonResponse({'detail': 'You\'re not logged in.'}, status = status.HTTP_200_OK)
-
+        # Handle when not logged in
+        if not request.user.is_authenticated:
+            return JsonResponse({'detail': 'You\'re not logged in.'}, status = status.HTTP_200_OK)
+        
+        # Handle when logged in
         logout(request)
         return JsonResponse({'detail': 'Successfully logged out.'}, status = status.HTTP_200_OK)
     
