@@ -17,23 +17,15 @@ const CONVERSATIONS_URL = REST_API_URL + 'conversations'
 async function set_csrf() {
     console.log("FETCH START")
 
-    // Prepare headers for the request
-    header = {
-        "Content-Type": "application/json",
-    }
-
-    // Include sessionid cookie in the headers if it exists
-    if (document_get_cookie_value("sessionid")) {
-        header.sessionid = document_get_cookie_value("sessionid")
-    }
-
     // Make a GET request to the CSRF_URL to obtain a CSRF token.
     const response = await fetch(CSRF_URL, {
-        headers: header
+        headers: {
+            "Content-Type": "application/json",
+        }
     });
 
     // check response and log if status not ok
-    if (check_response(response, 'setcsrf')) {
+    if (log_response(response, 'setcsrf')) {
         return false
     }
 
@@ -48,18 +40,18 @@ async function login(username, password) {
     console.log("LOGIN START")
 
     csrftoken = document_get_cookie_value('csrftoken')
-    // Before proceeding with login, ensure that a CSRF token has been fetched.
+
+    // Before proceeding with login, ensure that a CSRF token has been fetched. 
+    // if not, perhaps request the cookie again or have the user refresh 
+    // the page (assuming we have it set up to auto fetch the csrf on page load)
     if (!csrftoken) {
-        console.log("csrfToken is null. Canceling Login.")
+        console.log("csrfToken cookie is null. Canceling Login.")
         return false
     }
 
     const response = await fetch(LOGIN_URL, {
         method: "POST",
         headers: {
-
-            // accessing the value associated with the key 'csrftoken' in the cookies object.
-            "Cookie": `csrftoken=${csrftoken}`,
             "X-CSRFToken": csrftoken,
             "Content-Type": "application/json",
         },
@@ -69,7 +61,7 @@ async function login(username, password) {
         })
     })
 
-    if (!check_response(response, "login")) {
+    if (!log_response(response, "login")) {
         console.log("Aborting log in")
         return false
     }
@@ -91,12 +83,13 @@ function document_get_cookie_value(key) {
 /*
  * Checks and logs if a response is not ok.
  */
-function check_response(response, basename) {
-    if (!response.ok) {
+function log_response(response, basename) {
+    if (response.ok) {
+        console.log(basename + "response OK.")
+        return true;
+    } else {
         console.log(basename + " response NOT OK." + "\n" + response.text())
         return false
     }
-
-    return true
 }
 
