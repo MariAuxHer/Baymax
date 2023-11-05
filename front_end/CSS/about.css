@@ -1,4 +1,4 @@
-/* CSS for the about page */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 * {
     font-family: 'Comfortaa', cursive;
@@ -9,70 +9,6 @@
 
 body {
     background: rgb(222, 222, 255);
-}
-
-a {
-    text-decoration: none;
-    color: #000000; /* Black color for links */
-}
-
-
-h1 {
-    margin: 0.23em 0.7em;
-    font-size: 2.5em;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-#toIndex {
-    color: #ff3535;
-}
-
-aside {
-    position: fixed;
-    height: 4.3em;
-    top:0;
-    width: 100%;
-    background: #292828;
-    display: grid;
-    grid-template-areas: "about profile login";
-    grid-template-columns: auto min-content min-content;
-}
-
-aside > button {
-    margin: 1em;
-    font-size: 1.3em;
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
-    cursor: pointer;
-    color: #d8d8d8;
-}
-
-#toLoginPage:hover, #toProfilePage:hover, #toAboutPage:hover {
-    color: #fdfdfd;
-}
-
-#toLoginPage:active, #toProfilePage:active, #toAboutPage:active {
-    color: #ada8a8;
-}
-
-#toLoginPage {
-    grid-area: login;   
-}
-
-#toProfilePage {
-    grid-area: profile;    
-}
-
-#toAboutPage {
-    justify-self: end;
-    grid-area: about;
-    border-bottom: solid;
-    border-width: 2px;
-    border-color: #fff; 
 }
 
 h2 {
