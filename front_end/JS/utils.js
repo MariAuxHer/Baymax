@@ -1,20 +1,25 @@
-const HOST = window.location.host
-const REST_AUTH_URL = `http://${HOST}/auth/`
-const REST_API_URL =  `http://${HOST}/api/`
-const CSRF_URL = REST_AUTH_URL + 'csrf'
-const LOGIN_URL = REST_AUTH_URL + 'login'
-const LOGOUT_URL = REST_AUTH_URL + 'logout'
-const SESSION_URL = REST_AUTH_URL + 'session'
-const WHOAMI_URL = REST_AUTH_URL + 'whoami'
-const CREATE_USER_URL = REST_API_URL + "createuser"
+export const HOST = window.location.host
+export const REST_AUTH_URL = `http://${HOST}/auth/`
+export const REST_API_URL =  `http://${HOST}/api/`
+export const CSRF_URL = REST_AUTH_URL + 'csrf'
+export const LOGIN_URL = REST_AUTH_URL + 'login'
+export const LOGOUT_URL = REST_AUTH_URL + 'logout'
+export const SESSION_URL = REST_AUTH_URL + 'session'
+export const WHOAMI_URL = REST_AUTH_URL + 'whoami'
+export const CREATE_USER_URL = REST_API_URL + "createuser"
 
-const CONVERSATIONS_URL = REST_API_URL + 'conversations'
+export const CONVERSATIONS_URL = REST_API_URL + 'conversations'
+
+const HTTP_401_UNAUTHORIZED = 401
+const HTTP_400_BAD_REQUEST = 400
+const HTTP_409_CONFLICT = 409
+const HTTP_403_FORBIDDEN = 403
 
 /* 
  * Sets the CSRFCookie of the current document window. Returns true on success and false on failure. 
  * This function should be called on pages that contain forms sent to the back_end
  */
-async function set_csrf() {
+export async function set_csrf() {
     console.log("FETCH START")
 
     // Make a GET request to the CSRF_URL to obtain a CSRF token.
@@ -35,19 +40,17 @@ async function set_csrf() {
 }
 
 /*
- * Logs the user in based on username and password. Requires csrftoken cookie to be set. Returns true on success, false on failure.
+ * Logs the user in based on username and password. Requires csrftoken cookie to be set. 
+ * Returns an object containing 'status' and 'detail'.
+ * Status is the return HTTP status from fetch.
+ * detail is the detail if an error were to have occured
+ * detail will be null if status is 200 (OK)
  */
-async function login(username, password) {
+export async function login(username, password) {
     console.log("LOGIN START")
 
-    // check for a csft cookie
-    csrftoken = document_get_cookie_value('csrftoken')
-    if (!csrftoken) {
-        console.log("csrfToken cookie is null. Canceling Login.")
-        console.log("LOGIN END")
-        return false
-    }
-
+    await set_csrf()
+    const csrftoken = document_get_cookie_value('csrftoken')
     const response = await fetch(LOGIN_URL, {
         method: "POST",
         headers: {
@@ -60,21 +63,15 @@ async function login(username, password) {
         })
     })
 
-    if (!log_response(response, "login")) {
-        console.log("Aborting log in")
-        console.log("LOGIN END")
-        return false
-    }
-    
-    console.log("LOGIN END")
-    return true
+    const json = await response.json()
+    return { status: response.status, detail: json.detail }
 }
 
 /*
  * Logs the current user out based on the session cookie. If there is user logged in at the moment nothing is done.
  * This function doesn't return anything. 
  */
-async function logout() {
+export async function logout() {
     console.log("LOGOUT Start")
 
     const response = await fetch(LOGOUT_URL, {
@@ -93,7 +90,7 @@ async function logout() {
  * Returns the user name of the current logged in user based on the session cookie. 
  * Returns null on failure. i.e. user is not logged in. 
  */
-async function whoami() {
+export async function whoami() {
     console.log("WHOAMI Start")
     
     const response = await fetch(WHOAMI_URL, {
@@ -122,7 +119,7 @@ async function whoami() {
 /*
  * Returns true if the current session is authenticated with the back end. Returns false otherwise. 
  */
-async function session() {
+export async function session() {
     console.log("SESSION Start")
 
     const response = await fetch(SESSION_URL, {
@@ -148,7 +145,7 @@ async function session() {
     return false
 }
 
-async function get_conversations() {
+export async function get_conversations() {
     console.log("GET_CONVERSATIONS Start")
     const response = await fetch (CONVERSATIONS_URL, {
         method: "GET",
@@ -172,7 +169,7 @@ async function get_conversations() {
  * Testing function that calls and prints results of get_conversations(). 
  * It still returns the result of get_conversations as the return of this function.
  */
-async function log_conversations() {
+export async function log_conversations() {
     const data = await get_conversations()
     console.log(data)
 
@@ -182,7 +179,7 @@ async function log_conversations() {
 /*
  * Posts a conversation to the current user's account. Returns the conversation object that was created. Returns null if failed.
  */
-async function post_conversation(name) {
+export async function post_conversation(name) {
     console.log("POST_CONVERSATION Start")
 
     // check for a csft cookie
@@ -220,52 +217,45 @@ async function post_conversation(name) {
  * Testing function that calls and prints results of post_conversation. 
  * It still returns the result of post_conversations as the return of this function.
  */
-async function log_conversation(name) {
+export async function log_conversation(name) {
     const data = await post_conversation(name)
     console.log(data)
     return data
 }
 
-async function create_user(username, password, email) {
+
+/*
+ * userdetails should contain a username field, password field, and email field
+ */
+export async function create_user(userdetails = {}) {
     console.log("CREATE_USER Start")
 
     // check for a csft cookie
-    csrftoken = document_get_cookie_value('csrftoken')
-    if (!csrftoken) {
-        console.log("csrfToken cookie is null. Canceling Login.")
-        console.log("CREATE_USER End")
-        return null
-    }
-
+    await set_csrf()
+    const csrftoken = document_get_cookie_value('csrftoken')
     const response = await fetch(CREATE_USER_URL, {
         method: "POST",
         headers: {
             "X-CSRFToken": csrftoken,
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            username: username,
-            password: password,
-            email: email,
-        })
+        body: JSON.stringify(userdetails)
     })
-    
-    if (log_response(response, "create_user")) {
-        console.log("CREATE_USER POST Response OK")
-        const json = await response.json()
-        return json
-    } else {
-        console.log("CREATE_USER Response NOT OK")
-    }
 
+    const json = await response.json()
     console.log("CREATE_USER End")
-    return null
+
+    if (response.ok) {
+        return { status:response.status, detail: json }
+    } else {
+        return { status:response.status, detail: json.detail }
+    }
 }
 
 /*
  * Returns a cookie value based on the passed key. Returns undefined if cookie doesn't exist.
  */
-function document_get_cookie_value(key) {
+export function document_get_cookie_value(key) {
     return document.cookie
     .split("; ")
     .find((row) => row.startsWith(key + "="))
@@ -275,7 +265,7 @@ function document_get_cookie_value(key) {
 /*
  * Checks and logs if a response is not ok.
  */
-function log_response(response, basename) {
+export function log_response(response, basename) {
     if (response.ok) {
         console.log(basename + "response OK.")
         return true;

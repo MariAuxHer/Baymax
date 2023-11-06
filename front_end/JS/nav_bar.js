@@ -1,3 +1,7 @@
+//! DEPRECATED
+// FUNCTIONALITY OF THIS FILE HAS BEEN INTEGRATED INTO THE BUTTONS THROUGH THE 'ONCLICK' ATTRIBUTE
+// OF THE BUTTONS
+
 // Assign Login Page Button
 const loginElement = document.getElementById('toLoginPage')
 if (loginElement) {

@@ -11,9 +11,9 @@
 <body>
     <aside id="navbar">
         <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        <button id="toLoginPage">Login</button>
-        <button id="toProfilePage">Profile</button>
-        <button id="toAboutPage">About</button>
+        <button id="toLoginPage" onclick="window.location.pathname = 'html/login.html'">Login</button>
+        <button id="toProfilePage" onclick="window.location.pathname = 'html/profile.html'">Profile</button>
+        <button id="toAboutPage" onclick="window.location.pathname = 'html/about.html'">About</button>
     </aside>
 
     <div id="messages">
@@ -48,8 +48,7 @@
         <button id="submit_message" type="submit"><img src="images/paper-plane.png" alt=""></button>
         <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
     </form>
-
-    <script src="JS/nav_bar.js"></script>
+    
     <script src="JS/textarea_replacement.js"></script>
     <script src="JS/message_scroll.js"></script>
 </body>

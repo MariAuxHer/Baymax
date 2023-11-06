@@ -1,52 +1,36 @@
-let test = ['1', '0'];
-let cookies = {};
-
-const login = async (loginInfo) => {
-    //const res = await fetch('http://localhost:8000/auth/login', {
-    const res = await fetch('http://backend/auth/login', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": cookies['csrftoken'],
-            "Cookie": `csrftoken=${cookies['csrftoken']}`
-        },
-
-        body: JSON.stringify({
-            username: loginInfo.username,
-            password: loginInfo.password
-        })
-    })
-
-    return res;
-}
-
+import { login } from "./utils.js"
+import { session } from "./utils.js";
 
 // Allowing the user to login
-document.getElementById('submit').addEventListener('click', function(event) {
+document.getElementById('submit').addEventListener('click', async function(event) {
     event.preventDefault();
     
-    const loginInfo = {
-        username: document.getElementById('username').value,
-        password: document.getElementById('password').value
-    };
+    // do username and password validation
     
-    // Debugging
-    console.log(loginInfo.username);
-    console.log(loginInfo.password);
-    
+    const username = await document.getElementById('username').value
+    const password = await document.getElementById('password').value
 
-    // TODO: Send to backend for verification
-    // ...
-    let response; 
-    // fetch('http://localhost:8000/auth/csrf').then(res => {
-    fetch('http://backend/auth/csrf').then(res => {
-        console.log(res)
-        cookies['csrftoken'] = res.headers.get('X-CSRFToken')
-        console.log(cookies['csrftoken'])
+    const result = await login(username, password);
 
-        (response = login(loginInfo)).then(console.log(response))
-    });
+    if (result.status === 200) {
+        console.log("Logged in")
+        window.location.pathname = '/'
+    } else {
+        console.log(`Logged in failed: ${result.detail}`)
+    }
 
 })
-window.sharedData = test;
+
+document.addEventListener('DOMContentLoaded', function() {
+    session().then((result) => {
+        if (result === true) {
+            window.location.pathname = '/'
+        }
+    })
+  });
+
+
+
+
+
 

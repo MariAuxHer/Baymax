@@ -1,6 +1,10 @@
+import { create_user } from "./utils.js";
+
 // Allowing the user to create an account
-document.getElementById('submit').addEventListener('click', function(event) {
+document.getElementById('submit').addEventListener('click', async function(event) {
     event.preventDefault();
+    
+    // validate fields
 
     const accountInfo = {
         username: document.getElementById('username').value,
@@ -13,7 +17,18 @@ document.getElementById('submit').addEventListener('click', function(event) {
     console.log(accountInfo.password);
     console.log(accountInfo.email);
 
-    
-    // TODO: Send to backend for verification
-    // ...
+    const user = await create_user(accountInfo)
+
+    if (user.status === 200) {
+        console.log("user created")
+        console.log(user.detail)
+
+        window.location.pathname = "html/login.html"
+    } else {
+        console.log("user not created")
+        console.log(user.detail)
+
+         // TODO: (front end team)
+        // show error containing why the user was not created
+    }
 })
