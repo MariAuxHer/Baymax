@@ -1,14 +1,13 @@
-export const HOST = window.location.host
-export const REST_AUTH_URL = `http://${HOST}/auth/`
-export const REST_API_URL =  `http://${HOST}/api/`
-export const CSRF_URL = REST_AUTH_URL + 'csrf'
-export const LOGIN_URL = REST_AUTH_URL + 'login'
-export const LOGOUT_URL = REST_AUTH_URL + 'logout'
-export const SESSION_URL = REST_AUTH_URL + 'session'
-export const WHOAMI_URL = REST_AUTH_URL + 'whoami'
-export const CREATE_USER_URL = REST_API_URL + "createuser"
-
-export const CONVERSATIONS_URL = REST_API_URL + 'conversations'
+const HOST = window.location.host
+const REST_AUTH_URL = `http://${HOST}/auth/`
+const REST_API_URL =  `http://${HOST}/api/`
+const CSRF_URL = REST_AUTH_URL + 'csrf'
+const LOGIN_URL = REST_AUTH_URL + 'login'
+const LOGOUT_URL = REST_AUTH_URL + 'logout'
+const SESSION_URL = REST_AUTH_URL + 'session'
+const WHOAMI_URL = REST_AUTH_URL + 'whoami'
+const CREATE_USER_URL = REST_API_URL + "createuser"
+const CONVERSATIONS_URL = REST_API_URL + 'conversations'
 
 /* 
  * Sets the CSRFCookie of the current document window. Returns true on success and false on failure. 
@@ -164,10 +163,12 @@ export async function log_conversations() {
     return data
 }
 
-/*
+// TODO : Make a version of this function (or change this function) so that it will also post the first prompt.
+// TODO : First make the end point for it in the backend to make it easier (a posted conversation name could include a first_prompt)
+/* 
  * Posts a conversation to the current user's account. Returns the conversation object that was created. Returns null if failed.
  */
-export async function post_conversation(name) {
+export async function post_conversation(conversation_name, first_prompt) {
     // assign a csrf
     if (!(await set_csrf())) {
        return null
@@ -181,19 +182,17 @@ export async function post_conversation(name) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            name: name
+            name: conversation_name
         })
     })
 
-    if (log_response(response, "post_conversations")) {
-        console.log("CONVERSATIONS POST Response OK")
+    if (log_response(response, "post_conversation")) {
+        console.log("POST_CONVERSATION 1/2 Response OK")
         const json = await response.json()
         return json
     } else {
-        console.log("CONVERSATIONS Response NOT OK")
+        console.log("POST_CONVERSATION 1/2 Response NOT OK")
     }
-
-    console.log("POST_CONVERSATION End")
     return null
 }
 
