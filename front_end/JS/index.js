@@ -6,35 +6,26 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         // logged in
         if (result === true) {
-            const conversations = await get_conversations()
-
-            console.log(conversations)
-
-            // display the first conversation
+            const conversations = await get_conversations() 
             
-            console.log(conversations[0])
-
-            console.log("Attempting to display conversation.")    
-            console.log(typeof(conversations))
-            console.log(typeof(conversations[0].interaction_set))
-            console.log(typeof(conversations[0].interaction_set[0]))
-            
-            for (let i = conversations[0].interaction_set.length - 1; i >= 0; i--) {
-                console.log(conversations[0].interaction_set[i])
-                const promptElement = document.createElement('p')
-                promptElement.setAttribute('class', 'right')
-                promptElement.innerHTML = conversations[0].interaction_set[i].prompt
-
-                const LLMresponseElement = document.createElement('p')
-                LLMresponseElement.setAttribute('class', 'left')
-                LLMresponseElement.innerHTML = conversations[0].interaction_set[i].LLMresponse
-                
-                messages.appendChild(promptElement)
-                messages.appendChild(LLMresponseElement)
+            // Display most recent conversation
+            try {
+                for (let i = conversations[0].interaction_set.length - 1; i >= 0; i--) {
+                    const promptElement = document.createElement('p')
+                    promptElement.setAttribute('class', 'right')
+                    promptElement.innerHTML = conversations[0].interaction_set[i].prompt
+    
+                    const LLMresponseElement = document.createElement('p')
+                    LLMresponseElement.setAttribute('class', 'left')
+                    LLMresponseElement.innerHTML = conversations[0].interaction_set[i].LLMresponse
+                    
+                    messages.appendChild(promptElement)
+                    messages.appendChild(LLMresponseElement)
+                }
+            } catch {
+                console.log("No conversation to display, falling back to default message.")
+                messages.appendChild(first_message())
             }
-
-            // console.log("No conversation to display, falling back to default message.")
-            // messages.appendChild(first_message())
         } 
         // not logged in
         else {
