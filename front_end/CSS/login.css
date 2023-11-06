@@ -31,6 +31,16 @@ form {
     height: 50vh;
 }
 
+#error {
+    justify-content: center;
+    align-content: center;
+    align-self: auto;
+    font-size: 1.2em;
+    color: red;
+    flex: 0.2; 
+    margin-bottom: 0.75em;   
+}
+
 .user {
     justify-content: center;
     font-size: 1.2em;
