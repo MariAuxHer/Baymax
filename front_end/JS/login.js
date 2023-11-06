@@ -1,5 +1,4 @@
-import { login } from "./utils.js"
-import { session } from "./utils.js";
+import { login, session } from "./utils.js"
 
 // Allowing the user to login
 document.getElementById('submit').addEventListener('click', async function(event) {
