@@ -17,6 +17,8 @@ document.getElementById('submit').addEventListener('click', async function(event
         window.location.pathname = '/'
     } else {
         console.log(`Logged in failed: ${result.detail}`)
+
+        // TODO: show why the login failed on the HTML DOC
     }
 
 })

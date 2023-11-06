@@ -28,7 +28,6 @@ document.getElementById('submit').addEventListener('click', async function(event
         console.log("user not created")
         console.log(user.detail)
 
-         // TODO: (front end team)
-        // show error containing why the user was not created
+         // TODO: show why the signup failed on the HTML DOC
     }
 })
