@@ -138,7 +138,7 @@ class CreateUser(APIView):
         return Response(UserSerializer(user, context = {'request': request}).data, status = status.HTTP_200_OK)
 
     def get(self, request, format=None):
-        return Response({'detail': 'There is no GET here.'}, status = status.HTTP_403_FORBIDDEN)
+        return Response({'detail': 'There is no GET here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
     
 # default page response
 def index(request):
