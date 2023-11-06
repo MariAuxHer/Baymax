@@ -10,17 +10,11 @@ export const CREATE_USER_URL = REST_API_URL + "createuser"
 
 export const CONVERSATIONS_URL = REST_API_URL + 'conversations'
 
-const HTTP_401_UNAUTHORIZED = 401
-const HTTP_400_BAD_REQUEST = 400
-const HTTP_409_CONFLICT = 409
-const HTTP_403_FORBIDDEN = 403
-
 /* 
  * Sets the CSRFCookie of the current document window. Returns true on success and false on failure. 
  * This function should be called on pages that contain forms sent to the back_end
  */
 export async function set_csrf() {
-    console.log("FETCH START")
 
     // Make a GET request to the CSRF_URL to obtain a CSRF token.
     const response = await fetch(CSRF_URL, {
@@ -28,15 +22,11 @@ export async function set_csrf() {
             "Content-Type": "application/json",
         }
     });
-
-    // check response and log if status not ok
-    if (log_response(response, 'setcsrf')) {
-        console.log("FETCH END")
-        return false
+    if (!response.ok) {
+        console.error("SET_CSRF FAILED")
     }
-
-    console.log("FETCH END")
-    return true;
+    
+    return { status: response.status }
 }
 
 /*
@@ -47,9 +37,14 @@ export async function set_csrf() {
  * detail will be null if status is 200 (OK)
  */
 export async function login(username, password) {
-    console.log("LOGIN START")
 
-    await set_csrf()
+    set_csrf().then( (result) => {
+        if(result.status !== 200) {
+            return { status: result.status, detail: "Failed to set CSRF." }
+        }
+    })
+
+    // send request to backend
     const csrftoken = document_get_cookie_value('csrftoken')
     const response = await fetch(LOGIN_URL, {
         method: "POST",
@@ -63,6 +58,7 @@ export async function login(username, password) {
         })
     })
 
+    // return response
     const json = await response.json()
     return { status: response.status, detail: json.detail }
 }
@@ -72,8 +68,6 @@ export async function login(username, password) {
  * This function doesn't return anything. 
  */
 export async function logout() {
-    console.log("LOGOUT Start")
-
     const response = await fetch(LOGOUT_URL, {
         method: "GET",
         headers: {
@@ -81,9 +75,13 @@ export async function logout() {
         }
     })
 
-    log_response(response, "logout")
-    
-    console.log("LOGOUT End")
+    if (log_response(response, "logout")) {
+        console.error("LOGOUT SUCCESS")
+        return true
+    } else {
+        console.log("LOGOUT FAILED")
+        return false
+    }
 }
 
 /*
@@ -91,8 +89,6 @@ export async function logout() {
  * Returns null on failure. i.e. user is not logged in. 
  */
 export async function whoami() {
-    console.log("WHOAMI Start")
-    
     const response = await fetch(WHOAMI_URL, {
         method: "GET",
         headers: {
@@ -103,25 +99,21 @@ export async function whoami() {
     if (log_response(response, "whoami")) {
         const json = await response.json()
         if (json.username) {
-            console.log(`I AM USER: ${json.username}`)
+            console.log(`WHOAMI SUCCESS - I AM USER: ${json.username}`)
             return json.username
         } else {
-            console.error("Response is missing a username in the body!")
+            console.error("WHOAMI ERROR - Response is missing a username in the body!")
         }
     } else {
-        console.error("Request error")
+        console.error("WHOAMI FAILURE")
+        return null
     } 
-
-    console.log("WHOAMI End")
-    return null
 }
 
 /*
  * Returns true if the current session is authenticated with the back end. Returns false otherwise. 
  */
 export async function session() {
-    console.log("SESSION Start")
-
     const response = await fetch(SESSION_URL, {
         method: "GET",
         headers: {
@@ -132,21 +124,19 @@ export async function session() {
     if (log_response(response, "session")) {
         const data = await response.json()
         if (data.isAuthenticated) {
-            console.log("Current session is authenticated.")
+            console.log("SESSION - Current session is authenticated.")
             return true
         } else {
-            console.log("Current session is not authenticated.")
+            console.log("SESSION - Current session is not authenticated.")
         }
     } else {
-        console.error("Failed to capture response.")
+        console.error("SESSION - Failed to capture response.")
     }
 
-    console.log("SESSION End")
     return false
 }
 
 export async function get_conversations() {
-    console.log("GET_CONVERSATIONS Start")
     const response = await fetch (CONVERSATIONS_URL, {
         method: "GET",
         headers: {
@@ -160,8 +150,6 @@ export async function get_conversations() {
     } else {
         console.log("CONVERSATIONS Response NOT OK")
     }
-
-    console.log("GET_CONVERSATIONS End")
     return null
 }
 
@@ -180,16 +168,12 @@ export async function log_conversations() {
  * Posts a conversation to the current user's account. Returns the conversation object that was created. Returns null if failed.
  */
 export async function post_conversation(name) {
-    console.log("POST_CONVERSATION Start")
-
-    // check for a csft cookie
-    csrftoken = document_get_cookie_value('csrftoken')
-    if (!csrftoken) {
-        console.log("csrfToken cookie is null. Canceling Login.")
-        console.log("POST_CONVERSATION End")
-        return null
+    // assign a csrf
+    if (!(await set_csrf())) {
+       return null
     }
-
+    
+    const csrftoken = document_get_cookie_value('csrftoken')
     const response = await fetch(CONVERSATIONS_URL + "/", {
         method: "POST",
         headers: {
@@ -226,12 +210,15 @@ export async function log_conversation(name) {
 
 /*
  * userdetails should contain a username field, password field, and email field
+ * returns null if failed to set csrf
  */
 export async function create_user(userdetails = {}) {
     console.log("CREATE_USER Start")
 
     // check for a csft cookie
-    await set_csrf()
+    if (!(await set_csrf())) {
+        return null
+    }
     const csrftoken = document_get_cookie_value('csrftoken')
     const response = await fetch(CREATE_USER_URL, {
         method: "POST",

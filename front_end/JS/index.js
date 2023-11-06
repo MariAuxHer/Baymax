@@ -1,4 +1,4 @@
-import { get_conversations, session } from "./utils.js";
+import { log_conversations, session } from "./utils.js";
 const messages = document.getElementById("messages")
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         // logged in
         if (result === true) {
-            const conversations = await get_conversations() 
+            const conversations = await log_conversations() 
             
             // Display most recent conversation
             try {
