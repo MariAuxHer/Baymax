@@ -31,7 +31,7 @@ class CSRF(APIView):
         return response
     
     def post(request, format=None):
-        return Response({'detail': 'There is no POST here.'}, status = status.HTTP_403_FORBIDDEN)
+        return Response({'detail': 'There is no POST here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
@@ -56,7 +56,7 @@ class LoginView(APIView):
         return Response({'detail': 'Successfully logged in.'}, status = status.HTTP_200_OK)
     
     def get(self, request, format=None):
-        return Response({'detail': 'There is no GET here.'}, status = status.HTTP_403_FORBIDDEN)
+        return Response({'detail': 'There is no GET here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
 
 class LogoutView(APIView):
     authentication_classes = [SessionAuthentication]
@@ -72,7 +72,7 @@ class LogoutView(APIView):
         return JsonResponse({'detail': 'Successfully logged out.'}, status = status.HTTP_200_OK)
     
     def post (self, request, format=None):
-         return Response({'detail': 'There is no POST here.'}, status = status.HTTP_403_FORBIDDEN)
+         return Response({'detail': 'There is no POST here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
     
 class SessionView(APIView):
     authentication_classes = [SessionAuthentication]
