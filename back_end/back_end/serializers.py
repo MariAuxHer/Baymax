@@ -20,7 +20,13 @@ class ConversationSerializer(serializers.HyperlinkedModelSerializer):
         serializer_context = {'request': self.context.get('request') }
         interactions = Interaction.objects.filter(conversation = obj).order_by('-creation_time')
         return InteractionSerializer(interactions, context = serializer_context, many = True).data
-    
+
+class MinimalConversationSerializer(ConversationSerializer):
+    class Meta:
+        model = Conversation
+        fields = ['url', 'owner', 'last_accessed', 'creation_time', 'name']
+        read_only_fields = ['url', 'owner', 'last_accessed', 'creation_time']
+        
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:

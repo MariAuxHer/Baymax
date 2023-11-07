@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, permissions
-from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer
+from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer, MinimalConversationSerializer
 from django.contrib.auth.password_validation import validate_password, password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
@@ -33,6 +33,18 @@ class ConversationViewSet(viewsets.ModelViewSet):
     # Only allow the user to conrol their own Conversations
     def get_queryset(self):
         return Conversation.objects.filter(owner = self.request.user).order_by('-creation_time')
+    
+    # Allow the list to have a custom HTTP Header that can specify to have interaction sets returned or not
+    def list(self, request):
+        serializer = ConversationSerializer
+
+        try:
+            show_interactions = request.META.get('HTTP_X_SHOWINTS')
+            if (show_interactions and show_interactions.lower() == "false"):
+                print("changing to minimal")
+                serializer = MinimalConversationSerializer
+        finally:
+            return Response(serializer(self.get_queryset(), many=True, context = {'request': request}).data)
     
     # auto associate the owner with the newly created conversation
     def create(self, request):
