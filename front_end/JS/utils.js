@@ -139,6 +139,7 @@ export async function get_conversations() {
     const response = await fetch (CONVERSATIONS_URL, {
         method: "GET",
         headers: {
+            "X-ShowInts": false,
             "Content-Type": "application/json"
         }
     })
