@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // logged in
         if (result === true) {
+            // adjust navbar
+            const login_button = document.getElementById('toLoginPage')
+            login_button.remove()
+
             const conversations = await log_conversations() 
             
             // Display most recent conversation
@@ -81,7 +85,7 @@ document.addEventListener('submit', async (event) => {
                 }
             } else {
                 add_LLMresponse("post_conversation didnt come back with anything")
-                console.err("post_conversation didnt come back with anything")
+                console.error("post_conversation didnt come back with anything")
             }
         } 
     }
