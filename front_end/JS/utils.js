@@ -163,12 +163,10 @@ export async function log_conversations() {
     return data
 }
 
-// TODO : Make a version of this function (or change this function) so that it will also post the first prompt.
-// TODO : First make the end point for it in the backend to make it easier (a posted conversation name could include a first_prompt)
 /* 
  * Posts a conversation to the current user's account. Returns the conversation object that was created. Returns null if failed.
  */
-export async function post_conversation(conversation_name, first_prompt) {
+export async function post_conversation(conversation_name, first_prompt = null) {
     // assign a csrf
     if (!(await set_csrf())) {
        return null
@@ -186,14 +184,30 @@ export async function post_conversation(conversation_name, first_prompt) {
         })
     })
 
-    if (log_response(response, "post_conversation")) {
+    if (log_response(response, "post_conversation 1/2")) {
         console.log("POST_CONVERSATION 1/2 Response OK")
-        const json = await response.json()
-        return json
     } else {
         console.log("POST_CONVERSATION 1/2 Response NOT OK")
+        return null
     }
-    return null
+    const json = await response.json()
+
+    console.log(json)
+    console.log(json.url)
+
+    // post the first prompt if given
+    if (first_prompt) {
+        const json2 = await post_prompt(json.url, first_prompt)
+
+        if (json2) {
+            console.log("POST_CONVERSATION 2/2 Response OK")
+            json.interaction_set[0] = json2
+            return json
+        } else {
+            console.log("POST_CONVERSATION 2/2 Response NOT OK")
+        }
+    }
+    return json
 }
 
 /*
@@ -235,6 +249,35 @@ export async function create_user(userdetails = {}) {
         return { status:response.status, detail: json }
     } else {
         return { status:response.status, detail: json.detail }
+    }
+}
+
+/*
+ * Posts a new interaction to the conversation url
+ */
+export async function post_prompt(conversation_url, prompt) { 
+    if (!(await set_csrf())) {
+        return null
+    }
+
+    const csrftoken = document_get_cookie_value('csrftoken')
+    const response = await fetch(conversation_url + 'interactions/', {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": csrftoken,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            prompt: prompt
+        })
+    })
+
+    if (log_response(response, "post_prompt")) {
+        console.log("POST_PROMPT Response OK")
+        return await response.json()
+    } else {
+        console.log("POST_PROMPT Response NOT OK")
+        return null
     }
 }
 

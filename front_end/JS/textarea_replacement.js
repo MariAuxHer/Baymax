@@ -1,6 +1,7 @@
 // This script creates a div to replace the default text area because it is easier to edit
 
 let textarea_replacement = document.createElement("div");       // making an editable div to replace a text area
+textarea_replacement.setAttribute('id', 'prompt_text')
 textarea_replacement.classList = "textarea_replacement"
 textarea_replacement.hidden = true;
 let submit_button = document.querySelector("#submit_message");
