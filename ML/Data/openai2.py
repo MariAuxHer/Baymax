@@ -1,3 +1,4 @@
+
 import openai
 import json
 import re
@@ -7,12 +8,17 @@ import requests
 with open('medical_specializations.json', 'r') as f:
     medical_specializations = json.load(f)
 
-API_KEY = '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'
+
+# set the API_KEY I can't set mine because if I do, openai will disable my api key
+# This code wont work without an API_KEY though. For the next sprint, I will switch to 
+# making calls to PaLM API since this one is free and more than likely don't have the issue
+# of being unable to be shared in public repositories. 
+# API_KEY = 
 openai.api_key = API_KEY
 model_id = 'gpt-4'
 
 def fetch_doctors(specialty, city):
-    url = ("https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms={}&"
+    url = ("https://clinicaltables.nlm.nih.gov/api/npi_idv/sv3/search?terms={}&"
            "q=addr_practice.city:{}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=500").format(specialty, city)
 
     response = requests.get(url)
@@ -53,10 +59,6 @@ conversations = []
 #conversations = chatgpt_conversation(conversations)
 #print('{0}: {1}\n'.format(conversations[-1]['role'].strip(), conversations[-1]['content'].strip()))
 
-# Load the taxonomy_dict from the JSON file
-#with open('lol.json', 'r') as f:
-#    taxonomy_dict = json.load(f)
-
 while True:
     prompt = input('User: ')
     conversations.append({'role': 'user', 'content': prompt})
@@ -80,18 +82,3 @@ while True:
                     print(f"{idx}. Name: {doctor['Name']}, Address: {doctor['Address']}, Phone: {doctor['Phone']}")
             else:
                 print("No doctors found or failed to retrieve data.")
-
-
-        
-        
-        # if match then look at the database of doctors 
-
-    #print('{1}\n'.format(conversations[-2]['content'].strip()))
-    # what we can do is just ask the model ourselves (not the user to output the specialization of the doctor)
-
-# Write the DataFrame to a CSV file
-#with open('grouping.txt', 'w') as file:
-    # Iterate through the keys of the dictionary
-#    for key in taxonomy_dict:
-        # Write each key to the file, followed by a newline character
-#        file.write(f"{key}\n")
