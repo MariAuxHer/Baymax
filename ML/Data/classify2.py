@@ -20,9 +20,7 @@ def get_doctor_info(api_url, query_terms):
     if response.status_code == 200:
         # Parse the JSON response
         data = response.json()
-        print(data[3])
-
-
+        
         # Extract relevant information from the response
         results = data[3]
 
@@ -41,14 +39,15 @@ def get_doctor_info(api_url, query_terms):
                 doctor_dict[grouping][classification] = {}
 
             if specialization not in doctor_dict[grouping][classification]:
-                doctor_dict[grouping][classification][specialization] = {}
+                doctor_dict[grouping][classification][specialization] = []
 
             # Use the NPI as a key for each doctor
             npi = result[0]
-            doctor_dict[grouping][classification][specialization][npi] = {
+            doctor_info = {
                 'doctor_name': doctor_name,
                 'doctor_address': doctor_address
             }
+            doctor_dict[grouping][classification][specialization].append(doctor_info)
 
         return doctor_dict
 
@@ -57,13 +56,11 @@ def get_doctor_info(api_url, query_terms):
         print(f"Error: {response.status_code}")
         return None
 
-# Replace 'YOUR_API_URL' with the actual base URL of the API
 api_url = 'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3'
 
-# Replace 'john' with the search term you are interested in
+# keep as empty string to get all doctors
 query_terms = ''
 
-# Call the function to get doctor information
 doctor_info_dict = get_doctor_info(api_url, query_terms)
 
 if doctor_info_dict:
