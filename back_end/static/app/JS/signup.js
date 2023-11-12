@@ -29,7 +29,7 @@ document.getElementById('submit').addEventListener('click', async function(event
         console.log("user created")
         console.log(user.detail)
 
-        window.location.pathname = "html/login.html"
+        window.location.pathname = "login"
     } else {
         console.log("user not created")
         console.log(user.detail)

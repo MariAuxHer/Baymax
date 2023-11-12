@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         } 
         // not logged in
         else {
-            window.location.pathname = 'html/login.html'
+            window.location.pathname = 'login'
         }
     })
 });

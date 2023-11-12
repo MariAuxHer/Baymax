@@ -6,7 +6,7 @@
 const loginElement = document.getElementById('toLoginPage')
 if (loginElement) {
     loginElement.addEventListener('click', () => {
-        window.location.pathname = 'html/login.html';
+        window.location.pathname = 'login';
     })
 }
 
@@ -14,7 +14,7 @@ if (loginElement) {
 const profileElement = document.getElementById('toProfilePage')
 if (profileElement) {
     profileElement.addEventListener('click', () => {
-        window.location.pathname = 'html/profile.html';
+        window.location.pathname = 'profile';
     })
 }
 
@@ -22,6 +22,6 @@ if (profileElement) {
 const aboutElement = document.getElementById('toAboutPage')
 if (aboutElement) {
     aboutElement.addEventListener('click', () => {
-        window.location.pathname = 'html/about.html';
+        window.location.pathname = 'about';
     })
 }
