@@ -64,6 +64,11 @@ class ConversationViewSet(viewsets.ModelViewSet):
 
             c = get_object_or_404(Conversation, pk=pk)
             i = Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c) 
+
+            # update the conversation access time
+            c.last_accessed = i.creation_time
+            c.save()
+
             serializer = InteractionSerializer(i, context={'request': request})
             return Response(serializer.data)
 
