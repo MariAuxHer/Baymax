@@ -12,8 +12,8 @@
 </head>
 
 <body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
     <aside id="navbar">
-        <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
         {% if not user.is_authenticated %} 
             <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
         {% else %}
@@ -32,7 +32,7 @@
         </div>
         <div class="pass">
             Password:
-            <input type="text" id="password" name="password">
+            <input type="password" id="password" name="password">
         </div>
         <button id="submit">Login</button>
 

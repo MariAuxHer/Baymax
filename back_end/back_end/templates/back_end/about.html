@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/about.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
     <title>Big Hero 7</title> 
 </head>
 
 <body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
     <aside id="navbar">
-        <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
         {% if not user.is_authenticated %} 
             <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
         {% else %}
@@ -19,6 +20,7 @@
             <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
         {% endif %}
         <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+        <button id="togglePanelButton"><img src="images/black_burger-removebg-preview.png"></button>
     </aside>
     
     <div class="content">
