@@ -12,31 +12,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // logged in
         if (result === true) {
-            // adjust navbar
-            const login_button = document.getElementById('toLoginPage')
-            login_button.remove()
-
             const conversations = await log_conversations() 
             
             // Display most recent conversation
             try {
-                load_conversation(conversations[0].url)
+                conversation_url = conversations[0].url
             } catch {
-                console.log("No conversation to display, falling back to default message.")
-                default_page()
+                console.log("No conversation to display, keeping what should be the default page")
             }
-
-            const panel = document.getElementById('panelContainer')
-
-            // create default conversation button
-            const default_button = document.createElement('button')
-            default_button.setAttribute('id', 'default_button')
-            default_button.addEventListener('click', () => {
-                default_page()
-            })
-            panel.appendChild(default_button)
-
+ 
             // populate the panel with buttons
+            const panel = document.getElementById('panelContainer')
             for (let i = 0; i < conversations.length; i++) {
                 const button = document.createElement('button')
                 button.setAttribute('id', panel.id + '_button_' + i)
@@ -54,6 +40,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     })
 });
+
+document.getElementById('default_button').addEventListener('click', () => {
+    default_page()
+})
 
 document.addEventListener('submit', async (event) => {
     event.preventDefault()

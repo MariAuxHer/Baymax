@@ -1,4 +1,4 @@
-import { create_user } from "./utils";
+import { create_user } from "./utils.js";
 
 
 // Allowing the user to create an account
