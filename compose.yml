@@ -15,7 +15,7 @@ services:
     build:
       dockerfile: ./Dockerfile
     volumes:
-      - ./back_end/static/app:/app/static/app
+      - ./back_end/static/app:/app/static/
     
     ports:
       - 80:80
