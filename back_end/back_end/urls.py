@@ -38,5 +38,6 @@ urlpatterns = [
     path('signup', views.signup),
     path('about', views.about),
     path('test', views.test),
+    path('signout', views.signout),
 
 ]
