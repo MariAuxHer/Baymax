@@ -1,6 +1,6 @@
-from back_end.models import Conversation, Interaction
+from back_end.models import Conversation, Interaction, CustomUser
 from rest_framework import serializers
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
 class InteractionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -30,8 +30,8 @@ class MinimalConversationSerializer(ConversationSerializer):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'groups', 'is_staff']
+        model = CustomUser
+        fields = ['url', 'username', 'email', 'city', 'state', 'zipcode', 'groups', 'is_staff']
         read_only_fields = ['url', 'groups', 'is_staff']
 
 
