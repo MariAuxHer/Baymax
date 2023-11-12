@@ -1,18 +1,22 @@
-from django.http import HttpResponse, Http404
-from django.shortcuts import get_object_or_404
+# rest 
 from rest_framework import viewsets, permissions
-from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer, MinimalConversationSerializer
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.views import APIView
+
+# validation
 from django.contrib.auth.password_validation import validate_password, password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.contrib.auth.validators import UnicodeUsernameValidator, ASCIIUsernameValidator
 
+# short cuts
+from django.shortcuts import get_object_or_404
+
+# database
+from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer, MinimalConversationSerializer
 from back_end.models import Conversation, Interaction, CustomUser
-#from django.contrib.auth.models import User 
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.decorators import action
-from rest_framework.views import APIView
 
 
 class UserViewSet(viewsets.ModelViewSet):
