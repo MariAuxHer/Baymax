@@ -25,7 +25,7 @@ api_router = routers.DefaultRouter()
 
 api_router.register(r'conversations', api_views.ConversationViewSet, basename = 'conversation')
 api_router.register(r'interactions', api_views.InteractionViewSet, basename = 'interaction')    
-api_router.register(r'users', api_views.UserViewSet, basename = 'user')
+api_router.register(r'users', api_views.UserViewSet, basename = 'customuser')
     
 urlpatterns = [
     path('admin/', admin.site.urls),
