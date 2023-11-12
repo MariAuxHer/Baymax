@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../CSS/profile.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/nav_bar.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/CSS/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/CSS/nav_bar.css' %}">
     <title>Baymax | Profile</title>
 </head>
 
 <body>
     <aside id="navbar">
-        <h1 id="Baymax"><a href="../index.html" id="toIndex">Baymax</a></h1>
-        <button id="toLoginPage" onclick="window.location.pathname = 'html/login.html'">Login</button>
-        <button id="toProfilePage" onclick="window.location.pathname = 'html/profile.html'">Profile</button>
-        <button id="toAboutPage" onclick="window.location.pathname = 'html/about.html'">About</button>
+        <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+        <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button>
+        <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+        <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
     </aside>
     <form>
         <h2>Profile Information</h2>

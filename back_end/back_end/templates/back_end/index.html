@@ -1,19 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="CSS/main.css">
-    <link rel="stylesheet" type="text/css" href="CSS/nav_bar.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/CSS/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/CSS/nav_bar.css' %}">
 
     <title>Baymax</title>
 </head>
 <body>
     <aside id="navbar">
         <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        <button id="toLoginPage" onclick="window.location.pathname = 'html/login.html'">Login</button>
-        <button id="toProfilePage" onclick="window.location.pathname = 'html/profile.html'">Profile</button>
-        <button id="toAboutPage" onclick="window.location.pathname = 'html/about.html'">About</button>
+        <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button>
+        <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+        <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
     </aside>
 
     <div id="messages">
@@ -45,12 +46,12 @@
     
     <form id="message_form">
         <textarea id="message_textarea" name="message"></textarea>
-        <button id="submit_message"><img src="images/paper-plane.png"></button>
+        <button id="submit_message"><img src="{% static '/images/paper-plane.png' %}"></button>
         <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
     </form>
     
-    <script type="module" src="JS/index.js"> </script>
-    <script src="JS/textarea_replacement.js"></script>
-    <script src="JS/message_scroll.js"></script>
+    <script type="module" src="{% static '/JS/index.js' %}"> </script>
+    <script src="{% static '/JS/textarea_replacement.js' %}"></script>
+    <script src="{% static '/JS/message_scroll.js' %}"></script>
 </body>
 </html>
