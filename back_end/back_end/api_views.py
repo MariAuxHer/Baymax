@@ -7,8 +7,8 @@ from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.contrib.auth.validators import UnicodeUsernameValidator, ASCIIUsernameValidator
 
-from back_end.models import Conversation, Interaction
-from django.contrib.auth.models import User 
+from back_end.models import Conversation, Interaction, CustomUser
+#from django.contrib.auth.models import User 
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
@@ -19,7 +19,7 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = User.objects.all().order_by('-date_joined')
+    queryset =  CustomUser.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAdminUser]
 
@@ -111,12 +111,16 @@ class CreateUser(APIView):
         username = request.data['username']
         password = request.data['password']
         email = request.data['email']
+        city = request.data['city']
+        state = request.data['state']
+        zipcode = request.data['zipcode']
 
-        if (not username or not password or not email):
-            return Response({'detail' : 'Missing one or more of the following fields: username, password, email.'}, status = status.HTTP_400_BAD_REQUEST)
+        if (not username or not password or not email or not city or not state or not zipcode):
+            return Response({'detail' : 'Missing one or more of the following fields: username, password, email, city, state, zipcode.'}, status = status.HTTP_400_BAD_REQUEST)
         
 
         # check username
+        # UnicodeUsernameValidator()
         username_validator = ASCIIUsernameValidator() 
         try:
             username_validator(username)
@@ -124,7 +128,7 @@ class CreateUser(APIView):
             return Response({'detail': 'Invalid username. ' + username_validator.message}, status = status.HTTP_400_BAD_REQUEST)
         
         # check if username is taken
-        if (User.objects.filter(username = username).count() != 0):
+        if (CustomUser.objects.filter(username = username).count() != 0):
             return Response({'detail': 'Username already taken.'}, status = status.HTTP_409_CONFLICT)
         
         # validate password
@@ -141,8 +145,10 @@ class CreateUser(APIView):
         except ValidationError:
             return Response({'detail': 'Invalid email.'}, status = status.HTTP_400_BAD_REQUEST)
         
+        # MAYBE LATER VALIDATE CITY, STATE, AND ZIP CODE (like whether the state/city, zip code exists or not in the US)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
         # create user and set details
-        user = User.objects.create(username = username, email = email)
+        user = CustomUser.objects.create(username = username, email = email, city=city, state=state, zipcode=zipcode)
         user.set_password(password)
         user.save()
 
@@ -153,6 +159,7 @@ class CreateUser(APIView):
         return Response({'detail': 'There is no GET here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
     
 # default page response
-def index(request):
-    return Response({"detail": "This page doesn't have anything right now, but this message is intended."})
+class IndexView(APIView):
+    def get(self, request, format=None):
+        return Response({"detail": "This page doesn't have anything right now, but this message is intended."})
 

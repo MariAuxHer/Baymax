@@ -28,3 +28,6 @@ logs/
 # static files from django
 static/
 
+# docker dev containers
+.devcontainer
+

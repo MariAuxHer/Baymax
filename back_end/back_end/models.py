@@ -9,25 +9,25 @@ class CustomUser(AbstractUser):
     state = models.CharField(max_length=255)
     zipcode = models.CharField(max_length=10)
 
-    groups = models.ManyToManyField(
-        'auth.Group',
-        verbose_name='groups',
-        blank=True,
-        related_name="customuser_set",
-        related_query_name="customuser",
-        help_text=(
-            'The groups this user belongs to. A user will get all permissions '
-            'granted to each of their groups.'
-        ),
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        verbose_name='user permissions',
-        blank=True,
-        related_name="customuser_set",
-        related_query_name="customuser",
-        help_text='Specific permissions for this user.',
-    )
+    # groups = models.ManyToManyField(
+    #     'auth.Group',
+    #     verbose_name='groups',
+    #     blank=True,
+    #     related_name="customuser_set",
+    #     related_query_name="customuser",
+    #     help_text=(
+    #         'The groups this user belongs to. A user will get all permissions '
+    #         'granted to each of their groups.'
+    #     ),
+    # )
+    # user_permissions = models.ManyToManyField(
+    #     'auth.Permission',
+    #     verbose_name='user permissions',
+    #     blank=True,
+    #     related_name="customuser_set",
+    #     related_query_name="customuser",
+    #     help_text='Specific permissions for this user.',
+    # )
 
 # Holds Interactions
 class Conversation(models.Model):

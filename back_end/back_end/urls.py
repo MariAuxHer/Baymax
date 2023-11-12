@@ -16,20 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from . import api_views
+#from .api_views import IndexView
 import back_end_auth.urls
 from rest_framework import routers
 
 api_router = routers.DefaultRouter()
 
-api_router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
-api_router.register(r'interactions', views.InteractionViewSet, basename = 'interaction')    
-api_router.register(r'users', views.UserViewSet, basename = 'user')
+api_router.register(r'conversations', api_views.ConversationViewSet, basename = 'conversation')
+api_router.register(r'interactions', api_views.InteractionViewSet, basename = 'interaction')    
+api_router.register(r'users', api_views.UserViewSet, basename = 'customuser')
     
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(back_end_auth.urls)),
     path('api/', include(api_router.urls)),
-    path('api/createuser', views.CreateUser.as_view()),
-    path('', views.index)
+    path('api/createuser', api_views.CreateUser.as_view()),
+    path('', api_views.IndexView.as_view(), name='index'),
 ]
