@@ -4,18 +4,18 @@
     <!-- <script src="utils.js"></script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static '/CSS/signup.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/CSS/nav_bar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/signup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
 
     <title>Baymax | Sign Up</title>
 </head>
 
 <body>
     <aside id="navbar">
-        <h1 id="Baymax"><a href="../index.html" id="toIndex">Baymax</a></h1>
+        <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
         <button id="toLoginPage" onclick="window.location.pathname = 'html/login.html'">Login</button>
         <button id="toAboutPage" onclick="window.location.pathname = 'html/about.html'">About</button>
-        <script type="module" src="{% static '/JS/signup.js' %}"></script>
+        <script type="module" src="{% static '/app/JS/signup.js' %}"></script>
     </aside>
 
     <form>
