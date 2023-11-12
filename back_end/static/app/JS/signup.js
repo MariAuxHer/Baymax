@@ -1,4 +1,5 @@
-import { create_user } from "./utils.js";
+import { create_user } from "./utils";
+
 
 // Allowing the user to create an account
 document.getElementById('submit').addEventListener('click', async function(event) {
@@ -14,14 +15,6 @@ document.getElementById('submit').addEventListener('click', async function(event
         state: document.getElementById('state').value,
         zipcode: document.getElementById('zipcode').value,
     };
-
-    // Debugging
-    console.log(accountInfo.username);
-    console.log(accountInfo.password);
-    console.log(accountInfo.email);
-    console.log(accountInfo.city);
-    console.log(accountInfo.state);
-    console.log(accountInfo.zipcode);
 
     const user = await create_user(accountInfo)
 

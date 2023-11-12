@@ -44,7 +44,7 @@ export async function login(username, password) {
     })
 
     // send request to backend
-    const csrftoken = document_get_cookie_value('csrftoken')
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
     const response = await fetch(LOGIN_URL, {
         method: "POST",
         headers: {
@@ -173,7 +173,7 @@ export async function post_conversation(conversation_name, first_prompt = null) 
        return null
     }
     
-    const csrftoken = document_get_cookie_value('csrftoken')
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
     const response = await fetch(CONVERSATIONS_URL + "/", {
         method: "POST",
         headers: {
@@ -233,7 +233,7 @@ export async function create_user(userdetails = {}) {
     if (!(await set_csrf())) {
         return null
     }
-    const csrftoken = document_get_cookie_value('csrftoken')
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
     const response = await fetch(CREATE_USER_URL, {
         method: "POST",
         headers: {
@@ -261,7 +261,7 @@ export async function post_prompt(conversation_url, prompt) {
         return null
     }
 
-    const csrftoken = document_get_cookie_value('csrftoken')
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
     const response = await fetch(conversation_url + 'interactions/', {
         method: "POST",
         headers: {

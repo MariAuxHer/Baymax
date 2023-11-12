@@ -12,7 +12,7 @@
 <body>
     <aside id="navbar">
         <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button>
+        {% if not user.is_authenticated %} <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> {% endif %}
         <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
         <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
     </aside>
