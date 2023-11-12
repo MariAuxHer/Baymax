@@ -9,11 +9,14 @@
     <title>Baymax</title>
 </head>
 <body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
     <aside id="navbar">
-        <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        <button id="toLoginPage" onclick="window.location.pathname = 'html/login.html'">Login</button>
-        <button id="toProfilePage" onclick="window.location.pathname = 'html/profile.html'">Profile</button>
-        <button id="toAboutPage" onclick="window.location.pathname = 'html/about.html'">About</button>
+        <div class="nav_container">
+            <button id="toLoginPage" onclick="window.location.pathname = 'html/login.html'">Login</button>
+            <button id="toProfilePage" onclick="window.location.pathname = 'html/profile.html'">Profile</button>
+            <button id="toAboutPage" onclick="window.location.pathname = 'html/about.html'">About</button>
+            <button id="togglePanelButton"><img src="images/black_burger-removebg-preview.png"></button>
+        </div>
     </aside>
 
     <div id="messages">
@@ -38,7 +41,6 @@
         <p class="left">Hello, how are you?. It's so typical of me to talk about myself, I'm sorry. I hope that you're well. Did you ever make it out of that town where nothing ever happened?</p> -->
     </div>
 
-    <button id="togglePanelButton">Toggle Panel</button>
     <div id="panelContainer">
       <!--Panel Stuff-->
     </div>
