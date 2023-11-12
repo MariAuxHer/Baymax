@@ -5,31 +5,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-#navbar {
     position: fixed;
-    height: 4.3em;
+    /* height: 4.3em; */
     top:0;
     width: 100%;
     background: #292828;
     display: grid;
-    grid-template-areas: "about profile login";
-    grid-template-columns: auto min-content min-content;
 }
 
-#navbar > h1 {
-    margin: 0.4em 0.7em;
-    font-size: 2.5em;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.nav_container {
+    width: max-content;
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-self: end;
 }
 
-#navbar > button {
+.navbar_container > button {
     margin: 1em;
-    font-size: 1.3em;
+    font-size: 1.9em;
     border: none;
     box-shadow: none;
     background-color: transparent;
@@ -37,28 +30,51 @@
     color: #d8d8d8;
 }
 
-#navbar > #Baymax > #toIndex {
-    text-decoration: none;
-    color: #ff3535;
+#toLoginPage {
+    grid-column: 1/2;
+    margin: 0.7em 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+#toProfilePage {
+    grid-column: 2/3;
+    margin: 0.7em 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+#toAboutPage {
+    grid-column: 3/4;
+    margin: 0.7em 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+#togglePanelButton {
+    grid-column: 4/5;
+    margin: 0.7em 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
 }
 
-#navbar > #toLoginPage:hover, #navbar > #toProfilePage:hover, #navbar > #toAboutPage:hover {
+#toLoginPage:hover, #toProfilePage:hover, #toAboutPage:hover {
     color: #fdfdfd;
 }
 
-#navbar > #toLoginPage:active, #navbar > #toProfilePage:active, #navbar > #toAboutPage:active {
+#toLoginPage:active, #toProfilePage:active, #toAboutPage:active {
     color: #ada8a8;
 } 
-
-#navbar > #toLoginPage {
-    grid-area: login;    
-}
-
-#navbar > #toProfilePage {
-    grid-area: profile;    
-}
-
-#navbar > #toAboutPage {
-    justify-self: end;
-    grid-area: about;
-}

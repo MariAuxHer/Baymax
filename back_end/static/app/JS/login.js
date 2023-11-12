@@ -18,6 +18,8 @@ document.getElementById('submit').addEventListener('click', async function(event
         console.log(`Logged in failed: ${result.detail}`)
 
         // TODO: show why the login failed on the HTML DOC
+        let error_text = document.getElementById("error");
+        error_text.textContent = JSON.parse(result.detail);
     }
 
 })
