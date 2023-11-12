@@ -6,8 +6,8 @@ services:
 
   back_end:
     build: ./back_end
-    # volumes:
-      # - ./back_end:/app
+    volumes:
+      - ./back_end:/app
     expose:
       - 8000
 
