@@ -14,11 +14,16 @@
 <body>
     <aside id="navbar">
         <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button>
-        <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+        {% if not user.is_authenticated %} 
+            <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+        {% else %}
+            <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+            <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+        {% endif %}
         <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
-    
-    <form>{% csrf_token %}
+    </aside>
+
+    <form> {% csrf_token %}
         <h2>Log In To Your Account</h2>
         <div id="error"></div>
         <div class="user">

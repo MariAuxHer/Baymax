@@ -12,8 +12,12 @@
 <body>
     <aside id="navbar">
         <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        {% if not user.is_authenticated %} <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> {% endif %}
-        <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+        {% if not user.is_authenticated %} 
+            <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+        {% else %}
+            <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+            <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+        {% endif %}
         <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
     </aside>
 
@@ -26,7 +30,7 @@
         {% else %}
             <p class="left">Hello, it's me</p>
         {% endif %}
-        
+
         <!-- <p class="right">Hello, it's me</p>
         <p class="left">I was wondering if after all these years you'd like to meet</p>
         <p class="left">To go over everything</p>
@@ -51,6 +55,7 @@
     <button id="togglePanelButton">Toggle Panel</button>
     <div id="panelContainer">
       <!--Panel Stuff-->
+      <button id="default_button"></button>
     </div>
     
     <form id="message_form">{% csrf_token %}
@@ -59,7 +64,7 @@
         <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
     </form>
     
-    <!-- <script type="module" src="{% static '/app/JS/index.js' %}"> </script> -->
+    <script type="module" src="{% static '/app/JS/index.js' %}"> </script>
     <script src="{% static '/app/JS/textarea_replacement.js' %}"></script>
     <script src="{% static '/app/JS/message_scroll.js' %}"></script>
 </body>

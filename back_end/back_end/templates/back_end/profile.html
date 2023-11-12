@@ -12,30 +12,34 @@
 <body>
     <aside id="navbar">
         <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button>
-        <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+        {% if not user.is_authenticated %} 
+            <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+        {% else %}
+            <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+            <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+        {% endif %}
         <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
     </aside>
     <form>
         <h2>Profile Information</h2>
 
         <div class="info" id="user">
-            Username: yourUsernameHere
+            Username: {{ user.username}}
         </div>
         <div class="info" id="pass">
-            Password: yourPasswordHere
+            Password: um no
         </div>
         <div class="info" id="email">
-            Email: yourEmailHere
+            Email: {{ user.email }}
         </div>
         <div class="info" id="city">
-            City: yourCityHere
+            City: {{ user.city }}
         </div>
         <div class="info" id="state">
-            State: yourStateHere
+            State: {{ user.state }}
         </div>
         <div class="info" id="zipcode">
-            Zip Code: yourZipCodeHere
+            Zip Code: {{ user.zipcode }}
         </div>
 
         <a href="" id="toInfoChange">Change profile information</a>

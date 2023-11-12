@@ -14,7 +14,7 @@
 <body>
     <aside id="navbar">
         <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        {% if not user.is_authenticated %} <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> {% endif %}
+        <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
         <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
         <script type="module" src="{% static '/app/JS/signup.js' %}"></script>
     </aside>
