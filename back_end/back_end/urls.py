@@ -16,8 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import api_views
-#from .api_views import IndexView
+from . import api_views, views
 import back_end_auth.urls
 from rest_framework import routers
 
@@ -32,5 +31,12 @@ urlpatterns = [
     path('auth/', include(back_end_auth.urls)),
     path('api/', include(api_router.urls)),
     path('api/createuser', api_views.CreateUser.as_view()),
-    path('', api_views.IndexView.as_view(), name='index'),
+
+    path('', views.index),
+    path('profile', views.profile),
+    path('login', views.login),
+    path('signup', views.signup),
+    path('about', views.about),
+    path('test', views.test),
+
 ]

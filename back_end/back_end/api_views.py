@@ -161,9 +161,4 @@ class CreateUser(APIView):
 
     def get(self, request, format=None):
         return Response({'detail': 'There is no GET here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
-    
-# default page response
-class IndexView(APIView):
-    def get(self, request, format=None):
-        return Response({"detail": "This page doesn't have anything right now, but this message is intended."})
 
