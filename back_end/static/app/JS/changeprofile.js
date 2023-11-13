@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(who);
 
     // Have the old user info appear in the input boxes
+    document.getElementById("username").value = who.detail.username
+    document.getElementById("password").readOnly = true
+    document.getElementById("email").value = who.detail.email
+    document.getElementById("city").value = who.detail.city
+    document.getElementById("state").value = who.detail.state
+    document.getElementById("zipcode").value = who.detail.zipcode
+    
+    
 
 })
 
