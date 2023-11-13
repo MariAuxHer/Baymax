@@ -109,10 +109,8 @@ class InteractionViewSet(viewsets.ModelViewSet):
         new_prompt = request.data['prompt']
         if (new_prompt):
             interaction.prompt = new_prompt 
-
-        interaction.generate_LLMResponse()
-        interaction.save()
-
+            interaction.generate_LLMResponse()
+            interaction.save()
         return Response(InteractionSerializer(interaction, context = {'request': request}).data)
    
 class CreateUser(APIView):
