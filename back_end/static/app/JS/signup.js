@@ -30,7 +30,7 @@ document.getElementById('submit').addEventListener('click', async function(event
         let parent = document.querySelector("#signup_form");
         let paragraph = document.createElement("p");
         paragraph.classList.add("form_fail");
-        paragraph.innerHTML = "user.detail";
+        paragraph.innerHTML = "Formatting instruction broken in one or more of the fields";
         parent.appendChild(paragraph);
     }
 })
