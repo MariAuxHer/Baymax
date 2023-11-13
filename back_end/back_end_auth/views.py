@@ -92,4 +92,4 @@ class WhoAmIView(APIView):
 
     @staticmethod
     def get(request, format=None):
-        return Response({'username': request.user.username})
+        return Response({ request.user })
