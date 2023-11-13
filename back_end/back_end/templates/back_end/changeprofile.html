@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/changeprofile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+    <title>Baymax | Profile</title>
+</head>
+
+<body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+    <aside id="navbar">
+        <div class="nav_container">
+            {% if not user.is_authenticated %} 
+                <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+            {% else %}
+                <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+                <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+            {% endif %}
+            <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+
+            <script type="module" src="{% static '/app/JS/changeprofile.js' %}"></script>
+        </div>
+    </aside>
+    <form> {% csrf_token %}
+        <h2>Change Profile Information</h2>
+
+        <div id="error"></div>
+        <div class="user">
+            Username: 
+            <input type="text" id="username">
+        </div>
+        <div class="pass">
+            Password:
+            <input type="password" id="password">
+        </div>
+        <div class="email">
+            Email:
+            <input type="text" id="email">
+        </div>
+        <div class="city">
+            City:
+            <input type="text" id="city">
+        </div>
+        <div class="state">
+            State:
+            <input type="text" id="state">
+        </div>
+        <div class="zipcode">
+            Zip Code:
+            <input type="text" id="zipcode">
+        </div>
+        <button id="submit">Change</button>
+    </form>
+    
+</body>
+</html>

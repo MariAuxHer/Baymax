@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+* {
+    font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: rgb(222, 222, 255);
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    margin: 0.4em 0.7em;
+    font-size: 2.5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+h2 {
+    margin: 0.5em 0.5em;
+    font-size: 2.2em;
+}
+
+#toIndex {
+    text-decoration: none;
+    color: #ff3535;
+}
+
+#panelContainer {
+    z-index: 1000;
+    width: 250px;
+    height: 89.4%;
+    position: fixed;
+    top: 78px;
+    left: -250px; /* Start hidden outside the viewport */
+    background-color: #383636;
+    transition: 0.2s;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  #panelContainer {
+    z-index: 1000;
+    width: 250px;
+    height: 89.4%;
+    position: fixed;
+    top: 78px;
+    left: -250px; /* Start hidden outside the viewport */
+    background-color: #383636;
+    transition: 0.2s;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(223, 217, 217, 0.2);
+}
+
+#addConversation {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+#addConversation:hover {
+    background-color: #2980b9;
+}
+
+.form_fail {
+    justify-content: center;
+    align-content: center;
+    align-self: auto;
+    font-size: 0.8em;
+    color: red;
+    flex: 0.2; 
+    margin-bottom: 0.75em; 
+    width: 40%;
+    background: rgba(252, 245, 221, 0.8);
+    box-shadow: 0 0 0.1em rgb(107, 100, 100);
+    margin: 1em;
+    padding: 0.7em 0.7em;
+}
+  

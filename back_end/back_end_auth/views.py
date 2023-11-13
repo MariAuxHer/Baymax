@@ -31,7 +31,11 @@ class CSRF(APIView):
         return response
     
     def post(request, format=None):
+<<<<<<< HEAD
         return Response({'detail': 'There is no POST here.'}, status = status.HTTP_403_FORBIDDEN)
+=======
+        return Response({'detail': 'There is no POST here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
+>>>>>>> sprint3
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
@@ -56,6 +60,7 @@ class LoginView(APIView):
         return Response({'detail': 'Successfully logged in.'}, status = status.HTTP_200_OK)
     
     def get(self, request, format=None):
+<<<<<<< HEAD
         return Response({'detail': 'There is no GET here.'}, status = status.HTTP_403_FORBIDDEN)
 
 class LogoutView(APIView):
@@ -66,19 +71,44 @@ class LogoutView(APIView):
         # if not request.user.is_authenticated:
         #     return JsonResponse({'detail': 'You\'re not logged in.'}, status = status.HTTP_200_OK)
 
+=======
+        return Response({'detail': 'There is no GET here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
+
+class LogoutView(APIView):
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [AllowAny]
+
+    def get(self, request, format = None):
+        # Handle when not logged in
+        if not request.user.is_authenticated:
+            return JsonResponse({'detail': 'You\'re not logged in.'}, status = status.HTTP_200_OK)
+        
+        # Handle when logged in
+>>>>>>> sprint3
         logout(request)
         return JsonResponse({'detail': 'Successfully logged out.'}, status = status.HTTP_200_OK)
     
     def post (self, request, format=None):
+<<<<<<< HEAD
          return Response({'detail': 'There is no POST here.'}, status = status.HTTP_403_FORBIDDEN)
     
 class SessionView(APIView):
     authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticated]
+=======
+         return Response({'detail': 'There is no POST here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
+    
+class SessionView(APIView):
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [AllowAny]
+>>>>>>> sprint3
 
     @staticmethod
     def get(request, format=None):
-        return Response({'isAuthenticated': True})
+        if request.user.is_authenticated:
+            return Response({'isAuthenticated': True}, status = status.HTTP_200_OK)
+        else:
+            return Response({'isAuthenticated': False}, status = status.HTTP_200_OK)
 
 
 class WhoAmIView(APIView):

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> sprint3
 import openai
 import json
 import re
 import requests
 
+<<<<<<< HEAD
 medical_specializations = {
     "multi-specialist": "Multi-Specialty",
     "single specialist": "Single Specialty",
@@ -253,11 +258,27 @@ medical_specializations = {
 
 
 API_KEY = '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'
+=======
+
+with open('ML/Data/medical_specializations.json', 'r') as f:
+    medical_specializations = json.load(f)
+
+
+# set the API_KEY I can't set mine because if I do, openai will disable my api key
+# This code wont work without an API_KEY though. For the next sprint, I will switch to 
+# making calls to PaLM API since this one is free and more than likely don't have the issue
+# of being unable to be shared in public repositories. 
+# API_KEY = 
+>>>>>>> sprint3
 openai.api_key = API_KEY
 model_id = 'gpt-4'
 
 def fetch_doctors(specialty, city):
+<<<<<<< HEAD
     url = ("https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms={}&"
+=======
+    url = ("https://clinicaltables.nlm.nih.gov/api/npi_idv/sv3/search?terms={}&"
+>>>>>>> sprint3
            "q=addr_practice.city:{}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=500").format(specialty, city)
 
     response = requests.get(url)
@@ -298,10 +319,13 @@ conversations = []
 #conversations = chatgpt_conversation(conversations)
 #print('{0}: {1}\n'.format(conversations[-1]['role'].strip(), conversations[-1]['content'].strip()))
 
+<<<<<<< HEAD
 # Load the taxonomy_dict from the JSON file
 #with open('lol.json', 'r') as f:
 #    taxonomy_dict = json.load(f)
 
+=======
+>>>>>>> sprint3
 while True:
     prompt = input('User: ')
     conversations.append({'role': 'user', 'content': prompt})
@@ -324,6 +348,7 @@ while True:
                 for idx, doctor in enumerate(doctors, 1):
                     print(f"{idx}. Name: {doctor['Name']}, Address: {doctor['Address']}, Phone: {doctor['Phone']}")
             else:
+<<<<<<< HEAD
                 print("No doctors found or failed to retrieve data.")
 
 
@@ -340,3 +365,6 @@ while True:
 #    for key in taxonomy_dict:
         # Write each key to the file, followed by a newline character
 #        file.write(f"{key}\n")
+=======
+                print("No doctors found or failed to retrieve data.")
+>>>>>>> sprint3

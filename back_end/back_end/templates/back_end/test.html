@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <header>
+        <script src="{% static '/app/JS/utils.js' %}"></script>
+    </header>
+    <body onload="set_csrf()">
+        <button id="toHome"> Back to Home Page </button>
+
+        <button onclick="set_csrf()">Get CSRF</button>
+        
+        <form id="loginForm">{% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username">
+            <label for="password">Password:</label>
+            <input type="text" id="password">
+            <button type="submit">Login</button>
+        </form>
+
+        <form id="ConversationForm">
+            <label for="name">Conversation Name</label>
+            <input type="text" id="name">
+            <button type="submit">Submit</button>
+        </form>
+        
+        <button onclick="logout()"> Logout </button>
+        <button onclick="whoami()"> Whoami </button>
+        <button onclick="session()"> Session </button>
+        <button onclick="log_conversations()"> Get Conversation </button>
+    </body>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Call the login function with the username and password
+            login(username, password)
+            .then( (data) => {
+                if (data) {
+                console.log("Logged in")
+            } else {
+                console.log("Failed login")
+            }
+            })
+            
+        });
+
+        document.getElementById('ConversationForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+
+            const name = document.getElementById('name').value;
+
+            // Call the login function with the username and password
+            log_conversation(name) 
+        });
+
+        document.getElementById('toHome').addEventListener('click', function() {
+        window.location.href = '../index.html';
+});
+
+
+    </script>
+</html>

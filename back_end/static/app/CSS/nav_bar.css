@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+#navbar {
+    font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: fixed;
+    /* height: 4.3em; */
+    top:0;
+    width: 100%;
+    background: #292828;
+    display: grid;
+}
+
+.nav_container {
+    width: max-content;
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-self: end;
+}
+
+.navbar_container > button {
+    margin: 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+
+#toLoginPage {
+    grid-column: 1/2;
+    margin: 0.7em 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+#toProfilePage {
+    grid-column: 2/3;
+    margin: 0.7em 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+#toAboutPage {
+    grid-column: 3/4;
+    margin: 0.7em 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+#togglePanelButton {
+    grid-column: 4/5;
+    margin: 0.7em 1em;
+    font-size: 1.9em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+
+#toLoginPage:hover, #toProfilePage:hover, #toAboutPage:hover {
+    color: #fdfdfd;
+}
+
+#toLoginPage:active, #toProfilePage:active, #toAboutPage:active {
+    color: #ada8a8;
+} 

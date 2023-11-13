@@ -1,0 +1,127 @@
+#messages {
+    margin: auto;
+    margin-bottom: 10em;
+    margin-top: 10em;
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: min-content;
+    padding: 0.7em 0.7em;
+    border-radius: 1em;
+    hyphens: auto;
+}
+
+.left, .right {
+    width: fit-content;
+    margin: 1em;
+    padding: 0.7em 0.7em;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+.left  {
+    justify-self: start;
+    line-height: 1.8em;
+    grid-column: 1/5;
+}
+
+.right {
+    justify-self: end;
+    background: rgba(252, 245, 221, 0.8);
+    box-shadow: 0 0 0.1em rgb(107, 100, 100);
+    grid-column: 2/6;
+    color: #5d5d5d;
+}
+
+form {
+    background:rgba(222, 222, 255, 0.95);
+    margin: auto;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    min-height: 7em;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+textarea, .textarea_replacement {
+    opacity: 100%;
+    justify-self: end;
+    align-self: end;
+    resize: none;
+    width: 60%;
+    height: min-content;
+    max-height: 8rem;
+    margin: 2rem 0;
+    border: none;
+    border-radius: 1em;
+    outline: none;
+    font-size: 1.3em;
+    box-shadow: 0 0 0.2em rgb(95, 88, 176);
+    overflow: hidden;  
+    overflow-y: auto; 
+    background: #fff; 
+    padding: 0.7em 0.7em;
+}
+
+textarea::-webkit-scrollbar, .textarea_replacement::-webkit-scrollbar {
+    width: 3px;
+}
+
+textarea::-webkit-scrollbar-thumb, .textarea_replacement::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 2em;
+    margin: 2px;
+    border-radius: 2px;
+    background: #1b1b1b;
+}
+
+button#submit_message {
+    align-self: end;
+    margin: 2rem 0;
+    color: #fff;
+    background: rgb(255, 44, 44);
+    width: 3.5em;
+    height: 3.5em;
+    display: grid;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0 0 0.2em rgb(21, 21, 21);
+    margin-left: 0.5em;
+}
+
+button#submit_message:hover {
+    background: rgb(255, 82, 82);
+}
+
+button#submit_message:active {
+    background: rgb(205, 40, 40);
+}
+
+img {
+    width: 2em;
+    margin: auto;
+}
+
+
+.collapsible {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin: 5px 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+  
+.collapsible:hover {
+    background-color: #d2dbd2;
+}
+  
+.content {
+    display: none;
+    padding: 10px;
+}

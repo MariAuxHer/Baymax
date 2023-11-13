@@ -1,6 +1,6 @@
-from back_end.models import Conversation, Interaction
+from back_end.models import Conversation, Interaction, CustomUser
 from rest_framework import serializers
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
 class InteractionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -20,12 +20,27 @@ class ConversationSerializer(serializers.HyperlinkedModelSerializer):
         serializer_context = {'request': self.context.get('request') }
         interactions = Interaction.objects.filter(conversation = obj).order_by('-creation_time')
         return InteractionSerializer(interactions, context = serializer_context, many = True).data
+<<<<<<< HEAD
     
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
         fields = ['url', 'username', 'email', 'groups', 'is_staff']
+=======
+
+class MinimalConversationSerializer(ConversationSerializer):
+    class Meta:
+        model = Conversation
+        fields = ['url', 'owner', 'last_accessed', 'creation_time', 'name']
+        read_only_fields = ['url', 'owner', 'last_accessed', 'creation_time']
+        
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = CustomUser
+        fields = ['url', 'username', 'email', 'city', 'state', 'zipcode', 'groups', 'is_staff']
+>>>>>>> sprint3
         read_only_fields = ['url', 'groups', 'is_staff']
 
 

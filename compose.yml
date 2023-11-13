@@ -13,11 +13,9 @@ services:
 
   reverse_proxy:
     build:
-      context: ./
-      dockerfile: ./nginx/Dockerfile
+      dockerfile: ./Dockerfile
     volumes:
-      - ./front_end:/app/front_end  
-      - ./back_end/static:/app/static
+      - ./back_end/static/app:/app/static/app
     
     ports:
       - 80:80

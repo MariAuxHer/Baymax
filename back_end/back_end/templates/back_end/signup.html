@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <script src="utils.js"></script> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/signup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+
+    <title>Baymax | Sign Up</title>
+</head>
+
+<body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+    <aside id="navbar">
+        <div class="nav_container">
+            <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+            <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+            <script type="module" src="{% static '/app/JS/signup.js' %}"></script>
+        </div>
+    </aside>
+
+    <form id="signup_form" method="post">{% csrf_token %}
+        <h2>Create Your Account</h2>
+        <div id="error"></div>
+        <div class="user">
+            Username:
+            <input type="text" id="username">
+        </div>
+        <div class="pass">
+            Password:
+            <input type="password" id="password">
+        </div>
+        <div class="email">
+            Email:
+            <input type="text" id="email">
+        </div>
+        <div class="city">
+            City:
+            <input type="text" id="city">
+        </div>
+        <div class="state">
+            State:
+            <input type="text" id="state">
+        </div>
+        <div class="zipcode">
+            Zip Code:
+            <input type="text" id="zipcode">
+        </div>
+        <button id="submit">Create</button>
+    </form>
+</body>
+</html>
