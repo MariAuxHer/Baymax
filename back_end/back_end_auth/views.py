@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework import status
 
 from django.middleware.csrf import get_token
+from back_end.serializers import UserSerializer
 
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -92,4 +93,4 @@ class WhoAmIView(APIView):
 
     @staticmethod
     def get(request, format=None):
-        return Response({'username': request.user.username})
+        return Response({ UserSerializer(request.user).data })

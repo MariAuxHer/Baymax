@@ -84,8 +84,9 @@ export async function logout() {
 }
 
 /*
- * Returns the user name of the current logged in user based on the session cookie. 
- * Returns null on failure. i.e. user is not logged in. 
+ * Returns an object of the form: { status (number) , detail (object/string) }
+ * detail will be a user object if status is 200 (success).
+ * detail will be a string containing the error if status is not 200.
  */
 export async function whoami() {
     const response = await fetch(WHOAMI_URL, {
@@ -99,13 +100,13 @@ export async function whoami() {
         const json = await response.json()
         if (json.username) {
             console.log(`WHOAMI SUCCESS - I AM USER: ${json.username}`)
-            return json.username
+            return { status: response.status, detail: json}
         } else {
             console.error("WHOAMI ERROR - Response is missing a username in the body!")
         }
     } else {
         console.error("WHOAMI FAILURE")
-        return null
+        return { status: response.status, detail: json.detail }
     } 
 }
 
@@ -193,8 +194,8 @@ export async function post_conversation(conversation_name, first_prompt = null) 
     }
     const json = await response.json()
 
-    console.log(json)
-    console.log(json.url)
+    console.log("json " + json)
+    console.log("json.url " + json.url)
 
     // post the first prompt if given
     if (first_prompt) {
@@ -253,6 +254,32 @@ export async function create_user(userdetails = {}) {
     }
 }
 
+/*
+ * takes a url and a userdetails object (in the shape of an API user object) and return an object of the form: { status (number) , detail (object/string) }
+ * if the status is 200, detail should be a user object, else it is a string describing the http request issue.
+ */
+export async function update_user(url, userdetails) {
+    console.log("GET_USER start")
+
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+            "X-CSRFToken": csrftoken,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userdetails)
+    })
+
+    const json = await response.json()
+    console.log("UPDATE_USER End")
+
+    if (response.ok) {
+        return { status:response.status, detail: json }
+    } else {
+        return { status:response.status, detail: json.detail }
+    }
+}
 /*
  * Posts a new interaction to the conversation url
  */

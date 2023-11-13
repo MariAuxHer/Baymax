@@ -14,9 +14,8 @@
 .left, .right {
     width: fit-content;
     margin: 1em;
-    padding: 1em;
-    overflow: hidden;
     padding: 0.7em 0.7em;
+    overflow: hidden;
     border-radius: 1em;
 }
 
@@ -104,4 +103,25 @@ button#submit_message:active {
 img {
     width: 2em;
     margin: auto;
+}
+
+
+.collapsible {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin: 5px 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+  
+.collapsible:hover {
+    background-color: #d2dbd2;
+}
+  
+.content {
+    display: none;
+    padding: 10px;
 }

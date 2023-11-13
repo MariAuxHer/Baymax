@@ -18,14 +18,6 @@ from django.shortcuts import get_object_or_404
 from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer, MinimalConversationSerializer
 from back_end.models import Conversation, Interaction, CustomUser
 
-# ??????
-#from django.conf import settings
-#import openai
-
-#import logging
-#logging.basicConfig(level=logging.INFO)
-#logger = logging.getLogger(__name__)
-
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -72,11 +64,6 @@ class ConversationViewSet(viewsets.ModelViewSet):
 
             c = get_object_or_404(Conversation, pk=pk)
             i = Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c) 
-
-            # update the conversation access time
-            c.last_accessed = i.creation_time
-            c.save()
-
             serializer = InteractionSerializer(i, context={'request': request})
             return Response(serializer.data)
 
@@ -100,7 +87,6 @@ class InteractionViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        print("get_query")
         return Interaction.objects.filter(owner = self.request.user).order_by('-creation_time')
     
     def destroy(self, request, pk=None):
@@ -113,71 +99,16 @@ class InteractionViewSet(viewsets.ModelViewSet):
     def update(self, request, pk=None):
         if (not pk): 
             return Response({"detail": "PUT failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
+        
         interaction = get_object_or_404(Interaction, pk=pk)
         new_prompt = request.data['prompt']
         if (new_prompt):
             interaction.prompt = new_prompt 
-            interaction.generate_LLMResponse()
-            interaction.save()
+
+        interaction.generate_LLMResponse()
+        interaction.save()
+
         return Response(InteractionSerializer(interaction, context = {'request': request}).data)
-    #def update(self, request, pk=None):
-    #    print("Entered the update method in InteractionViewSet")
-    #    if (not pk): 
-    #        return Response({"detail": "PUT failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
-    #    interaction = get_object_or_404(Interaction, pk=pk)
-    #    new_prompt = request.data['prompt']
-    #    if (new_prompt):
-    #        interaction.prompt = new_prompt 
-
-    #        client = OpenAI(api_key=settings.OPENAI_API_KEY)
-    #        try:
-    #            response = client.chat.completions.create(
-    #                model='gpt-4',
-    #                messages=[{'role': 'user', 'content': new_prompt}]
-    #            )
-
-                # print('{0}: {1}\n'.format(conversations[-1]['role'].strip(), conversations[-1]['content'].strip()))
-                # gptresponse = conversations[-1]['content'].strip().lower()
-                # print(gptresponse)
-    #            interaction.LLMresponse = response.choices[0].message.content.strip()
-    #        except Exception as e:
-    #            logger.error("An error occurred: %s", str(e), exc_info=True)
-    #            interaction.LLMresponse = str(e)
-
-    #        interaction.save()
-
-    #def create(self, request):
-    #    print("Entered the create method in InteractionViewSet")
-        #if (not pk): 
-        #    return Response({"detail": "PUT failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
-        #interaction = get_object_or_404(Interaction, pk=pk)
-    #    new_prompt = request.data.get('prompt')
-    #    if (new_prompt):
-    #        interaction = Interaction(owner=request.user, prompt=new_prompt)
-            #interaction.prompt = new_prompt 
-
-    #        client = OpenAI(api_key=settings.OPENAI_API_KEY)
-    #        try:
-    #            response = client.chat.completions.create(
-    #                model='gpt-4',
-    #                messages=[{'role': 'user', 'content': new_prompt}]
-    #            )
-
-                # print('{0}: {1}\n'.format(conversations[-1]['role'].strip(), conversations[-1]['content'].strip()))
-                # gptresponse = conversations[-1]['content'].strip().lower()
-                # print(gptresponse)
-    #            interaction.LLMresponse = response.choices[0].message.content.strip()
-    #        except Exception as e:
-    #            logger.error("An error occurred: %s", str(e), exc_info=True)
-    #            interaction.LLMresponse = str(e)
-
-    #        interaction.save()
-    #        return Response(InteractionSerializer(interaction, context={'request': request}).data, status=status.HTTP_201_CREATED)
-    #    else:
-    #        return Response({"detail": "Prompt is missing."}, status=status.HTTP_400_BAD_REQUEST)
    
 class CreateUser(APIView):
     def post(self, request, format=None):

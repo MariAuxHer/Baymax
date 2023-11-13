@@ -3,7 +3,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 
-from .openai_interaction import generate_llm_response
+from django.conf import settings
+import openai
+from openai import OpenAI
+
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Custom User 
 class CustomUser(AbstractUser):
@@ -71,8 +77,22 @@ class Interaction(models.Model):
         # set equal to the LLM Response
 #        pass
         if self.prompt:
-            self.LLMresponse = generate_llm_response(self.prompt)
-            print(self.LLMresponse)
+            if settings.OPENAI_API_KEY is not None:
+                print("apikey: " + settings.OPENAI_API_KEY)
+            else:
+                print("OpenAI API key is not set.")
+            try:
+                client = OpenAI(api_key=settings.OPENAI_API_KEY)
+                response = client.chat.completions.create(
+                    model='gpt-4',
+                    messages=[{'role': 'user', 'content': self.prompt}]
+                )
+                self.LLMresponse = response.choices[0].message.content.strip()
+                print(self.LLMresponse)
+            except Exception as e:
+                logger = logging.getLogger(__name__)
+                logger.error("An error occurred in OpenAI API interaction: %s", str(e))
+                self.LLMresponse = "Error: Unable to get response."
 
     def save(self, *args, **kwargs):
         if not self.pk: # pk isn't assigned until after creation, so this checks for if a save is a creation

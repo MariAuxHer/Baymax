@@ -55,3 +55,6 @@ def test(request):
 def signout(request):
     logout(request)
     return redirect('/login')
+
+def changeprofile(request):
+    return render(request, "back_end/changeprofile.html")

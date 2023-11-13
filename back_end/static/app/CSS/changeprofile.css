@@ -1,31 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
+* {
+    font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(222, 222, 255);
+    width: 100%;
+    height: 100%;
+    /* display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content auto max-content; */
+}
+
+h2 {
+    margin: 0.5em 0.5em;
+    font-size: 2.5em;
+}
+
 form {
     margin: auto;
-    margin-top: 15%; 
+    margin-top: 13%;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
-    /* height: 50%; */
+    height: 50vh;
 }
 
-<<<<<<< HEAD
-/* #error {
+#error {
     justify-content: center;
     align-content: center;
     align-self: auto;
     font-size: 1.2em;
     color: red;
-    flex: 0.2; 
+    flex: 0.3; 
     margin-bottom: 0.75em;   
-} */
+}
 
-=======
->>>>>>> 0ae0b896dfc54b30b4ce971d9be775ffb36b30e4
 .user {
     justify-content: center;
     font-size: 1.2em;
+    
 }
 
 .pass {
@@ -35,10 +54,47 @@ form {
 }
 #password {
     margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.email {
+    justify-content: center;
+    font-size: 1.2em;
+}
+#email {
+    margin-left: 49px;
     margin-bottom: 15px;
 }
 
-button#submit {
+.city {
+    justify-content: center;
+    font-size: 1.2em;
+}
+#city {
+    margin-left: 66px;
+    margin-bottom: 10px;
+}
+
+.state {
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+#state {
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+
+.zipcode {
+    justify-content: center;
+    font-size: 1.2em;
+}
+#zipcode {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+button {
     color: rgb(39, 37, 37);
     background: rgb(255, 44, 44);
     display: grid;
@@ -53,11 +109,11 @@ button#submit {
     cursor: pointer;
 }
 
-button#submit:hover {
+button:hover {
     background: rgb(255, 82, 82);
 }
 
-button#submit:active {
+button:active {
     background: rgb(205, 40, 40);
 }
 
@@ -70,10 +126,3 @@ input {
     border-radius: 1em;
     outline: none;
 }
-
-#toSignUp {
-    color: #7161ff;
-    margin-top: 10px;
-}
-
-

@@ -41,28 +41,39 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 });
 
-document.getElementById('default_button').addEventListener('click', () => {
-    default_page()
-})
+// document.getElementById('default_button').addEventListener('click', () => {
+//     default_page()
+// })
 
-document.addEventListener('submit', async (event) => {
+document.getElementById('message_form').addEventListener('submit', async (event) => {
     event.preventDefault()
-
-    const text = document.getElementById('prompt_text').innerHTML
+    console.log("calling event listener, message_form")
+    // const text = document.getElementById('prompt_text').innerHTML
+    const text = document.getElementById('message_textarea').value
     
     if (text!== "") {
         add_prompt(text)
         if (conversation_url) { 
             // make sure we dont send an empty prompt // though it doesn't technically break anything it is still something we should validate
+            /*
+                The post_prompt and post_conversation functions are presumably responsible for sending the data to your backend. 
+                Ensure these functions correctly make AJAX calls to your API endpoints.
+            */
             const interaction = await post_prompt(conversation_url, text)
 
+            /*
+                The add_LLMresponse function is used to display the LLM's response on the page. 
+                Ensure this updates the page appropriately after the backend returns a response.
+            */
             if (interaction) {
                 add_LLMresponse(interaction.LLMresponse)
+                console.log("LLMresponse" + interaction.LLMresponse)
             } else {
                 add_LLMresponse("post_prompt didnt come back with anything")
                 console.error("post_prompt didnt come back with anything")
             } 
         } else {
+            console.log("no interaction")
             const conversation = await post_conversation(text, text)
 
             if (conversation) {
