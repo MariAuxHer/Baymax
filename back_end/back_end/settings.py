@@ -10,8 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
+
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+
 import os
+
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,6 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 SECRET_KEY = 'django-insecure-zh(avbz2yug&fjst8r$vi2ybhzsffm8+p&5ifyn@&_++xqm*%5'
+#OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+OPENAI_API_KEY = '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'
 
 DEBUG = True
 

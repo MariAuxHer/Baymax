@@ -3,6 +3,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 
+from django.conf import settings
+import openai
+from openai import OpenAI
+
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # Custom User 
 class CustomUser(AbstractUser):
     city = models.CharField(max_length=255)
@@ -60,13 +68,31 @@ class Interaction(models.Model):
 
     prompt : str =  models.CharField(max_length=1000, null = True)
     LLMresponse : str = models.CharField(max_length=1000)
+    # maybe adjust the length here accordingly.......
 
     def generate_LLMResponse(self):
-        self.LLMresponse = "sample LLMResponse"
+        #self.LLMresponse = "sample LLMResponse"
         # send self.prompt to the LLM
         # get the response back
         # set equal to the LLM Response
-        pass
+#        pass
+        if self.prompt:
+            if settings.OPENAI_API_KEY is not None:
+                print("apikey: " + settings.OPENAI_API_KEY)
+            else:
+                print("OpenAI API key is not set.")
+            try:
+                client = OpenAI(api_key=settings.OPENAI_API_KEY)
+                response = client.chat.completions.create(
+                    model='gpt-4',
+                    messages=[{'role': 'user', 'content': self.prompt}]
+                )
+                self.LLMresponse = response.choices[0].message.content.strip()
+                print(self.LLMresponse)
+            except Exception as e:
+                logger = logging.getLogger(__name__)
+                logger.error("An error occurred in OpenAI API interaction: %s", str(e))
+                self.LLMresponse = "Error: Unable to get response."
 
     def save(self, *args, **kwargs):
         if not self.pk: # pk isn't assigned until after creation, so this checks for if a save is a creation
@@ -75,6 +101,23 @@ class Interaction(models.Model):
                 self.generate_LLMResponse()
 
         super(Interaction, self).save(*args, **kwargs)
+
+#class Interaction(models.Model):
+#    creation_time = models.DateTimeField(null = True)
+#    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
+#    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True)
+
+#    prompt : str =  models.CharField(max_length=1000, null = True)
+#    LLMresponse : str = models.CharField(max_length=1000)
+    # maybe adjust the length here accordingly.......
+
+#    def save(self, *args, **kwargs):
+#        if not self.pk: # pk isn't assigned until after creation, so this checks for if a save is a creation
+#            self.creation_time = timezone.now()
+            #if (self.prompt): 
+            #    self.LLMResponse
+
+#        super(Interaction, self).save(*args, **kwargs)
 
 
 # holds medical service information
