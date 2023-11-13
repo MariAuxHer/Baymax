@@ -1,12 +1,17 @@
-import { create_user } from "./utils.js";
 import { whoami } from "./utils.js";
+import { update_user } from "./utils.js";
 
+let user;
+document.addEventListener("DOMContentLoaded", async () => {
+    user = await whoami();
+    console.log(user.detail.username);
 
-// Allowing the user to create an account
-document.getElementById('submit').addEventListener('click', async function(event) {
+    // Have the old user info appear in the input boxes
+
+})
+
+document.getElementById("submit").addEventListener('click', async (event) => {
     event.preventDefault();
-    
-    // validate fields
 
     const accountInfo = {
         username: document.getElementById('username').value,
@@ -17,25 +22,21 @@ document.getElementById('submit').addEventListener('click', async function(event
         zipcode: document.getElementById('zipcode').value,
     };
 
-    const user = await create_user(accountInfo)
+    const url = `http://localhost/api/users/${user.detail.username}`
+    console.log(url)
 
-    if (user.status === 200) {
-        console.log("user created")
-        console.log(user.detail)
+    
+    const update = await update_user(url, accountInfo)
 
-        window.location.pathname = "login"
+    if (update.status === 200) {
+        console.log("user info updated")
+        console.log(update.detail)
+
+        window.location.pathname = "profile"
     } else {
-        console.log("user not created")
-        console.log(user.detail)
-
-         // TODO: show why the signup failed on the HTML DOC
-         let error_text = document.getElementById("error");
-        error_text.textContent = "Failed to create account.";
-
-        // let parent = document.querySelector("#signup_form");
-        // let paragraph = document.createElement("p");
-        // paragraph.classList.add("signup_fail");
-        // paragraph.innerHTML = "failed";
-        // parent.appendChild(paragraph);
+        console.log("user info failed to update")
+        console.log(update.detail)
+        document.getElementById("error").textContent = "Could not update info"
     }
+
 })
