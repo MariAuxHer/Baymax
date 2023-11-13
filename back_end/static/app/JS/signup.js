@@ -26,7 +26,6 @@ document.getElementById('submit').addEventListener('click', async function(event
     } else {
         console.log("user not created")
         console.log(user.detail)
-        
         let exists = document.querySelector("form_fail")
         if (!exists) {
             let parent = document.querySelector("#signup_form");
