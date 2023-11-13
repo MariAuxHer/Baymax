@@ -8,7 +8,7 @@ import re
 import requests
 import os
 import dotenv
-dotenv.load_dotenv('./.env.local')
+dotenv.load_dotenv('.env.local')
 
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 
