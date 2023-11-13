@@ -27,8 +27,14 @@ document.getElementById('submit').addEventListener('click', async function(event
         console.log("user not created")
         console.log(user.detail)
 
-         // TODO: show why the signup failed on the HTML DOC
-         let error_text = document.getElementById("error");
-        error_text.textContent = JSON.parse(result.detail);
+        // TODO: show why the signup failed on the HTML DOC
+        // let error_text = document.getElementById("error");
+        // error_text.textContent = JSON.parse(result.detail);
+        
+        let parent = document.querySelector("#signup_form");
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("form_fail");
+        paragraph.innerHTML = "user.detail";
+        parent.appendChild(paragraph);
     }
 })

@@ -23,7 +23,7 @@ document.getElementById('submit').addEventListener('click', async function(event
         
         let parent = document.querySelector("#login_form");
         let paragraph = document.createElement("p");
-        paragraph.classList.add("login_fail");
+        paragraph.classList.add("form_fail");
         paragraph.innerHTML = "The username and/or password you entered does not match our records.";
         parent.appendChild(paragraph);
 
