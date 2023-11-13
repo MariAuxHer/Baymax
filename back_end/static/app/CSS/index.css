@@ -14,9 +14,8 @@
 .left, .right {
     width: fit-content;
     margin: 1em;
-    padding: 1em;
-    overflow: hidden;
     padding: 0.7em 0.7em;
+    overflow: hidden;
     border-radius: 1em;
 }
 

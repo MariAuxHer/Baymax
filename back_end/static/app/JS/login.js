@@ -21,11 +21,14 @@ document.getElementById('submit').addEventListener('click', async function(event
         // let error_text = document.getElementById("error");
         // error_text.textContent = JSON.parse(result.detail);
         
-        let parent = document.querySelector("#login_form");
-        let paragraph = document.createElement("p");
-        paragraph.classList.add("login_fail");
-        paragraph.innerHTML = "The username and/or password you entered does not match our records.";
-        parent.appendChild(paragraph);
+        let exists = document.querySelector(".form_fail");
+        if (!exists) {
+            let parent = document.querySelector("#login_form");
+            let paragraph = document.createElement("p");
+            paragraph.classList.add("form_fail");
+            paragraph.innerHTML = "The username and/or password you entered does not match our records.";
+            parent.appendChild(paragraph);
+        }
 
     }
 

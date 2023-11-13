@@ -26,6 +26,11 @@ h1 {
     z-index: 1;
 }
 
+h2 {
+    margin: 0.5em 0.5em;
+    font-size: 2.2em;
+}
+
 #toIndex {
     text-decoration: none;
     color: #ff3535;
@@ -89,5 +94,20 @@ h1 {
   
 #addConversation:hover {
     background-color: #2980b9;
+}
+
+.form_fail {
+    justify-content: center;
+    align-content: center;
+    align-self: auto;
+    font-size: 0.8em;
+    color: red;
+    flex: 0.2; 
+    margin-bottom: 0.75em; 
+    width: 40%;
+    background: rgba(252, 245, 221, 0.8);
+    box-shadow: 0 0 0.1em rgb(107, 100, 100);
+    margin: 1em;
+    padding: 0.7em 0.7em;
 }
   
