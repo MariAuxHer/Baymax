@@ -253,9 +253,13 @@ export async function create_user(userdetails = {}) {
     }
 }
 
+/*
+ * takes a url and a userdetails object (in the shape of an API user object) and return an object of the form: { status (number) , detail (object/string) }
+ * if the status is 200, detail should be a user object, else it is a string describing the http request issue.
+ */
 export async function update_user(url, userdetails) {
     console.log("GET_USER start")
-    
+
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
     const response = await fetch(url, {
         method: "PUT",

@@ -25,7 +25,7 @@
             <script type="module" src="{% static '/app/JS/changeprofile.js' %}"></script>
         </div>
     </aside>
-    <form>
+    <form> {% csrf_token %}
         <h2>Change Profile Information</h2>
 
         <div id="error"></div>
