@@ -13,9 +13,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("city").value = who.detail.city
     document.getElementById("state").value = who.detail.state
     document.getElementById("zipcode").value = who.detail.zipcode
-    
-    
-
 })
 
 document.getElementById("submit").addEventListener('click', async (event) => {
@@ -46,5 +43,4 @@ document.getElementById("submit").addEventListener('click', async (event) => {
         console.log(update.detail)
         document.getElementById("error").textContent = "Could not update info"
     }
-
 })
