@@ -84,8 +84,9 @@ export async function logout() {
 }
 
 /*
- * Returns the user name of the current logged in user based on the session cookie. 
- * Returns null on failure. i.e. user is not logged in. 
+ * Returns an object of the form: { status (number) , detail (object/string) }
+ * detail will be a user object if status is 200 (success).
+ * detail will be a string containing the error if status is not 200.
  */
 export async function whoami() {
     const response = await fetch(WHOAMI_URL, {
@@ -105,7 +106,7 @@ export async function whoami() {
         }
     } else {
         console.error("WHOAMI FAILURE")
-        return null
+        return { status: response.status, detail: json.detail }
     } 
 }
 
