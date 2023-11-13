@@ -86,7 +86,10 @@ def generate_llm_response(prompt):
                     return gptresponse + "\n" + doctor_info_str
                 else:
                     print("No doctors found or failed to retrieve data.")
-
+                    return gptresponse
+            
+            else: 
+                return gptresponse
     else:
         print("Error: Unable to get response.")
         return "Error: Unable to get response."
