@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-zh(avbz2yug&fjst8r$vi2ybhzsffm8+p&5ifyn@&_++xqm*%5'
 #OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = 
 
 DEBUG = True
 
