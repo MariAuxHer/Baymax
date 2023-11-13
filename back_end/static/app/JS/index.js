@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 });
 
-document.getElementById('default_button').addEventListener('click', () => {
-    default_page()
-})
+// document.getElementById('default_button').addEventListener('click', () => {
+//     default_page()
+// })
 
 document.addEventListener('submit', async (event) => {
     event.preventDefault()
