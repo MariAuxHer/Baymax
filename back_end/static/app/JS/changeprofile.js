@@ -13,9 +13,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("city").value = who.detail.city
     document.getElementById("state").value = who.detail.state
     document.getElementById("zipcode").value = who.detail.zipcode
-    
-    
-
 })
 
 document.getElementById("submit").addEventListener('click', async (event) => {
@@ -29,6 +26,22 @@ document.getElementById("submit").addEventListener('click', async (event) => {
         state: document.getElementById('state').value,
         zipcode: document.getElementById('zipcode').value,
     };
+
+    let emailValidCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailValidCheck.test(accountInfo.email)) {
+        console.log('Invalid email address')
+
+        let exists = document.querySelector("form_fail")
+        if (!exists) {
+            let parent = document.querySelector("#change_form");
+            let paragraph = document.createElement("p");
+            paragraph.classList.add("form_fail");
+            paragraph.innerHTML = "Invalid email address";
+            parent.appendChild(paragraph);
+        }
+    }
+    console.log(emailValidCheck.test(accountInfo.email))
+
 
     const url = who.detail.url
     console.log(url)
@@ -46,5 +59,4 @@ document.getElementById("submit").addEventListener('click', async (event) => {
         console.log(update.detail)
         document.getElementById("error").textContent = "Could not update info"
     }
-
 })

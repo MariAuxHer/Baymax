@@ -26,11 +26,17 @@ document.getElementById('submit').addEventListener('click', async function(event
     } else {
         console.log("user not created")
         console.log(user.detail)
-        
-        let parent = document.querySelector("#signup_form");
-        let paragraph = document.createElement("p");
-        paragraph.classList.add("form_fail");
-        paragraph.innerHTML = "user.detail";
-        parent.appendChild(paragraph);
+
+        let exists = document.querySelector(".form_fail")
+        if (!exists) {
+            let parent = document.querySelector("#signup_form");
+            let paragraph = document.createElement("p");
+            paragraph.classList.add("form_fail");
+            paragraph.innerHTML = user.detail;
+            parent.appendChild(paragraph);
+        } else {
+            let paragraph = document.querySelector(".form_fail");
+            paragraph.innerHTML = user.detail;
+        }
     }
 })
