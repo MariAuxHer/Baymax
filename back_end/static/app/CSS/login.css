@@ -11,9 +11,6 @@ body {
     background: rgb(222, 222, 255);
     width: 100%;
     height: 100%;
-    /* display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: max-content auto max-content; */
 }
 
 h2 {
