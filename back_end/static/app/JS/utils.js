@@ -253,6 +253,32 @@ export async function create_user(userdetails = {}) {
     }
 }
 
+export async function update_user(url, userdetails = null) {
+    console.log("GET_USER start")
+
+    if (!detail) {
+        return { status: 404, detail: 'invalid url.' }
+    }
+
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+            "X-CSRFToken": csrftoken,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userdetails)
+    })
+
+    const json = await response.json()
+    console.log("UPDATE_USER End")
+
+    if (response.ok) {
+        return { status:response.status, detail: json }
+    } else {
+        return { status:response.status, detail: json.detail }
+    }
+}
 /*
  * Posts a new interaction to the conversation url
  */
