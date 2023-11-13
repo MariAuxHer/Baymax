@@ -72,9 +72,8 @@ addConversationButton.addEventListener("click", function () {
   // Append the new button to the panel
   panelContainer.appendChild(newButton);
 
-  // Add click event listener to the new button
+  // click event listener for the new button
   newButton.addEventListener("click", function () {
-    // Your code for handling click events for the new button
     console.log("New conversation button clicked!");
   });
 
