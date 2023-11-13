@@ -1,0 +1,74 @@
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  1) import requests
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  2) import json
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  3) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  4) def get_doctor_info(api_url, query_terms):
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  5)     # Specify the API endpoint
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  6)     endpoint = f"{api_url}/search"
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  7) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  8)     # Specify the parameters for the API request
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500  9)     params = {
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 10)         'terms': query_terms,
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 11)         'maxList': 500,  # You can adjust this based on your needs
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 12)         'df': 'licenses.taxonomy.grouping,licenses.taxonomy.classification,licenses.taxonomy.specialization,name.full,addr_practice.full',
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 13)         'sf': 'licenses.taxonomy.grouping,licenses.taxonomy.classification,licenses.taxonomy.specialization,name.full,addr_practice.full'
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 14)     }
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 15) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 16)     # Make the API request
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 17)     response = requests.get(endpoint, params=params)
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 18) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 19)     # Check if the request was successful (status code 200)
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 20)     if response.status_code == 200:
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 21)         # Parse the JSON response
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 22)         data = response.json()
+c72c1093 (vpkonjeti 2023-11-11 16:28:38 -0500 23)         
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 24)         # Extract relevant information from the response
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 25)         results = data[3]
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 26) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 27)         # Create a dictionary to store the information
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 28)         doctor_dict = {}
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 29) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 30)         # Iterate through the results and populate the dictionary
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 31)         for result in results:
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 32)             grouping, classification, specialization, doctor_name, doctor_address = result
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 33) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 34)             # Populate the nested dictionary
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 35)             if grouping not in doctor_dict:
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 36)                 doctor_dict[grouping] = {}
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 37) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 38)             if classification not in doctor_dict[grouping]:
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 39)                 doctor_dict[grouping][classification] = {}
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 40) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 41)             if specialization not in doctor_dict[grouping][classification]:
+c72c1093 (vpkonjeti 2023-11-11 16:28:38 -0500 42)                 doctor_dict[grouping][classification][specialization] = []
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 43) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 44)             # Use the NPI as a key for each doctor
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 45)             npi = result[0]
+c72c1093 (vpkonjeti 2023-11-11 16:28:38 -0500 46)             doctor_info = {
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 47)                 'doctor_name': doctor_name,
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 48)                 'doctor_address': doctor_address
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 49)             }
+c72c1093 (vpkonjeti 2023-11-11 16:28:38 -0500 50)             doctor_dict[grouping][classification][specialization].append(doctor_info)
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 51) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 52)         return doctor_dict
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 53) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 54)     else:
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 55)         # Print an error message if the request was not successful
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 56)         print(f"Error: {response.status_code}")
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 57)         return None
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 58) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 59) api_url = 'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3'
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 60) 
+c72c1093 (vpkonjeti 2023-11-11 16:28:38 -0500 61) # keep as empty string to get all doctors
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 62) query_terms = ''
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 63) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 64) doctor_info_dict = get_doctor_info(api_url, query_terms)
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 65) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 66) if doctor_info_dict:
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 67)     output_file_path = 'ML/Data/doctor_dict.json'
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 68) 
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 69)     with open(output_file_path, 'w') as json_file:
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 70)         json.dump(doctor_info_dict, json_file, indent=2)
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 71) else:
+912e949c (vpkonjeti 2023-11-11 14:59:52 -0500 72)     print("No doctor information found.")
+6bd3e989 (vpkonjeti       2023-11-12 21:42:51 -0500  8) with open('ML/Data/medical_specializations.json', 'r') as f:
+63ca46a3 (vpkonjeti       2023-11-11 13:29:19 -0500  9)     medical_specializations = json.load(f)
