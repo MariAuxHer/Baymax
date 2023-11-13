@@ -193,8 +193,8 @@ export async function post_conversation(conversation_name, first_prompt = null) 
     }
     const json = await response.json()
 
-    console.log(json)
-    console.log(json.url)
+    console.log("json " + json)
+    console.log("json.url " + json.url)
 
     // post the first prompt if given
     if (first_prompt) {
