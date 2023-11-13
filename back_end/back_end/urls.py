@@ -39,5 +39,6 @@ urlpatterns = [
     path('about', views.about),
     path('test', views.test),
     path('signout', views.signout),
+    path('changeprofile', views.changeprofile),
 
 ]

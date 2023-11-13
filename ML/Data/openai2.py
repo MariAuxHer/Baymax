@@ -5,7 +5,7 @@ import re
 import requests
 
 
-with open('medical_specializations.json', 'r') as f:
+with open('ML/Data/medical_specializations.json', 'r') as f:
     medical_specializations = json.load(f)
 
 

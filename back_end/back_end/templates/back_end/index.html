@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
 
     <title>Baymax</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/hyphenopoly@2.7.0/dist/Hyphenopoly_Loader.js"></script>
 </head>
 <body>
     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
@@ -73,6 +75,14 @@
         <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
     </form>
     
+    <script>
+        // Configure Hyphenopoly
+        window.hyphenopoly = window.hyphenopoly || {};
+        window.hyphenopoly.config = {
+            displaytoggle: false,
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/hyphenopoly@2.7.0/dist/Hyphenopoly.js"></script>
     <script type="module" src="{% static '/app/JS/index.js' %}"> </script>
     <script src="{% static '/app/JS/textarea_replacement.js' %}"></script>
     <script src="{% static '/app/JS/message_scroll.js' %}"></script>

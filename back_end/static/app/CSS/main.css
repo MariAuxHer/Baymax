@@ -41,41 +41,13 @@ h1 {
     background-color: #383636;
     transition: 0.2s;
     overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(223, 217, 217, 0.2);
-}
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  }
   
-.collapsible {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px;
-    margin: 5px 0;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-  
-.collapsible:hover {
-    background-color: #d2dbd2;
-}
-  
-.content {
-    display: none;
-    padding: 10px;
-}
-
-#addConversation {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-  
-#addConversation:hover {
-    background-color: #2980b9;
-}
-  
+  /*#togglePanelButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+  }*/
   
