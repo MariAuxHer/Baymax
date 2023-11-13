@@ -54,4 +54,28 @@ toggleButton.addEventListener("click", function () {
   }
 });
 
+const addConversationButton = document.getElementById("addConversation");
+
+let convoCount = 1; // Initialize conversation count
+
+addConversationButton.addEventListener("click", function () {
+  // Create new button
+  const newButton = document.createElement("button");
+  newButton.className = "collapsible";
+  newButton.textContent = "Conversation " + convoCount;
+
+  // Append the new button to the panel
+  panelContainer.appendChild(newButton);
+
+  // Add click event listener to the new button
+  newButton.addEventListener("click", function () {
+    // Your code for handling click events for the new button
+    console.log("New conversation button clicked!");
+  });
+
+  convoCount++;
+
+});
+
+
 
