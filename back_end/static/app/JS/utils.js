@@ -99,7 +99,7 @@ export async function whoami() {
         const json = await response.json()
         if (json.username) {
             console.log(`WHOAMI SUCCESS - I AM USER: ${json.username}`)
-            return json.username
+            return { status: response.status, detail: json}
         } else {
             console.error("WHOAMI ERROR - Response is missing a username in the body!")
         }
@@ -253,13 +253,9 @@ export async function create_user(userdetails = {}) {
     }
 }
 
-export async function update_user(url, userdetails = null) {
+export async function update_user(url, userdetails) {
     console.log("GET_USER start")
-
-    if (!detail) {
-        return { status: 404, detail: 'invalid url.' }
-    }
-
+    
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
     const response = await fetch(url, {
         method: "PUT",
