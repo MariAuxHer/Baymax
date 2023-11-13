@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-npi_table = pd.read_csv("C:\\Users\\vpk12\\OneDrive\\Desktop\\CS340\\final\\Baymax\\back_end\\back_end\\Data\\npidata_pfile_20230918-20230924.csv")
+npi_table = pd.read_csv(r'ML\Data\npidata_pfile_20230918-20230924.csv')
 
 columns_to_drop = ['NPI Deactivation Reason Code', 'NPI Deactivation Date', 'Replacement NPI', 'NPI Reactivation Date', 'Provider Gender Code']
 
@@ -49,8 +49,18 @@ columns_to_drop = ['Provider Organization Name (Legal Business Name)',
 
 npi_table = npi_table.drop(columns=columns_to_drop)
 
-mailing_address = npi_table['Provider First Line Business Mailing Address'].str.cat([
-    npi_table['Provider Second Line Business Mailing Address']], sep=' ', na_rep='').str.strip()
+add_cols = [
+    'Provider First Line Business Mailing Address',
+    'Provider Second Line Business Mailing Address',
+    'Provider Business Mailing Address City Name',
+    'Provider Business Mailing Address State Name',
+    'Provider Business Mailing Address Postal Code',
+    'Provider Business Mailing Address Country Code (If outside U.S.)'
+]
+
+mailing_address = npi_table.apply(lambda row: ', '.join(map(str, row[add_cols].dropna())), axis=1)
+
+
 columns_to_drop = npi_table.filter(like="Address").columns
 npi_table = npi_table.drop(columns=columns_to_drop)
 
@@ -71,4 +81,4 @@ columns_to_drop = ['Authorized Official Last Name',
 npi_table = npi_table.drop(columns=columns_to_drop)
 npi_table['Authorized Official Name'] = npi_table['Name'].fillna(full_name)
 
-npi_table.to_csv('parsed_npidata.csv', index=False)
+npi_table.to_csv(r'ML\Data\parsed_npidata.csv', index=False)

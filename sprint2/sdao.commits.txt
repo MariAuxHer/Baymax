@@ -1,0 +1,720 @@
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400   4) const { create } = require('domain')
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400   7) var fs = require('fs')
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400   8) 
+1385f6d0 utils/utils.js    (Steven Dao  2023-10-30 08:36:55 -0400   9) // pretty json
+1385f6d0 utils/utils.js    (Steven Dao  2023-10-30 08:36:55 -0400  10) const prettyjson = require('prettyjson')
+1385f6d0 utils/utils.js    (Steven Dao  2023-10-30 08:36:55 -0400  11) 
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  13) const HOST = 'localhost:80'
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  14) const REST_AUTH_URL = `http://${HOST}/auth/`
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  15) const REST_API_URL =  `http://${HOST}/api/`
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  16) const CSRF_URL = REST_AUTH_URL + 'csrf'
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  17) const LOGIN_URL = REST_AUTH_URL + 'login'
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  18) const LOGOUT_URL = REST_AUTH_URL + 'logout'
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  19) const SESSION_URL = REST_AUTH_URL + 'session'
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  20) const WHOAMI_URL = REST_AUTH_URL + 'whoami'
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400  21) const CREATE_USER_URL = REST_API_URL + "createuser"
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  22) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  23) const CONVERSATIONS_URL = REST_API_URL + 'conversations'
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400  24) const LOGS_DIR = 'logs/'
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  25) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  27) let cookies = {}
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  30) let logged_in = false
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  31) 
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  32) /*
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  33)     Returns the Json after calling the CSRF_URL for a CSRF Token
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  34) */
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  37) async function fetch_csrf() {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  40)     header = {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  41)         "Content-Type": "application/json",
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  42)     }
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  43) 
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  46)     if (cookies['sessionid']) {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  47)         header.sessionid = cookies['sessionid']
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  48)     }
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  49) 
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  51)     const response = await fetch(CSRF_URL, {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  52)         headers: header
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  53)     });
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  54) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  56)     if (!response.ok) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  57)         response.text().then((data) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  58)             if (data) {
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400  59)                 fs.writeFile(LOGS_DIR + "getcsrf_html.html", data, (err) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  60)                     if (err) console.log(`error: ${err}`)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  61)                 })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  62)             } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  63)                 console.log("data is null")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  64)             }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  65)         })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  66) 
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400  67)         return 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  68)     }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  69) 
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400  73)     cookies['csrftoken'] = response.headers.get("X-CSRFToken")
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  74) }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  75) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  77) async function login(username, password) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  78)     console.log("LOGIN START")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  81)     if (!cookies['csrftoken']) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  82)         console.log("csrfToken is null. Canceling Login.")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  83)         return
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  84)     }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  85) 
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  90)     const response = await fetch(LOGIN_URL, {
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  91)         method: "POST",
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  92)         headers: {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  95)             "Cookie": `csrftoken=${cookies['csrftoken']}`,
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  96)             "X-CSRFToken": cookies['csrftoken'],
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  97)             "Content-Type": "application/json",
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400  98)         },
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400  99)         body: JSON.stringify({
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 100)             username: username,
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 101)             password: password
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 102)         })
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 103)     })
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 104) 
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 108)     if (response.ok) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 109)         console.log("LOGIN Response OK")
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 110)         const json = await response.json()
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 111)         console.log(json)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 112)         logged_in = true;
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 113)     } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 114)         console.log("LOGIN Response NOT OK")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 115)         await response.text().then((data) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 116)             if (data) {
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400 117)                 fs.writeFile( LOGS_DIR + "login_html.html", data, (err) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 118)                     if (err) console.log(`error: ${err}`)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 119)                 })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 120)             } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 121)                 console.log("data is null")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 122)             }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 123)         })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 124) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 125)         logged_in = false
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 126)         return
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 127)     }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 128)     
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 136)     local_cookies = response.headers.getSetCookie() 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 137)     console.log(local_cookies)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 138)     if (local_cookies) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 139)         for (let i = 0; i < 2; i++) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 140)             info = local_cookies[i].split(';')
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 141)             pair = info[0].split('=') 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 142)             cookies[pair[0]] = pair[1]
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 143)         }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 144) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 154)         console.log("New cookies set: ")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 155)         console.log(cookies)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 156)     }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 157)     
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 158)     console.log(`Setting new CSTF TOKEN to: ${cookies['csrftoken']}`)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 159)     
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 160)     console.log("LOGIN END")
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 161) }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 162) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 164) async function logout() {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 165)     console.log("LOGOUT Start")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 168)     if (!logged_in) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 169)         console.log("Not logged in, aborting.")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 170)         return
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 171)     }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 176)     const response = await fetch(LOGOUT_URL, {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 177)         method: "GET",
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 178)         headers: {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 179)             "Cookie": `sessionid=${cookies['sessionid']}`,
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 180)             "Content-Type": "application/json",
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 181)         }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 182)     })
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 183) 
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 187)     if (response.ok) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 188)         console.log("LOGOUT Response OK")
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 189)         const json = await response.json()
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 190)         console.log(json)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 191)         logged_in = false;
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 192)     } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 193)         console.log("LOGOUT Response NOT OK")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 194)         response.text().then((data) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 195)             if (data) {
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400 196)                 fs.writeFile(LOGS_DIR + "logout_html.html", data, (err) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 197)                     if (err) console.log(`error: ${err}`)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 198)                 })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 199)             } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 200)                 console.log("data is null")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 201)             }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 202)         })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 203) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 204)         logged_in = true
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 205)         return
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 206)     }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 207) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 208)     console.log("LOGOUT End")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 209) }
+6393fbcb back_end/utils.js (Steven Dao  2023-10-20 08:40:45 -0400 210) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 218) async function whoami() {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 219)     console.log("WHOAMI Start")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 220)     if (!logged_in) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 221)         console.log("Not logged in, aborting.")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 222)         return
+6393fbcb back_end/utils.js (Steven Dao  2023-10-20 08:40:45 -0400 223)     }
+6393fbcb back_end/utils.js (Steven Dao  2023-10-20 08:40:45 -0400 224)     
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 225)     const response = await fetch(WHOAMI_URL, {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 226)         method: "GET",
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 227)         headers: {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 228)             "Cookie": `sessionid=${cookies['sessionid']}`,
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 229)             "Content-Type": "application/json"
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 230)         }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 231)       })
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 232) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 233)       if (response.ok) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 234)         console.log("WHOAMI Response OK")
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 235)         const json = await response.json()
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 236)         console.log(json)
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 237)     } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 238)         console.log("WHOAMI Response NOT OK")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 239)         response.text().then((data) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 240)             if (data) {
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400 241)                 fs.writeFile(LOGS_DIR + "whoami_html.html", data, (err) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 242)                     if (err) console.log(`error: ${err}`)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 243)                 })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 244)             } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 245)                 console.log("data is null")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 246)             }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 247)         })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 248)     } 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 249) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 250)     console.log("WHOAMI End")
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 251) }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 252) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 259) async function session() {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 260)     console.log("SESSION Start")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 261)     if (!logged_in) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 262)         console.log("Not logged in, aborting.")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 263)         return
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 264)     }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 265) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 266)     const response = await fetch(SESSION_URL, {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 267)         method: "GET",
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 268)         headers: {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 269)             "Cookie": `sessionid=${cookies['sessionid']}`,
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 270)             "Content-Type": "application/json"
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 271)         }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 272)     })
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 273) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 274)     if (response.ok) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 275)         console.log("SESSION Response OK")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 276)         const json = await response.json()
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 277)         console.log(json)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 278)     } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 279)         console.log("SESSION Response NOT OK")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 280)         response.text().then((data) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 281)             if (data) {
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400 282)                 fs.writeFile(LOGS_DIR +  "session_html.html", data, (err) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 283)                     if (err) console.log(`error: ${err}`)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 284)                 })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 285)             } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 286)                 console.log("data is null")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 287)             }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 288)         })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 289)     }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 290) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 291)     console.log("SESSION End")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 292) }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 293) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 300) async function get_conversations() {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 301)     console.log("GET_CONVERSATIONS Start")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 302)     if (!logged_in) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 303)         console.log("Not logged in, aborting.")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 304)         return
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 305)     }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 306)     const response = await fetch (CONVERSATIONS_URL, {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 307)         method: "GET",
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 308)         headers: {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 309)             "Cookie": `sessionid=${cookies['sessionid']}`,
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 310)             "Content-Type": "application/json"
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 311)         }
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 312)     })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 313) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 314)     if (response.ok) {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 315)         console.log("CONVERSATIONS Response OK")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 316)         const json = await response.json()
+1385f6d0 utils/utils.js    (Steven Dao  2023-10-30 08:36:55 -0400 317)         console.log(prettyjson.render(json))
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 318)     } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 319)         console.log("CONVERSATIONS Response NOT OK")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 320)         response.text().then((data) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 321)             if (data) {
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400 322)                 fs.writeFile(LOGS_DIR + "conversations_html.html", data, (err) => {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 323)                     if (err) console.log(`error: ${err}`)
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 324)                 })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 325)             } else {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 326)                 console.log("data is null")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 327)             }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 328)         })
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 329)     }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 330) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 331)     console.log("GET_CONVERSATIONS End")
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 332) }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 333) 
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 340) async function post_conversation(name) {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 341)     console.log("POST_CONVERSATION Start")
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 342) 
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 343)     const response = await fetch(CONVERSATIONS_URL + "/", {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 344)         method: "POST",
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 345)         headers: {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 346)             "Cookie": `csrftoken=${cookies['csrftoken']};sessionid=${cookies['sessionid']}`,
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 347)             "X-CSRFToken": cookies['csrftoken'],
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 348)             "Content-Type": "application/json",
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 349)         },
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 350)         body: JSON.stringify({
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 351)             name: name
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 352)         })
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 353)     })
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 354) 
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 355)     if (response.ok) {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 356)         console.log("CONVERSATIONS POST Response OK")
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 357)         const json = await response.json()
+1385f6d0 utils/utils.js    (Steven Dao  2023-10-30 08:36:55 -0400 358)         console.log(prettyjson.render(json))
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 359)     } else {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 360)         console.log("CONVERSATIONS POST Response NOT OK")
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 361)         response.text().then((data) => {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 362)             if (data) {
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400 363)                 fs.writeFile(LOGS_DIR + "conversationsPOST_html.html", data, (err) => {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 364)                     if (err) console.log(`error: ${err}`)
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 365)                 })
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 366)             } else {
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 367)                 console.log("data is null")
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 368)             }
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 369)         })
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 370)     }
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 371) 
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 372) 
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 373)     console.log("POST_CONVERSATION End")
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 374) }
+f621bf03 back_end/utils.js (Steven Dao  2023-10-22 20:30:21 -0400 375) 
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 384) async function create_user(username, password, email) {
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 385)     console.log("CREATE_USER Start")
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 386)     const response = await fetch(CREATE_USER_URL, {
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 387)         method: "POST",
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 388)         headers: {
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 389)             "Cookie": `csrftoken=${cookies['csrftoken']}`,
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 390)             "X-CSRFToken": cookies['csrftoken'],
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 391)             "Content-Type": "application/json",
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 392)         },
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 393)         body: JSON.stringify({
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 394)             username: username,
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 395)             password: password,
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 396)             email: email,
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 397)         })
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 398)     })
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 399) 
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 400)     
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 401)     if (response.ok) {
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 402)         console.log("CREATE_USER POST Response OK")
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 403)         const json = await response.json()
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 404)         console.log(JSON.stringify(json))
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 405)     } else {
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 406)         console.log("CREATE_USER Response NOT OK")
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 407)         response.text().then((data) => {
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 408)             if (data) {
+96e13b90 back_end/utils.js (Steven Dao  2023-10-29 21:10:26 -0400 409)                 fs.writeFile(LOGS_DIR + "createUser_html.html", data, (err) => {
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 410)                     if (err) console.log(`error: ${err}`)
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 411)                 })
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 412)             } else {
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 413)                 console.log("data is null")
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 414)             }
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 415)         })
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 416)     }
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 417) 
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 418)     console.log("CREATE_USER End")
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 419) }
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 420) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 421) // Main
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 422) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 423) async function main() {
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 424)     fetch_csrf()
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 425)     // .then(() => create_user("test", "test", "stevendao100@gmail.com"))
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 426)     // .then(() => login("test", "test"))
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 427)     // .then(() => whoami())
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 428)     // .then(() => session())
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 429)     // .then(() => get_conversations())
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 430)     // .then(() => fetch_csrf())
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 431)     // .then(() => post_conversation("data one two"))
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 432)     // .then(() => logout())   
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 433)     // .then(() => fetch_csrf())
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 434)     // .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 435)     // .then(() => login("test2", "aMoreSophosticatedPassword100"))
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 436)     // .then(() => logout())
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 437)     // .then(() => fetch_csrf())
+1385f6d0 utils/utils.js    (Steven Dao  2023-10-30 08:36:55 -0400 438)     // .then(() => create_user("test", "NotTooShortOfAPassword", "stevendao100@gmail.com"))
+1385f6d0 utils/utils.js    (Steven Dao  2023-10-30 08:36:55 -0400 439)     .then(() => login("test", "test"))
+a73485e0 back_end/utils.js (Steven Dao  2023-10-25 18:12:42 -0400 440)     .then(() => whoami())
+a73485e0 back_end/utils.js (Steven Dao  2023-10-25 18:12:42 -0400 441)     .then(() => session())
+a73485e0 back_end/utils.js (Steven Dao  2023-10-25 18:12:42 -0400 442)     .then(() => get_conversations())
+a73485e0 back_end/utils.js (Steven Dao  2023-10-25 18:12:42 -0400 443)     .then(() => fetch_csrf())
+1385f6d0 utils/utils.js    (Steven Dao  2023-10-30 08:36:55 -0400 444)     // .then(() => post_conversation("demo data"))
+93707b01 back_end/utils.js (Steven Dao  2023-10-25 16:33:35 -0400 445)     .then(() => logout())
+d5ea019f back_end/utils.js (Steven Dao  2023-10-25 17:56:51 -0400 446)     
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 447) }
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 448) 
+a61be4da back_end/utils.js (Steven Dao  2023-10-22 18:46:13 -0400 449) main(); 
+^6da6a5a back_end/utils.js (Steven Dao  2023-10-15 17:31:42 -0400 450) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  1) #!/bin/bash
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  2) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  3) # Apply database migrations
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  4) echo "Apply database migrations"
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  5) python3.11 manage.py makemigrations back_end
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  6) python3.11 manage.py migrate
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  7) 
+3e0b58c0 (Steven Dao 2023-10-29 22:52:15 -0400  8) # collect static # files will be used by nginx
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400  9) echo "Generating Django's static files" 
+3e0b58c0 (Steven Dao 2023-10-29 22:52:15 -0400 10) python3.11 manage.py collectstatic --noinput
+3e0b58c0 (Steven Dao 2023-10-29 22:52:15 -0400 11) 
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400 12) # create super user
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400 13) # auto create a test user
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400 14) 
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400 15) echo "Creating a test user with username: "test" and password: "test"" 
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400 16) export DJANGO_SUPERUSER_PASSWORD="test"
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400 17) python3.11 manage.py createsuperuser --username "test" --email "test@gmail.com" --noinput
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400 18) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 19) # Start server
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 20) echo "Starting server"
+6e53c61a (Steven Dao 2023-10-29 23:09:45 -0400 21) python3.11 manage.py runserver 0.0.0.0:8000
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  1) """
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  2) URL configuration for back_end project.
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  3) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  4) The `urlpatterns` list routes URLs to views. For more information please see:
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  5)     https://docs.djangoproject.com/en/4.2/topics/http/urls/
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  6) Examples:
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  7) Function views
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  8)     1. Add an import:  from my_app import views
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  9)     2. Add a URL to urlpatterns:  path('', views.home, name='home')
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 10) Class-based views
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 11)     1. Add an import:  from other_app.views import Home
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 12)     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 13) Including another URLconf
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 14)     1. Import the include() function: from django.urls import include, path
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 15)     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 16) """
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 17) from django.contrib import admin
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 18) from django.urls import path, include
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 19) from . import views
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 20) import back_end_auth.urls
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 21) from rest_framework import routers
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 22) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 23) api_router = routers.DefaultRouter()
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 24) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 25) api_router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 26) api_router.register(r'interactions', views.InteractionViewSet, basename = 'interaction')    
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 27) api_router.register(r'users', views.UserViewSet, basename = 'user')
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 28)     
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 29) urlpatterns = [
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 30)     path('admin/', admin.site.urls),
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 31)     path('auth/', include(back_end_auth.urls)),
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 32)     path('api/', include(api_router.urls)),
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 33)     path('api/createuser', views.CreateUser.as_view()),
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 34)     path('', views.index)
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 35) ]
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400   1) from django.http import HttpResponse, Http404
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400   2) from django.shortcuts import get_object_or_404
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400   3) from rest_framework import viewsets, permissions
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400   4) from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400   5) from django.contrib.auth.password_validation import validate_password, password_validators_help_texts
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400   6) from django.core.exceptions import ValidationError
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400   7) from django.core.validators import validate_email
+ec50817f (Steven Dao 2023-10-29 21:04:04 -0400   8) from django.contrib.auth.validators import UnicodeUsernameValidator, ASCIIUsernameValidator
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400   9) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  10) from back_end.models import Conversation, Interaction
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  11) from django.contrib.auth.models import User 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  12) from rest_framework.response import Response
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  13) from rest_framework import status
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  14) from rest_framework.decorators import action
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400  15) from rest_framework.views import APIView
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  16) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  17) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  18) class UserViewSet(viewsets.ModelViewSet):
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  19)     """
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  20)     API endpoint that allows users to be viewed or edited.
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  21)     """
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  22)     queryset = User.objects.all().order_by('-date_joined')
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  23)     serializer_class = UserSerializer
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  24)     permission_classes = [permissions.IsAdminUser]
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  25) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  26) class ConversationViewSet(viewsets.ModelViewSet):
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  27)     """
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  28)     API endpoint that allows Conversations to be viewed or edited.
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  29)     """
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  30)     serializer_class = ConversationSerializer
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  31)     permission_classes = [permissions.IsAuthenticated]
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  32) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  33)     # Only allow the user to conrol their own Conversations
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  34)     def get_queryset(self):
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  35)         return Conversation.objects.filter(owner = self.request.user).order_by('-creation_time')
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  36)     
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  37)     # auto associate the owner with the newly created conversation
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  38)     def create(self, request):
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  39)         new_conversation = Conversation.objects.create(owner = request.user, name = request.data['name'])
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  40)         return Response(ConversationSerializer(new_conversation, context={'request': request}).data, status=status.HTTP_201_CREATED)
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  41)     
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  42)     # allow API user to add new interactions to Conversation Instances
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  43)     @action(detail=True, methods=['post', 'get'], serializer_class=InteractionSerializer)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  44)     def interactions(self, request, pk):
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  45)         # add the ability to post a new prompt
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  46)         if (request.method == "POST"):
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  47)             if (not pk): return Response({"detail": "Missing PK."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  48) 
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  49)             c = get_object_or_404(Conversation, pk=pk)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  50)             i = Interaction.objects.create(owner = request.user, prompt = request.data['prompt'], conversation = c) 
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  51)             serializer = InteractionSerializer(i, context={'request': request})
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  52)             return Response(serializer.data)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  53) 
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  54)         # perhaps redundant since this information can be gotten from the general Conversation View Set
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  55)         if (request.method == "GET"):
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  56)             c = get_object_or_404(Conversation, pk=pk)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  57)             interactions = Interaction.objects.filter(conversation = c).order_by("-creation_time")
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  58)             return Response(InteractionSerializer(interactions, context={'request': request}, many=True).data)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  59) 
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  60)         return Response({"detail": "Error."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  61)     def destroy(self, request, pk=None):
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  62)         if (not pk): 
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  63)             return Response({"detail": "Deletion Failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  64)         
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  65)         Conversation.objects.get(pk=pk).delete()
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  66)         return Response({"detail": "Conversation successfully removed."}, status=status.HTTP_200_OK)
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  67) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  68) class InteractionViewSet(viewsets.ModelViewSet):
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  69)     queryset = Interaction.objects.all()
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  70)     serializer_class = InteractionSerializer
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  71)     permission_classes = [permissions.IsAuthenticated]
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  72) 
+769e69b1 (Steven Dao 2023-10-22 18:45:52 -0400  73)     def get_queryset(self):
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  74)         return Interaction.objects.filter(owner = self.request.user).order_by('-creation_time')
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  75)     
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  76)     def destroy(self, request, pk=None):
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  77)         if (not pk): 
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  78)             return Response({"detail": "Deletion Failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  79)         
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  80)         Interaction.objects.get(pk=pk).delete()
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400  81)         return Response({"detail": "Conversation successfully removed."}, status=status.HTTP_200_OK)
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  82)     
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  83)     def update(self, request, pk=None):
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  84)         if (not pk): 
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  85)             return Response({"detail": "PUT failed."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  86)         
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  87)         interaction = get_object_or_404(Interaction, pk=pk)
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  88)         new_prompt = request.data['prompt']
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  89)         if (new_prompt):
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  90)             interaction.prompt = new_prompt 
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  91) 
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  92)         interaction.generate_LLMResponse()
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  93)         interaction.save()
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  94) 
+0a24cf0b (Steven Dao 2023-10-25 15:29:03 -0400  95)         return Response(InteractionSerializer(interaction, context = {'request': request}).data)
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  96)    
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400  97) class CreateUser(APIView):
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400  98)     def post(self, request, format=None):
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400  99)         username = request.data['username']
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 100)         password = request.data['password']
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 101)         email = request.data['email']
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 102) 
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 103)         if (not username or not password or not email):
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 104)             return Response({'detail' : 'Missing one or more of the following fields: username, password, email.'}, status = status.HTTP_400_BAD_REQUEST)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 105)         
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 106) 
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 107)         # check username
+ec50817f (Steven Dao 2023-10-29 21:04:04 -0400 108)         username_validator = ASCIIUsernameValidator() 
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 109)         try:
+ec50817f (Steven Dao 2023-10-29 21:04:04 -0400 110)             username_validator(username)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 111)         except ValidationError:
+ec50817f (Steven Dao 2023-10-29 21:04:04 -0400 112)             return Response({'detail': 'Invalid username. ' + username_validator.message}, status = status.HTTP_400_BAD_REQUEST)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 113)         
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 114)         # check if username is taken
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 115)         if (User.objects.filter(username = username).count() != 0):
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 116)             return Response({'detail': 'Username already taken.'}, status = status.HTTP_409_CONFLICT)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 117)         
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 118)         # validate password
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 119)         try:
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 120)             validate_password(password)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 121)         except ValidationError:
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 122)             help_text = " ".join(password_validators_help_texts())
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 123)             return Response({'detail': help_text}, status = status.HTTP_400_BAD_REQUEST)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 124) 
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 125)         # validate email
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 126)         try:
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 127)             validate_email(email)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 128) 
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 129)         except ValidationError:
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 130)             return Response({'detail': 'Invalid email.'}, status = status.HTTP_400_BAD_REQUEST)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 131)         
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 132)         # create user and set details
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 133)         user = User.objects.create(username = username, email = email)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 134)         user.set_password(password)
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 135)         user.save()
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 136) 
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 137)         # return the new serialized user
+d5ea019f (Steven Dao 2023-10-25 17:56:51 -0400 138)         return Response(UserSerializer(user, context = {'request': request}).data, status = status.HTTP_200_OK)
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 139) 
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 140)     def get(self, request, format=None):
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 141)         return Response({'detail': 'There is no GET here.'}, status = status.HTTP_403_FORBIDDEN)
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400 142)     
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 143) # default page response
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 144) def index(request):
+c30b6744 (Steven Dao 2023-10-23 01:52:03 -0400 145)     return Response({"detail": "This page doesn't have anything right now, but this message is intended."})
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 146) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  1) from django.urls import path
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  2) from . import views
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  3) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  4) urlpatterns = [
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400  5)     path('csrf', views.CSRF.as_view(), name='api-csrf'),
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400  6)     path('login', views.LoginView.as_view(), name='api-login'),
+dddd00cb (Steven Dao 2023-10-25 16:32:23 -0400  7)     path('logout', views.LogoutView.as_view(), name='api-logout'),
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  8)     path('session', views.SessionView.as_view(), name='api-session'),
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  9)     path('whoami', views.WhoAmIView.as_view(), name='api-whoami'),
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 10) ]
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400  1) from rest_framework.response import Response
+769e69b1 (Steven Dao    2023-10-22 18:45:52 -0400  2) from django.http import JsonResponse
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400  3) from rest_framework.views import APIView
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400  4) 
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400  5) from django.contrib.auth import authenticate, login, logout
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400  6) from rest_framework import status
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400  7) 
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400  8) from django.middleware.csrf import get_token
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400  9) 
+769e69b1 (Steven Dao    2023-10-22 18:45:52 -0400 10) from rest_framework.authentication import SessionAuthentication
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 11) from rest_framework.permissions import IsAuthenticated, AllowAny
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 12) 
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 13) # Create your views here.
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 14) # authentication
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 15) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 16) class CSRF(APIView):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 24)     permission_classes = [AllowAny]
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 25) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 26)     @staticmethod
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 27)     def get(request, format=None):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 28)         response = Response({'detail': 'CSRF cookie set'})
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 29)         response['X-CSRFToken'] = get_token(request)
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 31)         return response
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 32)     
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 33)     def post(request, format=None):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 34)         return Response({'detail': 'There is no POST here.'}, status = status.HTTP_403_FORBIDDEN)
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 35) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 36) class LoginView(APIView):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 37)     permission_classes = [AllowAny]
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 38) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 39)     def post(self, request, format=None):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 40)         username = request.data['username']
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 41)         password = request.data['password']
+769e69b1 (Steven Dao    2023-10-22 18:45:52 -0400 42) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 43)         if username is None or password is None:
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 44)             return Response({'detail': 'Please provide username and password.'}, status = status.HTTP_400_BAD_REQUEST)
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 45) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 46)         user = authenticate(username=username, password=password)
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 47) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 48)         if user is None:
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 49)             return Response({'detail': 'Invalid credentials.'}, status = status.HTTP_404_NOT_FOUND)
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 55)         login(request, user)
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 56)         return Response({'detail': 'Successfully logged in.'}, status = status.HTTP_200_OK)
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 57)     
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 58)     def get(self, request, format=None):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 59)         return Response({'detail': 'There is no GET here.'}, status = status.HTTP_403_FORBIDDEN)
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 60) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 61) class LogoutView(APIView):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 62)     authentication_classes = [SessionAuthentication]
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 63)     permission_classes = [IsAuthenticated]
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 64) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 65)     def get(self, request, format = None):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 66)         # if not request.user.is_authenticated:
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 67)         #     return JsonResponse({'detail': 'You\'re not logged in.'}, status = status.HTTP_200_OK)
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 68) 
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 69)         logout(request)
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 70)         return JsonResponse({'detail': 'Successfully logged out.'}, status = status.HTTP_200_OK)
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 71)     
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 72)     def post (self, request, format=None):
+dddd00cb (Steven Dao    2023-10-25 16:32:23 -0400 73)          return Response({'detail': 'There is no POST here.'}, status = status.HTTP_403_FORBIDDEN)
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 74)     
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 75) class SessionView(APIView):
+769e69b1 (Steven Dao    2023-10-22 18:45:52 -0400 76)     authentication_classes = [SessionAuthentication]
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 77)     permission_classes = [IsAuthenticated]
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 78) 
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 79)     @staticmethod
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 80)     def get(request, format=None):
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 81)         return Response({'isAuthenticated': True})
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 82) 
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 83) 
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 84) class WhoAmIView(APIView):
+769e69b1 (Steven Dao    2023-10-22 18:45:52 -0400 85)     authentication_classes = [SessionAuthentication]
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 86)     permission_classes = [IsAuthenticated]
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 87) 
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 88)     @staticmethod
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 89)     def get(request, format=None):
+^6da6a5a (Steven Dao    2023-10-15 17:31:42 -0400 90)         return Response({'username': request.user.username})
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  1) user www-data;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  2) worker_processes auto;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  3) pid /run/nginx.pid;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  4) include /etc/nginx/modules-enabled/*.conf;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  5) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  6) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  7) events {
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  8)   worker_connections 1024;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400  9) }
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 10) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 11) http {
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 12)   include /etc/nginx/mime.types;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 13)   
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 14)   upstream back_end {
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 15)     server back_end:8000;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 16)   }
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 17) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 18)   server { 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 19)     listen 80;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 20) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 21)     server_name test_server 127.0.0.1;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 22) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 23)     location /admin {
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 24)       proxy_pass              http://back_end/admin;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 25)       proxy_http_version  1.1;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 26)       proxy_redirect      default;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 27)       proxy_set_header    Upgrade $http_upgrade;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 28)       proxy_set_header    Connection "upgrade";
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 29)       proxy_set_header    Host $host:$server_port;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 30)       proxy_set_header    X-Real-IP $remote_addr;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 31)       proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 32)       proxy_set_header    X-Forwarded-Host $server_name;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 33)       proxy_set_header    X-Forwarded-Proto $scheme;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 34)     }
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 35) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 36)     location /api {
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 37)       proxy_pass              http://back_end;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 38)       proxy_http_version  1.1;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 39)       proxy_redirect      default;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 40)       proxy_set_header    Upgrade $http_upgrade;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 41)       proxy_set_header    Connection "upgrade";
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 42)       proxy_set_header    Host $host:$server_port;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 43)       proxy_set_header    X-Real-IP $remote_addr;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 44)       proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 45)       proxy_set_header    X-Forwarded-Host $server_name;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 46)       proxy_set_header    X-Forwarded-Proto $scheme;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 47)     }
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 48) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 49)     location /auth {
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 50)       proxy_pass              http://back_end/auth;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 51)       proxy_http_version  1.1;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 52)       proxy_redirect      default;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 53)       proxy_set_header    Upgrade $http_upgrade;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 54)       proxy_set_header    Connection "upgrade";
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 55)       proxy_set_header    Host $host:$server_port;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 56)       proxy_set_header    X-Real-IP $remote_addr;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 57)       proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 58)       proxy_set_header    X-Forwarded-Host $server_name;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 59)       proxy_set_header    X-Forwarded-Proto $scheme;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 60)     }
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 61) 
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 62)     location / {
+3e0b58c0 (Steven Dao 2023-10-29 22:52:15 -0400 63)       root /app/front_end;
+3e0b58c0 (Steven Dao 2023-10-29 22:52:15 -0400 64)       autoindex off;
+3e0b58c0 (Steven Dao 2023-10-29 22:52:15 -0400 65)     }
+3e0b58c0 (Steven Dao 2023-10-29 22:52:15 -0400 66) 
+3e0b58c0 (Steven Dao 2023-10-29 22:52:15 -0400 67)     location /static {
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 68)       root /app;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 69)       autoindex off;
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 70)     }
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 71)   }
+^6da6a5a (Steven Dao 2023-10-15 17:31:42 -0400 72) }
