@@ -1,4 +1,3 @@
-from django.conf import settings
 import openai
 from openai import OpenAI
 import logging
@@ -8,6 +7,10 @@ import json
 import re
 import requests
 import os
+import dotenv
+dotenv.load_dotenv('./.env.local')
+
+OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 
 # Change the current working directory
 #os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -42,7 +45,7 @@ def fetch_doctors(specialty, city):
 
 def chatgpt_conversation(conversation_log):
     try: 
-        client = OpenAI(api_key=settings.OPENAI_API_KEY)
+        client = OpenAI(api_key=OPENAI_API_KEY)
         response = client.chat.completions.create(model=model_id, messages=conversation_log)
 
         conversation_log.append({'role': response.choices[0].message.role, 
@@ -55,7 +58,7 @@ def chatgpt_conversation(conversation_log):
         return None
 
 def generate_llm_response(prompt):
-    if not settings.OPENAI_API_KEY:
+    if not OPENAI_API_KEY:
         logger.error("OpenAI API key is not set.")
         return "Error: OpenAI API key is not set."
 

@@ -26,8 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 SECRET_KEY = 'django-insecure-zh(avbz2yug&fjst8r$vi2ybhzsffm8+p&5ifyn@&_++xqm*%5'
-#OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-OPENAI_API_KEY = 
 
 DEBUG = True
 
