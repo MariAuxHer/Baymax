@@ -1,0 +1,702 @@
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000  1) from django.shortcuts import render
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500  2) from django.shortcuts import redirect
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500  3) 
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500  4) from django.contrib.auth import logout
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000  5) 
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000  6) # database
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000  7) from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer, MinimalConversationSerializer
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000  8) from back_end.models import Conversation, Interaction, CustomUser
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000  9) 
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 10) def index(request):
+2821ce65 (Steven Dao 2023-11-12 00:32:39 -0500 11) 
+2821ce65 (Steven Dao 2023-11-12 00:32:39 -0500 12)     if request.user.is_authenticated:
+2821ce65 (Steven Dao 2023-11-12 00:32:39 -0500 13)         conversations = Conversation.objects.filter(owner = request.user)
+2821ce65 (Steven Dao 2023-11-12 00:32:39 -0500 14) 
+2821ce65 (Steven Dao 2023-11-12 00:32:39 -0500 15)         print(conversations)
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 16)         
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 17)         try:
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 18)             interaction_set = Interaction.objects.filter(conversation = conversations[0])
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 19)             context = {
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 20)                 "interaction_set": interaction_set
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 21)             }
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 22) 
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 23)             print(interaction_set)
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 24)         except:
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 25)             context = {}
+2821ce65 (Steven Dao 2023-11-12 00:32:39 -0500 26)     else:
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 27)         return redirect('/login')
+2821ce65 (Steven Dao 2023-11-12 00:32:39 -0500 28) 
+2821ce65 (Steven Dao 2023-11-12 00:32:39 -0500 29)     return render(request, "back_end/index.html", context = context)
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 30) 
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 31) def profile(request):
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 32)     if not request.user.is_authenticated:
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 33)         return redirect('/')
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 34)     
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 35)     return render(request, "back_end/profile.html")
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 36) 
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 37) def login(request):
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 38)     if request.user.is_authenticated:
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 39)         return redirect('/')
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 40)     
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 41)     return render(request, "back_end/login.html")
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 42) 
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 43) def signup(request):
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 44)     if request.user.is_authenticated:
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 45)         return redirect('/')
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 46)     
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 47)     return render(request, "back_end/signup.html")
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 48) 
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 49) def about(request):
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 50)     return render(request, "back_end/about.html")
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 51) 
+956191a5 (Steven Dao 2023-11-12 03:49:50 +0000 52) def test(request):
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 53)     return render(request, "back_end/test.html")
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 54) 
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 55) def signout(request):
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 56)     logout(request)
+fcc52305 (Steven Dao 2023-11-12 01:41:23 -0500 57)     return redirect('/login')
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000   1) # rest 
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000   3) from rest_framework.response import Response
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000   4) from rest_framework import status
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000   5) from rest_framework.decorators import action
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000   6) from rest_framework.views import APIView
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000   7) 
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000   8) # validation
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000  14) # short cuts
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000  15) from django.shortcuts import get_object_or_404
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000  16) 
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000  17) # database
+a4c8b2f8 back_end/back_end/api_views.py (Steven Dao           2023-11-12 00:56:54 +0000  18) from back_end.serializers import ConversationSerializer, UserSerializer, InteractionSerializer, MinimalConversationSerializer
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  41)     # Allow the list to have a custom HTTP Header that can specify to have interaction sets returned or not
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  42)     def list(self, request):
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  43)         serializer = ConversationSerializer
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  44) 
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  45)         try:
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  46)             show_interactions = request.META.get('HTTP_X_SHOWINTS')
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  47)             if (show_interactions and show_interactions.lower() == "false"):
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  48)                 print("changing to minimal")
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  49)                 serializer = MinimalConversationSerializer
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  50)         finally:
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  51)             return Response(serializer(self.get_queryset(), many=True, context = {'request': request}).data)
+d8f9a2f5 back_end/back_end/views.py     (Steven Dao           2023-11-06 21:47:21 -0500  52)     
+f2535219 back_end/back_end/api_views.py (Steven Dao           2023-11-12 17:40:37 -0500  67) 
+f2535219 back_end/back_end/api_views.py (Steven Dao           2023-11-12 17:40:37 -0500  68)             # update the conversation access time
+f2535219 back_end/back_end/api_views.py (Steven Dao           2023-11-12 17:40:37 -0500  69)             c.last_accessed = i.creation_time
+f2535219 back_end/back_end/api_views.py (Steven Dao           2023-11-12 17:40:37 -0500  70)             c.save()
+f2535219 back_end/back_end/api_views.py (Steven Dao           2023-11-12 17:40:37 -0500  71) 
+e6f0d288 back_end/back_end/api_views.py (Steven Dao           2023-11-12 18:56:17 -0500 112)             interaction.generate_LLMResponse()
+e6f0d288 back_end/back_end/api_views.py (Steven Dao           2023-11-12 18:56:17 -0500 113)             interaction.save()
+d96530e5 back_end/back_end/views.py     (Steven Dao           2023-11-06 17:10:52 -0500 166)         return Response({'detail': 'There is no GET here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
+d8f9a2f5 (Steven Dao           2023-11-06 21:47:21 -0500 23) 
+d8f9a2f5 (Steven Dao           2023-11-06 21:47:21 -0500 24) class MinimalConversationSerializer(ConversationSerializer):
+d8f9a2f5 (Steven Dao           2023-11-06 21:47:21 -0500 25)     class Meta:
+d8f9a2f5 (Steven Dao           2023-11-06 21:47:21 -0500 26)         model = Conversation
+d8f9a2f5 (Steven Dao           2023-11-06 21:47:21 -0500 27)         fields = ['url', 'owner', 'last_accessed', 'creation_time', 'name']
+d8f9a2f5 (Steven Dao           2023-11-06 21:47:21 -0500 28)         read_only_fields = ['url', 'owner', 'last_accessed', 'creation_time']
+d8f9a2f5 (Steven Dao           2023-11-06 21:47:21 -0500 29)         
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 19) from . import api_views, views
+73653344 (Steven Dao           2023-11-12 00:25:58 +0000 27) api_router.register(r'users', api_views.UserViewSet, basename = 'customuser')
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 34) 
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 35)     path('', views.index),
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 36)     path('profile', views.profile),
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 37)     path('login', views.login),
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 38)     path('signup', views.signup),
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 39)     path('about', views.about),
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 40)     path('test', views.test),
+fcc52305 (Steven Dao           2023-11-12 01:41:23 -0500 41)     path('signout', views.signout),
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 42) 
+a71671ad back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-12 03:44:15 +0000  1) {% load static %}
+4f6ef16e back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:13:03 -0500  8)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/about.css' %}">
+7ca42aa3 back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-12 03:52:31 +0000  9)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+867984d3 front_end/html/about.html                       (Steven Dao           2023-11-04 21:00:13 -0400 13) <body>
+867984d3 front_end/html/about.html                       (Steven Dao           2023-11-04 21:00:13 -0400 15)     <aside id="navbar">
+bab6a1fb back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-12 01:40:55 -0500 17)         {% if not user.is_authenticated %} 
+867984d3 front_end/html/about.html                       (Steven Dao           2023-11-04 21:00:13 -0400 26)     
+d8488bb5 back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:08:15 -0500 32)                 <img src="{% static '/app/images/heros/Amal.jpg' %}" alt="Hero 1">
+d8488bb5 back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:08:15 -0500 40)                 <img src="{% static '/app/images/heros/nevets.jpg' %}" alt="Hero 2">
+4f6ef16e back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:13:03 -0500 48)                 <img src="{% static '/app/images/heros/Casey.jpg' %}" alt="Hero 3">
+d8488bb5 back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:08:15 -0500 57)                 <img src="{% static '/app/images/heros/Maria.png' %}" alt="Hero 4">
+d8488bb5 back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:08:15 -0500 66)                 <img src="{% static '/app/images/heros/Jonathan.jpg' %}" alt="Hero 5">
+d8488bb5 back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:08:15 -0500 75)                 <img src="{% static '/app/images/heros/Vinni.jpg' %}" alt="Hero 6">
+d8488bb5 back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:08:15 -0500 84)                 <img src="{% static '/app/images/heros/Jordan.jpg' %}" alt="Hero 7">
+a71671ad back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 03:44:15 +0000  1) {% load static %}
+7ca42aa3 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 03:52:31 +0000  8)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+7ca42aa3 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 03:52:31 +0000  9)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+867984d3 front_end/index.html                            (Steven Dao           2023-11-04 21:00:13 -0400 10) 
+867984d3 front_end/index.html                            (Steven Dao           2023-11-04 21:00:13 -0400 17)     <aside id="navbar">
+8a99e065 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 17:43:38 -0500 26)             <button id="togglePanelButton"><img src="{% static '/app/images/black_burger-removebg-preview.png' %}"></button>
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 31)         {% if interaction_set %} 
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 32)             {% for interaction in interaction_set %}
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 33)                 <p class="right"> {{ interaction.prompt }} </p>
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 34)                 <p class="left"> {{ interaction.LLMresponse }} </p>
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 35)             {% endfor %}
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 36)         {% else %}
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 37)             <p class="left">Hello, it's me</p>
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 38)         {% endif %}
+bab6a1fb back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 01:40:55 -0500 39) 
+f60a5de8 front_end/index.html                            (Steven Dao           2023-11-06 16:32:44 -0500 40)         <!-- <p class="right">Hello, it's me</p>
+f60a5de8 front_end/index.html                            (Steven Dao           2023-11-06 16:32:44 -0500 58)         <p class="left">Hello, how are you?. It's so typical of me to talk about myself, I'm sorry. I hope that you're well. Did you ever make it out of that town where nothing ever happened?</p> -->
+bab6a1fb back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 01:40:55 -0500 63)       <button id="default_button"></button>
+2821ce65 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 00:32:39 -0500 66)     <form id="message_form">{% csrf_token %}
+7ca42aa3 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 03:52:31 +0000 68)         <button id="submit_message"><img src="{% static '/app/images/paper-plane.png' %}"></button>
+31481236 front_end/index.html                            (Steven Dao           2023-11-06 15:23:04 -0500 71)     
+bab6a1fb back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 01:40:55 -0500 80)     <script type="module" src="{% static '/app/JS/index.js' %}"> </script>
+7ca42aa3 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 03:52:31 +0000 81)     <script src="{% static '/app/JS/textarea_replacement.js' %}"></script>
+7ca42aa3 back_end/back_end/templates/back_end/index.html (Steven Dao           2023-11-12 03:52:31 +0000 82)     <script src="{% static '/app/JS/message_scroll.js' %}"></script>
+a71671ad back_end/back_end/templates/back_end/login.html (Steven Dao           2023-11-12 03:44:15 +0000  1) {% load static %}
+a71671ad back_end/back_end/templates/back_end/login.html (Steven Dao           2023-11-12 03:44:15 +0000  2) 
+7ca42aa3 back_end/back_end/templates/back_end/login.html (Steven Dao           2023-11-12 03:52:31 +0000  9)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/login.css' %}">
+7ca42aa3 back_end/back_end/templates/back_end/login.html (Steven Dao           2023-11-12 03:52:31 +0000 10)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+7ca42aa3 back_end/back_end/templates/back_end/login.html (Steven Dao           2023-11-12 03:52:31 +0000 11)     <script type="module" src="{% static '/app/JS/login.js' %}"></script>    
+867984d3 front_end/html/login.html                       (Steven Dao           2023-11-04 21:00:13 -0400 15) <body>
+867984d3 front_end/html/login.html                       (Steven Dao           2023-11-04 21:00:13 -0400 17)     <aside id="navbar">
+bab6a1fb back_end/back_end/templates/back_end/login.html (Steven Dao           2023-11-12 01:40:55 -0500 27)     </aside>
+bab6a1fb back_end/back_end/templates/back_end/login.html (Steven Dao           2023-11-12 01:40:55 -0500 28) 
+a71671ad back_end/back_end/templates/back_end/login.html (Steven Dao           2023-11-12 03:44:15 +0000 41)         <a href="signup" id="toSignUp">Don't have an account?</a>
+3e9de5b0 back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-11 23:05:42 -0500  1) {% load static %}
+7ca42aa3 back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-12 03:52:31 +0000  8)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/profile.css' %}">
+7ca42aa3 back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-12 03:52:31 +0000  9)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+867984d3 front_end/html/profile.html                       (Steven Dao           2023-11-04 21:00:13 -0400 13) <body>
+867984d3 front_end/html/profile.html                       (Steven Dao           2023-11-04 21:00:13 -0400 15)     <aside id="navbar">
+bab6a1fb back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-12 01:40:55 -0500 30)             Username: {{ user.username}}
+bab6a1fb back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-12 01:40:55 -0500 33)             Password: um no
+bab6a1fb back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-12 01:40:55 -0500 36)             Email: {{ user.email }}
+bab6a1fb back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-12 01:40:55 -0500 39)             City: {{ user.city }}
+bab6a1fb back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-12 01:40:55 -0500 42)             State: {{ user.state }}
+bab6a1fb back_end/back_end/templates/back_end/profile.html (Steven Dao           2023-11-12 01:40:55 -0500 45)             Zip Code: {{ user.zipcode }}
+33c08d83 front_end/html/profile.html                       (Steven Dao           2023-11-04 19:16:26 -0400 51)     <!-- <script src="../JS/signup.js"></script> Was this script assigned to the wrong page?--> 
+3e9de5b0 back_end/back_end/templates/back_end/signup.html (Steven Dao           2023-11-11 23:05:42 -0500  1) {% load static %}
+7ca42aa3 back_end/back_end/templates/back_end/signup.html (Steven Dao           2023-11-12 03:52:31 +0000  9)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/signup.css' %}">
+7ca42aa3 back_end/back_end/templates/back_end/signup.html (Steven Dao           2023-11-12 03:52:31 +0000 10)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+867984d3 front_end/html/signup.html                       (Steven Dao           2023-11-04 21:00:13 -0400 11) 
+867984d3 front_end/html/signup.html                       (Steven Dao           2023-11-04 21:00:13 -0400 14) 
+867984d3 front_end/html/signup.html                       (Steven Dao           2023-11-04 21:00:13 -0400 17)     <aside id="navbar">
+867984d3 front_end/html/signup.html                       (Steven Dao           2023-11-04 21:00:13 -0400 23)     </aside>
+3e9de5b0 back_end/back_end/templates/back_end/test.html (Steven Dao           2023-11-11 23:05:42 -0500  1) {% load static %}
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400  4)     <header>
+7ca42aa3 back_end/back_end/templates/back_end/test.html (Steven Dao           2023-11-12 03:52:31 +0000  5)         <script src="{% static '/app/JS/utils.js' %}"></script>
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400  6)     </header>
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400  7)     <body onload="set_csrf()">
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400  8)         <button id="toHome"> Back to Home Page </button>
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400  9) 
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 10)         <button onclick="set_csrf()">Get CSRF</button>
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 11)         
+2821ce65 back_end/back_end/templates/back_end/test.html (Steven Dao           2023-11-12 00:32:39 -0500 12)         <form id="loginForm">{% csrf_token %}
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 13)             <label for="username">Username:</label>
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 14)             <input type="text" id="username">
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 15)             <label for="password">Password:</label>
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 16)             <input type="text" id="password">
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 17)             <button type="submit">Login</button>
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 18)         </form>
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 19) 
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 20)         <form id="ConversationForm">
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 21)             <label for="name">Conversation Name</label>
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 22)             <input type="text" id="name">
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 23)             <button type="submit">Submit</button>
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 24)         </form>
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 25)         
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 26)         <button onclick="logout()"> Logout </button>
+81a8f34e front_end/html/test.html                       (Steven Dao           2023-11-04 17:41:32 -0400 27)         <button onclick="whoami()"> Whoami </button>
+c06784c3 front_end/html/test.html                       (Steven Dao           2023-11-04 18:21:22 -0400 28)         <button onclick="session()"> Session </button>
+c06784c3 front_end/html/test.html                       (Steven Dao           2023-11-04 18:21:22 -0400 29)         <button onclick="log_conversations()"> Get Conversation </button>
+c5bf9ca2 front_end/html/test.html                       (Steven Dao           2023-11-04 14:48:29 -0400 30)     </body>
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 49) 
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 50)         document.getElementById('ConversationForm').addEventListener('submit', function (event) {
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 51)             event.preventDefault(); // Prevent the form from actually submitting
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 52) 
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 53)             const name = document.getElementById('name').value;
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 54) 
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 55)             // Call the login function with the username and password
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 56)             log_conversation(name) 
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 57)         });
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 58) 
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 59)         document.getElementById('toHome').addEventListener('click', function() {
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 60)         window.location.href = '../index.html';
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 61) });
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 62) 
+3b1dbd72 front_end/html/test.html                       (Steven Dao           2023-11-04 18:51:59 -0400 63) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500   1) import { log_conversations, session, post_prompt, post_conversation } from "./utils.js";
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500   2) 
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500   3) const messages = document.getElementById("messages")
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500   4) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500   5) // keeps track of which conversation the user is looking at (null)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500   6) // means that the user is looking at the empty conversation screen (where 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500   7) // they may randomly prompt and create a new conversation)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500   8) let conversation_url = null; 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500   9) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  10) document.addEventListener('DOMContentLoaded', async () => {
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  11)     session().then(async (result) => {
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  12) 
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  13)         // logged in
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  14)         if (result === true) {
+d57b8f1f front_end/JS/index.js           (Steven Dao 2023-11-06 17:06:07 -0500  15)             const conversations = await log_conversations() 
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  16)             
+68ff2fc7 front_end/JS/index.js           (Steven Dao 2023-11-06 16:34:14 -0500  17)             // Display most recent conversation
+68ff2fc7 front_end/JS/index.js           (Steven Dao 2023-11-06 16:34:14 -0500  18)             try {
+7cbbcafa back_end/static/app/JS/index.js (Steven Dao 2023-11-12 01:41:41 -0500  19)                 conversation_url = conversations[0].url
+68ff2fc7 front_end/JS/index.js           (Steven Dao 2023-11-06 16:34:14 -0500  20)             } catch {
+7cbbcafa back_end/static/app/JS/index.js (Steven Dao 2023-11-12 01:41:41 -0500  21)                 console.log("No conversation to display, keeping what should be the default page")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  22)             }
+7cbbcafa back_end/static/app/JS/index.js (Steven Dao 2023-11-12 01:41:41 -0500  23)  
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  24)             // populate the panel with buttons
+7cbbcafa back_end/static/app/JS/index.js (Steven Dao 2023-11-12 01:41:41 -0500  25)             const panel = document.getElementById('panelContainer')
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  26)             for (let i = 0; i < conversations.length; i++) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  27)                 const button = document.createElement('button')
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  28)                 button.setAttribute('id', panel.id + '_button_' + i)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  29)                 button.addEventListener('click', () => {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  30)                     load_conversation(conversations[i].url)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  31)                     conversation_url = conversations[i].url
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  32)                 })
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  33) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  34)                 panel.appendChild(button)
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  35)             }
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  36)         } 
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  37)         // not logged in
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  38)         else {
+0ce12dc3 back_end/static/app/JS/index.js (Steven Dao 2023-11-11 23:05:57 -0500  39)             window.location.pathname = 'login'
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  40)         }
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  41)     })
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  42) });
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500  43) 
+7cbbcafa back_end/static/app/JS/index.js (Steven Dao 2023-11-12 01:41:41 -0500  44) document.getElementById('default_button').addEventListener('click', () => {
+7cbbcafa back_end/static/app/JS/index.js (Steven Dao 2023-11-12 01:41:41 -0500  45)     default_page()
+7cbbcafa back_end/static/app/JS/index.js (Steven Dao 2023-11-12 01:41:41 -0500  46) })
+7cbbcafa back_end/static/app/JS/index.js (Steven Dao 2023-11-12 01:41:41 -0500  47) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  48) document.addEventListener('submit', async (event) => {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  49)     event.preventDefault()
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  50) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  51)     const text = document.getElementById('prompt_text').innerHTML
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  52)     
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  53)     if (text!== "") {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  54)         add_prompt(text)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  55)         if (conversation_url) { 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  56)             // make sure we dont send an empty prompt // though it doesn't technically break anything it is still something we should validate
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  57)             const interaction = await post_prompt(conversation_url, text)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  58) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  59)             if (interaction) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  60)                 add_LLMresponse(interaction.LLMresponse)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  61)             } else {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  62)                 add_LLMresponse("post_prompt didnt come back with anything")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  63)                 console.error("post_prompt didnt come back with anything")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  64)             } 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  65)         } else {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  66)             const conversation = await post_conversation(text, text)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  67) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  68)             if (conversation) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  69)                 if (conversation.interaction_set[0]) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  70)                     add_LLMresponse(conversation.interaction_set[0].LLMresponse)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  71)                     conversation_url = conversation.url
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  72)                 } else {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  73)                     add_LLMresponse("post_conversation didnt come back with a DEFAULT INTERACTION")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  74)                     console.error("post_conversation didnt come back with a DEFAULT INTERACTION")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  75)                 }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  76)             } else {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  77)                 add_LLMresponse("post_conversation didnt come back with anything")
+8bc60d1d front_end/JS/index.js           (Steven Dao 2023-11-07 12:05:20 -0500  78)                 console.error("post_conversation didnt come back with anything")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  79)             }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  80)         } 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  81)     }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  82) })
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  83) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  84) function default_page() {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  85)     messages.innerHTML = ""
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  86)     add_LLMresponse("Hello, it's me")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  87)     conversation_url = null; 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  88) }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  89) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  90) async function load_conversation(url) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  91)     const response = await fetch(url, {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  92)         method: "GET",
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  93)         headers: {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  94)             "Content-Type": "application/json",
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  95)         }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  96)     })
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  97) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  98)     if (response.ok) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500  99)         console.log("LOAD_CONVERSATION Conversation Fetched")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 100) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 101)         const json = await response.json()
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 102) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 103)         try {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 104)             print_conversation(json)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 105)         } catch {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 106)             console.log("No conversation to display, falling back to default message.")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 107)             messages.appendChild(first_message())
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 108)         }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 109)     } else {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 110)         console.error("Failed to get conversation")
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 111)     }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 112) }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 113) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 114) async function print_conversation(conversation_obj) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 115)     messages.innerHTML = ""
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 116)     for (let i = conversation_obj.interaction_set.length - 1; i >= 0; i--) {                    
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 117)         add_prompt(conversation_obj.interaction_set[i].prompt)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 118)         add_LLMresponse(conversation_obj.interaction_set[i].LLMresponse)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 119)     }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 120)     conversation_url = conversation_obj.url; 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 121) }
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 122) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 123) /*
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 124)  * Adds a LLMResponse (string) to the left side of the window chat starting from the bottom
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 125)  */ 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 126) function add_LLMresponse(LLMresponse) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 127)     const LLMresponseElement = document.createElement('p')
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 128)     LLMresponseElement.setAttribute('class', 'left')
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 129)     LLMresponseElement.innerHTML = LLMresponse
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 130)     messages.appendChild(LLMresponseElement)
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 131) }
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500 132) 
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 133) function add_prompt(prompt) {
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 134)     const promptElement = document.createElement('p')
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 135)     promptElement.setAttribute('class', 'right')
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 136)     promptElement.innerHTML = prompt
+bd3833ed front_end/JS/index.js           (Steven Dao 2023-11-06 20:50:25 -0500 137)     messages.appendChild(promptElement)
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500 138) }
+f60a5de8 front_end/JS/index.js           (Steven Dao 2023-11-06 16:32:44 -0500 139) 
+f60a5de8 front_end/JS/login.js           (Steven Dao           2023-11-06 16:32:44 -0500  1) import { login, session } from "./utils.js"
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500  4) document.getElementById('submit').addEventListener('click', async function(event) {
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500  7)     // do username and password validation
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500  9)     const username = await document.getElementById('username').value
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 10)     const password = await document.getElementById('password').value
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 12)     const result = await login(username, password);
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 14)     if (result.status === 200) {
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 15)         console.log("Logged in")
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 16)         window.location.pathname = '/'
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 17)     } else {
+af059c5d front_end/JS/login.js           (Steven Dao           2023-11-06 15:38:34 -0500 19) 
+af059c5d front_end/JS/login.js           (Steven Dao           2023-11-06 15:38:34 -0500 20)         // TODO: show why the login failed on the HTML DOC
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 30)     }
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 33) 
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 34) document.addEventListener('DOMContentLoaded', function() {
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 35)     session().then((result) => {
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 36)         if (result === true) {
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 37)             window.location.pathname = '/'
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 38)         }
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 39)     })
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 40)   });
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 41) 
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 42) 
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 43) 
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 44) 
+31481236 front_end/JS/login.js           (Steven Dao           2023-11-06 15:23:04 -0500 45) 
+31481236 front_end/JS/nav_bar.js           (Steven Dao 2023-11-06 15:23:04 -0500  1) //! DEPRECATED
+31481236 front_end/JS/nav_bar.js           (Steven Dao 2023-11-06 15:23:04 -0500  2) // FUNCTIONALITY OF THIS FILE HAS BEEN INTEGRATED INTO THE BUTTONS THROUGH THE 'ONCLICK' ATTRIBUTE
+31481236 front_end/JS/nav_bar.js           (Steven Dao 2023-11-06 15:23:04 -0500  3) // OF THE BUTTONS
+31481236 front_end/JS/nav_bar.js           (Steven Dao 2023-11-06 15:23:04 -0500  4) 
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400  5) // Assign Login Page Button
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400  6) const loginElement = document.getElementById('toLoginPage')
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400  7) if (loginElement) {
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400  8)     loginElement.addEventListener('click', () => {
+0ce12dc3 back_end/static/app/JS/nav_bar.js (Steven Dao 2023-11-11 23:05:57 -0500  9)         window.location.pathname = 'login';
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 10)     })
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 11) }
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 12) 
+33c08d83 front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:16:26 -0400 13) // Assign Profile Page Button
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 14) const profileElement = document.getElementById('toProfilePage')
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 15) if (profileElement) {
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 16)     profileElement.addEventListener('click', () => {
+0ce12dc3 back_end/static/app/JS/nav_bar.js (Steven Dao 2023-11-11 23:05:57 -0500 17)         window.location.pathname = 'profile';
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 18)     })
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 19) }
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 20) 
+33c08d83 front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:16:26 -0400 21) // Assign About Page Button
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 22) const aboutElement = document.getElementById('toAboutPage')
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 23) if (aboutElement) {
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 24)     aboutElement.addEventListener('click', () => {
+0ce12dc3 back_end/static/app/JS/nav_bar.js (Steven Dao 2023-11-11 23:05:57 -0500 25)         window.location.pathname = 'about';
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 26)     })
+e2620efb front_end/JS/BarRedirects.js      (Steven Dao 2023-11-04 19:07:49 -0400 27) }
+7cbbcafa back_end/static/app/JS/signup.js (Steven Dao           2023-11-12 01:41:41 -0500  1) import { create_user } from "./utils.js";
+2821ce65 back_end/static/app/JS/signup.js (Steven Dao           2023-11-12 00:32:39 -0500  2) 
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500  3) 
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500  5) document.getElementById('submit').addEventListener('click', async function(event) {
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500  7)     
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500  8)     // validate fields
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 19)     const user = await create_user(accountInfo)
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 20) 
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 21)     if (user.status === 200) {
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 22)         console.log("user created")
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 23)         console.log(user.detail)
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 24) 
+0ce12dc3 back_end/static/app/JS/signup.js (Steven Dao           2023-11-11 23:05:57 -0500 25)         window.location.pathname = "login"
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 26)     } else {
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 27)         console.log("user not created")
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 28)         console.log(user.detail)
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 29) 
+af059c5d front_end/JS/signup.js           (Steven Dao           2023-11-06 15:38:34 -0500 30)          // TODO: show why the signup failed on the HTML DOC
+31481236 front_end/JS/signup.js           (Steven Dao           2023-11-06 15:23:04 -0500 39)     }
+2821ce65 back_end/static/app/JS/signup.js (Steven Dao           2023-11-12 00:32:39 -0500 40) })
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   1) const HOST = window.location.host
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   2) const REST_AUTH_URL = `http://${HOST}/auth/`
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   3) const REST_API_URL =  `http://${HOST}/api/`
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   4) const CSRF_URL = REST_AUTH_URL + 'csrf'
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   5) const LOGIN_URL = REST_AUTH_URL + 'login'
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   6) const LOGOUT_URL = REST_AUTH_URL + 'logout'
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   7) const SESSION_URL = REST_AUTH_URL + 'session'
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   8) const WHOAMI_URL = REST_AUTH_URL + 'whoami'
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500   9) const CREATE_USER_URL = REST_API_URL + "createuser"
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500  10) const CONVERSATIONS_URL = REST_API_URL + 'conversations'
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  11) 
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  16) export async function set_csrf() {
+b234abe0 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:03:57 -0400  20)         headers: {
+b234abe0 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:03:57 -0400  21)             "Content-Type": "application/json",
+b234abe0 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:03:57 -0400  22)         }
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  24)     if (!response.ok) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  25)         console.error("SET_CSRF FAILED")
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  27)     
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  28)     return { status: response.status }
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  32)  * Logs the user in based on username and password. Requires csrftoken cookie to be set. 
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  33)  * Returns an object containing 'status' and 'detail'.
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  34)  * Status is the return HTTP status from fetch.
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  35)  * detail is the detail if an error were to have occured
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  36)  * detail will be null if status is 200 (OK)
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  38) export async function login(username, password) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  40)     set_csrf().then( (result) => {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  41)         if(result.status !== 200) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  42)             return { status: result.status, detail: "Failed to set CSRF." }
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  43)         }
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  44)     })
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  45) 
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  46)     // send request to backend
+2821ce65 back_end/static/app/JS/utils.js (Steven Dao           2023-11-12 00:32:39 -0500  47)     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  60)     // return response
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  61)     const json = await response.json()
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  62)     return { status: response.status, detail: json.detail }
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  65) /*
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  66)  * Logs the current user out based on the session cookie. If there is user logged in at the moment nothing is done.
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  67)  * This function doesn't return anything. 
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  68)  */
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  69) export async function logout() {
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400  70)     const response = await fetch(LOGOUT_URL, {
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400  71)         method: "GET",
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400  72)         headers: {
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400  73)             "Content-Type": "application/json",
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400  74)         }
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400  75)     })
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400  76) 
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  77)     if (log_response(response, "logout")) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  78)         console.error("LOGOUT SUCCESS")
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  79)         return true
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  80)     } else {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  81)         console.log("LOGOUT FAILED")
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  82)         return false
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500  83)     }
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  84) }
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  85) 
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  86) /*
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  87)  * Returns the user name of the current logged in user based on the session cookie. 
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  88)  * Returns null on failure. i.e. user is not logged in. 
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  89)  */
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500  90) export async function whoami() {
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  91)     const response = await fetch(WHOAMI_URL, {
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  92)         method: "GET",
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  93)         headers: {
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  94)             "Content-Type": "application/json"
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  95)         }
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400  96)     })
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400  97)     
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400  98)     if (log_response(response, "whoami")) {
+3b1dbd72 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:51:59 -0400  99)         const json = await response.json()
+3b1dbd72 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:51:59 -0400 100)         if (json.username) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 101)             console.log(`WHOAMI SUCCESS - I AM USER: ${json.username}`)
+3b1dbd72 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:51:59 -0400 102)             return json.username
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 103)         } else {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 104)             console.error("WHOAMI ERROR - Response is missing a username in the body!")
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 105)         }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 106)     } else {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 107)         console.error("WHOAMI FAILURE")
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 108)         return null
+81a8f34e front_end/JS/utils.js           (Steven Dao           2023-11-04 17:41:32 -0400 109)     } 
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400 110) }
+c5bf9ca2 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:48:29 -0400 111) 
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 112) /*
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 113)  * Returns true if the current session is authenticated with the back end. Returns false otherwise. 
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 114)  */
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 115) export async function session() {
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 116)     const response = await fetch(SESSION_URL, {
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 117)         method: "GET",
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 118)         headers: {
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 119)             "Content-Type": "application/json"
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 120)         }
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 121)     })
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 122) 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 123)     if (log_response(response, "session")) {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 124)         const data = await response.json()
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 125)         if (data.isAuthenticated) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 126)             console.log("SESSION - Current session is authenticated.")
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 127)             return true
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 128)         } else {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 129)             console.log("SESSION - Current session is not authenticated.")
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 130)         }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 131)     } else {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 132)         console.error("SESSION - Failed to capture response.")
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 133)     }
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 134) 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 135)     return false
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 136) }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 137) 
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 138) export async function get_conversations() {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 139)     const response = await fetch (CONVERSATIONS_URL, {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 140)         method: "GET",
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 141)         headers: {
+b760377c front_end/JS/utils.js           (Steven Dao           2023-11-06 21:48:00 -0500 142)             "X-ShowInts": false,
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 143)             "Content-Type": "application/json"
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 144)         }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 145)     })
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 146) 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 147)     if (log_response(response, "get_conversations")) {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 148)         console.log("CONVERSATIONS Response OK")
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 149)         return await response.json()
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 150)     } else {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 151)         console.log("CONVERSATIONS Response NOT OK")
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 152)     }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 153)     return null
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 154) }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 155) 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 156) /*
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 157)  * Testing function that calls and prints results of get_conversations(). 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 158)  * It still returns the result of get_conversations as the return of this function.
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 159)  */
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 160) export async function log_conversations() {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 161)     const data = await get_conversations()
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 162)     console.log(data)
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 163) 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 164)     return data
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 165) }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 166) 
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500 167) /* 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 168)  * Posts a conversation to the current user's account. Returns the conversation object that was created. Returns null if failed.
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 169)  */
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 170) export async function post_conversation(conversation_name, first_prompt = null) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 171)     // assign a csrf
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 172)     if (!(await set_csrf())) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 173)        return null
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 174)     }
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 175)     
+2821ce65 back_end/static/app/JS/utils.js (Steven Dao           2023-11-12 00:32:39 -0500 176)     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 177)     const response = await fetch(CONVERSATIONS_URL + "/", {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 178)         method: "POST",
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 179)         headers: {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 180)             "X-CSRFToken": csrftoken,
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 181)             "Content-Type": "application/json",
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 182)         },
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 183)         body: JSON.stringify({
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500 184)             name: conversation_name
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 185)         })
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 186)     })
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 187) 
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 188)     if (log_response(response, "post_conversation 1/2")) {
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500 189)         console.log("POST_CONVERSATION 1/2 Response OK")
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 190)     } else {
+cdcdf720 front_end/JS/utils.js           (Steven Dao           2023-11-06 17:32:22 -0500 191)         console.log("POST_CONVERSATION 1/2 Response NOT OK")
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 192)         return null
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 193)     }
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 194)     const json = await response.json()
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 195) 
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 196)     console.log(json)
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 197)     console.log(json.url)
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 198) 
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 199)     // post the first prompt if given
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 200)     if (first_prompt) {
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 201)         const json2 = await post_prompt(json.url, first_prompt)
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 202) 
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 203)         if (json2) {
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 204)             console.log("POST_CONVERSATION 2/2 Response OK")
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 205)             json.interaction_set[0] = json2
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 206)             return json
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 207)         } else {
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 208)             console.log("POST_CONVERSATION 2/2 Response NOT OK")
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 209)         }
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 210)     }
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 211)     return json
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 212) }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 213) 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 214) /*
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 215)  * Testing function that calls and prints results of post_conversation. 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 216)  * It still returns the result of post_conversations as the return of this function.
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 217)  */
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 218) export async function log_conversation(name) {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 219)     const data = await post_conversation(name)
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 220)     console.log(data)
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 221)     return data
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 222) }
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 223) 
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 224) 
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 225) /*
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 226)  * userdetails should contain a username field, password field, and email field
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 227)  * returns null if failed to set csrf
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 228)  */
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 229) export async function create_user(userdetails = {}) {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 230)     console.log("CREATE_USER Start")
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 231) 
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 232)     // check for a csft cookie
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 233)     if (!(await set_csrf())) {
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 234)         return null
+d57b8f1f front_end/JS/utils.js           (Steven Dao           2023-11-06 17:06:07 -0500 235)     }
+2821ce65 back_end/static/app/JS/utils.js (Steven Dao           2023-11-12 00:32:39 -0500 236)     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 237)     const response = await fetch(CREATE_USER_URL, {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 238)         method: "POST",
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 239)         headers: {
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 240)             "X-CSRFToken": csrftoken,
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 241)             "Content-Type": "application/json",
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 242)         },
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 243)         body: JSON.stringify(userdetails)
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 244)     })
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 245) 
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 246)     const json = await response.json()
+c06784c3 front_end/JS/utils.js           (Steven Dao           2023-11-04 18:21:22 -0400 247)     console.log("CREATE_USER End")
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 248) 
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 249)     if (response.ok) {
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 250)         return { status:response.status, detail: json }
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 251)     } else {
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 252)         return { status:response.status, detail: json.detail }
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 253)     }
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 254) }
+0b149c5a front_end/JS/utils.js           (Steven Dao           2023-11-04 17:50:16 -0400 255) 
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 256) /*
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 257)  * Posts a new interaction to the conversation url
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 258)  */
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 259) export async function post_prompt(conversation_url, prompt) { 
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 260)     if (!(await set_csrf())) {
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 261)         return null
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 262)     }
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 263) 
+2821ce65 back_end/static/app/JS/utils.js (Steven Dao           2023-11-12 00:32:39 -0500 264)     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 265)     const response = await fetch(conversation_url + 'interactions/', {
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 266)         method: "POST",
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 267)         headers: {
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 268)             "X-CSRFToken": csrftoken,
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 269)             "Content-Type": "application/json",
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 270)         },
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 271)         body: JSON.stringify({
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 272)             prompt: prompt
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 273)         })
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 274)     })
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 275) 
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 276)     if (log_response(response, "post_prompt")) {
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 277)         console.log("POST_PROMPT Response OK")
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 278)         return await response.json()
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 279)     } else {
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 280)         console.log("POST_PROMPT Response NOT OK")
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 281)         return null
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 282)     }
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 283) }
+bd3833ed front_end/JS/utils.js           (Steven Dao           2023-11-06 20:50:25 -0500 284) 
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 288) export function document_get_cookie_value(key) {
+31481236 front_end/JS/utils.js           (Steven Dao           2023-11-06 15:23:04 -0500 298) export function log_response(response, basename) {
+b234abe0 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:03:57 -0400 299)     if (response.ok) {
+b234abe0 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:03:57 -0400 300)         console.log(basename + "response OK.")
+b234abe0 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:03:57 -0400 301)         return true;
+b234abe0 front_end/JS/utils.js           (Steven Dao           2023-11-04 14:03:57 -0400 302)     } else {
+21a799a0 Dockerfile       (Steven Dao           2023-11-12 03:37:13 +0000  5) 
+21a799a0 Dockerfile       (Steven Dao           2023-11-12 03:37:13 +0000  6) # copy nginx conf 
+142d6543 Dockerfile       (Steven Dao           2023-11-12 03:37:59 +0000  7) COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+21a799a0 Dockerfile       (Steven Dao           2023-11-12 03:37:13 +0000  8) 
+21a799a0 Dockerfile       (Steven Dao           2023-11-12 03:37:13 +0000  9) # copy front end static to app static
+de4c8395 Dockerfile       (Steven Dao           2023-11-11 23:06:43 -0500 10) COPY ./back_end/static/ /app/static/
+01f50cd0 (Steven Dao           2023-11-12 01:24:46 +0000  9)     volumes:
+01f50cd0 (Steven Dao           2023-11-12 01:24:46 +0000 10)       - ./back_end:/app
+06ebbc8a (Steven Dao           2023-11-12 03:24:19 +0000 16)       dockerfile: ./Dockerfile
+09585f8f (Steven Dao           2023-11-12 00:58:55 +0000 17)     volumes:
+956191a5 (Steven Dao           2023-11-12 03:49:50 +0000 18)       - ./back_end/static/app:/app/static/app
