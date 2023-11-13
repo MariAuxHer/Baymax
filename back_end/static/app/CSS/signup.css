@@ -105,3 +105,21 @@ input {
     border-radius: 1em;
     outline: none;
 }
+
+select {
+    appearance: none; /* Remove default styles in some browsers */
+    color: black; 
+    background: #fff; 
+    padding: 0.7em 0.7em;
+    font-size: 0.85em;
+    border: none;
+    border-radius: 1em;
+    width: 10.5em;
+    box-shadow: 0 0 0.2em rgb(95, 88, 176);
+}
+
+option {
+    justify-content: center;
+    background-color: #fff;
+    color: black;
+}
