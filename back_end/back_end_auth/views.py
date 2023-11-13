@@ -93,4 +93,4 @@ class WhoAmIView(APIView):
 
     @staticmethod
     def get(request, format=None):
-        return Response({ UserSerializer(request.user).data })
+        return Response({ UserSerializer(request.user, context = { 'request': request }).data })
