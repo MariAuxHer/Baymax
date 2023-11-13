@@ -1,10 +1,10 @@
 import { whoami } from "./utils.js";
 import { update_user } from "./utils.js";
 
-let user;
+let who;
 document.addEventListener("DOMContentLoaded", async () => {
-    user = await whoami();
-    console.log(user.detail.username);
+    who = await whoami();
+    console.log(who);
 
     // Have the old user info appear in the input boxes
 
@@ -22,7 +22,7 @@ document.getElementById("submit").addEventListener('click', async (event) => {
         zipcode: document.getElementById('zipcode').value,
     };
 
-    const url = `http://localhost/api/users/${user.detail.username}`
+    const url = who.detail.url
     console.log(url)
 
     
