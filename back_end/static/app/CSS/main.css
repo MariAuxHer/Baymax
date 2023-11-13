@@ -49,4 +49,22 @@ h1 {
     left: 20px;
     z-index: 1;
   }*/
+
+  .login_fail {
+    justify-content: center;
+    align-content: center;
+    align-self: auto;
+    font-size: 1.2em;
+    color: red;
+    flex: 0.2; 
+    margin-bottom: 0.75em; 
+    background: rgba(252, 245, 221, 0.8);
+    box-shadow: 0 0 0.1em rgb(107, 100, 100);
+    margin: 1em;
+    overflow: hidden;
+    padding: 0.7em 0.7em;
+    width: 25em;
+    text-align: center;
+    line-height: 1.5;
+  }
   

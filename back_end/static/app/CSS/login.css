@@ -23,12 +23,12 @@ h2 {
 
 form {
     margin: auto;
-    margin-top: 13%;
+    margin-top: 30%;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
-    height: 50vh;
+    /* height: 50%; */
 }
 
 #error {

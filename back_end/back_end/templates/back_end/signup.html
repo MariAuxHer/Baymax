@@ -5,6 +5,7 @@
     <!-- <script src="utils.js"></script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/signup.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
 
@@ -12,11 +13,13 @@
 </head>
 
 <body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
     <aside id="navbar">
-        <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
-        <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
-        <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
-        <script type="module" src="{% static '/app/JS/signup.js' %}"></script>
+        <div class="nav_container">
+            <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+            <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+            <script type="module" src="{% static '/app/JS/signup.js' %}"></script>
+        </div>
     </aside>
 
     <form method="post">{% csrf_token %}

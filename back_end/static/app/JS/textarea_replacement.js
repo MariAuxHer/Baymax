@@ -23,9 +23,14 @@ div.addEventListener("keydown", function(event) {   // pressing enter will submi
         submit_button.click();
     }
 });
-div.onsubmit = (e) => {                              // input into the editable div will be coppied int the hidden text area
-    textarea.value = "";
-    div.innerHTML = "";
+parent.onsubmit = (e) => {                              
+    setTimeout(() => {
+        textarea.value = "";
+        div.innerHTML = "";
+    }, 0);
+    setTimeout(() => {
+        window.scrollTo(0, 500000);
+    }, 1);
 };
 
 // panel.js
