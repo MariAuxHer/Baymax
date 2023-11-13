@@ -27,6 +27,22 @@ document.getElementById("submit").addEventListener('click', async (event) => {
         zipcode: document.getElementById('zipcode').value,
     };
 
+    let emailValidCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailValidCheck.test(accountInfo.email)) {
+        console.log('Invalid email address')
+
+        let exists = document.querySelector("form_fail")
+        if (!exists) {
+            let parent = document.querySelector("#signup_form");
+            let paragraph = document.createElement("p");
+            paragraph.classList.add("form_fail");
+            paragraph.innerHTML = "Invalid email address";
+            parent.appendChild(paragraph);
+        }
+    }
+    console.log(emailValidCheck.test(accountInfo.email))
+
+
     const url = who.detail.url
     console.log(url)
 
