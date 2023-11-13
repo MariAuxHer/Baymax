@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-    margin: 0.5em 0.5em;
+    margin: 0.5em;
     font-size: 2.2em;
 }
 
@@ -35,21 +35,8 @@ h2 {
     text-decoration: none;
     color: #ff3535;
 }
-
-#panelContainer {
-    z-index: 1000;
-    width: 250px;
-    height: 89.4%;
-    position: fixed;
-    top: 78px;
-    left: -250px; /* Start hidden outside the viewport */
-    background-color: #383636;
-    transition: 0.2s;
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  }
   
-  #panelContainer {
+#panelContainer {
     z-index: 1000;
     width: 250px;
     height: 89.4%;

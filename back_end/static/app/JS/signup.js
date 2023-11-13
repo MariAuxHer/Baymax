@@ -26,15 +26,11 @@ document.getElementById('submit').addEventListener('click', async function(event
     } else {
         console.log("user not created")
         console.log(user.detail)
-
-         // TODO: show why the signup failed on the HTML DOC
-         let error_text = document.getElementById("error");
-        error_text.textContent = "Failed to create account.";
-
-        // let parent = document.querySelector("#signup_form");
-        // let paragraph = document.createElement("p");
-        // paragraph.classList.add("signup_fail");
-        // paragraph.innerHTML = "failed";
-        // parent.appendChild(paragraph);
+        
+        let parent = document.querySelector("#signup_form");
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("form_fail");
+        paragraph.innerHTML = "user.detail";
+        parent.appendChild(paragraph);
     }
 })
