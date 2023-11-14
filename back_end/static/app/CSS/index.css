@@ -125,3 +125,31 @@ img {
     display: none;
     padding: 10px;
 }
+
+@media only screen and (max-width: 768px) {
+    #messages {
+        width: 80%;
+    }
+
+    .left, .right {
+        width: 100%;
+        grid-column: auto;
+    }
+
+    .right {
+        grid-column: auto;
+    }
+
+    form {
+        grid-template-columns: 100%;
+    }
+
+    textarea, .textarea_replacement {
+        width: 100%;
+    }
+}
+
+
+
+
+
