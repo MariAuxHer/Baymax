@@ -1,0 +1,408 @@
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   1) import openai
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   2) from openai import OpenAI
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   3) import logging
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   4) logging.basicConfig(level=logging.INFO)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   5) logger = logging.getLogger(__name__)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   6) import json
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   7) import re
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   8) import requests
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   9) import os
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  14) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  15) # Change the current working directory
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  16) #os.chdir(os.path.dirname(os.path.abspath(__file__)))
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  17) print("Current working directory openai:", os.getcwd())
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  18) with open('/app/back_end/medical_specializations.json', 'r') as f:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  19)     medical_specializations = json.load(f)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  20) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  21) model_id = 'gpt-4'
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  22) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  23) def fetch_doctors(specialty, city):
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  24)     url = ("https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms={}&"
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  25)            "q=addr_practice.city:{}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=5").format(specialty, city)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  26) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  27)     response = requests.get(url)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  28) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  29)     if response.status_code == 200:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  30)         data = response.json()
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  31)         #print(json.dumps(data, indent=4))
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  32) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  33)         doctors_list = []
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  34)         for item in data[3]:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  35)             doctor_info = {
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  36)                 'Name': item[1],
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  37)                 'Address': item[2],
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  38)                 'Phone': item[3]
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  39)             }
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  40)             doctors_list.append(doctor_info)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  41)         return doctors_list
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  42)     else:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  43)         print(f'Failed to retrieve data: {response.status_code}')
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  44)         return None
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  45) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  46) def chatgpt_conversation(conversation_log):
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  47)     try: 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  49)         response = client.chat.completions.create(model=model_id, messages=conversation_log)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  50) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  51)         conversation_log.append({'role': response.choices[0].message.role, 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  52)             'content': response.choices[0].message.content.strip()
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  53)         })
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  54)         return conversation_log
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  55) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  56)     except Exception as e:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  57)         logger.error("An error occurred in OpenAI API interaction: ")
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  58)         return None
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  59) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  60) def generate_llm_response(prompt):
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  62)         logger.error("OpenAI API key is not set.")
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  63)         return "Error: OpenAI API key is not set."
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  64) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  65)     conversations = []
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  66)     conversations.append({'role': 'user', 'content': prompt})
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  67)     conversations = chatgpt_conversation(conversations)
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  68)     specialization_found = False 
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  69)     retrieve_data = False
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  70) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  71)     if conversations:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  72)         gptresponse = conversations[-1]['content'].strip().lower()
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  73)         print(gptresponse)
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  74)         doctor_info_str = ""
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  75)         for specialization in medical_specializations: 
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  76)             specialization_found = True
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  77)             if re.findall(rf"\b{specialization}\b", gptresponse):
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  78)                 print("specialization " + specialization)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  79)                 value = medical_specializations[specialization]
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  80)                 print(f"Key: {specialization}, Value: {value}")
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  81)                 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  82)                 # Specify the classification you are interested in
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  83)                 specialty = value.replace(" ", "+")
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  84)                 city = "Los+Angeles"  # URL encoded space as +, to adhere to URL encoding standards
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  85)                 doctors = fetch_doctors(specialty, city)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  86) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  87)                 print(f"Here is a list of doctors in your region \n")
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  88)                 doctor_info_str = doctor_info_str + f"\nHere is a list of {specialization} in your region\n"
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  89)                 if doctors:
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  90)                     retrieve_data = True
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  91)                     for idx, doctor in enumerate(doctors, 1):
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  92)                         print(f"{idx}. Name: {doctor['Name']}, Address: {doctor['Address']}, Phone: {doctor['Phone']}")
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  93)                         doctor_info_str = doctor_info_str + f"{idx}. Name: {doctor['Name']}\nAddress: {doctor['Address']}\nPhone: {doctor['Phone']}\n"
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  94)                     
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  95)                 #    return gptresponse + "\n" + doctor_info_str
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  96)                 # else:
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  97)                 #    print("No doctors found or failed to retrieve data.")
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  98)                 #    return gptresponse
+d013e1ed (Maria Hernandez 2023-11-13 10:17:39 -0500  99)             
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 100)             #else: 
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 101)             #    print("only gpt response, no specialization found")
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 102)             #    return gptresponse
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 103)         
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 104)         if specialization_found and retrieve_data: 
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 105)             print("specialization found and able to retrieve doctor's info")
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 106)             return gptresponse + "\n" + doctor_info_str    
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 107)         
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 108)         else:
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 109)             print("only gpt response, no specialization found")
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500 110)             return gptresponse
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 111)     else:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 112)         print("Error: Unable to get response.")
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 113)         return "Error: Unable to get response."
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 114)     
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 115) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 116)     #try:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 117)     #    client = OpenAI(api_key=settings.OPENAI_API_KEY)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 118)     #    response = client.chat.completions.create(
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 119)     #        model='gpt-4',
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 120)     #        messages=[{'role': 'user', 'content': prompt}]
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 121)     #    )
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 122)     #    return response.choices[0].message.content.strip()
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 123)     #except Exception as e:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 124)     #    logger.error("An error occurred in OpenAI API interaction: %s", str(e))
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 125)     #    return "Error: Unable to get response."
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500   2) #from django.contrib.auth.models import User
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500   3) from django.contrib.auth.models import AbstractUser
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   6) from .openai_interaction import generate_llm_response
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500   7) 
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500   8) # Custom User 
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500   9) class CustomUser(AbstractUser):
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500  10)     city = models.CharField(max_length=255)
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500  11)     state = models.CharField(max_length=255)
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500  12)     zipcode = models.CharField(max_length=10)
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500  13) 
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500  33) 
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500  36)     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500  61)     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True)
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  65)     # maybe adjust the length here accordingly.......
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  68)         #self.LLMresponse = "sample LLMResponse"
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  72) #        pass
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  73)         if self.prompt:
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  74)             self.LLMresponse = generate_llm_response(self.prompt)
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  75)             print(self.LLMresponse)
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  85) #class Interaction(models.Model):
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  86) #    creation_time = models.DateTimeField(null = True)
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  87) #    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  88) #    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True)
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  89) 
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  90) #    prompt : str =  models.CharField(max_length=1000, null = True)
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  91) #    LLMresponse : str = models.CharField(max_length=1000)
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  92)     # maybe adjust the length here accordingly.......
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  93) 
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  94) #    def save(self, *args, **kwargs):
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  95) #        if not self.pk: # pk isn't assigned until after creation, so this checks for if a save is a creation
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  96) #            self.creation_time = timezone.now()
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  97)             #if (self.prompt): 
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  98)             #    self.LLMResponse
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500  99) 
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500 100) #        super(Interaction, self).save(*args, **kwargs)
+bb44d92e (Maria Hernandez 2023-11-12 20:52:09 -0500 101) 
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   1) {
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   2)     "multi-specialist": "Multi-Specialty",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   3)     "single specialist": "Single Specialty",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   4)     "allergist & immunologist": "Allergy & Immunology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   5)     "anesthesiologist": "Anesthesiology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   6)     "clinical pharmacologist": "Clinical Pharmacology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   7)     "colon & rectal surgeon": "Colon & Rectal Surgery",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   8)     "dermatologist": "Dermatology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500   9)     "electrodiagnostic medicine specialist": "Electrodiagnostic Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  10)     "emergency medicine physician": "Emergency Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  11)     "primary care physician": "Family Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  12)     "general practitioner": "General Practice",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  13)     "hospitalist": "Hospitalist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  14)     "independent medical examiner": "Independent Medical Examiner",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  15)     "integrative medicine specialist": "Integrative Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  16)     "internist": "Internal Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  17)     "legal medicine specialist": "Legal Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  18)     "medical geneticist": "Medical Genetics",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  19)     "neurological surgeon": "Neurological Surgery",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  20)     "neuromusculoskeletal medicine & omm specialist": "Neuromusculoskeletal Medicine & OMM",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  21)     "neuromusculoskeletal medicine, sports medicine specialist": "Neuromusculoskeletal Medicine, Sports Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  22)     "nuclear medicine specialist": "Nuclear Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  23)     "obstetrician & gynecologist": "Obstetrics & Gynecology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  24)     "ophthalmologist": "Ophthalmology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  25)     "oral & maxillofacial surgeon": "Oral & Maxillofacial Surgery",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  26)     "orthopaedic surgeon": "Orthopaedic Surgery",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  27)     "otolaryngologist": "Otolaryngology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  28)     "pain medicine specialist": "Pain Medicine",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  29)     "pathologist": "Pathology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  30)     "pediatrician": "Pediatrics",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  31)     "phlebologist": "Phlebology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  32)     "physical medicine & rehabilitation specialist": "Physical Medicine & Rehabilitation",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  33)     "plastic surgeon": "Plastic Surgery",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  34)     "preventive medicine specialist": "Preventive Medicine",
+270cd900 (Maria Hernandez 2023-11-13 20:00:05 -0500  35)     "neurologist": "Psychiatry & Neurology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  36)     "psychiatrist & neurologist": "Psychiatry & Neurology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  37)     "radiologist": "Radiology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  38)     "surgeon": "Surgery",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  39)     "thoracic surgeon (cardiothoracic vascular surgeon)": "Thoracic Surgery (Cardiothoracic Vascular Surgery)",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  40)     "transplant surgeon": "Transplant Surgery",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  41)     "urologist": "Urology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  42)     "assistant behavior analyst": "Assistant Behavior Analyst",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  43)     "behavior technician": "Behavior Technician",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  44)     "behavior analyst": "Behavior Analyst",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  45)     "clinical neuropsychologist": "Clinical Neuropsychologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  46)     "counselor": "Counselor",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  47)     "drama therapist": "Drama Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  48)     "marriage & family therapist": "Marriage & Family Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  49)     "poetry therapist": "Poetry Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  50)     "psychoanalyst": "Psychoanalyst",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  51)     "psychologist": "Psychologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  52)     "social worker": "Social Worker",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  53)     "chiropractor": "Chiropractor",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  54)     "advanced practice dental therapist": "Advanced Practice Dental Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  55)     "dental assistant": "Dental Assistant",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  56)     "dental hygienist": "Dental Hygienist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  57)     "dental laboratory technician": "Dental Laboratory Technician",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  58)     "dental therapist": "Dental Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  59)     "dentist": "Dentist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  60)     "denturist": "Denturist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  61)     "oral medicinist": "Oral Medicinist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  62)     "dietary manager": "Dietary Manager",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  63)     "dietetic technician, registered": "Dietetic Technician, Registered",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  64)     "dietitian, registered": "Dietitian, Registered",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  65)     "nutritionist": "Nutritionist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  66)     "emergency medical technician, basic": "Emergency Medical Technician, Basic",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  67)     "emergency medical technician, intermediate": "Emergency Medical Technician, Intermediate",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  68)     "emergency medical technician, paramedic": "Emergency Medical Technician, Paramedic",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  69)     "personal emergency response attendant": "Personal Emergency Response Attendant",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  70)     "optometrist": "Optometrist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  71)     "technician/technologist": "Technician/Technologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  72)     "licensed practical nurse": "Licensed Practical Nurse",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  73)     "licensed psychiatric technician": "Licensed Psychiatric Technician",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  74)     "licensed vocational nurse": "Licensed Vocational Nurse",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  75)     "registered nurse": "Registered Nurse",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  76)     "adult companion": "Adult Companion",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  77)     "chore provider": "Chore Provider",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  78)     "day training/habilitation specialist": "Day Training/Habilitation Specialist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  79)     "doula": "Doula",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  80)     "home health aide": "Home Health Aide",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  81)     "homemaker": "Homemaker",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  82)     "nurse's aide": "Nurse's Aide",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  83)     "nursing home administrator": "Nursing Home Administrator",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  84)     "religious nonmedical nursing personnel": "Religious Nonmedical Nursing Personnel",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  85)     "religious nonmedical practitioner": "Religious Nonmedical Practitioner",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  86)     "technician": "Technician",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  87)     "acupuncturist": "Acupuncturist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  88)     "case manager/care coordinator": "Case Manager/Care Coordinator",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  89)     "clinical ethicist": "Clinical Ethicist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  90)     "community health worker": "Community Health Worker",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  91)     "contractor": "Contractor",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  92)     "driver": "Driver",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  93)     "funeral director": "Funeral Director",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  94)     "genetic counselor, ms": "Genetic Counselor, MS",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  95)     "health & wellness coach": "Health & Wellness Coach",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  96)     "health educator": "Health Educator",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  97)     "homeopath": "Homeopath",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  98)     "interpreter": "Interpreter",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500  99)     "lactation consultant, non-rn": "Lactation Consultant, Non-RN",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 100)     "midwife, lay": "Midwife, Lay",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 101)     "mechanotherapist": "Mechanotherapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 102)     "midwife": "Midwife",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 103)     "military health care provider": "Military Health Care Provider",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 104)     "naprapath": "Naprapath",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 105)     "naturopath": "Naturopath",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 106)     "peer specialist": "Peer Specialist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 107)     "medical genetics, ph.d. medical genetics": "Medical Genetics, Ph.D. Medical Genetics",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 108)     "prevention professional": "Prevention Professional",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 109)     "reflexologist": "Reflexologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 110)     "sleep specialist, phd": "Sleep Specialist, PhD",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 111)     "specialist": "Specialist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 112)     "veterinarian": "Veterinarian",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 113)     "pharmacy technician": "Pharmacy Technician",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 114)     "advanced practice midwife": "Advanced Practice Midwife",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 115)     "anesthesiologist assistant": "Anesthesiologist Assistant",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 116)     "clinical nurse specialist": "Clinical Nurse Specialist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 117)     "nurse anesthetist, certified registered": "Nurse Anesthetist, Certified Registered",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 118)     "nurse practitioner": "Nurse Practitioner",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 119)     "physician assistant": "Physician Assistant",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 120)     "assistant, podiatric": "Assistant, Podiatric",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 121)     "podiatrist": "Podiatrist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 122)     "anaplastologist": "Anaplastologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 123)     "art therapist": "Art Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 124)     "clinical exercise physiologist": "Clinical Exercise Physiologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 125)     "dance therapist": "Dance Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 126)     "developmental therapist": "Developmental Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 127)     "kinesiotherapist": "Kinesiotherapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 128)     "massage therapist": "Massage Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 129)     "mastectomy fitter": "Mastectomy Fitter",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 130)     "music therapist": "Music Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 131)     "occupational therapist": "Occupational Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 132)     "occupational therapy assistant": "Occupational Therapy Assistant",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 133)     "orthotic fitter": "Orthotic Fitter",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 134)     "orthotist": "Orthotist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 135)     "pedorthist": "Pedorthist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 136)     "physical therapist": "Physical Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 137)     "physical therapy assistant": "Physical Therapy Assistant",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 138)     "prosthetist": "Prosthetist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 139)     "pulmonary function technologist": "Pulmonary Function Technologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 140)     "recreation therapist": "Recreation Therapist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 141)     "recreational therapist assistant": "Recreational Therapist Assistant",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 142)     "rehabilitation counselor": "Rehabilitation Counselor",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 143)     "rehabilitation practitioner": "Rehabilitation Practitioner",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 144)     "respiratory therapist, certified": "Respiratory Therapist, Certified",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 145)     "respiratory therapist, registered": "Respiratory Therapist, Registered",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 146)     "specialist/technologist": "Specialist/Technologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 147)     "audiologist": "Audiologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 148)     "audiologist-hearing aid fitter": "Audiologist-Hearing Aid Fitter",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 149)     "hearing instrument specialist": "Hearing Instrument Specialist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 150)     "speech-language pathologist": "Speech-Language Pathologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 151)     "student in an organized health care education/training program": "Student in an Organized Health Care Education/Training Program",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 152)     "perfusionist": "Perfusionist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 153)     "radiologic technologist": "Radiologic Technologist",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 154)     "radiology practitioner assistant": "Radiology Practitioner Assistant",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 155)     "specialist/technologist cardiovascular": "Specialist/Technologist Cardiovascular",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 156)     "specialist/technologist, health information": "Specialist/Technologist, Health Information",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 157)     "specialist/technologist, other": "Specialist/Technologist, Other",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 158)     "specialist/technologist, pathology": "Specialist/Technologist, Pathology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 159)     "technician, cardiology": "Technician, Cardiology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 160)     "technician, health information": "Technician, Health Information",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 161)     "technician, other": "Technician, Other",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 162)     "technician, pathology": "Technician, Pathology",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 163)     "case management": "Case Management",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 164)     "community/behavioral health": "Community/Behavioral Health",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 165)     "day training, developmentally disabled services": "Day Training, Developmentally Disabled Services",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 166)     "early intervention provider agency": "Early Intervention Provider Agency",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 167)     "foster care agency": "Foster Care Agency",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 168)     "home health": "Home Health",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 169)     "home infusion": "Home Infusion",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 170)     "hospice care, community based": "Hospice Care, Community Based",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 171)     "in home supportive care": "In Home Supportive Care",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 172)     "local education agency (lea)": "Local Education Agency (LEA)",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 173)     "nursing care": "Nursing Care",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 174)     "program of all-inclusive care for the elderly (pace) provider organization": "Program of All-Inclusive Care for the Elderly (PACE) Provider Organization",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 175)     "public health or welfare": "Public Health or Welfare",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 176)     "supports brokerage": "Supports Brokerage",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 177)     "voluntary or charitable": "Voluntary or Charitable",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 178)     "clinic/center": "Clinic/Center",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 179)     "epilepsy unit": "Epilepsy Unit",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 180)     "medicare defined swing bed unit": "Medicare Defined Swing Bed Unit",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 181)     "psychiatric unit": "Psychiatric Unit",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 182)     "rehabilitation unit": "Rehabilitation Unit",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 183)     "rehabilitation, substance use disorder unit": "Rehabilitation, Substance Use Disorder Unit",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 184)     "christian science sanitorium": "Christian Science Sanitorium",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 185)     "chronic disease hospital": "Chronic Disease Hospital",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 186)     "general acute care hospital": "General Acute Care Hospital",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 187)     "long term care hospital": "Long Term Care Hospital",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 188)     "military hospital": "Military Hospital",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 189)     "psychiatric hospital": "Psychiatric Hospital",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 190)     "rehabilitation hospital": "Rehabilitation Hospital",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 191)     "religious nonmedical health care institution": "Religious Nonmedical Health Care Institution",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 192)     "special hospital": "Special Hospital",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 193)     "clinical medical laboratory": "Clinical Medical Laboratory",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 194)     "dental laboratory": "Dental Laboratory",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 195)     "military clinical medical laboratory": "Military Clinical Medical Laboratory",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 196)     "physiological laboratory": "Physiological Laboratory",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 197)     "exclusive provider organization": "Exclusive Provider Organization",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 198)     "health maintenance organization": "Health Maintenance Organization",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 199)     "point of service": "Point of Service",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 200)     "preferred provider organization": "Preferred Provider Organization",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 201)     "alzheimer center (dementia center)": "Alzheimer Center (Dementia Center)",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 202)     "assisted living facility": "Assisted Living Facility",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 203)     "christian science facility": "Christian Science Facility",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 204)     "custodial care facility": "Custodial Care Facility",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 205)     "hospice, inpatient": "Hospice, Inpatient",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 206)     "intermediate care facility, intellectual disabilities": "Intermediate Care Facility, Intellectual Disabilities",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 207)     "intermediate care facility, mental illness": "Intermediate Care Facility, Mental Illness",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 208)     "nursing facility/intermediate care facility": "Nursing Facility/Intermediate Care Facility",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 209)     "skilled nursing facility": "Skilled Nursing Facility",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 210)     "lodging": "Lodging",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 211)     "meals": "Meals",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 212)     "community based residential treatment facility, mental illness": "Community Based Residential Treatment Facility, Mental Illness",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 213)     "community based residential treatment facility, intellectual and/or developmental disabilities": "Community Based Residential Treatment Facility, Intellectual and/or Developmental Disabilities",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 214)     "psychiatric residential treatment facility": "Psychiatric Residential Treatment Facility",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 215)     "residential treatment facility, emotionally disturbed children": "Residential Treatment Facility, Emotionally Disturbed Children",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 216)     "residential treatment facility, intellectual and/or developmental disabilities": "Residential Treatment Facility, Intellectual and/or Developmental Disabilities",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 217)     "residential treatment facility, physical disabilities": "Residential Treatment Facility, Physical Disabilities",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 218)     "substance abuse rehabilitation facility": "Substance Abuse Rehabilitation Facility",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 219)     "respite care": "Respite Care",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 220)     "blood bank": "Blood Bank",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 221)     "department of veterans affairs (va) pharmacy": "Department of Veterans Affairs (VA) Pharmacy",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 222)     "durable medical equipment & medical supplies": "Durable Medical Equipment & Medical Supplies",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 223)     "emergency response system companies": "Emergency Response System Companies",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 224)     "eye bank": "Eye Bank",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 225)     "eyewear supplier": "Eyewear Supplier",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 226)     "hearing aid equipmentist": "Hearing Aid Equipment",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 227)     "home delivered mealist": "Home Delivered Meals",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 228)     "indian health service tribal urban indian health pharmacist": "Indian Health Service/Tribal/Urban Indian Health (I/T/U) Pharmacy",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 229)     "medical foods supplierist": "Medical Foods Supplier",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 230)     "military u.s. coast guard pharmacist": "Military/U.S. Coast Guard Pharmacy",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 231)     "non pharmacy dispensing siteist": "Non-Pharmacy Dispensing Site",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 232)     "organ procurement organizationist": "Organ Procurement Organization",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 233)     "pharmacist": "Pharmacy",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 234)     "portable x ray and or other portable diagnostic imaging supplierist": "Portable X-ray and/or Other Portable Diagnostic Imaging Supplier",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 235)     "prosthetic orthotic supplierist": "Prosthetic/Orthotic Supplier",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 236)     "air carrierist": "Air Carrier",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 237)     "ambulance": "Ambulance",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 238)     "bus": "Bus",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 239)     "military u.s. coast guard transportist": "Military/U.S. Coast Guard Transport",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 240)     "non emergency medical transport vanist": "Non-emergency Medical Transport (VAN)",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 241)     "private vehicleist": "Private Vehicle",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 242)     "secured medical transport vanist": "Secured Medical Transport (VAN)",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 243)     "taxi": "Taxi",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 244)     "train": "Train",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 245)     "transportation brokerist": "Transportation Broker",
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 246)     "transportation network companyist": "Transportation Network Company"
+74880bbb (Maria Hernandez 2023-11-13 05:35:09 -0500 247) }
+bb44d92e back_end/static/app/JS/index.js (Maria Hernandez 2023-11-12 20:52:09 -0500  48) document.getElementById('message_form').addEventListener('submit', async (event) => {
+bb44d92e back_end/static/app/JS/index.js (Maria Hernandez 2023-11-12 20:52:09 -0500  50)     console.log("calling event listener, message_form")
+bb44d92e back_end/static/app/JS/index.js (Maria Hernandez 2023-11-12 20:52:09 -0500  52)     const text = document.getElementById('message_textarea').value
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500 25) api_router.register(r'conversations', api_views.ConversationViewSet, basename = 'conversation')
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500 26) api_router.register(r'interactions', api_views.InteractionViewSet, basename = 'interaction')    
+fd90095c (Maria Hernandez 2023-11-11 18:15:04 -0500 33)     path('api/createuser', api_views.CreateUser.as_view()),
