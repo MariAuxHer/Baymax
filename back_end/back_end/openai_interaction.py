@@ -22,7 +22,7 @@ model_id = 'gpt-4'
 
 def fetch_doctors(specialty, city):
     url = ("https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms={}&"
-           "q=addr_practice.city:{}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=15").format(specialty, city)
+           "q=addr_practice.city:{}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=5").format(specialty, city)
 
     response = requests.get(url)
 
@@ -65,12 +65,17 @@ def generate_llm_response(prompt):
     conversations = []
     conversations.append({'role': 'user', 'content': prompt})
     conversations = chatgpt_conversation(conversations)
+    specialization_found = False 
+    retrieve_data = False
 
     if conversations:
         gptresponse = conversations[-1]['content'].strip().lower()
         print(gptresponse)
+        doctor_info_str = ""
         for specialization in medical_specializations: 
+            specialization_found = True
             if re.findall(rf"\b{specialization}\b", gptresponse):
+                print("specialization " + specialization)
                 value = medical_specializations[specialization]
                 print(f"Key: {specialization}, Value: {value}")
                 
@@ -80,19 +85,29 @@ def generate_llm_response(prompt):
                 doctors = fetch_doctors(specialty, city)
 
                 print(f"Here is a list of doctors in your region \n")
-                doctor_info_str = "Here is a list of doctors in your region\n"
+                doctor_info_str = doctor_info_str + f"\nHere is a list of {specialization} in your region\n"
                 if doctors:
+                    retrieve_data = True
                     for idx, doctor in enumerate(doctors, 1):
                         print(f"{idx}. Name: {doctor['Name']}, Address: {doctor['Address']}, Phone: {doctor['Phone']}")
                         doctor_info_str = doctor_info_str + f"{idx}. Name: {doctor['Name']}\nAddress: {doctor['Address']}\nPhone: {doctor['Phone']}\n"
                     
-                    return gptresponse + "\n" + doctor_info_str
-                else:
-                    print("No doctors found or failed to retrieve data.")
-                    return gptresponse
+                #    return gptresponse + "\n" + doctor_info_str
+                # else:
+                #    print("No doctors found or failed to retrieve data.")
+                #    return gptresponse
             
-            else: 
-                return gptresponse
+            #else: 
+            #    print("only gpt response, no specialization found")
+            #    return gptresponse
+        
+        if specialization_found and retrieve_data: 
+            print("specialization found and able to retrieve doctor's info")
+            return gptresponse + "\n" + doctor_info_str    
+        
+        else:
+            print("only gpt response, no specialization found")
+            return gptresponse
     else:
         print("Error: Unable to get response.")
         return "Error: Unable to get response."
