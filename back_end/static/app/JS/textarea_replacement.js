@@ -34,20 +34,20 @@ parent.onsubmit = (e) => {
 };
 
 // panel.js
-const coll = document.querySelectorAll(".collapsible");
-coll.forEach((button) => {
-    button.addEventListener("click", function () {
-        const content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
-    });
-});
+// const coll = document.querySelectorAll(".collapsible");
+// coll.forEach((button) => {
+//     button.addEventListener("click", function () {
+//         const content = this.nextElementSibling;
+//         if (content.style.display === "block") {
+//             content.style.display = "none";
+//         } else {
+//             content.style.display = "block";
+//         }
+//     });
+// });
 
 const toggleButton = document.getElementById("togglePanelButton");
-const panelContainer = document.getElementById("panelContainer");
+// const panelContainer = document.getElementById("panelContainer");
 
 toggleButton.addEventListener("click", function () {
   if (panelContainer.style.left === "0px" || panelContainer.style.left === "") {
@@ -59,27 +59,28 @@ toggleButton.addEventListener("click", function () {
   }
 });
 
-const addConversationButton = document.getElementById("addConversation");
+// const addConversationButton = document.getElementById("addConversation");
 
-let convoCount = 1; // Initialize conversation count
+// let convoCount = 1; // Initialize conversation count
 
-addConversationButton.addEventListener("click", function () {
-  // Create new button
-  const newButton = document.createElement("button");
-  newButton.className = "collapsible";
-  newButton.textContent = "Conversation " + convoCount;
+// addConversationButton.addEventListener("click", function () {
+//   // Create new button
+//   const newButton = document.createElement("button");
+//   newButton.className = "collapsible";
+//   newButton.textContent = "Conversation " + convoCount;
 
-  // Append the new button to the panel
-  panelContainer.appendChild(newButton);
+//   // Append the new button to the panel
+//   panelContainer.appendChild(newButton);
 
-  // click event listener for the new button
-  newButton.addEventListener("click", function () {
-    console.log("New conversation button clicked!");
-  });
+//   // click event listener for the new button
+//   newButton.addEventListener("click", function () {
+    
+//     console.log("New conversation button clicked!");
+//   });
 
-  convoCount++;
+//   convoCount++;
 
-});
+// });
 
 
 
