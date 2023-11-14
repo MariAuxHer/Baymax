@@ -22,27 +22,27 @@
         </div>
     </aside>
 
+    
+    <h2>Create Your Account</h2>
     <form id="signup_form" method="post">{% csrf_token %}
-        <h2>Create Your Account</h2>
-        <div id="error"></div>
-        <div class="user">
-            Username:
+        <div class="user form_child_div">
+            <label for="username">Username: </label>
             <input type="text" id="username">
         </div>
-        <div class="pass">
-            Password:
+        <div class="pass form_child_div">
+            <label for="password">Password: </label>
             <input type="password" id="password">
         </div>
-        <div class="email">
-            Email:
+        <div class="email form_child_div">
+            <label for="email">Email: </label>
             <input type="email" id="email">
         </div>
-        <div class="city">
-            City:
+        <div class="city  form_child_div">
+            <label for="city">City: </label>
             <input type="text" id="city">
         </div>
-        <div class="state">
-            State:
+        <div class="state form_child_div">
+            <label for="state">State: </label>
             <select id="state" name="state">
                 <option value="Alabama">Alabama</option>
                 <option value="Alaska">Alaska</option>
@@ -96,8 +96,8 @@
                 <option value="Wyoming">Wyoming</option>
             </select>
         </div>
-        <div class="zipcode">
-            Zip Code:
+        <div class="zipcode  form_child_div">
+            <label for="zipcode">Zip Code: </label>
             <input type="text" id="zipcode">
         </div>
         <button id="submit">Create</button>
