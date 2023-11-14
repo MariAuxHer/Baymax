@@ -1,0 +1,463 @@
+// from urls.py
+6f3d59e8 (Jonathan Tran   2023-11-12 22:44:04 -0500 42)     path('changeprofile', views.changeprofile),
+
+
+// from views.py
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 58) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 59) def changeprofile(request):
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 60)     return render(request, "back_end/changeprofile.html")
+
+
+
+
+
+// From signup.html
+9977e8ea back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-12 21:42:42 -0500  25)     <form id="signup_form" method="post">{% csrf_token %}
+791344a5 front_end/html/signup.html                       (Jonathan Tran        2023-11-06 17:34:07 -0500  27)         <div id="error"></div>
+4e65c1f6 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-12 21:53:58 -0500  34)             <input type="password" id="password">
+a0049c4f back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 18:15:36 -0500  38)             <input type="email" id="email">
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  46)             <select id="state" name="state">
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  47)                 <option value="Alabama">Alabama</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  48)                 <option value="Alaska">Alaska</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  49)                 <option value="Arizona">Arizona</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  50)                 <option value="Arkansas">Arkansas</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  51)                 <option value="California">California</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  52)                 <option value="Colorado">Colorado</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  53)                 <option value="Connecticut">Connecticut</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  54)                 <option value="Delaware">Delaware</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  55)                 <option value="Florida">Florida</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  56)                 <option value="Georgia">Georgia</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  57)                 <option value="Hawaii">Hawaii</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  58)                 <option value="Idaho">Idaho</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  59)                 <option value="Illinois">Illinois</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  60)                 <option value="Indiana">Indiana</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  61)                 <option value="Iowa">Iowa</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  62)                 <option value="Kansas">Kansas</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  63)                 <option value="Kentucky">Kentucky</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  64)                 <option value="Louisiana">Louisiana</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  65)                 <option value="Maine">Maine</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  66)                 <option value="Maryland">Maryland</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  67)                 <option value="Massachusetts">Massachusetts</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  68)                 <option value="Michigan">Michigan</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  69)                 <option value="Minnesota">Minnesota</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  70)                 <option value="Mississippi">Mississippi</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  71)                 <option value="Missouri">Missouri</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  72)                 <option value="Montana">Montana</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  73)                 <option value="Nebraska">Nebraska</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  74)                 <option value="Nevada">Nevada</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  75)                 <option value="New Hampshire">New Hampshire</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  76)                 <option value="New Jersey">New Jersey</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  77)                 <option value="New Mexico">New Mexico</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  78)                 <option value="New York">New York</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  79)                 <option value="North Carolina">North Carolina</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  80)                 <option value="North Dakota">North Dakota</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  81)                 <option value="Ohio">Ohio</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  82)                 <option value="Oklahoma">Oklahoma</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  83)                 <option value="Oregon">Oregon</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  84)                 <option value="Pennsylvania">Pennsylvania</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  85)                 <option value="Rhode Island">Rhode Island</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  86)                 <option value="South Carolina">South Carolina</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  87)                 <option value="South Dakota">South Dakota</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  88)                 <option value="Tennessee">Tennessee</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  89)                 <option value="Texas">Texas</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  90)                 <option value="Utah">Utah</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  91)                 <option value="Vermont">Vermont</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  92)                 <option value="Virginia">Virginia</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  93)                 <option value="Washington">Washington</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  94)                 <option value="West Virginia">West Virginia</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  95)                 <option value="Wisconsin">Wisconsin</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  96)                 <option value="Wyoming">Wyoming</option>
+2ddef7f0 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-13 17:55:40 -0500  97)             </select>
+
+
+
+
+
+// from signup.css
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  13) #error {
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  14)     justify-content: center;
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  15)     align-content: center;
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  16)     align-self: auto;
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  17)     font-size: 1.2em;
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  18)     color: red;
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  19)     flex: 0.3; 
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  20)     margin-bottom: 0.75em;   
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  21) }
+791344a5 front_end/CSS/signup.css           (Jonathan Tran   2023-11-06 17:34:07 -0500  22) 
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 108) 
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 109) select {
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 110)     appearance: none; /* Remove default styles in some browsers */
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 111)     color: black; 
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 112)     background: #fff; 
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 113)     padding: 0.7em 0.7em;
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 114)     font-size: 0.85em;
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 115)     border: none;
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 116)     border-radius: 1em;
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 117)     width: 10.5em;
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 118)     box-shadow: 0 0 0.2em rgb(95, 88, 176);
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 119) }
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 120) 
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 121) option {
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 122)     justify-content: center;
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 123)     background-color: #fff;
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 124)     color: black;
+2ddef7f0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-11-13 17:55:40 -0500 125) }
+
+
+
+
+
+
+
+
+// from signup.js
+2ddef7f0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-13 17:55:40 -0500 31)         if (!exists) {
+2ddef7f0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-13 17:55:40 -0500 32)             let parent = document.querySelector("#signup_form");
+2ddef7f0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-13 17:55:40 -0500 33)             let paragraph = document.createElement("p");
+2ddef7f0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-13 17:55:40 -0500 34)             paragraph.classList.add("form_fail");
+2ddef7f0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-13 17:55:40 -0500 35)             paragraph.innerHTML = user.detail;
+2ddef7f0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-13 17:55:40 -0500 36)             parent.appendChild(paragraph);
+2ddef7f0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-13 17:55:40 -0500 40)         }
+
+
+
+
+
+
+
+// from changeprofile.html
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   1) {% load static %}
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   2) <!DOCTYPE html>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   3) <html lang="en">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   4) <head>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   5)     <meta charset="UTF-8">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   6)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   7)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   8)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/changeprofile.css' %}">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   9)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  10)     <title>Baymax | Profile</title>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  11) </head>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  12) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  13) <body>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  14)     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  15)     <aside id="navbar">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  16)         <div class="nav_container">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  17)             {% if not user.is_authenticated %} 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  18)                 <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  19)             {% else %}
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  20)                 <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  21)                 <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  22)             {% endif %}
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  23)             <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  24) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  25)             <script type="module" src="{% static '/app/JS/changeprofile.js' %}"></script>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  26)         </div>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  27)     </aside>
+e02429f6 (Jonathan Tran 2023-11-13 18:30:13 -0500  28)     <form id="change_form"> {% csrf_token %}
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  29)         <h2>Change Profile Information</h2>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  30) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  31)         <div id="error"></div>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  32)         <div class="user">
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500  33)             Username: 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  34)             <input type="text" id="username">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  35)         </div>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  36)         <div class="pass">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  37)             Password:
+51e976ba (Jonathan Tran 2023-11-13 16:34:26 -0500  38)             <input type="input" id="password" value="CANNOT CHANGE">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  39)         </div>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  40)         <div class="email">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  41)             Email:
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500  42)             <input type="email" id="email">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  43)         </div>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  44)         <div class="city">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  45)             City:
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  46)             <input type="text" id="city">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  47)         </div>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  48)         <div class="state">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  49)             State:
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  50)             <select id="state" name="state">
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  51)                 <option value="Alabama">Alabama</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  52)                 <option value="Alaska">Alaska</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  53)                 <option value="Arizona">Arizona</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  54)                 <option value="Arkansas">Arkansas</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  55)                 <option value="California">California</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  56)                 <option value="Colorado">Colorado</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  57)                 <option value="Connecticut">Connecticut</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  58)                 <option value="Delaware">Delaware</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  59)                 <option value="Florida">Florida</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  60)                 <option value="Georgia">Georgia</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  61)                 <option value="Hawaii">Hawaii</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  62)                 <option value="Idaho">Idaho</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  63)                 <option value="Illinois">Illinois</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  64)                 <option value="Indiana">Indiana</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  65)                 <option value="Iowa">Iowa</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  66)                 <option value="Kansas">Kansas</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  67)                 <option value="Kentucky">Kentucky</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  68)                 <option value="Louisiana">Louisiana</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  69)                 <option value="Maine">Maine</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  70)                 <option value="Maryland">Maryland</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  71)                 <option value="Massachusetts">Massachusetts</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  72)                 <option value="Michigan">Michigan</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  73)                 <option value="Minnesota">Minnesota</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  74)                 <option value="Mississippi">Mississippi</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  75)                 <option value="Missouri">Missouri</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  76)                 <option value="Montana">Montana</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  77)                 <option value="Nebraska">Nebraska</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  78)                 <option value="Nevada">Nevada</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  79)                 <option value="New Hampshire">New Hampshire</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  80)                 <option value="New Jersey">New Jersey</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  81)                 <option value="New Mexico">New Mexico</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  82)                 <option value="New York">New York</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  83)                 <option value="North Carolina">North Carolina</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  84)                 <option value="North Dakota">North Dakota</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  85)                 <option value="Ohio">Ohio</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  86)                 <option value="Oklahoma">Oklahoma</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  87)                 <option value="Oregon">Oregon</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  88)                 <option value="Pennsylvania">Pennsylvania</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  89)                 <option value="Rhode Island">Rhode Island</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  90)                 <option value="South Carolina">South Carolina</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  91)                 <option value="South Dakota">South Dakota</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  92)                 <option value="Tennessee">Tennessee</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  93)                 <option value="Texas">Texas</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  94)                 <option value="Utah">Utah</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  95)                 <option value="Vermont">Vermont</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  96)                 <option value="Virginia">Virginia</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  97)                 <option value="Washington">Washington</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  98)                 <option value="West Virginia">West Virginia</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  99)                 <option value="Wisconsin">Wisconsin</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 100)                 <option value="Wyoming">Wyoming</option>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 101)             </select>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 102)         </div>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 103)         <div class="zipcode">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 104)             Zip Code:
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 105)             <input type="text" id="zipcode">
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 106)         </div>
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 107)         <button id="submit">Change</button>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 108)     </form>
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 109)     
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 110) </body>
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 111) </html>
+
+
+
+
+
+
+// from changeprofile.css
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   1) @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   2) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   3) * {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   4)     font-family: 'Comfortaa', cursive;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   5)     margin: 0;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   6)     padding: 0;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   7)     box-sizing: border-box;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   8) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500   9) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  10) body {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  11)     background: rgb(222, 222, 255);
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  12)     width: 100%;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  13)     height: 100%;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  14)     /* display: grid;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  15)     grid-template-columns: 100%;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  16)     grid-template-rows: max-content auto max-content; */
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  17) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  18) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  19) h2 {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  20)     margin: 0.5em 0.5em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  21)     font-size: 2.5em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  22) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  23) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  24) form {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  25)     margin: auto;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  26)     margin-top: 13%;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  27)     display: flex;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  28)     flex-direction: column;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  29)     align-items: center; /* Center horizontally */
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  30)     justify-content: center; /* Center vertically */
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  31)     height: 50vh;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  32) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  33) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  34) #error {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  35)     justify-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  36)     align-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  37)     align-self: auto;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  38)     font-size: 1.2em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  39)     color: red;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  40)     flex: 0.3; 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  41)     margin-bottom: 0.75em;   
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  42) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  43) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  44) .user {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  45)     justify-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  46)     font-size: 1.2em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  47)     
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  48) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  49) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  50) .pass {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  51)     justify-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  52)     font-size: 1.2em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  53)     margin-top: 10px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  54) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  55) #password {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  56)     margin-left: 10px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  57)     margin-bottom: 10px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  58) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  59) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  60) .email {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  61)     justify-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  62)     font-size: 1.2em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  63) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  64) #email {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  65)     margin-left: 49px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  66)     margin-bottom: 15px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  67) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  68) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  69) .city {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  70)     justify-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  71)     font-size: 1.2em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  72) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  73) #city {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  74)     margin-left: 66px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  75)     margin-bottom: 10px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  76) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  77) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  78) .state {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  79)     justify-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  80)     font-size: 1.2em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  81) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  82) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  83) #state {
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500  84)     margin-left: 60px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  85)     margin-bottom: 10px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  86) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  87) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  88) .zipcode {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  89)     justify-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  90)     font-size: 1.2em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  91) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  92) #zipcode {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  93)     margin-left: 10px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  94)     margin-bottom: 10px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  95) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  96) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  97) button {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  98)     color: rgb(39, 37, 37);
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  99)     background: rgb(255, 44, 44);
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 100)     display: grid;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 101)     border: none;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 102)     width: 100px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 103)     height: 25px;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 104)     box-shadow: 0 0 0.2em rgb(21, 21, 21);
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 105)     font-size: large;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 106)     align-content: center;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 107)     border-radius: 1em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 108)     outline: none;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 109)     cursor: pointer;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 110) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 111) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 112) button:hover {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 113)     background: rgb(255, 82, 82);
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 114) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 115) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 116) button:active {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 117)     background: rgb(205, 40, 40);
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 118) }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 119) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 120) input {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 121)     box-shadow: 0 0 0.2em rgb(95, 88, 176);
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 122)     overflow: hidden;   
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 123)     background: #fff; 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 124)     padding: 0.7em 0.7em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 125)     border: none;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 126)     border-radius: 1em;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 127)     outline: none;
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 128) }
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 129) 
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 130) select {
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 131)     appearance: none; /* Remove default styles in some browsers */
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 132)     color: black; 
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 133)     background: #fff; 
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 134)     padding: 0.7em 0.7em;
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 135)     font-size: 0.85em;
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 136)     border: none;
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 137)     border-radius: 1em;
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 138)     width: 10em;
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 139)     box-shadow: 0 0 0.2em rgb(95, 88, 176);
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 140) }
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 141) 
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 142) option {
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 143)     justify-content: center;
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 144)     background-color: #fff;
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 145)     color: black;
+2ddef7f0 (Jonathan Tran 2023-11-13 17:55:40 -0500 146) }
+
+
+
+
+
+
+
+
+// from changeprofile.js
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  1) import { whoami } from "./utils.js";
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500  2) import { update_user } from "./utils.js";
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  3) 
+be2f4440 (Jonathan Tran 2023-11-13 15:51:02 -0500  4) let who;
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500  5) document.addEventListener("DOMContentLoaded", async () => {
+be2f4440 (Jonathan Tran 2023-11-13 15:51:02 -0500  6)     who = await whoami();
+be2f4440 (Jonathan Tran 2023-11-13 15:51:02 -0500  7)     console.log(who);
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500  8) 
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500  9)     // Have the old user info appear in the input boxes
+51e976ba (Jonathan Tran 2023-11-13 16:34:26 -0500 10)     document.getElementById("username").value = who.detail.username
+51e976ba (Jonathan Tran 2023-11-13 16:34:26 -0500 11)     document.getElementById("password").readOnly = true
+51e976ba (Jonathan Tran 2023-11-13 16:34:26 -0500 12)     document.getElementById("email").value = who.detail.email
+51e976ba (Jonathan Tran 2023-11-13 16:34:26 -0500 13)     document.getElementById("city").value = who.detail.city
+51e976ba (Jonathan Tran 2023-11-13 16:34:26 -0500 14)     document.getElementById("state").value = who.detail.state
+51e976ba (Jonathan Tran 2023-11-13 16:34:26 -0500 15)     document.getElementById("zipcode").value = who.detail.zipcode
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 16) })
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 17) 
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 18) document.getElementById("submit").addEventListener('click', async (event) => {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 19)     event.preventDefault();
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 20) 
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 21)     const accountInfo = {
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 22)         username: document.getElementById('username').value,
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 23)         password: document.getElementById('password').value,
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 24)         email: document.getElementById('email').value,
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 25)         city: document.getElementById('city').value,
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 26)         state: document.getElementById('state').value,
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 27)         zipcode: document.getElementById('zipcode').value,
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 28)     };
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 29) 
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 30)     let emailValidCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 31)     if (!emailValidCheck.test(accountInfo.email)) {
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 32)         console.log('Invalid email address')
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 33) 
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 34)         let exists = document.querySelector("form_fail")
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 35)         if (!exists) {
+e02429f6 (Jonathan Tran 2023-11-13 18:30:13 -0500 36)             let parent = document.querySelector("#change_form");
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 37)             let paragraph = document.createElement("p");
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 38)             paragraph.classList.add("form_fail");
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 39)             paragraph.innerHTML = "Invalid email address";
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 40)             parent.appendChild(paragraph);
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 41)         }
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 42)     }
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 43)     console.log(emailValidCheck.test(accountInfo.email))
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 44) 
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 45) 
+be2f4440 (Jonathan Tran 2023-11-13 15:51:02 -0500 46)     const url = who.detail.url
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 47)     console.log(url)
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 48) 
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 49)     
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 50)     const update = await update_user(url, accountInfo)
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 51) 
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 52)     if (update.status === 200) {
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 53)         console.log("user info updated")
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 54)         console.log(update.detail)
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 55) 
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 56)         window.location.pathname = "profile"
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 57)     } else {
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 58)         console.log("user info failed to update")
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 59)         console.log(update.detail)
+b53b5ed9 (Jonathan Tran 2023-11-13 00:11:42 -0500 60)         document.getElementById("error").textContent = "Could not update info"
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 61)     }
+6f3d59e8 (Jonathan Tran 2023-11-12 22:44:04 -0500 62) })
