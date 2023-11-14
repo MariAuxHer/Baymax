@@ -33,7 +33,7 @@ document.getElementById("submit").addEventListener('click', async (event) => {
 
         let exists = document.querySelector("form_fail")
         if (!exists) {
-            let parent = document.querySelector("#signup_form");
+            let parent = document.querySelector("#change_form");
             let paragraph = document.createElement("p");
             paragraph.classList.add("form_fail");
             paragraph.innerHTML = "Invalid email address";

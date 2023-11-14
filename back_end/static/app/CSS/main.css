@@ -20,7 +20,7 @@ body {
 }
 
 h1 {
-    margin: 0.4em 0.7em;
+    margin: 0.2em 0.7em;
     font-size: 2.5em;
     position: fixed;
     top: 0;
@@ -41,10 +41,10 @@ h2 {
 #panelContainer {
     z-index: 1000;
     width: 250px;
-    height: 89.4%;
+    height: 92%;
     position: fixed;
-    top: 78px;
-    left: -250px; /* Start hidden outside the viewport */
+    top: 58px;
+    left: 0px; /* Start visible in the viewport */
     background-color: #383636;
     transition: 0.2s;
     overflow-y: auto;
@@ -54,9 +54,10 @@ h2 {
 #addConversation {
     background-color: #3498db;
     color: white;
-    padding: 10px 15px;
+    top: 10px;
+    padding: 10px 10px 10px 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }

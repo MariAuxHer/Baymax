@@ -332,3 +332,25 @@ export function log_response(response, basename) {
     }
 }
 
+export async function update_name(url, name) {
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+            "X-CSRFToken": csrftoken,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name: name
+        })
+    })
+
+    if (log_response(response, "update_name")) {
+        console.log("UPDATE_NAME Response OK")
+        return { status: response.status, detail: await response.json() } 
+    } else {
+        console.log("UPDATE_NAME Response NOT OK")
+        return { status: response.status, detail: response.detail } 
+    }
+
+}

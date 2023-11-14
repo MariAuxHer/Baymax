@@ -33,7 +33,7 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset =  CustomUser.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticated] 
 
 class ConversationViewSet(viewsets.ModelViewSet):
     """
@@ -180,6 +180,8 @@ class InteractionViewSet(viewsets.ModelViewSet):
     #        return Response({"detail": "Prompt is missing."}, status=status.HTTP_400_BAD_REQUEST)
    
 class CreateUser(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
     def post(self, request, format=None):
         username = request.data['username']
         password = request.data['password']
@@ -230,4 +232,3 @@ class CreateUser(APIView):
 
     def get(self, request, format=None):
         return Response({'detail': 'There is no GET here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
-

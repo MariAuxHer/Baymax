@@ -1,11 +1,13 @@
-import { log_conversations, session, post_prompt, post_conversation } from "./utils.js";
+import { log_conversations, session, post_prompt, post_conversation, update_name } from "./utils.js";
 
 const messages = document.getElementById("messages")
+const button_text_size = 30
 
 // keeps track of which conversation the user is looking at (null)
 // means that the user is looking at the empty conversation screen (where 
 // they may randomly prompt and create a new conversation)
 let conversation_url = null; 
+let convo_count = 1;
 
 document.addEventListener('DOMContentLoaded', async () => {
     session().then(async (result) => {
@@ -23,15 +25,23 @@ document.addEventListener('DOMContentLoaded', async () => {
  
             // populate the panel with buttons
             const panel = document.getElementById('panelContainer')
-            for (let i = 0; i < conversations.length; i++) {
+            for (let i = conversations.length - 1; i >= 0; i--) {
+                console.log(await update_name(conversations[i].url, "new name"))
+                let name = conversations[i].name.substring(0, button_text_size)
+                name = name.padEnd(button_text_size)
+
                 const button = document.createElement('button')
-                button.setAttribute('id', panel.id + '_button_' + i)
+                button.className = "collapsible";
+                button.textContent = name
+                button.setAttribute('id', panel.id + '_button_' + convo_count++)
+
                 button.addEventListener('click', () => {
                     load_conversation(conversations[i].url)
                     conversation_url = conversations[i].url
                 })
 
-                panel.appendChild(button)
+                // Append the new button to the panel
+                panel.appendChild(button);
             }
         } 
         // not logged in
@@ -41,9 +51,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 });
 
-// document.getElementById('default_button').addEventListener('click', () => {
-//     default_page()
-// })
 
 document.getElementById('message_form').addEventListener('submit', async (event) => {
     event.preventDefault()
@@ -80,6 +87,9 @@ document.getElementById('message_form').addEventListener('submit', async (event)
                 if (conversation.interaction_set[0]) {
                     add_LLMresponse(conversation.interaction_set[0].LLMresponse)
                     conversation_url = conversation.url
+
+                    add_conversation_button(conversation.url)
+                    console.log("attempt to make button")
                 } else {
                     add_LLMresponse("post_conversation didnt come back with a DEFAULT INTERACTION")
                     console.error("post_conversation didnt come back with a DEFAULT INTERACTION")
@@ -92,6 +102,43 @@ document.getElementById('message_form').addEventListener('submit', async (event)
     }
 })
 
+// panel.js
+const coll = document.querySelectorAll(".collapsible");
+coll.forEach((button) => {
+    button.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+});
+
+document.getElementById("addConversation").addEventListener("click", function () {
+  default_page()
+});
+
+function add_conversation_button(url) { 
+    const panel = document.getElementById("panelContainer");
+
+    const button = document.createElement('button')
+    button.className = "collapsible";
+    button.textContent = "Conversation " + convo_count;
+
+    button.setAttribute('id', panel.id + '_button_' + convo_count)
+
+    button.addEventListener('click', () => {
+        load_conversation(url)
+        conversation_url = url
+    })
+
+    // Append the new button to the panel
+    panel.appendChild(button);
+}
+
+
+// helper
 function default_page() {
     messages.innerHTML = ""
     add_LLMresponse("Hello, it's me")
