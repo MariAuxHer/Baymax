@@ -22,9 +22,9 @@ Group Name: Baymax
 - [#67](https://github.com/MariAuxHer/Baymax/issues/58) Completing Panel / Setting up Conversation/Chat buttons 
 
 ### Files you worked on
- index.html
- main.css
- index.css
+ - index.html
+ - main.css
+ - index.css
  
 
 ### What I accomplished
