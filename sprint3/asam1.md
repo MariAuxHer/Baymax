@@ -15,7 +15,7 @@ Group Name: Baymax
 - Still have some resizing issues to fix on some pages. 
 
 ### What problems you encountered
-- Making sure the screen kept the same 
+- Making sure the screen kept the same size for all pages
 
 ### Issues you worked on
 - [#58](https://github.com/MariAuxHer/Baymax/issues/58) Functionality for New Chat Button 
