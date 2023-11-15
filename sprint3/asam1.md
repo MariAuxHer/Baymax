@@ -23,6 +23,8 @@ Group Name: Baymax
 
 ### Files you worked on
  index.html
+ main.css
+ index.css
  
 
 ### What I accomplished
