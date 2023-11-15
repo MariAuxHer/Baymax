@@ -1,0 +1,101 @@
+index.html
+
+c418639a front_end/index.html                            (amals610             2023-10-31 21:26:59 -0400 60) 
+c418639a front_end/index.html                            (amals610             2023-10-31 21:26:59 -0400 61)     <div id="panelContainer">
+c418639a front_end/index.html                            (amals610             2023-10-31 21:26:59 -0400 62)       <!--Panel Stuff-->
+4c95704b back_end/back_end/templates/back_end/index.html (amals610             2023-11-13 04:09:15 -0500 63)       <div class="panel">
+9e5ae684 back_end/back_end/templates/back_end/index.html (amals610             2023-11-13 20:56:56 -0500 64)        <!--- <button id="default_button"></button> -->
+4c95704b back_end/back_end/templates/back_end/index.html (amals610             2023-11-13 04:09:15 -0500 65)         <button id="addConversation">New Chat</button>
+4c95704b back_end/back_end/templates/back_end/index.html (amals610             2023-11-13 04:09:15 -0500 66) 
+4c95704b back_end/back_end/templates/back_end/index.html (amals610             2023-11-13 04:09:15 -0500 67)       </div>
+4c95704b back_end/back_end/templates/back_end/index.html (amals610             2023-11-13 04:09:15 -0500 68)       
+c418639a front_end/index.html                            (amals610             2023-10-31 21:26:59 -0400 69)     </div>
+61ca15ae front_end/index.html                            (amals610             2023-10-13 22:28:49 -0400 89) </html>
+********************************************************************************************************************************************************************************
+
+main.css
+
+1f35cb61 front_end/CSS/main.css           (amals610             2023-10-31 03:46:07 -0400   9) 
+9e5ae684 back_end/static/app/CSS/main.css (amals610             2023-11-13 20:56:56 -0500  23)     margin: 0.2em 0.7em;
+c418639a front_end/CSS/main.css           (amals610             2023-10-31 21:26:59 -0400  40)   
+c418639a front_end/CSS/main.css           (amals610             2023-10-31 21:26:59 -0400  41) #panelContainer {
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  42)     z-index: 1000;
+c418639a front_end/CSS/main.css           (amals610             2023-10-31 21:26:59 -0400  43)     width: 250px;
+9e5ae684 back_end/static/app/CSS/main.css (amals610             2023-11-13 20:56:56 -0500  44)     height: 92%;
+c418639a front_end/CSS/main.css           (amals610             2023-10-31 21:26:59 -0400  45)     position: fixed;
+9e5ae684 back_end/static/app/CSS/main.css (amals610             2023-11-13 20:56:56 -0500  46)     top: 58px;
+9e5ae684 back_end/static/app/CSS/main.css (amals610             2023-11-13 20:56:56 -0500  47)     left: 0px; /* Start visible in the viewport */
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  48)     background-color: #383636;
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  49)     transition: 0.2s;
+c418639a front_end/CSS/main.css           (amals610             2023-10-31 21:26:59 -0400  50)     overflow-y: auto;
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  51)     box-shadow: 2px 0 5px rgba(223, 217, 217, 0.2);
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  52) }
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  54) #addConversation {
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  55)     background-color: #3498db;
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  56)     color: white;
+9e5ae684 back_end/static/app/CSS/main.css (amals610             2023-11-13 20:56:56 -0500  57)     top: 10px;
+9e5ae684 back_end/static/app/CSS/main.css (amals610             2023-11-13 20:56:56 -0500  58)     padding: 10px 10px 10px 10px;
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  59)     border: none;
+9e5ae684 back_end/static/app/CSS/main.css (amals610             2023-11-13 20:56:56 -0500  60)     border-radius: 10px;
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  61)     cursor: pointer;
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  62)     transition: background-color 0.3s;
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  63) }
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  64)   
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  65) #addConversation:hover {
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  66)     background-color: #2980b9;
+01046155 back_end/static/app/CSS/main.css (amals610             2023-11-13 04:13:50 -0500  67) }
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  81) 
+78c570ee back_end/static/app/CSS/main.css (amals610             2023-11-14 01:26:42 -0500  82) <<<<<<< HEAD
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  83) @media only screen and (max-width: 768px) {
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  84)     h1 {
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  85)         font-size: 2em;
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  86)     }
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  87) 
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  88)     h2 {
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  89)         font-size: 1.8em;
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  90)     }
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  91) 
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  92)     #panelContainer {
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  93)         width: 100%;
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  94)         top: 0;
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  95)         height: 100%;
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500  96)         position: static;
+78c570ee back_end/static/app/CSS/main.css (amals610             2023-11-14 01:26:42 -0500  97) =======
+78c570ee back_end/static/app/CSS/main.css (amals610             2023-11-14 01:26:42 -0500 101) >>>>>>> 20123fb3073cfc7afcf4b70be289acb424aea73b
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500 102)     }
+e7ef337c back_end/static/app/CSS/main.css (amals610             2023-11-14 01:25:53 -0500 103) }
+*************************************************************************************************************************************************************
+
+index.css
+
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 127) }
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 128) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 129) @media only screen and (max-width: 768px) {
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 130)     #messages {
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 131)         width: 80%;
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 132)     }
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 133) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 134)     .left, .right {
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 135)         width: 100%;
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 136)         grid-column: auto;
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 137)     }
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 138) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 139)     .right {
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 140)         grid-column: auto;
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 141)     }
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 142) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 143)     form {
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 144)         grid-template-columns: 100%;
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 145)     }
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 146) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 147)     textarea, .textarea_replacement {
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 148)         width: 100%;
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 149)     }
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 150) }
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 151) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 152) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 153) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 154) 
+e7ef337c (amals610             2023-11-14 01:25:53 -0500 155)
+*****************************************************************************************************************************************************************
+
