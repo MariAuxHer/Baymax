@@ -18,8 +18,8 @@ Group Name: Baymax
 - Making sure the screen kept the same 
 
 ### Issues you worked on
-[#58](https://github.com/MariAuxHer/Baymax/issues/58) Functionality for New Chat Button 
-[#67](https://github.com/MariAuxHer/Baymax/issues/58) Completing Panel / Setting up Conversation/Chat buttons 
+- [#58](https://github.com/MariAuxHer/Baymax/issues/58) Functionality for New Chat Button 
+- [#67](https://github.com/MariAuxHer/Baymax/issues/58) Completing Panel / Setting up Conversation/Chat buttons 
 
 ### Files you worked on
  
