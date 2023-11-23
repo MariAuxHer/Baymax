@@ -180,7 +180,7 @@ class InteractionViewSet(viewsets.ModelViewSet):
     #        return Response({"detail": "Prompt is missing."}, status=status.HTTP_400_BAD_REQUEST)
    
 class CreateUser(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def post(self, request, format=None):
         username = request.data['username']
