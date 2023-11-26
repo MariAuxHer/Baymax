@@ -57,7 +57,8 @@ def chatgpt_conversation(conversation_log):
         logger.error("An error occurred in OpenAI API interaction: ")
         return None
 
-def generate_llm_response(prompt):
+def generate_llm_response(prompt, user_city):
+    print(f"Here is a list of doctors in your region {user_city} \n")
     if not OPENAI_API_KEY:
         logger.error("OpenAI API key is not set.")
         return "Error: OpenAI API key is not set."
@@ -81,10 +82,10 @@ def generate_llm_response(prompt):
                 
                 # Specify the classification you are interested in
                 specialty = value.replace(" ", "+")
-                city = "Los+Angeles"  # URL encoded space as +, to adhere to URL encoding standards
-                doctors = fetch_doctors(specialty, city)
+                # = user_zipcode  # URL encoded space as +, to adhere to URL encoding standards
+                doctors = fetch_doctors(specialty, user_city)
 
-                print(f"Here is a list of doctors in your region \n")
+                print(f"Here is a list of doctors in your region {user_city} \n")
                 doctor_info_str = doctor_info_str + f"\nHere is a list of {specialization} in your region\n"
                 if doctors:
                     retrieve_data = True
