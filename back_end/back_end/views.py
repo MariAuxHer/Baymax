@@ -52,6 +52,9 @@ def about(request):
 def test(request):
     return render(request, "back_end/test.html")
 
+def search(request):
+    return render(request, "back_end/search.html")
+
 def signout(request):
     logout(request)
     return redirect('/login')

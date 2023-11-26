@@ -79,25 +79,8 @@ h2 {
     padding: 0.7em 0.7em;
 }
 
-<<<<<<< HEAD
-@media only screen and (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-
-    #panelContainer {
-        width: 100%;
-        top: 0;
-        height: 100%;
-        position: static;
-=======
 @media(max-width: 440px){
     .form_fail {
         width: 80%;
->>>>>>> 20123fb3073cfc7afcf4b70be289acb424aea73b
     }
 }

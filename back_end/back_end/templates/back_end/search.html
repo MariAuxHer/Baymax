@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/about.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
-    <title>Baymax | Profile</title>
+    <title>Search Page</title> 
 </head>
 
 <body>
@@ -24,30 +24,14 @@
             <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
         </div>
     </aside>
-    <form>
-        <h2>Profile Information</h2>
-
-        <div class="info" id="user">
-            Username: {{ user.username}}
-        </div>
-        <div class="info" id="pass">
-            Password: um no
-        </div>
-        <div class="info" id="email">
-            Email: {{ user.email }}
-        </div>
-        <div class="info" id="city">
-            City: {{ user.city }}
-        </div>
-        <div class="info" id="state">
-            State: {{ user.state }}
-        </div>
-        <div class="info" id="zipcode">
-            Zip Code: {{ user.zipcode }}
-        </div>
-
-        <a href="changeprofile" id="toInfoChange">Change profile information</a>
-    </form>
     
+
+    <h2>Search Doctors</h2>
+    <form id="message_form">
+        <textarea id="message_textarea" name="message" hidden=""></textarea>
+        <div id="prompt_text" class="textarea_replacement" contenteditable="true"></div><button id="submit_message"><img src="/static/app/images/paper-plane.png"></button>
+        <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
+    </form>
+
 </body>
 </html>
