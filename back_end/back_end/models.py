@@ -71,7 +71,8 @@ class Interaction(models.Model):
         # set equal to the LLM Response
 #        pass
         if self.prompt:
-            self.LLMresponse = generate_llm_response(self.prompt)
+            user_city = self.owner.city
+            self.LLMresponse = generate_llm_response(self.prompt, user_city)
             print(self.LLMresponse)
 
     def save(self, *args, **kwargs):
