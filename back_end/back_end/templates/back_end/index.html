@@ -16,6 +16,7 @@
     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
     <aside id="navbar">
         <div class="nav_container">
+            <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
             {% if not user.is_authenticated %} 
                 <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
             {% else %}
