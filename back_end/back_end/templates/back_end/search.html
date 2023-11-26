@@ -25,13 +25,16 @@
         </div>
     </aside>
     
-
-    <h2>Search Doctors</h2>
-    <form id="message_form">
-        <textarea id="message_textarea" name="message" hidden=""></textarea>
-        <div id="prompt_text" class="textarea_replacement" contenteditable="true"></div><button id="submit_message"><img src="/static/app/images/paper-plane.png"></button>
+    <div class="content">
+        <h2>Search Doctors</h2>
+        <form id="message_form">
+            <textarea id="message_textarea" name="message"></textarea>
+            <button id="submit_message"><img src="{% static '/app/images/paper-plane.png' %}"></button>
         <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
-    </form>
-
+        </form> 
+    </div>
+    <script type="module" src="{% static '/app/JS/index.js' %}"> </script>
+    <script src="{% static '/app/JS/textarea_replacement.js' %}"></script>
+    <script src="{% static '/app/JS/message_scroll.js' %}"></script>
 </body>
 </html>
