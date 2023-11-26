@@ -19,10 +19,28 @@
     border-radius: 1em;
 }
 
-.left  {
+/* .left  {
     justify-self: start;
     line-height: 1.8em;
     grid-column: 1/5;
+} */
+
+.left {
+    justify-self: start;
+    line-height: 1.8em;
+    grid-column: 1/5;
+    background: rgba(240, 240, 240, 0.8); /* Example background color */
+    /*background: rgba(173, 216, 230, 0.8);*/
+    /*background: rgba(245, 245, 220, 0.8);*/
+   /* background: #FAF0DC;
+    /*background: rgba(211, 211, 211, 0.8); */
+    box-shadow: 0 0 0.1em rgb(107, 100, 100);
+    padding: 10px; /* Add padding for inner spacing */
+    margin: 10px 0; /* Add some margin if needed */
+    /*border-radius: 5px; /* Optional: rounded corners */
+    box-sizing: border-box; /* Ensure padding doesn't affect overall width */
+    /*overflow-y: auto; /* Add vertical scrollbar if content is too long */
+    /*max-height: 400px; /* Optional: set a maximum height */
 }
 
 .right {

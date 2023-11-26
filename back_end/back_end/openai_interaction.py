@@ -91,7 +91,7 @@ def generate_llm_response(prompt, user_city):
                     retrieve_data = True
                     for idx, doctor in enumerate(doctors, 1):
                         print(f"{idx}. Name: {doctor['Name']}, Address: {doctor['Address']}, Phone: {doctor['Phone']}")
-                        doctor_info_str = doctor_info_str + f"{idx}. Name: {doctor['Name']}\nAddress: {doctor['Address']}\nPhone: {doctor['Phone']}\n"
+                        doctor_info_str = doctor_info_str + f"{idx}. Name: {doctor['Name']}\nAddress: {doctor['Address']}\nPhone: {doctor['Phone']}\n".lower()
                     
                 #    return gptresponse + "\n" + doctor_info_str
                 # else:
@@ -104,7 +104,9 @@ def generate_llm_response(prompt, user_city):
         
         if specialization_found and retrieve_data: 
             print("specialization found and able to retrieve doctor's info")
-            return gptresponse + "\n" + doctor_info_str    
+            response = gptresponse + "\n" + doctor_info_str 
+            response = response.replace("\n", "<br>")
+            return response 
         
         else:
             print("only gpt response, no specialization found")
