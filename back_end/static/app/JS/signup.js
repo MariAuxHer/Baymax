@@ -16,6 +16,24 @@ document.getElementById('submit').addEventListener('click', async function(event
         zipcode: document.getElementById('zipcode').value,
     };
 
+    // Zipcode validation
+    let digits = Math.abs(accountInfo.value).toString();
+    if (digits.length != 5) {
+        console.log('Invalid zipcode')
+
+        let exists = document.querySelector("form_fail")
+        if (!exists) {
+            let parent = document.querySelector("#change_form");
+            let paragraph = document.createElement("p");
+            paragraph.classList.add("form_fail");
+            paragraph.innerHTML = "Invalid zipcode";
+            parent.appendChild(paragraph);
+        }
+        return;
+    }
+
+
+
     const user = await create_user(accountInfo)
 
     if (user.status === 200) {
