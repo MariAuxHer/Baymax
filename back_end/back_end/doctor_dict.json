@@ -1,0 +1,2598 @@
+{
+  "Physician Assistants & Advanced Practice Nursing Providers; Physician Assistants & Advanced Practice Nursing Providers": {
+    "Nurse Practitioner; Nurse Practitioner": {
+      "": [
+        {
+          "doctor_name": "COURTEMARCHE, TERESA",
+          "doctor_address": "201 E GROVER ST, SHELBY, NC 28150"
+        }
+      ],
+      "Neonatal; Neonatal": [
+        {
+          "doctor_name": "MILLER, CASIE",
+          "doctor_address": "705 RILEY HOSPITAL DR RR 208, INDIANAPOLIS, IN 46202"
+        }
+      ],
+      "Family": [
+        {
+          "doctor_name": "WILLIAMS, MELODY",
+          "doctor_address": "32121 WOODWARD AVE STE 200, ROYAL OAK, MI 48073"
+        }
+      ]
+    },
+    "Physician Assistant; Physician Assistant": {
+      "": [
+        {
+          "doctor_name": "ALLEN, EMILIE",
+          "doctor_address": "2001 RANDOLPH RD, CHARLOTTE, NC 28207"
+        }
+      ],
+      "Medical; Medical": [
+        {
+          "doctor_name": "ARGIE, WILLIAM",
+          "doctor_address": "590 COURT ST DARTMOUTH-HITCHCOCK CLINIC - FAMILY MED, KEENE, NH 03431"
+        }
+      ]
+    }
+  },
+  "Allopathic & Osteopathic Physicians": {
+    "Pediatrics": {
+      "": [
+        {
+          "doctor_name": "BLOOM, EVAN",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "BRUGGER, DAN",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "HEMPSTEAD, KENNETH",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "HONEYCHURCH, DAVID",
+          "doctor_address": "9201 BIG HORN BLVD, ELK GROVE, CA 95758"
+        },
+        {
+          "doctor_name": "EPSTEIN, NINA",
+          "doctor_address": "728 N MAIN ST, SPRING VALLEY, NY 10977"
+        },
+        {
+          "doctor_name": "CAMFIELD, KAREN",
+          "doctor_address": "2155 IRON POINT RD, FOLSOM, CA 95630"
+        },
+        {
+          "doctor_name": "HENSLEY, BRIEN",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "EASTER, WAYNE",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        },
+        {
+          "doctor_name": "UDOVIC-CONSTANT, SHANNON",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "WONG, JADENE",
+          "doctor_address": "750 WELCH RD STE 315, PALO ALTO, CA 94304"
+        },
+        {
+          "doctor_name": "POSEY, ELIZABETH",
+          "doctor_address": "10725 INTERNATIONAL DR, RANCHO CORDOVA, CA 95670"
+        },
+        {
+          "doctor_name": "BUTERA, FRANK",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "COVIN, CHRISTOPHER",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "LOWE, STEPHANIE",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ],
+      "Neonatal-Perinatal Medicine": [
+        {
+          "doctor_name": "TINTOC, EVELYN",
+          "doctor_address": "4650 W SUNSET BLVD, LOS ANGELES, CA 90027"
+        }
+      ],
+      "Adolescent Medicine": [
+        {
+          "doctor_name": "RATHNAM, AMBERPET",
+          "doctor_address": "6765 SUNSET STRIP SUITE 6 & 7, SUNRISE, FL 33313"
+        }
+      ],
+      "Pediatric Cardiology": [
+        {
+          "doctor_name": "KIBLAWI, FUAD",
+          "doctor_address": "1 BROADWAY SUITE 203, ELMWOOD PARK, NJ 07407"
+        }
+      ]
+    },
+    "Internal Medicine": {
+      "": [
+        {
+          "doctor_name": "KAUR, GURINDER",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "PAGLIERE, EDWARD",
+          "doctor_address": "2820 BUCKMINSTER DRIVE, ELK GROVE, CA 95758"
+        },
+        {
+          "doctor_name": "SIEMENS, RODGER",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "SEREEVINYAYUT, SANNAPORN",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "NGUYEN, LUU",
+          "doctor_address": "9201 BIG HORN BLVD, ELK GROVE, CA 95758"
+        },
+        {
+          "doctor_name": "ESPINO, JULIAN",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "ISHIHARA, KRISTINA",
+          "doctor_address": "9201 BIG HORN BLVD, ELK GROVE, CA 95758"
+        },
+        {
+          "doctor_name": "FINGAL, RHONA",
+          "doctor_address": "4909 E OUTER DR, DETROIT, MI 48234"
+        },
+        {
+          "doctor_name": "DABBAGH, RAGHDA",
+          "doctor_address": "732 SMITHTOWN BYP SUITE 303, SMITHTOWN, NY 11787"
+        },
+        {
+          "doctor_name": "BRAUN, HEIDI",
+          "doctor_address": "114 CANAL ST BLDG. 500, POOLER, GA 31322"
+        },
+        {
+          "doctor_name": "SCHMIDT, KRISTIE",
+          "doctor_address": "37 CENTURY BLVD, MILLERTON, NY 12546"
+        },
+        {
+          "doctor_name": "FOSTER, JAMES",
+          "doctor_address": "10725 INTERNATIONAL DR, RANCHO CORDOVA, CA 95670"
+        },
+        {
+          "doctor_name": "RETODO, ANTHONY",
+          "doctor_address": "2155 IRON POINT RD, FOLSOM, CA 95630"
+        },
+        {
+          "doctor_name": "JANMOHAMED, SAJAD",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "LOH, JOANIE",
+          "doctor_address": "395 HICKEY BLVD, DALY CITY, CA 94015"
+        },
+        {
+          "doctor_name": "FONG, PANSY",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "TURNER, ELIZABETH",
+          "doctor_address": "395 HICKEY BLVD, DALY CITY, CA 94015"
+        },
+        {
+          "doctor_name": "AHMED, MOHAMMED",
+          "doctor_address": "1430 S HIGH ST, COLUMBUS, OH 43207"
+        },
+        {
+          "doctor_name": "LAKSHMANAN, ALAMELU",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        },
+        {
+          "doctor_name": "DUQUE, JUAN",
+          "doctor_address": "11760 SW 40TH ST # ST.112, MIAMI, FL 33175"
+        },
+        {
+          "doctor_name": "KELLY-REIF, STEVEN",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "DUNLAP, STEVEN",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "FAZIO, SAL",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "MIKHAIL, MINA",
+          "doctor_address": "4100 CENTRAL AVE SUITE 106, RIVERSIDE, CA 92506"
+        },
+        {
+          "doctor_name": "CANNON, SHAWN",
+          "doctor_address": "518 MONTAUK HWY SUITE 102, AMAGANSETT, NY 11930"
+        },
+        {
+          "doctor_name": "SOOKHU, LLOYD",
+          "doctor_address": "164 WEEKS DR, DIX HILLS, NY 11746"
+        },
+        {
+          "doctor_name": "NG, KAI",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "MEBANE, ERIC",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        },
+        {
+          "doctor_name": "HOHF, STEVEN",
+          "doctor_address": "9155 SW BARNES RD STE 238, PORTLAND, OR 97225"
+        }
+      ],
+      "Hematology & Oncology": [
+        {
+          "doctor_name": "WANG, STEPHEN",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "GRENNAN, TIM",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "HEARN, EDWARD",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "JOHNSON, ROBERT",
+          "doctor_address": "200 MUIR RD, MARTINEZ, CA 94553"
+        },
+        {
+          "doctor_name": "NELSON, AMY",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "WEISBERG, LAURIE",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        }
+      ],
+      "Cardiovascular Disease": [
+        {
+          "doctor_name": "INOUYE, ISAO",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "HOU, EMMELINE",
+          "doctor_address": "1 QUALITY DR, VACAVILLE, CA 95688"
+        },
+        {
+          "doctor_name": "HIPPALGAONKAR, RAJENDRA",
+          "doctor_address": "932 SAXON BLVD STE A, ORANGE CITY, FL 32763"
+        },
+        {
+          "doctor_name": "FISCHER, EDWARD",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "BARBOUR, SANDRA",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "KENNEDY, JOHN",
+          "doctor_address": "20911 EARL ST. STE. 200, TORRANCE, CA 90503"
+        }
+      ],
+      "Gastroenterology": [
+        {
+          "doctor_name": "VARON, DAVID",
+          "doctor_address": "2485 HIGH SCHOOL AVE SUITE 306, CONCORD, CA 94520"
+        },
+        {
+          "doctor_name": "AL-ANTABLY, YASSER",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "FINEGOLD, DON",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "PAULY, MARY",
+          "doctor_address": "2315 STOCKTON BLVD, SACRAMENTO, CA 95817"
+        },
+        {
+          "doctor_name": "CHIU, MING-SHING",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        }
+      ],
+      "Critical Care Medicine": [
+        {
+          "doctor_name": "LUTCH, JOHN",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "GOGIA, HARJINDER",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "HO, JOCELYN",
+          "doctor_address": "900 KIELY BLVD, SANTA CLARA, CA 95051"
+        },
+        {
+          "doctor_name": "CHU, JAYNE",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        }
+      ],
+      "Rheumatology": [
+        {
+          "doctor_name": "ITO, LLOYD",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "CARROLL, PATRICK",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "LASH, ALAN",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        }
+      ],
+      "Geriatric Medicine": [
+        {
+          "doctor_name": "LEMESH, RUSSELL",
+          "doctor_address": "1426 FILLMORE ST SUITE #302, SAN FRANCISCO, CA 94115"
+        }
+      ],
+      "Pulmonary Disease": [
+        {
+          "doctor_name": "MARTIN, RICHARD",
+          "doctor_address": "1400 JACKSON ST, DENVER, CO 80206"
+        },
+        {
+          "doctor_name": "TUBER, JACK",
+          "doctor_address": "6818 W THUNDERBIRD RD, PEORIA, AZ 85381"
+        }
+      ],
+      "Nephrology": [
+        {
+          "doctor_name": "NEIDERMAN, GEORGE",
+          "doctor_address": "3915 AVENUE V SUITE 104, BROOKLYN, NY 11234"
+        },
+        {
+          "doctor_name": "MENKE, DAVID",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ],
+      "Endocrinology, Diabetes & Metabolism": [
+        {
+          "doctor_name": "OKIMURA, MICHAEL",
+          "doctor_address": "1600 EUREKA RD MOB 1, BUILDING D, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "KANTER, RICHARD",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ],
+      "Infectious Disease": [
+        {
+          "doctor_name": "FILE, THOMAS, JR.",
+          "doctor_address": "75 ARCH ST. STE. 506, AKRON, OH 44304"
+        }
+      ]
+    },
+    "Ophthalmology": {
+      "": [
+        {
+          "doctor_name": "GLOVER, ARTHUR, SR.",
+          "doctor_address": "1600 EUREKA ROAD BUILDING C, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "MCCLANAHAN, WILLIAM",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "YEE, WAI",
+          "doctor_address": "3905 SACRAMENTO ST STE 207, SAN FRANCISCO, CA 94118"
+        },
+        {
+          "doctor_name": "MOORE, MARY BETH",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        }
+      ]
+    },
+    "Urology": {
+      "": [
+        {
+          "doctor_name": "KEENE, KIRK",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "EYOLFSON, MICHAEL",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        }
+      ]
+    },
+    "Family Medicine": {
+      "": [
+        {
+          "doctor_name": "RAIMUNDO, ROGER",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "ZIOMEK, CAMILLE",
+          "doctor_address": "131 W A ST, DIXON, CA 95620"
+        },
+        {
+          "doctor_name": "DAVIDOV, YVETTE",
+          "doctor_address": "1115 OCEAN PKWY APT 1, BROOKLYN, NY 11230"
+        },
+        {
+          "doctor_name": "DEWAN, MEERA",
+          "doctor_address": "7100 W CENTER RD, OMAHA, NE 68106"
+        },
+        {
+          "doctor_name": "CHAVARRIA, JAIME",
+          "doctor_address": "1798 BAY RD # A, EAST PALO ALTO, CA 94303"
+        },
+        {
+          "doctor_name": "FRANCIS, LYNETTE",
+          "doctor_address": "10725 INTERNATIONAL DR, RANCHO CORDOVA, CA 95670"
+        },
+        {
+          "doctor_name": "NGUYEN, HUAN",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "BERGERON, JANET",
+          "doctor_address": "406 N FAXON RD, NORWOOD, MN 55368"
+        },
+        {
+          "doctor_name": "ILKO, JAMES",
+          "doctor_address": "1687 WOODLANE DRIVE SUITE 102, WOODBURY, MN 55125"
+        },
+        {
+          "doctor_name": "PROSHKINA, IRINA",
+          "doctor_address": "130 CEDAR RD SUITE NUMBER 230, VISTA, CA 92083"
+        },
+        {
+          "doctor_name": "MOLL, ERIC",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "MERER, MICHAEL",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "OEHLER, JOHN",
+          "doctor_address": "725 N SANDUSKY AVE STE 1, BUCYRUS, OH 44820"
+        },
+        {
+          "doctor_name": "TUCKER, ALLEN",
+          "doctor_address": "1830 EAST BROAD STREET, COLUMBUS, OH 43203"
+        },
+        {
+          "doctor_name": "ANDUSS, MARC",
+          "doctor_address": "645 E STATE HIGHWAY 121, COPPELL, TX 75019"
+        },
+        {
+          "doctor_name": "BRAY, CATHERINE",
+          "doctor_address": "219 E. JOHNSON AVE, CHELAN, WA 98816"
+        },
+        {
+          "doctor_name": "PIRELA, REBECCA",
+          "doctor_address": "1800 MERCY DR SECOND FLOOR, ORLANDO, FL 32808"
+        }
+      ]
+    },
+    "Hospitalist": {
+      "": [
+        {
+          "doctor_name": "SULTAN, OLOF",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "BHATNAGAR, RITU",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "LAU, ERNEST",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        },
+        {
+          "doctor_name": "PINORIS, ANASTASIA",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "AHLUWALIA, GURPREET",
+          "doctor_address": "900 KIELY BLVD, SANTA CLARA, CA 95051"
+        },
+        {
+          "doctor_name": "FREYNE, PATRICK",
+          "doctor_address": "460 N ELM ST, ESCONDIDO, CA 92025"
+        },
+        {
+          "doctor_name": "LEVINE, TODD",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "KREITZER, LORIN",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        }
+      ]
+    },
+    "Pathology": {
+      "Anatomic Pathology & Clinical Pathology": [
+        {
+          "doctor_name": "WHITNEY-MILLER, CHRISTA",
+          "doctor_address": "601 ELMWOOD AVE UNIVERSITY OF ROCHESTER MEDICAL CENTER, BOX 626, ROCHESTER, NY 14642"
+        },
+        {
+          "doctor_name": "BOORSTEIN, ROBERT",
+          "doctor_address": "462 1ST AVE ROOM 4W1, NEW YORK, NY 10016"
+        }
+      ]
+    },
+    "Obstetrics & Gynecology": {
+      "": [
+        {
+          "doctor_name": "PLOTKIN, MINDY",
+          "doctor_address": "112 LA CASA VIA STE 200, WALNUT CREEK, CA 94598"
+        },
+        {
+          "doctor_name": "GAMBETTA, DARIO",
+          "doctor_address": "1600 EUREKA RD, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "CASTILLO-RICO, RINA",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "PUCCINELLI, MICHAEL",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "PATTERSON, MARK",
+          "doctor_address": "2657 SAKLAN INDIAN DR APT 2, WALNUT CREEK, CA 94595"
+        },
+        {
+          "doctor_name": "NORMOYLE, JENNIFER",
+          "doctor_address": "395 HICKEY BLVD, DALY CITY, CA 94015"
+        },
+        {
+          "doctor_name": "JOSHI, SANGEETA",
+          "doctor_address": "1550 GATEWAY BLVD, FAIRFIELD, CA 94533"
+        },
+        {
+          "doctor_name": "TYSON, NICHOLE",
+          "doctor_address": "725 WELCH RD, PALO ALTO, CA 94304"
+        },
+        {
+          "doctor_name": "HATCH, THEODORE",
+          "doctor_address": "2155 IRON POINT RD, FOLSOM, CA 95630"
+        },
+        {
+          "doctor_name": "SAPAN, IRA",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ],
+      "Gynecologic Oncology": [
+        {
+          "doctor_name": "MAHAVNI, VIKAS",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "SANDLES, LISA",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ],
+      "Gynecology": [
+        {
+          "doctor_name": "PERLMAN, JAQUELLINE",
+          "doctor_address": "97 AMITY ST, BROOKLYN, NY 11201"
+        }
+      ]
+    },
+    "Psychiatry & Neurology": {
+      "Psychiatry": [
+        {
+          "doctor_name": "SIGMAN, MELVIN",
+          "doctor_address": "3751 STOCKER ST, LOS ANGELES, CA 90008"
+        },
+        {
+          "doctor_name": "AUZA, JOHN",
+          "doctor_address": "10725 INTERNATIONAL DR, RANCHO CORDOVA, CA 95670"
+        },
+        {
+          "doctor_name": "LEPLER, YEVGENIY",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "BHUYAN, ELLY",
+          "doctor_address": "443 N NEW BALLAS RD SUITE 249, SAINT LOUIS, MO 63141"
+        },
+        {
+          "doctor_name": "REISFELD, ROBERT, JR.",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        },
+        {
+          "doctor_name": "LUPTON, THOMAS",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "MARX, ALAN",
+          "doctor_address": "301 INDUSTRIAL RD, SAN CARLOS, CA 94070"
+        },
+        {
+          "doctor_name": "PAGMANUA, CYNTHIA",
+          "doctor_address": "100 38TH ST SUITE 2400, RICHMOND, CA 94805"
+        },
+        {
+          "doctor_name": "BHALLA, SARMISTHA",
+          "doctor_address": "321 W PROMENADE ST, MEXICO, MO 65265"
+        },
+        {
+          "doctor_name": "CALVERT, TERRI",
+          "doctor_address": "1000 COMMERCE PARK DR SUITE 110, WILLIAMSPORT, PA 17701"
+        },
+        {
+          "doctor_name": "TSO, ALICE",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "MORGAN-MINOTT, MELODIE",
+          "doctor_address": "401 DEVON PL SUITE 230, KENT, OH 44240"
+        },
+        {
+          "doctor_name": "LEE, LANA",
+          "doctor_address": "3420 KENYON ST, SAN DIEGO, CA 92110"
+        },
+        {
+          "doctor_name": "LOPATO, LESLIE",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ],
+      "Neurology": [
+        {
+          "doctor_name": "LATOV, NORMAN",
+          "doctor_address": "635 MADISON AVE 4 FL, NEW YORK, NY 10022"
+        },
+        {
+          "doctor_name": "VAUGHAN, JUDITH",
+          "doctor_address": "6440 LAGUNA MIRAGE LN, ELK GROVE, CA 95758"
+        },
+        {
+          "doctor_name": "RAO, VIVEK",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        },
+        {
+          "doctor_name": "AKINS, PAUL",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        }
+      ],
+      "Child & Adolescent Psychiatry": [
+        {
+          "doctor_name": "SUAREZ, JAIME",
+          "doctor_address": "2401 E STREET NW - M/MED/QI - SA-1 DEPARTMENT OF STATE, WASHINGTON, DC 20522"
+        }
+      ],
+      "Neurology with Special Qualifications in Child Neurology": [
+        {
+          "doctor_name": "DERAY, MARCEL",
+          "doctor_address": "3200 SW 60 CT STE #302, MIAMI, FL 33153"
+        }
+      ],
+      "Addiction Psychiatry": [
+        {
+          "doctor_name": "PATING, DAVID",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ]
+    },
+    "Surgery": {
+      "": [
+        {
+          "doctor_name": "GENOVESE, MATTHEW",
+          "doctor_address": "3257 WATERBURY AVE, BRONX, NY 10465"
+        },
+        {
+          "doctor_name": "IYER, RAJIV",
+          "doctor_address": "2200 BERGQUIST DR STE 1 ATTN: CREDENTIALS (CMC), LACKLAND A F B, TX 78236"
+        },
+        {
+          "doctor_name": "DUNAVANT, WILLIAM, JR.",
+          "doctor_address": "1500 W POPLAR AVE, COLLIERVILLE, TN 38017"
+        },
+        {
+          "doctor_name": "KOSS, NEAL",
+          "doctor_address": "23451 MADISON ST STE 340, TORRANCE, CA 90505"
+        },
+        {
+          "doctor_name": "FANDRICH, BRYAN",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "YUTAN, ELAINE",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "RELOS, RENE",
+          "doctor_address": "7373 WEST LN, STOCKTON, CA 95210"
+        }
+      ]
+    },
+    "Orthopaedic Surgery": {
+      "": [
+        {
+          "doctor_name": "MANSKE, DAVID",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "NAGY, STEPHEN",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        },
+        {
+          "doctor_name": "BURRI, ROBERT",
+          "doctor_address": "450 6TH AVE, SAN FRANCISCO, CA 94118"
+        },
+        {
+          "doctor_name": "VOSTREJS, MICHAEL",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "JOHNSON, JAMES",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "MCDONALD, SHANNON",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        }
+      ],
+      "Sports Medicine": [
+        {
+          "doctor_name": "MCDONALD, LUCAS",
+          "doctor_address": "34800 BOB WILSON DR STE 112, SAN DIEGO, CA 92134"
+        }
+      ]
+    },
+    "Otolaryngology": {
+      "Otolaryngology/Facial Plastic Surgery": [
+        {
+          "doctor_name": "YANG, SEE YOUNG",
+          "doctor_address": "311 S 72ND AVE, YAKIMA, WA 98908"
+        }
+      ],
+      "": [
+        {
+          "doctor_name": "CUA, DAVID",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "KOROL, HAROLD",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        }
+      ]
+    },
+    "Anesthesiology": {
+      "": [
+        {
+          "doctor_name": "KIM, CHARLES",
+          "doctor_address": "115 CASS AVE, WOONSOCKET, RI 02895"
+        },
+        {
+          "doctor_name": "NISWANDER, DAVID",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "LEUNG, SUN",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        },
+        {
+          "doctor_name": "ROACH, GARY",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "LUI, PETER",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "HOLOYDA, OLAF",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "KAMPMAN, KENNETH",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "RISLEY, WALTER",
+          "doctor_address": "2809 DENNY AVE, PASCAGOULA, MS 39581"
+        },
+        {
+          "doctor_name": "CHEN, JASPER",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        },
+        {
+          "doctor_name": "KAN, TIN-NA",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "ISLAM, SALIM",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "PRESTON, PAUL",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "MATTISON, EDWARD",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "BIBAT, MADELEINE",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "GOLDSTEIN, MARK",
+          "doctor_address": "921 GESSNER RD ATTN: ANESTHESIA DEPT, HOUSTON, TX 77024"
+        }
+      ]
+    },
+    "Dermatology": {
+      "": [
+        {
+          "doctor_name": "SATUR, NANCY",
+          "doctor_address": "5717 PACIFIC CENTER BLVD STE 200, SAN DIEGO, CA 92121"
+        },
+        {
+          "doctor_name": "FOX, STANLEY",
+          "doctor_address": "464 RICHMOND RD SUITE 101, RICHMOND HTS, OH 44143"
+        },
+        {
+          "doctor_name": "PATTON, DOUGLAS",
+          "doctor_address": "1020 29TH ST STE 570A, SACRAMENTO, CA 95816"
+        },
+        {
+          "doctor_name": "LAWRY, TODD",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "MURAD, DAVID, JR.",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "JOHNSON, MOLLY",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        }
+      ]
+    },
+    "Radiology": {
+      "Diagnostic Radiology": [
+        {
+          "doctor_name": "HTAIN, MIN",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "CESAR, MYRTHA",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "HARI, ANIL",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "YU, HAICHENG",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        }
+      ],
+      "Vascular & Interventional Radiology": [
+        {
+          "doctor_name": "GABBAY, RICHARD",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        }
+      ]
+    },
+    "Plastic Surgery": {
+      "": [
+        {
+          "doctor_name": "LIM, ALAN",
+          "doctor_address": "1020 29TH ST SUITE 600, SACRAMENTO, CA 95816"
+        },
+        {
+          "doctor_name": "KOPOLOVIC, RICHARD",
+          "doctor_address": "950 N YORK RD SUITE 201, HINSDALE, IL 60521"
+        },
+        {
+          "doctor_name": "SINHA, INDRANIL",
+          "doctor_address": "75 FRANCIS ST BRIGHAM AND WOMEN'S HOSPITAL, BOSTON, MA 02115"
+        },
+        {
+          "doctor_name": "PERRY, CHARLES",
+          "doctor_address": "785 UNIVERSITY AVE CHRYSALIS COSMETICS, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "VENTO, ALEXANDER",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        }
+      ]
+    },
+    "Allergy & Immunology": {
+      "": [
+        {
+          "doctor_name": "GARCIA, GORDON",
+          "doctor_address": "6600 BRUCEVILLE RD, SACRAMENTO, CA 95823"
+        }
+      ]
+    },
+    "Emergency Medicine": {
+      "": [
+        {
+          "doctor_name": "MONTANA, BLAKE",
+          "doctor_address": "2025 MORSE AVE, SACRAMENTO, CA 95825"
+        },
+        {
+          "doctor_name": "LEONG, MARKUS",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "BERMAN, DAVID",
+          "doctor_address": "4700 LAS VEGAS BLVD N, NELLIS AFB, NV 89191"
+        },
+        {
+          "doctor_name": "MURPHY, JOSEPH",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "EIBAND, JASON",
+          "doctor_address": "1200 EL CAMINO REAL, SOUTH SAN FRANCISCO, CA 94080"
+        },
+        {
+          "doctor_name": "ANHALT, DANIEL",
+          "doctor_address": "75 BEEKMAN ST, PLATTSBURGH, NY 12901"
+        },
+        {
+          "doctor_name": "BABCOCK, JAMES",
+          "doctor_address": "6565 FANNIN ST, HOUSTON, TX 77030"
+        }
+      ]
+    },
+    "General Practice": {
+      "": [
+        {
+          "doctor_name": "HUSAIN, MAIMOONA",
+          "doctor_address": "19445 W WARREN AVE, DETROIT, MI 48228"
+        },
+        {
+          "doctor_name": "BIGGERS, EDITH",
+          "doctor_address": "99 JESSE HILL JR DR ROOM 234 FULTON COUNTY DEPT OF HEALTH & WELLNESS, ATLANTA, GA 30303"
+        }
+      ]
+    },
+    "Thoracic Surgery (Cardiothoracic Vascular Surgery)": {
+      "": [
+        {
+          "doctor_name": "OAKES, ROBERT",
+          "doctor_address": "1500 S 48TH ST STE 400, LINCOLN, NE 68506"
+        },
+        {
+          "doctor_name": "LA BOURENE, JAY",
+          "doctor_address": "1550-G TIBURON BLVD, TIBURON, CA 94920"
+        },
+        {
+          "doctor_name": "FLACHSBART, KEITH",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "POMPILI, MARIO",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ]
+    },
+    "Oral & Maxillofacial Surgery": {
+      "": [
+        {
+          "doctor_name": "THOMAS, GREGORY",
+          "doctor_address": "676 N SAINT CLAIR ST SUITE 2280, CHICAGO, IL 60611"
+        }
+      ]
+    },
+    "Nuclear Medicine": {
+      "": [
+        {
+          "doctor_name": "TANG, SUSAN",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ]
+    },
+    "Pain Medicine": {
+      "Pain Medicine": [
+        {
+          "doctor_name": "BUNDY, ROBERT",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        }
+      ]
+    },
+    "Physical Medicine & Rehabilitation": {
+      "": [
+        {
+          "doctor_name": "CHENG, XIAO-PING",
+          "doctor_address": "2200 OFARRELL ST, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "WOLFER, LEE",
+          "doctor_address": "901 NEVIN AVE, RICHMOND, CA 94801"
+        },
+        {
+          "doctor_name": "WANG, SPENCER",
+          "doctor_address": "975 SERENO DR, VALLEJO, CA 94589"
+        }
+      ]
+    },
+    "Preventive Medicine": {
+      "Public Health & General Preventive Medicine": [
+        {
+          "doctor_name": "AL-SAGHBINI, SAMER",
+          "doctor_address": "1221 FULTON ST, FRESNO, CA 93721"
+        }
+      ]
+    },
+    "Neurological Surgery": {
+      "": [
+        {
+          "doctor_name": "NUTIK, STEPHEN",
+          "doctor_address": "1150 VETERANS BLVD, REDWOOD CITY, CA 94063"
+        }
+      ]
+    }
+  },
+  "Dental Providers": {
+    "Dentist": {
+      "Endodontics": [
+        {
+          "doctor_name": "WALKER, STEPHEN",
+          "doctor_address": "2220 W SOUTHERN AVE 102, MESA, AZ 85202"
+        }
+      ],
+      "Oral and Maxillofacial Surgery": [
+        {
+          "doctor_name": "JONES, GLEN",
+          "doctor_address": "168 14TH ST SW SUITE B, LARGO, FL 33770"
+        }
+      ],
+      "": [
+        {
+          "doctor_name": "FORT, CHARLES",
+          "doctor_address": "330 EAST BROADWAY STREET, FORT MEADE, FL 33841"
+        },
+        {
+          "doctor_name": "PHAN, MAI",
+          "doctor_address": "4001 N 9TH ST SUITE 218, ARLINGTON, VA 22203"
+        },
+        {
+          "doctor_name": "BURAU, KEITH",
+          "doctor_address": "862 BRAWLEY SCHOOL RD STE 103, MOORESVILLE, NC 28117"
+        },
+        {
+          "doctor_name": "BURAU, SCOTT",
+          "doctor_address": "240 E GRAND BLANC RD, GRAND BLANC, MI 48439"
+        },
+        {
+          "doctor_name": "LESTER, JACK",
+          "doctor_address": "440 FLAT SHOALS AVE SE, ATLANTA, GA 30316"
+        },
+        {
+          "doctor_name": "HYDER, RICHARD",
+          "doctor_address": "2100 WEBSTER ST SUITE 325, SAN FRANCISCO, CA 94115"
+        },
+        {
+          "doctor_name": "KULIK, TIMOTHY",
+          "doctor_address": "211 N SAINT PETER ST, SOUTH BEND, IN 46617"
+        },
+        {
+          "doctor_name": "JOSHI, ROHIT",
+          "doctor_address": "16226 N CAVECREEK RD VALLEY DENTAL CENTER, PHOENIX, AZ 85032"
+        },
+        {
+          "doctor_name": "CHERMOL, EDWARD, III",
+          "doctor_address": "3501 W CHESTER PIKE SUITE 102, NEWTOWN SQUARE, PA 19073"
+        }
+      ],
+      "General Practice": [
+        {
+          "doctor_name": "PATEL, UDAYKUMAR",
+          "doctor_address": "101 S WHITE HORSE PIKE, LINDENWOLD, NJ 08021"
+        },
+        {
+          "doctor_name": "ROTOWA, OLANREWAJU",
+          "doctor_address": "2107 E WALNUT AVE, DALTON, GA 30721"
+        },
+        {
+          "doctor_name": "STRANGE, STEVEN",
+          "doctor_address": "709 S BROADWAY, EDMOND, OK 73034"
+        },
+        {
+          "doctor_name": "MESA, GEORGINA",
+          "doctor_address": "1878 SW 57 AVE, MIAMI, FL 33155"
+        },
+        {
+          "doctor_name": "COTTRELL, ERIC",
+          "doctor_address": "36 HOMER AVE, QUEENSBURY, NY 12804"
+        },
+        {
+          "doctor_name": "MILHAUSER, STEVEN",
+          "doctor_address": "1201 NORTHERN BLVD STE 302, MANHASSET, NY 11030"
+        },
+        {
+          "doctor_name": "ZINK, PHILIP",
+          "doctor_address": "219 S PROCTOR KNOTT AVE, LEBANON, KY 40033"
+        },
+        {
+          "doctor_name": "BARLOW, JOHN",
+          "doctor_address": "204 W MAPLE ST, CHEROKEE, IA 51012"
+        },
+        {
+          "doctor_name": "WHITT, T",
+          "doctor_address": "407 S 2ND ST, GADSDEN, AL 35901"
+        },
+        {
+          "doctor_name": "SKIBA, TONY",
+          "doctor_address": "141 W WASHINGTON AVE, ALPENA, MI 49707"
+        },
+        {
+          "doctor_name": "BARRETT, CURTIS, JR.",
+          "doctor_address": "806 WILSON AVE, DAPHNE, AL 36526"
+        },
+        {
+          "doctor_name": "GABRIEL, RICHARD",
+          "doctor_address": "717 COUNTRY CLUB ROAD, EUGENE, OR 97401"
+        },
+        {
+          "doctor_name": "CARROLL, BERNARD",
+          "doctor_address": "4901 W 38TH AVE, DENVER, CO 80212"
+        },
+        {
+          "doctor_name": "LAMUS, FEDERICO, II",
+          "doctor_address": "3507 S 4TH ST, LEAVENWORTH, KS 66048"
+        },
+        {
+          "doctor_name": "POWELL, KENNETH, II",
+          "doctor_address": "3403 UNION BLVD, SAINT LOUIS, MO 63115"
+        },
+        {
+          "doctor_name": "KNOELL, LYNDSAY",
+          "doctor_address": "5707 BYRD AVE, RACINE, WI 53406"
+        },
+        {
+          "doctor_name": "KNOELL, WENDY",
+          "doctor_address": "5707 BYRD AVE, RACINE, WI 53406"
+        },
+        {
+          "doctor_name": "AGUILAR, EMMANUEL",
+          "doctor_address": "5382 CLAIREMONT MESA BLVD, SAN DIEGO, CA 92117"
+        },
+        {
+          "doctor_name": "GEBFERT, ROBERT",
+          "doctor_address": "10010 DUPONT CIRCLE CT, FORT WAYNE, IN 46825"
+        },
+        {
+          "doctor_name": "ROBBINS, ALAN",
+          "doctor_address": "14055 CEDAR RD SUITE 203, SOUTH EUCLID, OH 44118"
+        },
+        {
+          "doctor_name": "HART, HEDDAMARIE",
+          "doctor_address": "8225 SAWMILL FALLS ST, N LAS VEGAS, NV 89085"
+        }
+      ],
+      "Prosthodontics": [
+        {
+          "doctor_name": "O'KEEFE, GERALD",
+          "doctor_address": "485 S DOBSON RD STE 204, CHANDLER, AZ 85224"
+        }
+      ],
+      "Pediatric Dentistry": [
+        {
+          "doctor_name": "CHOI, MARK",
+          "doctor_address": "2500 N TEXAS ST SUITE C, FAIRFIELD, CA 94533"
+        }
+      ]
+    }
+  },
+  "Respiratory, Developmental, Rehabilitative and Restorative Service Providers": {
+    "Occupational Therapist": {
+      "": [
+        {
+          "doctor_name": "HUGHES, DEIRDRE",
+          "doctor_address": "1893 NE MIAMI GARDENS DR, NORTH MIAMI BEACH, FL 33179"
+        },
+        {
+          "doctor_name": "CANNING, BRENDA",
+          "doctor_address": "345 E SUPERIOR ST, CHICAGO, IL 60611"
+        },
+        {
+          "doctor_name": "HIGDON, GEORGE",
+          "doctor_address": "2002 E ROBINSON, NORMAN, OK 73071"
+        },
+        {
+          "doctor_name": "GANFIELD, KRISTEN",
+          "doctor_address": "1454 30TH STREET SUITE 103, WEST DES MOINES, IA 50266"
+        },
+        {
+          "doctor_name": "FEARS, ANNETTE",
+          "doctor_address": "6601 BLANCO RD SUITE 160, SAN ANTONIO, TX 78216"
+        },
+        {
+          "doctor_name": "ARETHA, SANDRA",
+          "doctor_address": "23161 GREATER MACK AVE, SAINT CLAIR SHORES, MI 48080"
+        }
+      ],
+      "Pediatrics": [
+        {
+          "doctor_name": "PARK, AMBER",
+          "doctor_address": "10251 N 35TH AVE, PHOENIX, AZ 85051"
+        }
+      ],
+      "Hand": [
+        {
+          "doctor_name": "LEEMAN, BLANCHE",
+          "doctor_address": "17 STUART CT, HAMPTON BAYS, NY 11946"
+        }
+      ]
+    },
+    "Physical Therapist": {
+      "": [
+        {
+          "doctor_name": "BENDT, ANNE",
+          "doctor_address": "6500 EXCELSIOR BLVD, ST LOUIS PARK, MN 55426"
+        },
+        {
+          "doctor_name": "STEFANI, JANETTE",
+          "doctor_address": "111 S BOBBY LN, MOUNT PROSPECT, IL 60056"
+        },
+        {
+          "doctor_name": "CRISAFULLI, CARA",
+          "doctor_address": "415 COLUMBIA RD, DORCHESTER, MA 02125"
+        },
+        {
+          "doctor_name": "YAMAGUCHI, CHIP",
+          "doctor_address": "99-128 AIEA HEIGHTS DR SUITE 207, AIEA, HI 96701"
+        },
+        {
+          "doctor_name": "SMITH, BRIAN",
+          "doctor_address": "126 AVOCADO AVE SUITE 107, PERRIS, CA 92571"
+        },
+        {
+          "doctor_name": "SMITH, MEGAN",
+          "doctor_address": "1401 CHESTER BLVD, RICHMOND, IN 47374"
+        },
+        {
+          "doctor_name": "BURTON, SUSAN",
+          "doctor_address": "636 RAYMOND DR SSUITE 105, NAPERVILLE, IL 60563"
+        },
+        {
+          "doctor_name": "JONES, KEVIN",
+          "doctor_address": "5551 HILLIARD ROME OFFICE PARK, HILLIARD, OH 43026"
+        },
+        {
+          "doctor_name": "BLAGRIFF, JENNIFER",
+          "doctor_address": "124 HALL ST STE G, CONCORD, NH 03301"
+        },
+        {
+          "doctor_name": "BENEDICT, JACOB",
+          "doctor_address": "5700 W MARKHAM ST, LITTLE ROCK, AR 72205"
+        },
+        {
+          "doctor_name": "YIP, LISA",
+          "doctor_address": "1001 KAMOKILA BLVD SUITE 111 JCB, KAPOLEI, HI 96707"
+        },
+        {
+          "doctor_name": "PAYNE, JOHN",
+          "doctor_address": "16520 92ND ST E, SUMNER, WA 98390"
+        },
+        {
+          "doctor_name": "BRYANT, MARY",
+          "doctor_address": "9469 KENWOOD ROAD, CINCINNATI, OH 45242"
+        },
+        {
+          "doctor_name": "ALVAREZ, MARGUERITE",
+          "doctor_address": "9380 SW 72ND ST B-222, MIAMI, FL 33173"
+        },
+        {
+          "doctor_name": "SHAW, JOANNA",
+          "doctor_address": "1022 BLAKESLEE BOULEVARD DR E, LEHIGHTON, PA 18235"
+        },
+        {
+          "doctor_name": "WAGNER, JUDITH",
+          "doctor_address": "23161 GREATER MACK AVE, SAINT CLAIR SHORES, MI 48080"
+        },
+        {
+          "doctor_name": "WHITMAN, WILLIAM",
+          "doctor_address": "55500 SOUTH CIRCLE DR, IDYLLWILD, CA 92549"
+        },
+        {
+          "doctor_name": "BOZOVICH, MELISSA",
+          "doctor_address": "113 THORNTON RD SUITE D, BROWNSVILLE, PA 15417"
+        },
+        {
+          "doctor_name": "HOLLAND, MARY",
+          "doctor_address": "2726 GRIFIN AVE STE C, ENUMCLAW, WA 98022"
+        },
+        {
+          "doctor_name": "COMERFORD, EILEEN",
+          "doctor_address": "3101 MAIN ST, BUFFALO, NY 14214"
+        },
+        {
+          "doctor_name": "CAMPBELL, CHRISTIANNA",
+          "doctor_address": "3001 EDWARDS MILL RD 200, RALEIGH, NC 27612"
+        }
+      ]
+    },
+    "Massage Therapist": {
+      "": [
+        {
+          "doctor_name": "FOSTER, PAULA",
+          "doctor_address": "19503 56TH AVE W, LYNNWOOD, WA 98036"
+        }
+      ]
+    },
+    "Physical Therapy Assistant": {
+      "": [
+        {
+          "doctor_name": "BEDNAREK, DAWN",
+          "doctor_address": "5595 COUNTY ROAD Z, WEST BEND, WI 53095"
+        }
+      ]
+    }
+  },
+  "Behavioral Health & Social Service Providers": {
+    "Social Worker": {
+      "Clinical": [
+        {
+          "doctor_name": "CUFF, RENETA",
+          "doctor_address": "1641 3RD ST FL 2, RENSSELAER, NY 12144"
+        },
+        {
+          "doctor_name": "HOME, PETER",
+          "doctor_address": "769 W BLAINE ST SUITE A, RIVERSIDE, CA 92507"
+        },
+        {
+          "doctor_name": "MCINTIRE, BARBARA",
+          "doctor_address": "9282 HAZELBROOK DRIVE, HUNTINGTON BEACH, CA 92646"
+        },
+        {
+          "doctor_name": "LAMBERT, CAROL",
+          "doctor_address": "38 ROBBINS RD, ARLINGTON, MA 02476"
+        },
+        {
+          "doctor_name": "ZAINALVAND, GERALDA",
+          "doctor_address": "500 VINE ST, HARTFORD, CT 06112"
+        },
+        {
+          "doctor_name": "KING, JASMINE",
+          "doctor_address": "6900 GEORGIA AVE NW, WASHINGTON, DC 20307"
+        },
+        {
+          "doctor_name": "RUYLE, KATHLEEN",
+          "doctor_address": "123 N LINN ST SUITE 2A, IOWA CITY, IA 52245"
+        },
+        {
+          "doctor_name": "WELCH, GRETCHEN",
+          "doctor_address": "600 25TH AVE S #104, SAINT CLOUD, MN 56301"
+        },
+        {
+          "doctor_name": "DUCZYMINSKI, KAREN",
+          "doctor_address": "105 HALL ST, TRAVERSE CITY, MI 49684"
+        },
+        {
+          "doctor_name": "STEEDE SPAULDING, CAROL",
+          "doctor_address": "10901 WINNER ROAD, INDEPENDENCE, MO 64052"
+        },
+        {
+          "doctor_name": "MENDEZ, JOHN",
+          "doctor_address": "1492 W FLAGLER ST, MIAMI, FL 33135"
+        },
+        {
+          "doctor_name": "OMAN, JENNIFER",
+          "doctor_address": "1001 OFFICE PARK RD STE 206, WEST DES MOINES, IA 50265"
+        },
+        {
+          "doctor_name": "ZIENOWICZ, CHARLENE",
+          "doctor_address": "1240 PAWTUCKET AVE, RUMFORD, RI 02916"
+        },
+        {
+          "doctor_name": "KAHN, AARON",
+          "doctor_address": "3744 90TH ST, JACKSON HEIGHTS, NY 11372"
+        },
+        {
+          "doctor_name": "NASH, KAREN",
+          "doctor_address": "55 WEST MAIN STREET SUITE 410 WESTERN CONNECTICUT MENTAL HEALTH NETWORK, WATERBURY, CT 06702"
+        },
+        {
+          "doctor_name": "MURRAY, LISA",
+          "doctor_address": "55 WEST MAIN STREET WESTERN CONNECTICUT MENTAL HEALTH NETWORK SUITE 410, WATERBURY, CT 06702"
+        },
+        {
+          "doctor_name": "MAREK, ROBERT",
+          "doctor_address": "1901 COUNTY ST, DIGHTON, MA 02715"
+        }
+      ],
+      "": [
+        {
+          "doctor_name": "LONG, ELIZABETH",
+          "doctor_address": "605 S TRIMBLE RD SUITE D LIFE STEPS INC, MANSFIELD, OH 44906"
+        },
+        {
+          "doctor_name": "MADNICK, DONNA",
+          "doctor_address": "98120 QUEENS BLVD APT 1C, REGO PARK, NY 11374"
+        },
+        {
+          "doctor_name": "KOLARIK, DOUGLAS",
+          "doctor_address": "601 HIGHWAY 6 W, IOWA CITY, IA 52246"
+        },
+        {
+          "doctor_name": "MASENG, NANCY",
+          "doctor_address": "3204 MILLWOOD AVE, COLUMBIA, SC 29205"
+        },
+        {
+          "doctor_name": "SLOR, ELIZABETH",
+          "doctor_address": "7305 N MILITARY TRL, RIVIERA BEACH, FL 33410"
+        },
+        {
+          "doctor_name": "RYDER-PETRE, ELLEN",
+          "doctor_address": "2100 HEMMETER RD, SAGINAW, MI 48603"
+        },
+        {
+          "doctor_name": "MCCLURE, SCOTT",
+          "doctor_address": "140 ARBOR DR, SAN DIEGO, CA 92103"
+        }
+      ]
+    },
+    "Counselor": {
+      "": [
+        {
+          "doctor_name": "HANOVER, LESLIE",
+          "doctor_address": "1899 E ROSEVILLE PARKWAY #140, ROSEVILLE, CA 95661"
+        },
+        {
+          "doctor_name": "STENDER, NELLIE",
+          "doctor_address": "609 N SHORE DR, BELLINGHAM, WA 98226"
+        },
+        {
+          "doctor_name": "JENKINS, CANDACE",
+          "doctor_address": "5 CHARLESTON CENTER DR, CHARLESTON, SC 29401"
+        }
+      ],
+      "Professional": [
+        {
+          "doctor_name": "GARRAPUTA, KAREN",
+          "doctor_address": "201 N EUGENE ST, GREENSBORO, NC 27401"
+        },
+        {
+          "doctor_name": "STEVENS, THOMAS",
+          "doctor_address": "810 HIGHWAY 6 S SUITE 108, HOUSTON, TX 77079"
+        },
+        {
+          "doctor_name": "FLOWERS, NINA",
+          "doctor_address": "19415 DEERFIELD AVE STE 103B, LANSDOWNE, VA 20176"
+        },
+        {
+          "doctor_name": "BAKER, VICKY",
+          "doctor_address": "2206 VICTOR ST., AURORA, CO 80010"
+        },
+        {
+          "doctor_name": "MORALES, ANTHONY",
+          "doctor_address": "1803 W GRAMERCY PL SUITE 150, SAN ANTONIO, TX 78201"
+        },
+        {
+          "doctor_name": "SMITH, CAROL",
+          "doctor_address": "6051 NORTH BROOKLINE, OKLAHOMA CITY, OK 73112"
+        }
+      ],
+      "Addiction (Substance Use Disorder)": [
+        {
+          "doctor_name": "CARTER, SANDRA",
+          "doctor_address": "7600 GREENHAVEN DR SUITE, SACRAMENTO, CA 95831"
+        },
+        {
+          "doctor_name": "BYERS, TONI",
+          "doctor_address": "1015 SOUTH 40TH AVE, YAKIMA, WA 98908"
+        }
+      ],
+      "Mental Health": [
+        {
+          "doctor_name": "DEARBORN, NANCY",
+          "doctor_address": "1313 E MAPLE ST, BELLINGHAM, WA 98225"
+        },
+        {
+          "doctor_name": "FEHLBERG, CORY",
+          "doctor_address": "275 E SOUTH TEMPLE STE 101, SALT LAKE CITY, UT 84111"
+        },
+        {
+          "doctor_name": "REDMON, KIMBERLY",
+          "doctor_address": "831 DILLON DR, RICHMOND, IN 47374"
+        },
+        {
+          "doctor_name": "WOOD, MARY",
+          "doctor_address": "315 S 9TH ST SUITE 15, LINCOLN, NE 68508"
+        },
+        {
+          "doctor_name": "MCKEAN, JULIE",
+          "doctor_address": "1408 N WESTSHORE BLVD 502, TAMPA, FL 33607"
+        },
+        {
+          "doctor_name": "MITCHELL, JOSEPH",
+          "doctor_address": "2100 HEMMETER RD, SAGINAW, MI 48603"
+        },
+        {
+          "doctor_name": "HUDGENS, LISA",
+          "doctor_address": "1050 RIBAUT RD, BEAUFORT, SC 29902"
+        }
+      ]
+    },
+    "Psychologist": {
+      "Counseling": [
+        {
+          "doctor_name": "ELLINGBOE, BONNIE",
+          "doctor_address": "14115 JAMES RD STE 305, ROGERS, MN 55374"
+        }
+      ],
+      "": [
+        {
+          "doctor_name": "KEATING, ELLEN",
+          "doctor_address": "2100 MANCHESTER RD STE 1070, WHEATON, IL 60187"
+        },
+        {
+          "doctor_name": "QUERRY, MARK",
+          "doctor_address": "100 W 3RD AVE STE 200, COLUMBUS, OH 43201"
+        },
+        {
+          "doctor_name": "GREENBERG, DAVID",
+          "doctor_address": "4801 W PETERSON AVE SUITE 403, CHICAGO, IL 60646"
+        },
+        {
+          "doctor_name": "SCHAEFER, WILLIAM",
+          "doctor_address": "484 LEE ST, DES PLAINES, IL 60016"
+        }
+      ],
+      "Clinical": [
+        {
+          "doctor_name": "CARROLL, DAVID",
+          "doctor_address": "1751 TOWER DR W STE 200, STILLWATER, MN 55082"
+        },
+        {
+          "doctor_name": "HALSEY, BETSY",
+          "doctor_address": "15509 INDIANOLA DR, DERWOOD, MD 20855"
+        },
+        {
+          "doctor_name": "CHORJEL, CANDACE",
+          "doctor_address": "1570 THE ALAMEDA STE 228, SAN JOSE, CA 95126"
+        },
+        {
+          "doctor_name": "GOULD, STACEY",
+          "doctor_address": "21201 VICTORY BLVD, WOODLAND HILLS, CA 91303"
+        },
+        {
+          "doctor_name": "LEFKOWITZ, CARIN",
+          "doctor_address": "303 W LANCASTER AVE SUITE 2B, WAYNE, PA 19087"
+        },
+        {
+          "doctor_name": "GASWAY, ANN MARIE",
+          "doctor_address": "4820 DEL MORENO DR, WOODLAND HILLS, CA 91364"
+        },
+        {
+          "doctor_name": "MARTINEZ, RAUL",
+          "doctor_address": "6711 S NEW BRAUNFELS AVE STE 100, SAN ANTONIO, TX 78223"
+        },
+        {
+          "doctor_name": "BROGLE, JAMES",
+          "doctor_address": "828 E COLFAX AVE, SOUTH BEND, IN 46617"
+        }
+      ]
+    },
+    "Marriage & Family Therapist": {
+      "": [
+        {
+          "doctor_name": "LANTING, PATRICIA",
+          "doctor_address": "6147 SUTTER AVE, CARMICHAEL, CA 95608"
+        },
+        {
+          "doctor_name": "KESCHNER, ESTHER",
+          "doctor_address": "205 AVENUE I 12, REDONDO BEACH, CA 90277"
+        },
+        {
+          "doctor_name": "ARMSTRONG, REBECCA",
+          "doctor_address": "3300 S FAIRWAY ST, VISALIA, CA 93277"
+        },
+        {
+          "doctor_name": "MULCAHY, THOMAS",
+          "doctor_address": "1200 N MAIN ST, SANTA ANA, CA 92701"
+        }
+      ]
+    }
+  },
+  "Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians": {
+    "Internal Medicine; Internal Medicine": {
+      "Nephrology": [
+        {
+          "doctor_name": "AGGARWAL, NIDHI",
+          "doctor_address": "820 S WOOD ST MC 793, CHICAGO, IL 60612"
+        }
+      ],
+      "Cardiovascular Disease; Cardiovascular Disease": [
+        {
+          "doctor_name": "TIRAO, LYNDA",
+          "doctor_address": "3585 S EASTERN AVE, LAS VEGAS, NV 89169"
+        }
+      ],
+      "": [
+        {
+          "doctor_name": "KHAN, ABDUL",
+          "doctor_address": "630 EATON AVE, HAMILTON, OH 45013"
+        }
+      ],
+      "Cardiovascular Disease; Interventional Cardiology": [
+        {
+          "doctor_name": "WEINBERGER, JUDAH",
+          "doctor_address": "161 FORT WASHINGTON AVE, NEW YORK, NY 10032"
+        }
+      ],
+      "Geriatric Medicine": [
+        {
+          "doctor_name": "THORP, GLENN",
+          "doctor_address": "1520 VIRGINIA RANCH RD, GARDNERVILLE, NV 89410"
+        }
+      ],
+      "Pulmonary Disease; Critical Care Medicine": [
+        {
+          "doctor_name": "JOSHI, MANISH",
+          "doctor_address": "4301 W MARKHAM ST # 555, LITTLE ROCK, AR 72205"
+        }
+      ]
+    },
+    "Internal Medicine; Hospitalist": {
+      "": [
+        {
+          "doctor_name": "TSENG, STEPHEN",
+          "doctor_address": "4001 HIGHWAY 104, IONE, CA 95640"
+        },
+        {
+          "doctor_name": "GROGAN, VALARIE",
+          "doctor_address": "14040 N CAVE CREEK RD STE 308, PHOENIX, AZ 85022"
+        }
+      ]
+    },
+    "Psychiatry & Neurology; Psychiatry & Neurology": {
+      "Psychiatry; Psychiatry": [
+        {
+          "doctor_name": "FERRIS, CAREN",
+          "doctor_address": "2864 SE TREASURE ISLAND RD, PORT ST LUCIE, FL 34952"
+        }
+      ],
+      "Psychiatry; Forensic Psychiatry": [
+        {
+          "doctor_name": "OSINOWO, THOMAS",
+          "doctor_address": "730 N MONROE ST # 200, MONROE, MI 48162"
+        }
+      ],
+      "Forensic Psychiatry; Psychiatry": [
+        {
+          "doctor_name": "SARAIYA, ANKUR",
+          "doctor_address": "200 W 70TH ST SUITE 14B, NEW YORK, NY 10023"
+        }
+      ]
+    },
+    "Orthopaedic Surgery; Orthopaedic Surgery": {
+      "Adult Reconstructive Orthopaedic Surgery": [
+        {
+          "doctor_name": "MULDOON, MICHAEL",
+          "doctor_address": "3750 CONVOY ST SUITE 201, SAN DIEGO, CA 92111"
+        }
+      ]
+    },
+    "Anesthesiology; Anesthesiology": {
+      "": [
+        {
+          "doctor_name": "COCHRAN, MELVIN",
+          "doctor_address": "3801 S NATIONAL AVE, SPRINGFIELD, MO 65807"
+        }
+      ]
+    },
+    "Emergency Medicine; Emergency Medicine": {
+      "Emergency Medical Services": [
+        {
+          "doctor_name": "FOX, TIMOTHY",
+          "doctor_address": "35 MILES ST. MILES MEDICAL GROUP, DAMARISCOTTA, ME 04543"
+        }
+      ]
+    },
+    "Pediatrics; Pediatrics": {
+      "Pediatric Pulmonology": [
+        {
+          "doctor_name": "ORDONEZ, CLAUDIA",
+          "doctor_address": "300 LONGWOOD AVE, BOSTON, MA 02115"
+        }
+      ]
+    },
+    "Surgery; Surgery": {
+      "": [
+        {
+          "doctor_name": "LICHTENSTEIN-ZAYNEH, SONJA",
+          "doctor_address": "617 23RD ST STE 215, ASHLAND, KY 41101"
+        }
+      ]
+    },
+    "Ophthalmology; Ophthalmology": {
+      "": [
+        {
+          "doctor_name": "OZOG, MARK",
+          "doctor_address": "1417 9TH ST S STE 100, GREAT FALLS, MT 59405"
+        }
+      ]
+    },
+    "Internal Medicine; Emergency Medicine": {
+      "Gastroenterology": [
+        {
+          "doctor_name": "LEUNG, CYNTHIA",
+          "doctor_address": "2900 WHIPPLE AVE SUITE 245, REDWOOD CITY, CA 94062"
+        }
+      ]
+    },
+    "Anesthesiology; Pediatrics": {
+      "": [
+        {
+          "doctor_name": "FENG, ANGELA",
+          "doctor_address": "300 PASTEUR DR, STANFORD, CA 94305"
+        }
+      ]
+    },
+    "Pediatrics; Internal Medicine": {
+      "": [
+        {
+          "doctor_name": "MIMS, SUSAN",
+          "doctor_address": "11 VANDERBILT PARK DR, ASHEVILLE, NC 28803"
+        }
+      ]
+    }
+  },
+  "Nursing Service Providers; Nursing Service Providers": {
+    "Registered Nurse; Registered Nurse": {
+      "Psychiatric/Mental Health": [
+        {
+          "doctor_name": "WILLIAMS, MARY",
+          "doctor_address": "219 ESTATES DR STE #101, ROSEVILLE, CA 95678"
+        }
+      ]
+    }
+  },
+  "Physician Assistants & Advanced Practice Nursing Providers": {
+    "Physician Assistant": {
+      "": [
+        {
+          "doctor_name": "NORMATOV, YANA",
+          "doctor_address": "6610 149TH ST APT 4H, FLUSHING, NY 11367"
+        },
+        {
+          "doctor_name": "RICHMAN, JESSICA",
+          "doctor_address": "4207 BURNET RD, AUSTIN, TX 78756"
+        },
+        {
+          "doctor_name": "MATHIS, HEATHER",
+          "doctor_address": "220 FAISON DR, COLUMBIA, SC 29203"
+        },
+        {
+          "doctor_name": "JENSEN, KRISTEN",
+          "doctor_address": "4230 HARDING PIKE STE 530, NASHVILLE, TN 37205"
+        },
+        {
+          "doctor_name": "STAVENGER, CHRISTOPHER",
+          "doctor_address": "1090 NE GATEWAY CT NE STE 204, CONCORD, NC 28025"
+        },
+        {
+          "doctor_name": "STROUP, CYNTHIA",
+          "doctor_address": "1500 E MEDICAL CENTER DR, ANN ARBOR, MI 48109"
+        }
+      ],
+      "Medical": [
+        {
+          "doctor_name": "HALVERSON, SAMUEL",
+          "doctor_address": "204 W HILL BLVD, CHARLESTON AFB, SC 29404"
+        },
+        {
+          "doctor_name": "NEWMAN, AMY",
+          "doctor_address": "62 MERCY CT, IRVINE, KY 40336"
+        },
+        {
+          "doctor_name": "JEGANATHAN, JENNA",
+          "doctor_address": "9500 EUCLID AVE, CLEVELAND, OH 44195"
+        }
+      ]
+    },
+    "Anesthesiologist Assistant": {
+      "": [
+        {
+          "doctor_name": "CANNIZZARO, PETER",
+          "doctor_address": "1000 JOHNSON FERRY ROAD, ATLANTA, GA 30342"
+        },
+        {
+          "doctor_name": "THOMAS, JEFFREY",
+          "doctor_address": "1000 JOHNSON FERRY ROAD, ATLANTA, GA 30342"
+        },
+        {
+          "doctor_name": "WOODS, JOHN",
+          "doctor_address": "1405 CLIFTON RD NE, ATLANTA, GA 30322"
+        }
+      ]
+    },
+    "Nurse Practitioner": {
+      "Family": [
+        {
+          "doctor_name": "LEWIS, SHANDA",
+          "doctor_address": "86-260 FARRINGTON HWY, WAIANAE, HI 96792"
+        },
+        {
+          "doctor_name": "VERTOLLI, SALLY",
+          "doctor_address": "572 RIO LINDO AVE SUITE 104, CHICO, CA 95926"
+        },
+        {
+          "doctor_name": "SANTORO, EILEEN",
+          "doctor_address": "211 CHURCH ST, SARATOGA SPRINGS, NY 12866"
+        },
+        {
+          "doctor_name": "MILLER, JULIA",
+          "doctor_address": "213 KENMORE DRIVE, DANVILLE, WV 25053"
+        },
+        {
+          "doctor_name": "SHEA, TARA",
+          "doctor_address": "2050 N HAGGERTY RD SUITE 100, CANTON, MI 48187"
+        },
+        {
+          "doctor_name": "BRACKENS, CHERYL",
+          "doctor_address": "2955 GULF FWY S, LEAGUE CITY, TX 77573"
+        },
+        {
+          "doctor_name": "BEDNAR, KIMBERLY",
+          "doctor_address": "1221 LEE ST, CHARLOTTESVILLE, VA 22908"
+        },
+        {
+          "doctor_name": "KONETZKO, KATHLEEN",
+          "doctor_address": "2305 MINNESOTA BLVD MINN CORRECTIONAL FACILITY, SAINT CLOUD, MN 56304"
+        }
+      ],
+      "Obstetrics & Gynecology": [
+        {
+          "doctor_name": "MOORE, JEANETTE",
+          "doctor_address": "25495 MEDICAL CENTER DR STE 300, MURRIETA, CA 92562"
+        }
+      ],
+      "": [
+        {
+          "doctor_name": "KNIPPING, DIANE",
+          "doctor_address": "2311 N PROSPECT AVE, MILWAUKEE, WI 53211"
+        },
+        {
+          "doctor_name": "ASP, NANCY",
+          "doctor_address": "3803 FM 1092 RD, MISSOURI CITY, TX 77459"
+        }
+      ],
+      "Pediatrics": [
+        {
+          "doctor_name": "RUBSAM, JEANNE",
+          "doctor_address": "3959 BROADWAY # CHN2, NEW YORK, NY 10032"
+        }
+      ]
+    },
+    "Clinical Nurse Specialist": {
+      "Psychiatric/Mental Health": [
+        {
+          "doctor_name": "KRISTIC, JANET",
+          "doctor_address": "1117 NW 50TH, OKLAHOMA CITY, OK 73118"
+        }
+      ],
+      "Psychiatric/Mental Health, Adult": [
+        {
+          "doctor_name": "BAYLOCK, ANNE",
+          "doctor_address": "1 COMMONS ST, RUTLAND, VT 05701"
+        }
+      ]
+    },
+    "Advanced Practice Midwife": {
+      "": [
+        {
+          "doctor_name": "SUTKOWSKI, JANE",
+          "doctor_address": "15620 SOUTH WOOD STREET, HARVEY, IL 60426"
+        }
+      ]
+    },
+    "Nurse Anesthetist, Certified Registered": {
+      "": [
+        {
+          "doctor_name": "NOBLE, BARBARA",
+          "doctor_address": "940 N 30TH ST, BILLINGS, MT 59101"
+        },
+        {
+          "doctor_name": "GINGRAS, BETTY",
+          "doctor_address": "1 MEDICAL CENTER DR, BIDDEFORD, ME 04005"
+        },
+        {
+          "doctor_name": "CLARKE, KIMBERLY",
+          "doctor_address": "1 MEDICAL CENTER DR, BIDDEFORD, ME 04005"
+        },
+        {
+          "doctor_name": "MOORE, KAREN",
+          "doctor_address": "7288 SNAPDRAGON LN, OOLTEWAH, TN 37363"
+        }
+      ]
+    }
+  },
+  "Eye and Vision Services Providers; Eye and Vision Services Providers; Eye and Vision Services Providers; Eye and Vision Services Providers": {
+    "Optometrist; Optometrist; Optometrist; Optometrist": {
+      "Corneal and Contact Management; Low Vision Rehabilitation; Pediatrics": [
+        {
+          "doctor_name": "TANAKA, GLEN",
+          "doctor_address": "1831 S KING ST STE 203, HONOLULU, HI 96826"
+        }
+      ]
+    }
+  },
+  "Respiratory, Developmental, Rehabilitative and Restorative Service Providers; Respiratory, Developmental, Rehabilitative and Restorative Service Providers": {
+    "Physical Therapist; Physical Therapist": {
+      "": [
+        {
+          "doctor_name": "EARLE, NANCY",
+          "doctor_address": "6801 BELLAMY AVE, SPRINGFIELD, VA 22152"
+        }
+      ],
+      "Orthopedic": [
+        {
+          "doctor_name": "HENRY, JAROD",
+          "doctor_address": "181 W MEADOW DR, VAIL, CO 81657"
+        }
+      ]
+    },
+    "Physical Therapist; Occupational Therapist": {
+      "": [
+        {
+          "doctor_name": "GULA, DONNA",
+          "doctor_address": "23161 GREATER MACK AVE, SAINT CLAIR SHORES, MI 48080"
+        }
+      ]
+    }
+  },
+  "Behavioral Health & Social Service Providers; Behavioral Health & Social Service Providers": {
+    "Counselor; Psychologist": {
+      "Addiction (Substance Use Disorder); Clinical": [
+        {
+          "doctor_name": "SMITH, JOSEPH",
+          "doctor_address": "54 W OLIVE ST, LONG BEACH, NY 11561"
+        }
+      ]
+    },
+    "Psychologist; Social Worker": {
+      "": [
+        {
+          "doctor_name": "MILLER, DANIEL",
+          "doctor_address": "3564 CARROLLTON RD, SAGINAW, MI 48603"
+        }
+      ]
+    },
+    "Marriage & Family Therapist; Counselor": {
+      "Mental Health": [
+        {
+          "doctor_name": "CHAVEZ, SANDRA",
+          "doctor_address": "760 MOUNTAIN VIEW ST, ALTADENA, CA 91001"
+        }
+      ]
+    },
+    "Psychologist; Psychologist": {
+      "Clinical; Clinical": [
+        {
+          "doctor_name": "SHERMAN, RONALD",
+          "doctor_address": "7800 BUSTLETON AVENUE GLENDALE UPTOWN HOME, PHILADEPHIA, PA 19152"
+        }
+      ],
+      "Clinical; Clinical Child & Adolescent": [
+        {
+          "doctor_name": "BROTHERS, GAIL",
+          "doctor_address": "6421 CAMP BOWIE BLVD SUITE 306, FORT WORTH, TX 76116"
+        }
+      ],
+      "Clinical": [
+        {
+          "doctor_name": "SANDERS, KEVIN",
+          "doctor_address": "15060 STATE HIGHWAY 13 SUITE 2, REEDS SPRING, MO 65737"
+        }
+      ]
+    },
+    "Counselor; Marriage & Family Therapist": {
+      "Professional": [
+        {
+          "doctor_name": "MCNABB, JESSICA",
+          "doctor_address": "1510 NAPOLEON ST, MAMOU, LA 70554"
+        }
+      ]
+    },
+    "Social Worker; Social Worker": {
+      "Clinical; Clinical": [
+        {
+          "doctor_name": "SCHNEIDER, LORI",
+          "doctor_address": "40 PARK RD, WESTBROOK, ME 04092"
+        },
+        {
+          "doctor_name": "TAYLOR, CINDY",
+          "doctor_address": "3801 BLUE PKWY, KANSAS CITY, MO 64130"
+        }
+      ]
+    }
+  },
+  "Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians": {
+    "Obstetrics & Gynecology; Obstetrics & Gynecology; Obstetrics & Gynecology": {
+      "": [
+        {
+          "doctor_name": "STONEHOCKER, JODY",
+          "doctor_address": "3601 THE VANDERBILT CLINIC, NASHVILLE, TN 37232"
+        }
+      ],
+      "Gynecology; Obstetrics": [
+        {
+          "doctor_name": "GOLDBERG, THEODORE",
+          "doctor_address": "12 MEDICAL DR, PORT JEFFERSON STATION, NY 11776"
+        }
+      ]
+    },
+    "Emergency Medicine; Emergency Medicine; Emergency Medicine": {
+      "": [
+        {
+          "doctor_name": "MOORE, GREGORY",
+          "doctor_address": "200 1ST ST SW, ROCHESTER, MN 55905"
+        }
+      ]
+    },
+    "Surgery; Surgery; Thoracic Surgery (Cardiothoracic Vascular Surgery)": {
+      "Surgical Oncology": [
+        {
+          "doctor_name": "LUDINGTON, LANCE",
+          "doctor_address": "3 MARCELA DR, WILLITS, CA 95490"
+        }
+      ]
+    }
+  },
+  "Behavioral Health & Social Service Providers; Nursing Service Providers": {
+    "Psychologist; Registered Nurse": {
+      "Clinical": [
+        {
+          "doctor_name": "CAMPLING, SUSAN",
+          "doctor_address": "1 SCHUYLER RD, SPRINGFIELD, PA 19064"
+        }
+      ]
+    }
+  },
+  "Chiropractic Providers": {
+    "Chiropractor": {
+      "Sports Physician": [
+        {
+          "doctor_name": "BATKIN, RONALD",
+          "doctor_address": "745 1ST ST, BRENTWOOD, CA 94513"
+        }
+      ],
+      "": [
+        {
+          "doctor_name": "PIRKL, LAURA",
+          "doctor_address": "2711 COMMERCE DR NW 300, ROCHESTER, MN 55901"
+        },
+        {
+          "doctor_name": "GURMAN, CATHY",
+          "doctor_address": "99 KINDERKAMACK RD SUITE 202, WESTWOOD, NJ 07675"
+        },
+        {
+          "doctor_name": "HENDERSON, STEPHEN",
+          "doctor_address": "5449 THOMPSON BRIDGE RD, MURRAYVILLE, GA 30564"
+        },
+        {
+          "doctor_name": "LOHR, WILLIAM, JR.",
+          "doctor_address": "615 ELK ST, GASSAWAY, WV 26624"
+        },
+        {
+          "doctor_name": "COCKRELL, RICHARD",
+          "doctor_address": "15324 MAIN ST E STE B, SUMNER, WA 98390"
+        },
+        {
+          "doctor_name": "ROSENBERG, DAVID",
+          "doctor_address": "291 CENTRE ST, NEWTON, MA 02458"
+        },
+        {
+          "doctor_name": "KADI, SAM, II",
+          "doctor_address": "2220 S FRASER ST UNIT 3, AURORA, CO 80014"
+        },
+        {
+          "doctor_name": "WHITE, SHEILA",
+          "doctor_address": "1980 CLIFF RD E, BURNSVILLE, MN 55337"
+        },
+        {
+          "doctor_name": "LYONS, TRACY",
+          "doctor_address": "825 WALTON DR, PLYMOUTH, WI 53073"
+        },
+        {
+          "doctor_name": "EHLERS, ROBERT",
+          "doctor_address": "673A MERCHANT ST, VACAVILLE, CA 95688"
+        },
+        {
+          "doctor_name": "RADSPINNER, AARON",
+          "doctor_address": "9266 SW BEAVERTON HILLSDALE HWY, BEAVERTON, OR 97005"
+        },
+        {
+          "doctor_name": "MODESTI, APRIL",
+          "doctor_address": "1180 LOS ALTOS AVE, LOS ALTOS, CA 94022"
+        },
+        {
+          "doctor_name": "DRUTMAN, BRIAN",
+          "doctor_address": "2529 W BUSCH BLVD STE 100, TAMPA, FL 33618"
+        },
+        {
+          "doctor_name": "SOMMERS, RICHARD",
+          "doctor_address": "820 CRATER LAKE AVE SUITE 106, MEDFORD, OR 97504"
+        },
+        {
+          "doctor_name": "CULLERS, MICHAEL",
+          "doctor_address": "5113 SO 6TH STREET SUITE C, KLAMATH FALLS, OR 97603"
+        },
+        {
+          "doctor_name": "KIM, DAE",
+          "doctor_address": "3828 W COMMONWEALTH AVE, FULLERTON, CA 92833"
+        },
+        {
+          "doctor_name": "WUKICH, TERESA",
+          "doctor_address": "483 ELWOOD RD, EAST NORTHPORT, NY 11731"
+        },
+        {
+          "doctor_name": "TRAN, HIEN",
+          "doctor_address": "6480 WEATHERS PL SUITE 225, SAN DIEGO, CA 92121"
+        },
+        {
+          "doctor_name": "SLATER, CHARNEY",
+          "doctor_address": "228 WALKER PL, WEST HEMPSTEAD, NY 11552"
+        },
+        {
+          "doctor_name": "WUEBBEN, STACEY",
+          "doctor_address": "568 BROOK FOREST AVE, SHOREWOOD, IL 60404"
+        },
+        {
+          "doctor_name": "BALLARD, CAROLYN",
+          "doctor_address": "3506 CHEROKEE ST NW, KENNESAW, GA 30144"
+        },
+        {
+          "doctor_name": "RAEF, KEVIN",
+          "doctor_address": "402 15TH ST, CANYON, TX 79015"
+        },
+        {
+          "doctor_name": "KHORRAMI, AHMAD",
+          "doctor_address": "222 N MILL ST, SAINT LOUIS, MI 48880"
+        },
+        {
+          "doctor_name": "STRICKER, RAYMOND, III",
+          "doctor_address": "10555B HARRISON AVE, HARRISON, OH 45030"
+        }
+      ],
+      "Occupational Health": [
+        {
+          "doctor_name": "WANNER, LAURENT",
+          "doctor_address": "1000 NORTHCREST DR STE 3, CRESCENT CITY, CA 95531"
+        }
+      ]
+    }
+  },
+  "Other Service Providers": {
+    "Genetic Counselor, MS": {
+      "": [
+        {
+          "doctor_name": "ALLRED, CHRISTINE",
+          "doctor_address": "13851 PALISADES STREET, WOODBRIDGE, VA 22191"
+        }
+      ]
+    },
+    "Specialist": {
+      "": [
+        {
+          "doctor_name": "STEWART, ERIC",
+          "doctor_address": "4375 N. VANTAGE DR. SUITE 305, FAYETTEVILLE, AR 72703"
+        },
+        {
+          "doctor_name": "MARK, WILLIAM, JR.",
+          "doctor_address": "224 WASHINGTON ST, CUMBERLAND, MD 21502"
+        },
+        {
+          "doctor_name": "ROSLOSNIK, WAYNE",
+          "doctor_address": "2462 RUSS ST, EUREKA, CA 95501"
+        },
+        {
+          "doctor_name": "DEDECKER, DEB",
+          "doctor_address": "9261 W VAN BUREN ST, TOLLESON, AZ 85353"
+        },
+        {
+          "doctor_name": "MELAMED, MICHAEL",
+          "doctor_address": "11 JODI CT, GLEN COVE, NY 11542"
+        },
+        {
+          "doctor_name": "NEDROW, KIMBERLY",
+          "doctor_address": "2210 BLACK LAKE BLVD SW STE G, OLYMPIA, WA 98512"
+        }
+      ]
+    },
+    "Midwife": {
+      "": [
+        {
+          "doctor_name": "DUBESHTER, ROBERTA",
+          "doctor_address": "905 CULVER RD, ROCHESTER, NY 14609"
+        }
+      ]
+    }
+  },
+  "Eye and Vision Services Providers; Eye and Vision Services Providers": {
+    "Optometrist; Optometrist": {
+      "": [
+        {
+          "doctor_name": "BURKE, JEROME",
+          "doctor_address": "441 S HAM LN STE B, LODI, CA 95242"
+        }
+      ],
+      "Corneal and Contact Management": [
+        {
+          "doctor_name": "CLARK, GRADY, JR.",
+          "doctor_address": "2112 N FRONTAGE RD, MERIDIAN, MS 39301"
+        }
+      ]
+    }
+  },
+  "Speech, Language and Hearing Service Providers": {
+    "Speech-Language Pathologist": {
+      "": [
+        {
+          "doctor_name": "HUG, GAIL",
+          "doctor_address": "5275 MILLENNIUM DR NW, HUNTSVILLE, AL 35806"
+        },
+        {
+          "doctor_name": "CAREY, KATHRYN",
+          "doctor_address": "159 INDIAN HEAD RD, COMMACK, NY 11725"
+        },
+        {
+          "doctor_name": "GATES, CHRISTOPHER",
+          "doctor_address": "840 WIGGINTON DR, CRYSTAL LAKE, IL 60014"
+        },
+        {
+          "doctor_name": "RAGUSA, CAROLINE",
+          "doctor_address": "50 E NORTH ST, BUFFALO, NY 14203"
+        },
+        {
+          "doctor_name": "PRAHLER, SARAH",
+          "doctor_address": "5044 MAYFIELD RD, LYNDHURST, OH 44124"
+        }
+      ]
+    },
+    "Audiologist": {
+      "": [
+        {
+          "doctor_name": "SAUER, MELINA",
+          "doctor_address": "4800 SAND POINT WAY NE M/S CB, SEATTLE, WA 98105"
+        }
+      ]
+    }
+  },
+  "Eye and Vision Services Providers": {
+    "Optometrist": {
+      "": [
+        {
+          "doctor_name": "MELCHOR, MICHELLE",
+          "doctor_address": "8765 SPRING CYPRESS RD SUITE N, SPRING, TX 77379"
+        },
+        {
+          "doctor_name": "MCCLEERY, MAUREEN",
+          "doctor_address": "1501 ROUTE 22 W, WATCHUNG, NJ 07069"
+        },
+        {
+          "doctor_name": "BEWLEY, JAMES",
+          "doctor_address": "420 E ELM STREET, CALDWELL, ID 83605"
+        },
+        {
+          "doctor_name": "SWEARINGEN, MICHAEL",
+          "doctor_address": "1201 N ROSE DR SUITE 100, PLACENTIA, CA 92870"
+        },
+        {
+          "doctor_name": "ROTHBARD, ROBERT",
+          "doctor_address": "10598 BASELINE RD STE. B, ALTA LOMA, CA 91701"
+        },
+        {
+          "doctor_name": "HARTMAN, TODD",
+          "doctor_address": "5705 CENTENNIAL CENTER BLVD SUITE 150, LAS VEGAS, NV 89149"
+        },
+        {
+          "doctor_name": "PHAM, TRAM",
+          "doctor_address": "265 MERIDIAN AVE STE 6, SAN JOSE, CA 95126"
+        }
+      ]
+    }
+  },
+  "Allopathic & Osteopathic Physicians; Other Service Providers": {
+    "Surgery; Specialist": {
+      "": [
+        {
+          "doctor_name": "HASSANYEH, AKRAM",
+          "doctor_address": "1058 BERMUDA RUN, STATESBORO, GA 30458"
+        }
+      ]
+    },
+    "Family Medicine; Acupuncturist": {
+      "Adult Medicine": [
+        {
+          "doctor_name": "GILMORE, DAVID",
+          "doctor_address": "510 S 4TH ST, FULTON, NY 13069"
+        }
+      ]
+    }
+  },
+  "Allopathic & Osteopathic Physicians; Other Service Providers; Allopathic & Osteopathic Physicians": {
+    "Obstetrics & Gynecology; Specialist; Obstetrics & Gynecology": {
+      "": [
+        {
+          "doctor_name": "BARRETT, MARY",
+          "doctor_address": "19 FRIENDSHIP ST UNIT 220, NEWPORT, RI 02840"
+        }
+      ]
+    },
+    "Otolaryngology; Specialist; Otolaryngology": {
+      "Facial Plastic Surgery; Plastic Surgery within the Head & Neck": [
+        {
+          "doctor_name": "CHENG, ELBERT",
+          "doctor_address": "12945 SARATOGA AVE, SARATOGA, CA 95070"
+        }
+      ]
+    }
+  },
+  "Physician Assistants & Advanced Practice Nursing Providers; Nursing Service Providers; Physician Assistants & Advanced Practice Nursing Providers": {
+    "Nurse Practitioner; Registered Nurse; Nurse Practitioner": {
+      "Psychiatric/Mental Health; Psychiatric/Mental Health; Psychiatric/Mental Health": [
+        {
+          "doctor_name": "WORKMAN, DONNA",
+          "doctor_address": "177 WEST ST, CONNEAUT, OH 44030"
+        }
+      ]
+    }
+  },
+  "Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians": {
+    "Psychiatry & Neurology; Psychiatry & Neurology; Psychiatry & Neurology; Psychiatry & Neurology; Psychiatry & Neurology": {
+      "Psychiatry; Psychiatry; Addiction Psychiatry; Addiction Medicine; Addiction Psychiatry": [
+        {
+          "doctor_name": "KARAM, MAHER",
+          "doctor_address": "1155 PRESSLER ST CPB, UNIT 1330, HOUSTON, TX 77030"
+        }
+      ]
+    },
+    "Thoracic Surgery (Cardiothoracic Vascular Surgery); Surgery; Thoracic Surgery (Cardiothoracic Vascular Surgery); Thoracic Surgery (Cardiothoracic Vascular Surgery); Thoracic Surgery (Cardiothoracic Vascular Surgery)": {
+      "": [
+        {
+          "doctor_name": "COHEN, MABELLE",
+          "doctor_address": "ONE HOSPITAL DR, COLUMBIA, MO 65212"
+        }
+      ]
+    }
+  },
+  "Podiatric Medicine & Surgery Service Providers": {
+    "Podiatrist": {
+      "Foot & Ankle Surgery": [
+        {
+          "doctor_name": "BANK, DANIEL",
+          "doctor_address": "1700 ADAMS AVE SUITE 204, COSTA MESA, CA 92626"
+        }
+      ],
+      "Foot Surgery": [
+        {
+          "doctor_name": "ZEROVEC, PAUL",
+          "doctor_address": "1442 N FARWELL AVE STE 605, MILWAUKEE, WI 53202"
+        }
+      ],
+      "": [
+        {
+          "doctor_name": "BEHNAN, RICHARD",
+          "doctor_address": "6476 ANCROFT CT, CLARKSTON, MI 48346"
+        },
+        {
+          "doctor_name": "LOPEZ, KENNETH",
+          "doctor_address": "401 BICENTENNIAL WAY, SANTA ROSA, CA 95403"
+        },
+        {
+          "doctor_name": "ROCKMAEL, MATTHEW",
+          "doctor_address": "260 INTERNATIONAL CIR, SAN JOSE, CA 95119"
+        }
+      ]
+    }
+  },
+  "Pharmacy Service Providers": {
+    "Pharmacist": {
+      "": [
+        {
+          "doctor_name": "TOY, CYNTHIA",
+          "doctor_address": "22550 SAVI RANCH PKWY, YORBA LINDA, CA 92887"
+        },
+        {
+          "doctor_name": "YANG, KATHERINE",
+          "doctor_address": "521 PARNASSUS AVE ROOM C-152, BOX 0622, SAN FRANCISCO, CA 94143"
+        },
+        {
+          "doctor_name": "JAYASURIYA, KSHAMA",
+          "doctor_address": "39450 W 12 MILE RD, NOVI, MI 48377"
+        },
+        {
+          "doctor_name": "HORST, STEVE",
+          "doctor_address": "520 ELWANDA DR, JACKSON, MO 63755"
+        },
+        {
+          "doctor_name": "TORRISE, VIRGINIA",
+          "doctor_address": "3316 ALBION CT, FAIRFAX, VA 22031"
+        },
+        {
+          "doctor_name": "DAWOODBHAI, SHABBIR",
+          "doctor_address": "870 GRAND AVE, SAINT PAUL, MN 55105"
+        },
+        {
+          "doctor_name": "BURSTYN, MARK",
+          "doctor_address": "1326 S BALDWIN AVE, ARCADIA, CA 91007"
+        },
+        {
+          "doctor_name": "GANSCHOW, STEPHANIE",
+          "doctor_address": "2500 E 52ND ST N CIGNA MEDICARE SERVICES, SIOUX FALLS, SD 57104"
+        },
+        {
+          "doctor_name": "ALLEN, SCOT",
+          "doctor_address": "880 N STATE ST, OREM, UT 84057"
+        },
+        {
+          "doctor_name": "CARDEN, DAVID",
+          "doctor_address": "DEPARTMENT OF VETERANS AFFAIRS BUILDING 37 RM 139 1ST AVE ONE BLOCK NORTH OF CERMAK RD, HINES, IL 60141"
+        }
+      ],
+      "Pharmacotherapy": [
+        {
+          "doctor_name": "REED, MICHAEL",
+          "doctor_address": "1 PERKINS SQ, AKRON, OH 44308"
+        }
+      ]
+    }
+  },
+  "Other Service Providers; Behavioral Health & Social Service Providers": {
+    "Case Manager/Care Coordinator; Counselor": {
+      "Mental Health": [
+        {
+          "doctor_name": "DIAI, LAWRENCE",
+          "doctor_address": "11539 HAWTHORNE BLVD, HAWTHORNE, CA 90250"
+        }
+      ]
+    }
+  },
+  "Technologists, Technicians & Other Technical Service Providers": {
+    "Technician, Other": {
+      "": [
+        {
+          "doctor_name": "MCNIEL, DENIS",
+          "doctor_address": "1519 ALASKAN WAY S ISC SEATTLE MEDICAL, SEATTLE, WA 98134"
+        }
+      ]
+    }
+  },
+  "Chiropractic Providers; Chiropractic Providers; Chiropractic Providers; Chiropractic Providers; Chiropractic Providers; Chiropractic Providers": {
+    "Chiropractor; Chiropractor; Chiropractor; Chiropractor; Chiropractor; Chiropractor": {
+      "Sports Physician; Nutrition; Radiology; Rehabilitation; Occupational Health": [
+        {
+          "doctor_name": "GILMORE, KENNETH",
+          "doctor_address": "800 VIRGINIA AVE STE 45, FORT PIERCE, FL 34982"
+        }
+      ]
+    }
+  },
+  "Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians; Allopathic & Osteopathic Physicians": {
+    "Family Medicine; Family Medicine; Family Medicine; Family Medicine": {
+      "Sports Medicine; Sports Medicine": [
+        {
+          "doctor_name": "JOHN, THOMAS",
+          "doctor_address": "1113 MURFREESBORO RD STE 319, FRANKLIN, TN 37064"
+        }
+      ]
+    }
+  },
+  "Nursing Service Providers": {
+    "Registered Nurse": {
+      "": [
+        {
+          "doctor_name": "STALLWORTH, CHERYL",
+          "doctor_address": "3699 BAKES FERRY RD SW, ATLANTA, GA 30331"
+        }
+      ]
+    }
+  },
+  "Pharmacy Service Providers; Pharmacy Service Providers": {
+    "Pharmacist; Pharmacist": {
+      "": [
+        {
+          "doctor_name": "HOLT, RICHARD",
+          "doctor_address": "4577 BUCKLEY RD, LIVERPOOL, NY 13088"
+        }
+      ]
+    }
+  },
+  "Respiratory, Developmental, Rehabilitative and Restorative Service Providers; Respiratory, Developmental, Rehabilitative and Restorative Service Providers; Respiratory, Developmental, Rehabilitative and Restorative Service Providers; Respiratory, Developmental, Rehabilitative and Restorative Service Providers; Respiratory, Developmental, Rehabilitative and Restorative Service Providers; Respiratory, Developmental, Rehabilitative and Restorative Service Providers; Respiratory, Developmental, Rehabilitative and Restorative Service Providers": {
+    "Occupational Therapist; Occupational Therapist; Occupational Therapist; Occupational Therapist; Occupational Therapist; Occupational Therapist; Occupational Therapist": {
+      "Human Factors; Neurorehabilitation; Ergonomics; Hand; Pediatrics; Driving and Community Mobility": [
+        {
+          "doctor_name": "PIRINELLI, THOMAS",
+          "doctor_address": "2545 DANIELLE DR, NIAGARA FALLS, NY 14304"
+        }
+      ]
+    }
+  },
+  "Physician Assistants & Advanced Practice Nursing Providers; Physician Assistants & Advanced Practice Nursing Providers; Physician Assistants & Advanced Practice Nursing Providers; Physician Assistants & Advanced Practice Nursing Providers": {
+    "Physician Assistant; Physician Assistant; Physician Assistant; Physician Assistant": {
+      "Surgical; Surgical": [
+        {
+          "doctor_name": "LISICK, DARIA",
+          "doctor_address": "240 RIVERSIDE DR., JOHNSON CITY, NY 13790"
+        }
+      ]
+    }
+  },
+  "Suppliers": {
+    "Prosthetic/Orthotic Supplier": {
+      "": [
+        {
+          "doctor_name": "HAYMAN, DOUGLAS",
+          "doctor_address": "481 WOLCOTT ST, WATERBURY, CT 06705"
+        }
+      ]
+    }
+  },
+  "Pharmacy Service Providers; Pharmacy Service Providers; Pharmacy Service Providers": {
+    "Pharmacist; Pharmacist; Pharmacist": {
+      "Pharmacotherapy": [
+        {
+          "doctor_name": "GRIM, SHELLEE",
+          "doctor_address": "1740 W TAYLOR ST ROOM C300, CHICAGO, IL 60612"
+        }
+      ]
+    }
+  },
+  "Dental Providers; Dental Providers": {
+    "Dentist; Dentist": {
+      "Oral and Maxillofacial Pathology; Oral and Maxillofacial Pathology": [
+        {
+          "doctor_name": "KERNIG, MIKELLE",
+          "doctor_address": "13103 E MANSFIELD AVENUE, SPOKANE VALLEY, WA 99216"
+        }
+      ]
+    }
+  },
+  "Speech, Language and Hearing Service Providers; Speech, Language and Hearing Service Providers": {
+    "Audiologist; Audiologist-Hearing Aid Fitter": {
+      "": [
+        {
+          "doctor_name": "GORDON, JILL",
+          "doctor_address": "4257 US HIGHWAY 9 BLDG 6 FREEHOLD OFFICE PLAZA, FREEHOLD, NJ 07728"
+        }
+      ]
+    }
+  },
+  "Behavioral Health & Social Service Providers; Other Service Providers": {
+    "Social Worker; Case Manager/Care Coordinator": {
+      "": [
+        {
+          "doctor_name": "BRAITHWAITE, MARYANN",
+          "doctor_address": "1841 BRENTWOOD RD, BRENTWOOD, NY 11717"
+        }
+      ]
+    }
+  },
+  "Chiropractic Providers; Chiropractic Providers": {
+    "Chiropractor; Chiropractor": {
+      "Rehabilitation": [
+        {
+          "doctor_name": "GANESH, SANTOSH",
+          "doctor_address": "1010 WINDSOR DR SUITE 103, COLD SPRING, KY 41076"
+        }
+      ]
+    }
+  }
+}
