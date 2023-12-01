@@ -3,7 +3,19 @@ import { create_user } from "./utils.js";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-    
+    let zipcode = document.getElementById("zipcode");
+    zipcode.addEventListener("input", async () => {
+        
+        if (zipcode.value.trim().length >= 3) {
+            let cur_input = zipcode.value.trim();
+            await fetch(`https://api.zippopotam.us/us/${cur_input}`);
+            response => response.json();
+
+            console.log(response);
+
+            
+        }
+    })
 })
 
 
