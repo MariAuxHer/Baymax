@@ -1,19 +1,20 @@
 import { create_user } from "./utils.js";
 
 
-
+// Trying to add zipcode suggestions
 document.addEventListener("DOMContentLoaded", async () => {
     let zipcode = document.getElementById("zipcode");
     zipcode.addEventListener("input", async () => {
         
         if (zipcode.value.trim().length >= 3) {
             let cur_input = zipcode.value.trim();
-            await fetch(`https://api.zippopotam.us/us/${cur_input}`);
-            response => response.json();
+            // let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+            // res = await res.json();
 
-            console.log(response);
+            // console.log(res);
 
-            
+            // Need to find a proper zipcode lookup api...
+
         }
     })
 })
@@ -39,19 +40,34 @@ document.getElementById('submit').addEventListener('click', async function(event
     };
 
     // Zipcode validation
-    let digits = Math.abs(accountInfo.value).toString();
-    if (digits.length != 5) {
-        console.log('Invalid zipcode')
+    console.log(accountInfo.zipcode);
+    let digits = accountInfo.zipcode;
+    if (digits.trim().length != 5) {
+        console.log(digits.length);
+        console.log('Zipcode needs to be 5 digits long.')
 
         let exists = document.querySelector("form_fail")
         if (!exists) {
             let parent = document.querySelector("#change_form");
             let paragraph = document.createElement("p");
             paragraph.classList.add("form_fail");
-            paragraph.innerHTML = "Invalid zipcode";
+            paragraph.innerHTML = "Zipcode needs to be 5 digits long.";
             parent.appendChild(paragraph);
         }
         return;
+    }
+    if (zipcode.value.trim().length === 5) {
+        let cur_input = zipcode.value.trim();
+        let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+        res = await res.json();
+
+        console.log(res);
+
+        if (res.country == null) {
+            console.log("Invalid zipcode")
+            return;
+        }
+        console.log(res.country);
     }
 
 

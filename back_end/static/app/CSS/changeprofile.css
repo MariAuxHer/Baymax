@@ -95,6 +95,27 @@ form {
     margin-bottom: 10px;
 }
 
+
+/* ul {
+    border: 0.5em hidden slateblue;
+    list-style: none;
+}
+
+li {
+    cursor: pointer;
+    padding: 10px;
+}
+
+li:hover {
+    background-color: rgb(75, 65, 147);
+} */
+
+
+
+
+
+
+
 button {
     color: rgb(39, 37, 37);
     background: rgb(255, 44, 44);
