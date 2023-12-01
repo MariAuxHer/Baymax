@@ -46,19 +46,20 @@ parent.onsubmit = (e) => {
 //     });
 // });
 
-const toggleButton = document.querySelectorAll(".togglePanelButton");
-// const panelContainer = document.getElementById("panelContainer");
+const toggleButtons = document.querySelectorAll(".togglePanelButton");
+const panelContainer = document.getElementById("panelContainer");
 
-toggleButton.addEventListener("click", function () {
-  if (panelContainer.style.left === "0px" || panelContainer.style.left === "") {
-    // Panel is currently visible; hide it
-    panelContainer.style.left = "-250px";
-  } else {
-    // Panel is hidden; show it
-    panelContainer.style.left = "0px";
-  }
+toggleButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    if (panelContainer.style.left === "0px" || panelContainer.style.left === "") {
+      // Panel is currently visible; hide it
+      panelContainer.style.left = "-250px";
+    } else {
+      // Panel is hidden; show it
+      panelContainer.style.left = "0px";
+    }
+  });
 });
-
 // const addConversationButton = document.getElementById("addConversation");
 
 // let convoCount = 1; // Initialize conversation count

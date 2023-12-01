@@ -74,7 +74,7 @@
     cursor: pointer;
     color: #d8d8d8;
 }
-#togglePanelButton {
+.togglePanelButton {
     grid-column: 5/6;
     grid-row: 1/2;
     margin: 0.7em 1em;
