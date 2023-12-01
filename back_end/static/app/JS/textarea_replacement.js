@@ -46,7 +46,7 @@ parent.onsubmit = (e) => {
 //     });
 // });
 
-const toggleButton = document.getElementById("togglePanelButton");
+const toggleButton = document.querySelectorAll(".togglePanelButton");
 // const panelContainer = document.getElementById("panelContainer");
 
 toggleButton.addEventListener("click", function () {

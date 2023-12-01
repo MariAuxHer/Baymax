@@ -32,6 +32,7 @@
 
 #toggleSearchButton {
     grid-column: 1/2;
+    grid-row: 1/2;
     margin: 0.7em 1em;
     font-size: 1em;
     border: none;
@@ -42,6 +43,7 @@
 }
 #toLoginPage {
     grid-column: 2/3;
+    grid-row: 1/2;
     margin: 0.7em 1em;
     font-size: 1.4em;
     border: none;
@@ -52,6 +54,7 @@
 }
 #toProfilePage {
     grid-column: 3/4;
+    grid-row: 1/2;
     margin: 0.7em 1em;
     font-size: 1.4em;
     border: none;
@@ -62,6 +65,7 @@
 }
 #toAboutPage {
     grid-column: 4/5;
+    grid-row: 1/2;
     margin: 0.7em 1em;
     font-size: 1.4em;
     border: none;
@@ -72,6 +76,7 @@
 }
 #togglePanelButton {
     grid-column: 5/6;
+    grid-row: 1/2;
     margin: 0.7em 1em;
     font-size: 1.4em;
     border: none;
