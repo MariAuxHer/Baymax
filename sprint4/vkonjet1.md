@@ -9,7 +9,8 @@ My goal is to create the search page in which users can search up doctors by a l
 
 
 ### What you did not do
-I did not get to the point of connecting the backend to the front end, they exist but do not communicate
+I did not get to the point of connecting the backend to the front end, they exist but do not communicate, I also set up the back end a little bit but I can't truly test it because
+I have no clue how docker is set up on this project and I don't want to accidently ruin the entire process.
 
 ### What problems you encountered
 It was mainly the issue of getting CSS and HTML to work together
