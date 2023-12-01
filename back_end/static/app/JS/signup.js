@@ -1,6 +1,16 @@
 import { create_user } from "./utils.js";
 
 
+
+document.addEventListener("DOMContentLoaded", async () => {
+    
+})
+
+
+
+
+
+
 // Allowing the user to create an account
 document.getElementById('submit').addEventListener('click', async function(event) {
     event.preventDefault();

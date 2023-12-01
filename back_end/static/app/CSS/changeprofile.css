@@ -88,6 +88,7 @@ form {
 .zipcode {
     justify-content: center;
     font-size: 1.2em;
+    appearance: none;
 }
 #zipcode {
     margin-left: 10px;
