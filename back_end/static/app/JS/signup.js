@@ -2,21 +2,41 @@ import { create_user } from "./utils.js";
 
 
 // Trying to add zipcode suggestions
-document.addEventListener("DOMContentLoaded", async () => {
-    let zipcode = document.getElementById("zipcode");
-    zipcode.addEventListener("input", async () => {
-        
-        if (zipcode.value.trim().length >= 3) {
-            let cur_input = zipcode.value.trim();
-            // let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
-            // res = await res.json();
+let zipcode = document.getElementById("zipcode");
+zipcode.addEventListener('change', async () => {  
+    console.log("change");
 
-            // console.log(res);
+    if (zipcode.value.trim().length >= 3) {
+        let cur_input = zipcode.value.trim();
+        // let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+        // res = await res.json();
 
-            // Need to find a proper zipcode lookup api...
+        // console.log(res);
 
+        // Need to find a proper zipcode lookup api...
+
+    }
+
+
+    // Autofill state and city
+    if (zipcode.value.trim().length === 5) {
+        let cur_input = zipcode.value.trim();
+        let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+        res = await res.json();
+
+        console.log(res);
+
+        console.log(res.places);
+        if (res.places != null) {
+            let arr = res.places[0];
+            console.log(arr);
+            console.log(arr["place name"])
+            console.log(arr["state"])
+            document.getElementById("city").value = arr["place name"];
+            document.getElementById("state").value = arr["state"];
         }
-    })
+        
+    }
 })
 
 

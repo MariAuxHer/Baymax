@@ -13,25 +13,51 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("city").value = who.detail.city
     document.getElementById("state").value = who.detail.state
     document.getElementById("zipcode").value = who.detail.zipcode
-
-
-
-
-    let zipcode = document.getElementById("zipcode");
-    zipcode.addEventListener("input", async () => {
-        
-        if (zipcode.value.trim().length >= 3) {
-            let cur_input = zipcode.value.trim();
-            // let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
-            // res = await res.json();
-
-            // console.log(res);
-
-            // Need to find a proper zipcode lookup api...
-
-        }
-    })
 })
+
+
+
+
+// Trying to add zipcode suggestions and autofill state and city
+let zipcode = document.getElementById("zipcode");
+zipcode.addEventListener('change', async () => {  
+    console.log("change");
+
+    if (zipcode.value.trim().length >= 3) {
+        let cur_input = zipcode.value.trim();
+        // let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+        // res = await res.json();
+
+        // console.log(res);
+
+        // Need to find a proper zipcode lookup api...
+
+    }
+
+
+    // Autofill state and city
+    if (zipcode.value.trim().length === 5) {
+        let cur_input = zipcode.value.trim();
+        let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+        res = await res.json();
+
+        console.log(res);
+
+        console.log(res.places);
+        if (res.places != null) {
+            let arr = res.places[0];
+            console.log(arr);
+            console.log(arr["place name"])
+            console.log(arr["state"])
+            document.getElementById("city").value = arr["place name"];
+            document.getElementById("state").value = arr["state"];
+        }
+        
+    }
+})
+
+
+
 
 document.getElementById("submit").addEventListener('click', async (event) => {
     event.preventDefault();
@@ -96,7 +122,7 @@ document.getElementById("submit").addEventListener('click', async (event) => {
 
 
 
-    
+
     const url = who.detail.url
     console.log(url)
 
