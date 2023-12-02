@@ -147,15 +147,10 @@ img {
 
 @media(max-width: 768px) {
     #messages {
-        width: 80%;
+        width: 90%;
     }
 
     textarea, .textarea_replacement {
         width: 90%;
     }
 }
-
-
-
-
-
