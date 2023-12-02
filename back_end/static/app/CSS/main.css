@@ -79,6 +79,39 @@ h2 {
     padding: 0.7em 0.7em;
 }
 
+.panel_nav {
+    width: max-content;
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-self: end;
+}
+
+.panel_nav > a {
+    margin: 1em;
+    font-size: 1.4em;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #d8d8d8;
+}
+
+.navpanel_location_switch {
+    visibility: hidden;
+}
+
+@media(max-width: 780px){
+
+    .navpanel_location_switch {
+        visibility: visible;
+    }
+
+    .navbar_location_switch {
+        visibility: hidden;
+    }
+
+}
+
 @media(max-width: 440px){
     .form_fail {
         width: 80%;

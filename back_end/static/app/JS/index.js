@@ -133,7 +133,8 @@ function add_conversation_button(url) {
 
     conversation_options.appendChild(conversation_button)
     conversation_options.appendChild(delete_button)
-    panel.appendChild(conversation_options)
+    let insert_anchor = document.querySelector(".panel_nav");
+    panel.insertBefore(conversation_options, insert_anchor);
 }
 
 
