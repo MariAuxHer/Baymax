@@ -30,30 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 let name = conversations[i].name.substring(0, button_text_size)
                 name = name.padEnd(button_text_size)
 
-                const conversation_options = document.createElement('div')
-
-                const conversation_button = document.createElement('button')
-                conversation_button.className = "collapsible"
-                conversation_button.textContent = name
-                conversation_button.setAttribute('id', panel.id + '_conversation_button_' + convo_count++)
-
-                conversation_button.addEventListener('click', () => {
-                    load_conversation(conversations[i].url)
-                    conversation_url = conversations[i].url
-                })
-
-                const delete_button = document.createElement('button')
-                delete_button.textContent = "del" // this line is temporary until we decide what it will look like
-                delete_button.setAttribute('id', panel.id + '_delete_button_' + convo_count++)
-
-                delete_button.addEventListener('click', () => {
-                    delete_conversation(conversations[i].url)
-                    conversation_options.remove()
-                })
-
-                conversation_options.appendChild(conversation_button)
-                conversation_options.appendChild(delete_button)
-                panel.appendChild(conversation_options)
+                add_conversation_button(conversations[i].url)
             }
         } 
         // not logged in
@@ -101,7 +78,6 @@ document.getElementById('message_form').addEventListener('submit', async (event)
                     conversation_url = conversation.url
 
                     add_conversation_button(conversation.url)
-                    console.log("attempt to make button")
                 } else {
                     add_LLMresponse("post_conversation didnt come back with a DEFAULT INTERACTION")
                     console.error("post_conversation didnt come back with a DEFAULT INTERACTION")
@@ -132,21 +108,32 @@ document.getElementById("addConversation").addEventListener("click", function ()
 });
 
 function add_conversation_button(url) { 
-    const panel = document.getElementById("panelContainer");
+    const panel = document.getElementById('panelContainer')
+    const conversation_options = document.createElement('div')
 
-    const button = document.createElement('button')
-    button.className = "collapsible";
-    button.textContent = "Conversation " + convo_count;
+    const conversation_button = document.createElement('button')
+    conversation_button.className = "collapsible"
+    conversation_button.textContent = "Conversation " + convo_count
+    conversation_button.setAttribute('id', panel.id + '_conversation_button_' + convo_count)
 
-    button.setAttribute('id', panel.id + '_button_' + convo_count)
-
-    button.addEventListener('click', () => {
+    conversation_button.addEventListener('click', () => {
         load_conversation(url)
         conversation_url = url
     })
 
-    // Append the new button to the panel
-    panel.appendChild(button);
+    const delete_button = document.createElement('button')
+    delete_button.textContent = "del" // this line is temporary until we decide what it will look like
+    delete_button.setAttribute('id', panel.id + '_delete_button_' + convo_count++)
+
+    delete_button.addEventListener('click', () => {
+        delete_conversation(url)
+        conversation_options.remove()
+        default_page(); 
+    })
+
+    conversation_options.appendChild(conversation_button)
+    conversation_options.appendChild(delete_button)
+    panel.appendChild(conversation_options)
 }
 
 
