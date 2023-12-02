@@ -9,6 +9,9 @@ const WHOAMI_URL = REST_AUTH_URL + 'whoami'
 const CREATE_USER_URL = REST_API_URL + "createuser"
 const CONVERSATIONS_URL = REST_API_URL + 'conversations'
 
+const GEONAMES_USERNAME = 'vkonjet1';
+const GEONAMES_BASE_URL = 'http://api.geonames.org/';
+
 /* 
  * Sets the CSRFCookie of the current document window. Returns true on success and false on failure. 
  * This function should be called on pages that contain forms sent to the back_end
@@ -378,3 +381,88 @@ export async function delete_conversation(conversation_url) {
         return null
     }
 }
+
+// Function to make a request to GeoNames API
+async function geoNamesFetch(endpoint, params) {
+    let url = new URL(GEONAMES_BASE_URL + endpoint);
+    params.username = GEONAMES_USERNAME;
+    url.search = new URLSearchParams(params).toString();
+    return fetch(url).then(response => response.json());
+}
+
+// Function to load countries
+export async function loadCountries() {
+    geoNamesFetch('countryInfoJSON', {})
+        .then(data => {
+            console.log("In country", data);
+            let countrySelect = document.getElementById('country');
+            countrySelect.innerHTML = '<option value="">Select Country</option>';
+            data.geonames.forEach(country => {
+                let option = document.createElement('option');
+                option.value = country.geonameId; // Store the geonameId for the selected country
+                option.textContent = country.countryName;
+                countrySelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error loading countries:', error));
+}
+    
+// Function to load states for a given country
+export async function loadStates(geonameId) {
+    geoNamesFetch('childrenJSON', { geonameId: geonameId })
+    .then(data => {
+        console.log("In state", data);
+        let stateSelect = document.getElementById('state');
+        stateSelect.innerHTML = '<option value="">Select State/Province</option>';
+        if (data.geonames) {
+            data.geonames.forEach(state => {
+                let option = document.createElement('option');
+                option.value = state.geonameId; // You might need to adjust this to the appropriate identifier for the state.
+                option.textContent = state.name;
+                stateSelect.appendChild(option);
+            });
+        }
+    })
+    .catch(error => console.error('Error loading states:', error));
+}
+
+// Function to load cities for a given state
+export async function loadCities(stateGeonameId) {
+    geoNamesFetch('childrenJSON', { geonameId: stateGeonameId })
+        .then(data => {
+            console.log("In City", data);
+            let citySelect = document.getElementById('city');
+            citySelect.innerHTML = '<option value="">Select City/County</option>';
+            if (data.geonames) {
+                data.geonames.forEach(city => {
+                    let option = document.createElement('option');
+                    option.value = city.geonameId; // Store the geonameId for the selected city
+                    option.textContent = city.name;
+                    citySelect.appendChild(option);
+                });
+            }
+        })
+        .catch(error => console.error('Error loading cities:', error));
+}
+
+// Event listener for country selection change
+document.getElementById('country').addEventListener('change', function() {
+    let geonameId = this.value; // Get the geonameId of the selected country
+    if (geonameId) {
+        loadStates(geonameId); // Pass the geonameId to loadStates function
+    } else {
+        document.getElementById('state').innerHTML = '<option value="">Select State/Province</option>';
+    }
+    document.getElementById('city').innerHTML = '<option value="">Select City/County</option>';
+});
+
+// Event listener for state selection change
+document.getElementById('state').addEventListener('change', function() {
+    let stateGeonameId = this.value; // Get the geonameId of the selected state
+    // let countryCode = document.getElementById('country').value;
+    if (stateGeonameId) {
+        loadCities(stateGeonameId); // Pass the state's geonameId to loadCities function
+    } else {
+        document.getElementById('city').innerHTML = '<option value="">Select City/County</option>';
+    }
+});

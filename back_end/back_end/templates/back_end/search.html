@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/about.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+
+    <script type="module" src="{% static 'app/JS/search.js' %}"></script>
     <title>Search Page</title> 
 
     <style>
@@ -70,7 +72,31 @@
     </div> -->
 
     <div class="dropdown-container" style="margin: 7em auto 0 auto; width: 50%;">
+        <!-- Country Dropdown -->
         <div>
+            <label for="country">Country:</label>
+            <select id="country">
+                <!-- Options for countries will be loaded dynamically -->
+            </select>
+        </div>
+
+        <!-- State Dropdown -->
+        <div>
+            <label for="state">State/Province:</label>
+            <select id="state">
+                <!-- Options for states will be loaded dynamically -->
+            </select>
+        </div>
+
+        <!-- City Dropdown -->
+        <div>
+            <label for="city">City/County:</label>
+            <select id="city">
+                <!-- Options for cities will be loaded dynamically -->
+            </select>
+        </div>
+
+        {% comment %} <div>
             <label for="state">State:</label>
             <select id="state">
                     <option value="Alabama">Alabama</option>
@@ -138,7 +164,7 @@
             <select id="zipcode">
                 <!-- Options for zip codes go here -->
             </select>
-        </div>
+        </div> {% endcomment %}
 
         <div>
             <label for="specialization">Specialization:</label>
