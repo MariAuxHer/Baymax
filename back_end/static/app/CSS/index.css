@@ -51,7 +51,7 @@
     color: #5d5d5d;
 }
 
-form {
+form#messages {
     background:rgba(222, 222, 255, 0.95);
     margin: auto;
     position: fixed;
@@ -145,26 +145,13 @@ img {
     padding: 20px;
 }
 
-@media only screen and (max-width: 768px) {
+@media(max-width: 768px) {
     #messages {
         width: 80%;
     }
 
-    .left, .right {
-        width: 100%;
-        grid-column: auto;
-    }
-
-    .right {
-        grid-column: auto;
-    }
-
-    form {
-        grid-template-columns: 100%;
-    }
-
     textarea, .textarea_replacement {
-        width: 100%;
+        width: 90%;
     }
 }
 
