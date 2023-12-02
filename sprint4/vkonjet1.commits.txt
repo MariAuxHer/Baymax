@@ -1,0 +1,126 @@
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  1) import json
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  2) from django.core.management.base import BaseCommand
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  3) from back_end.models import Doctor
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  4) 
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  5) class Command(BaseCommand):
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  6)     help = 'Import doctors from a JSON file'
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  7) 
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  8)     def add_arguments(self, parser):
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500  9)         parser.add_argument('json_file', type=str, help='Path to JSON file')
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 10) 
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 11)     def handle(self, *args, **kwargs):
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 12)         json_file_path = kwargs['json_file'] #ML/Data/doctor_dict.json
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 13)         with open(json_file_path, 'r') as file:
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 14)             data = json.load(file)
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 15)             self.import_doctors(data)
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 16) 
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 17)     def import_doctors(self, data):
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 18)         for classification in data.items():
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 19)             print(classification[0]);
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 20)             for specialty in classification[0].items():
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 21)                 print(" ",specialty[0]);
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 22)                 for doctor in specialty[0]:
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 23)                     print("     ", doctor);
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 24)                     Doctor.objects.create(
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 25)                         name=doctor['name'],
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 26)                         m_address=doctor['m_address'],
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 27)                         specialty=specialty[0],
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 28)                         classification=classification[0]
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 29)                     )
+5cb5bd04 (vpkonjeti     2023-11-26 17:13:00 -0500 55) def search(request):
+5cb5bd04 (vpkonjeti     2023-11-26 17:13:00 -0500 56)     return render(request, "back_end/search.html")
+5cb5bd04 (vpkonjeti     2023-11-26 17:13:00 -0500 57) 
+5cb5bd04 (vpkonjeti     2023-11-26 17:13:00 -0500 55) def search(request):
+5cb5bd04 (vpkonjeti     2023-11-26 17:13:00 -0500 56)     return render(request, "back_end/search.html")
+5cb5bd04 (vpkonjeti     2023-11-26 17:13:00 -0500 57) 
+48acce6f (vpkonjeti       2023-11-30 17:29:00 -0500 105) class Doctor(models.Model):
+48acce6f (vpkonjeti       2023-11-30 17:29:00 -0500 106)     name : str = models.CharField(max_length=500)
+48acce6f (vpkonjeti       2023-11-30 17:29:00 -0500 107)     m_address : str = models.CharField(max_length=500) # mailing address
+48acce6f (vpkonjeti       2023-11-30 17:29:00 -0500 108)     specialty: str = models.CharField(max_length=500)
+48acce6f (vpkonjeti       2023-11-30 17:29:00 -0500 109)     classification: str = models.CharField(max_length=500)
+ae017af0 (vpkonjeti       2023-10-12 23:19:27 -0400 110)     
+ae017af0 (vpkonjeti       2023-10-12 23:19:27 -0400 111)     
+5cb5bd04 back_end/back_end/templates/back_end/about.html (vpkonjeti            2023-11-26 17:13:00 -0500 17)             <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+5cb5bd04 back_end/back_end/templates/back_end/about.html (vpkonjeti            2023-11-26 17:13:00 -0500 18)             {% if not user.is_authenticated %} 
+5cb5bd04 (vpkonjeti     2023-11-26 17:13:00 -0500  17)             <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+5cb5bd04 back_end/back_end/templates/back_end/index.html (vpkonjeti            2023-11-26 17:13:00 -0500  19)             <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+5cb5bd04 back_end/back_end/templates/back_end/profile.html (vpkonjeti            2023-11-26 17:13:00 -0500 17)             <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  1) {% load static %}
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  2) <!DOCTYPE html>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  3) <html lang="en">
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  4) <head>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  5)     <meta charset="UTF-8">
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  6)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  7)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  8)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/about.css' %}">
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500  9)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 10)     <title>Search Page</title> 
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 11) </head>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 12) 
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 13) <body>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 14)     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 15)     <aside id="navbar">
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 16)         <div class="nav_container">
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 17)             <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 18)             {% if not user.is_authenticated %} 
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 19)                 <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 20)             {% else %}
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 21)                 <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 22)                 <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 23)             {% endif %}
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 24)             <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 25)         </div>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 26)     </aside>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 27)     
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500 28)     <div class="content">
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 29)         <h2 id="searchTitle">Search</h2>
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 30)         <div id="searchContainer">
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 31)             <form action="search" method="GET">
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 32)                 <input type="text" name="search" id="searchBar" placeholder="Knoxville">
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 33)                 <input type="submit" value="Search" id="searchButton">
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 34)             </form>
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 35)         </div>
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500 36)     </div>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 37) </body>
+5cb5bd04 (vpkonjeti 2023-11-26 17:13:00 -0500 38) </html>
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 33) #toggleSearchButton {
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 37)     font-size: 1em;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 38)     border: none;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 39)     box-shadow: none;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 40)     background-color: transparent;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 41)     cursor: pointer;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 42)     color: #d8d8d8;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 43) }
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 44) #toLoginPage {
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 45)     grid-column: 2/3;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 47)     margin: 0.7em 1em;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 56)     grid-column: 3/4;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 67)     grid-column: 4/5;
+5cb5bd04 back_end/static/app/CSS/nav_bar.css (vpkonjeti            2023-11-26 17:13:00 -0500 78)     grid-column: 5/6;
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  1) @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  2) 
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  3) 
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  4) .content {
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  5)     margin: 2em;
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  6)     margin-top: 15%;
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  7)     text-align: center;
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  8) }
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500  9) 
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 10) .content h1 {
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 11)     font-family: 'Comfortaa', cursive;
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 12)     font-size: 3em;
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500 13)     color: #fff;
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 14)     text-shadow: 0 0 10px #fff;
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500 15) }
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500 16) 
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 17) .content h2 {
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 18)     font-family: 'Comfortaa', cursive;
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 19)     font-size: 2em;
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 20)     color: #fff;
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 21)     text-shadow: 0 0 10px #fff;
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500 22) }
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500 23) 
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 24) .content .searchContent {
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 25)     width: 200px;
+48acce6f (vpkonjeti 2023-11-30 17:29:00 -0500 26)     height: 50px;
+4574c389 (vpkonjeti 2023-11-26 17:43:05 -0500 27) }

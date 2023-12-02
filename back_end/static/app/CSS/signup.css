@@ -43,6 +43,7 @@ input {
     outline: none;
     width: 100%;
     height: 2.3em;
+    appearance: none;
 }
 
 select {
@@ -108,3 +109,18 @@ button:active {
         width: 80%;
     }
 }
+
+
+/* ul {
+    border: 0.5em hidden slateblue;
+    list-style: none;
+}
+
+li {
+    cursor: pointer;
+    padding: 10px;
+}
+
+li:hover {
+    background-color: rgb(75, 65, 147);
+} */
