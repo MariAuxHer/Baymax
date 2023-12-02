@@ -7,7 +7,7 @@ fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  16)             display: gr
 fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  17)             grid-template-rows: repeat(4, 1fr);
 fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  18)             gap: 10px;
 fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  19)             padding: 2em;
-fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  20)             background: rgba(222, 222, 255, 0.95); /* Styling similar to your form */
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  20)             background: rgba(222, 222, 255, 0.95); 
 fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  21)             border-radius: 1em;
 fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  22)             box-shadow: 0 0 0.1em rgb(107, 100, 100);
 fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  23)             margin-top: 100em;
