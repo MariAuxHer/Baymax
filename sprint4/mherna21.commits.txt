@@ -1,0 +1,128 @@
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  11) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  12)     <style>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  13)     
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  14)         /* Additional styles for dropdown form */
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  15)         .dropdown-container {
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  16)             display: grid;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  17)             grid-template-rows: repeat(4, 1fr);
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  18)             gap: 10px;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  19)             padding: 2em;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  20)             background: rgba(222, 222, 255, 0.95); /* Styling similar to your form */
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  21)             border-radius: 1em;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  22)             box-shadow: 0 0 0.1em rgb(107, 100, 100);
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  23)             margin-top: 100em;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  24)         }
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  25) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  26)         select {
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  27)             width: 100%;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  28)             padding: 0.5em;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  29)             border-radius: 0.5em;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  30)             border: 1px solid #ccc;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  31)             box-shadow: 0 0 0.1em rgb(107, 100, 100);
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  32)         }
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  33) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  34)         label {
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  35)             margin-bottom: 100em;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  36)         }
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  37) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  38)         /* @media only screen and (max-width: 768px) {
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  39)             .dropdown-container {
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  40)                 grid-template-rows: 1fr;
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  41)             }
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  42)         } */
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  43)     </style>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  44) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  62)     <!-- <div class="content">
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  70)     </div> -->
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  71) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  72)     <div class="dropdown-container" style="margin: 7em auto 0 auto; width: 50%;">
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  73)         <div>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  74)             <label for="state">State:</label>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  75)             <select id="state">
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  76)                     <option value="Alabama">Alabama</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  77)                     <option value="Alaska">Alaska</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  78)                     <option value="Arizona">Arizona</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  79)                     <option value="Arkansas">Arkansas</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  80)                     <option value="California">California</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  81)                     <option value="Colorado">Colorado</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  82)                     <option value="Connecticut">Connecticut</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  83)                     <option value="Delaware">Delaware</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  84)                     <option value="Florida">Florida</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  85)                     <option value="Georgia">Georgia</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  86)                     <option value="Hawaii">Hawaii</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  87)                     <option value="Idaho">Idaho</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  88)                     <option value="Illinois">Illinois</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  89)                     <option value="Indiana">Indiana</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  90)                     <option value="Iowa">Iowa</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  91)                     <option value="Kansas">Kansas</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  92)                     <option value="Kentucky">Kentucky</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  93)                     <option value="Louisiana">Louisiana</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  94)                     <option value="Maine">Maine</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  95)                     <option value="Maryland">Maryland</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  96)                     <option value="Massachusetts">Massachusetts</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  97)                     <option value="Michigan">Michigan</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  98)                     <option value="Minnesota">Minnesota</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500  99)                     <option value="Mississippi">Mississippi</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 100)                     <option value="Missouri">Missouri</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 101)                     <option value="Montana">Montana</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 102)                     <option value="Nebraska">Nebraska</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 103)                     <option value="Nevada">Nevada</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 104)                     <option value="New Hampshire">New Hampshire</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 105)                     <option value="New Jersey">New Jersey</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 106)                     <option value="New Mexico">New Mexico</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 107)                     <option value="New York">New York</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 108)                     <option value="North Carolina">North Carolina</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 109)                     <option value="North Dakota">North Dakota</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 110)                     <option value="Ohio">Ohio</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 111)                     <option value="Oklahoma">Oklahoma</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 112)                     <option value="Oregon">Oregon</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 113)                     <option value="Pennsylvania">Pennsylvania</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 114)                     <option value="Rhode Island">Rhode Island</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 115)                     <option value="South Carolina">South Carolina</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 116)                     <option value="South Dakota">South Dakota</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 117)                     <option value="Tennessee">Tennessee</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 118)                     <option value="Texas">Texas</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 119)                     <option value="Utah">Utah</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 120)                     <option value="Vermont">Vermont</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 121)                     <option value="Virginia">Virginia</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 122)                     <option value="Washington">Washington</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 123)                     <option value="West Virginia">West Virginia</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 124)                     <option value="Wisconsin">Wisconsin</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 125)                     <option value="Wyoming">Wyoming</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 126)             </select>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 127)         </div>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 128) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 129)         <div>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 130)             <label for="city">City:</label>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 131)             <select id="city">
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 132)                 <!-- Options for cities go here -->
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 133)             </select>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 134)         </div>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 135) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 136)         <div>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 137)             <label for="zipcode">Zip Code:</label>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 138)             <select id="zipcode">
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 139)                 <!-- Options for zip codes go here -->
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 140)             </select>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 141)         </div>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 142) 
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 143)         <div>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 144)             <label for="specialization">Specialization:</label>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 145)             <select id="specialization">
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 146)                 <option value="dermatology">Dermatology</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 147)                 <option value="cardiology">Cardiology</option>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 148)                 <!-- Other specializations -->
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 149)             </select>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 150)         </div>
+fb4d0bb5 (Maria Hernandez 2023-12-01 20:40:13 -0500 152) 
+da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  60) def generate_llm_response(prompt, user_city):
+da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  61)     print(f"Here is a list of doctors in your region {user_city} \n")
+da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  85)                 # = user_zipcode  # URL encoded space as +, to adhere to URL encoding standards
+da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  86)                 doctors = fetch_doctors(specialty, user_city)
+da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  88)                 print(f"Here is a list of doctors in your region {user_city} \n")
+77416a26 (Maria Hernandez 2023-11-26 18:35:23 -0500  94)                         doctor_info_str = doctor_info_str + f"{idx}. Name: {doctor['Name']}\nAddress: {doctor['Address']}\nPhone: {doctor['Phone']}\n".lower()
+77416a26 (Maria Hernandez 2023-11-26 18:35:23 -0500 107)             response = gptresponse + "\n" + doctor_info_str 
+77416a26 (Maria Hernandez 2023-11-26 18:35:23 -0500 108)             response = response.replace("\n", "<br>")
+77416a26 (Maria Hernandez 2023-11-26 18:35:23 -0500 109)             return response 
+da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  74)             user_city = self.owner.city
+da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  75)             self.LLMresponse = generate_llm_response(self.prompt, user_city)
