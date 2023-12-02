@@ -133,8 +133,11 @@ function add_conversation_button(url) {
         conversation_url = url
     })
 
+    let insert_anchor = document.querySelector(".panel_nav")
+
     // Append the new button to the panel
-    panel.appendChild(button);
+    // panel.appendChild(button);
+    panel.insertBefore(button, insert_anchor);
 }
 
 
