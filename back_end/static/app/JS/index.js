@@ -1,4 +1,4 @@
-import { log_conversations, session, post_prompt, post_conversation, update_name } from "./utils.js";
+import { log_conversations, session, post_prompt, post_conversation, update_name, delete_conversation } from "./utils.js";
 
 const messages = document.getElementById("messages")
 const button_text_size = 30
@@ -30,18 +30,30 @@ document.addEventListener('DOMContentLoaded', async () => {
                 let name = conversations[i].name.substring(0, button_text_size)
                 name = name.padEnd(button_text_size)
 
-                const button = document.createElement('button')
-                button.className = "collapsible";
-                button.textContent = name
-                button.setAttribute('id', panel.id + '_button_' + convo_count++)
+                const conversation_options = document.createElement('div')
 
-                button.addEventListener('click', () => {
+                const conversation_button = document.createElement('button')
+                conversation_button.className = "collapsible"
+                conversation_button.textContent = name
+                conversation_button.setAttribute('id', panel.id + '_conversation_button_' + convo_count++)
+
+                conversation_button.addEventListener('click', () => {
                     load_conversation(conversations[i].url)
                     conversation_url = conversations[i].url
                 })
 
-                // Append the new button to the panel
-                panel.appendChild(button);
+                const delete_button = document.createElement('button')
+                delete_button.textContent = "del" // this line is temporary until we decide what it will look like
+                delete_button.setAttribute('id', panel.id + '_delete_button_' + convo_count++)
+
+                delete_button.addEventListener('click', () => {
+                    delete_conversation(conversations[i].url)
+                    conversation_options.remove()
+                })
+
+                conversation_options.appendChild(conversation_button)
+                conversation_options.appendChild(delete_button)
+                panel.appendChild(conversation_options)
             }
         } 
         // not logged in
