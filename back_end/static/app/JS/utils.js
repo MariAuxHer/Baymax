@@ -354,3 +354,27 @@ export async function update_name(url, name) {
     }
 
 }
+
+export async function delete_conversation(conversation_url) {
+    // assign a csrf
+    if (!(await set_csrf())) {
+       return null
+    }
+    
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    const response = await fetch(conversation_url, {
+        method: "DELETE",
+        headers: {
+            "X-CSRFToken": csrftoken,
+            "Content-Type": "application/json",
+        }
+    })
+
+    if (log_response(response, "delete_conversation")) {
+        console.log("DELETE_CONVERSATION Response OK")
+    } else {
+
+        console.log("DELETE_CONVERSATION Response NOT OK")
+        return null
+    }
+}
