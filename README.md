@@ -2,7 +2,7 @@
 COSC340 Project
 
 ## Description 
-// enter the description here
+A website that allows conversations with an AI chat bot called Baymax, inspired by Big Hero 6. The AI chatbot will assist in providing an initial diagnosis, but is ultimately best for recommending the user to a local professional for their symptoms.
 
 ## Contributors
 Maria Hernandez, Steven Dao, Vineeth Konjeti, Amal Sam, Casey Collins, Jordan Huff, Jonathan Tran
