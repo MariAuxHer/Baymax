@@ -14,7 +14,7 @@ from tensorflow.keras import layers
 from tensorflow.keras import losses
 from tensorflow.keras import models
 
-model = models.load_model('classification_model.keras')
+model = models.load_model('./classification_model.keras')
 
 export_model = tf.keras.Sequential([
   vectorize_layer,
