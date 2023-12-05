@@ -14,7 +14,16 @@ from tensorflow.keras import layers
 from tensorflow.keras import losses
 from tensorflow.keras import models
 
-model = models.load_model('/app/back_end/back_end/classification_model.keras')
+model = models.load_model('/app/back_end/classification_model.keras')
+
+max_features = 10000
+sequence_length = 250
+
+vectorize_layer = layers.TextVectorization(
+    standardize=custom_standardization,
+    max_tokens=max_features,
+    output_mode='int',
+    output_sequence_length=sequence_length)
 
 export_model = tf.keras.Sequential([
   vectorize_layer,
