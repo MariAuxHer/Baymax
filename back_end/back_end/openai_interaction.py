@@ -8,13 +8,14 @@ import re
 import requests
 import os
 import dotenv
+import string
 
 import tensorflow as tf
 from tensorflow.keras import layers
 from tensorflow.keras import losses
 from tensorflow.keras import models
 
-model = models.load_model('/app/back_end/classification_model.keras')
+model = models.load_model('back_end/classification_model.keras')
 
 
 # standardization for removing html tags
@@ -141,7 +142,11 @@ def generate_llm_response(prompt, user_city):
             return response 
         
         else:
+            print("TYPEOF")
+            print(type(prompt))
             classification_prompt = [prompt]
+            print(classification_prompt)
+            print(type(classification_prompt))
             classification_results = export_model.predict(classification_prompt)
 
             classification_success = True
