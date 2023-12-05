@@ -6,4 +6,4 @@ python-dotenv
 requests
 numpy
 tensorflow
-tensorflow.keras
+keras
