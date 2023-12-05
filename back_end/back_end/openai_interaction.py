@@ -8,6 +8,19 @@ import re
 import requests
 import os
 import dotenv
+
+import tensorflow as tf
+from tensorflow.keras import layers
+from tensorflow.keras import losses
+
+model = models.load_model('C:/Users/jhuff19/Desktop/Baymax/classification/classification_model.keras')
+
+export_model = tf.keras.Sequential([
+  vectorize_layer,
+  model,
+  layers.Activation('softmax')
+])
+
 dotenv.load_dotenv('.env.local')
 
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
@@ -109,8 +122,37 @@ def generate_llm_response(prompt, user_city):
             return response 
         
         else:
-            print("only gpt response, no specialization found")
-            return gptresponse
+            classification_prompt = [prompt]
+            classification_results = export_model.predict(classification_prompt)
+
+            classification_success = True
+            classification = ""
+
+            max_val = max(classification_results[0])
+
+            if max_val < 0.5:
+                print("only gpt response, no specialization or classification found")
+                return gptresponse
+
+            else:
+                best_guess = -1
+                for i in range(0, len(classification_results[0])):
+                    if classification_results[0][i] == max_val:
+                        buest_guess = i
+
+                if buest_guess == 0:
+                    classification = "dermatologist"
+                elif buest_guess == 1:
+                    classification = "neurologist"
+                elif buest_guess == 2:
+                    classification = "optometrist"
+                elif buest_guess == 3:
+                    classification = "podiatrist"
+                
+                response = gptresponse + f"\nFor more information, find a {classification} in your region\n"
+                response = response.replace("\n", "<br>")
+                return response 
+
     else:
         print("Error: Unable to get response.")
         return "Error: Unable to get response."

@@ -4,3 +4,6 @@ djangorestframework==3.14.0
 openai==1.2.3
 python-dotenv
 requests
+numpy
+tensorflow
+tensorflow.keras
