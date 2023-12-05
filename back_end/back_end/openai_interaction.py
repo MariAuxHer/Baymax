@@ -16,6 +16,15 @@ from tensorflow.keras import models
 
 model = models.load_model('/app/back_end/classification_model.keras')
 
+
+# standardization for removing html tags
+def custom_standardization(input_data):
+  lowercase = tf.strings.lower(input_data)
+  stripped_html = tf.strings.regex_replace(lowercase, '<br />', ' ')
+  return tf.strings.regex_replace(stripped_html,
+                                  '[%s]' % re.escape(string.punctuation),
+                                  '')
+
 max_features = 10000
 sequence_length = 250
 
