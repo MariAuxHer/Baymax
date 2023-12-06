@@ -419,6 +419,8 @@ export async function loadStates(geonameId) {
                 let option = document.createElement('option');
                 option.value = state.geonameId; // You might need to adjust this to the appropriate identifier for the state.
                 option.textContent = state.name;
+
+                // appending states to the dropdown menu
                 stateSelect.appendChild(option);
             });
         }
@@ -427,12 +429,30 @@ export async function loadStates(geonameId) {
 }
 
 // Function to load cities for a given state
-export async function loadCities(stateGeonameId) {
+export async function loadCounties(stateGeonameId) {
     geoNamesFetch('childrenJSON', { geonameId: stateGeonameId })
+        .then(data => {
+            console.log("In County", data);
+            let countySelect = document.getElementById('county');
+            countySelect.innerHTML = '<option value="">Select County</option>';
+            if (data.geonames) {
+                data.geonames.forEach(county => {
+                    let option = document.createElement('option');
+                    option.value = county.geonameId; // Store the geonameId for the selected city
+                    option.textContent = county.name;
+                    countySelect.appendChild(option);
+                });
+            }
+        })
+        .catch(error => console.error('Error loading counties:', error));
+}
+
+export async function loadCities(countyGeonameId) {
+    geoNamesFetch('childrenJSON', { geonameId: countyGeonameId })
         .then(data => {
             console.log("In City", data);
             let citySelect = document.getElementById('city');
-            citySelect.innerHTML = '<option value="">Select City/County</option>';
+            citySelect.innerHTML = '<option value="">Select City</option>';
             if (data.geonames) {
                 data.geonames.forEach(city => {
                     let option = document.createElement('option');
@@ -444,7 +464,6 @@ export async function loadCities(stateGeonameId) {
         })
         .catch(error => console.error('Error loading cities:', error));
 }
-
 // // Event listener for country selection change
 // document.getElementById('country').addEventListener('change', function() {
 //     let geonameId = this.value; // Get the geonameId of the selected country

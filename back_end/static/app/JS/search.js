@@ -1,4 +1,4 @@
-import {loadStates, loadCities } from "./utils.js";
+import {loadStates, loadCounties, loadCities } from "./utils.js";
 
 // Initial call to load countries when the page loads
 
@@ -18,9 +18,19 @@ document.getElementById('state').addEventListener('change', function() {
     let stateGeonameId = this.value; // Get the geonameId of the selected state
     // let countryCode = document.getElementById('country').value;
     if (stateGeonameId) {
-        loadCities(stateGeonameId); // Pass the state's geonameId to loadCities function
+        loadCounties(stateGeonameId); // Pass the state's geonameId to loadCities function
     } else {
-        document.getElementById('city').innerHTML = 'Select City/County';
+        document.getElementById('county').innerHTML = '<option value="">Select County</option>';
+    }
+});
+
+document.getElementById('county').addEventListener('change', function() {
+    let countyGeonameId = this.value; // Get the geonameId of the selected state
+    // let countryCode = document.getElementById('country').value;
+    if (countyGeonameId) {
+        loadCities(countyGeonameId); // Pass the state's geonameId to loadCities function
+    } else {
+        document.getElementById('city').innerHTML = '<option value="">Select City</option>';
     }
 });
 
