@@ -21,3 +21,28 @@ services:
       - 80:80
     depends_on:
       - back_end
+
+  database:
+    image: postgres:13  # Use the PostgreSQL version you need
+    environment:
+      POSTGRES_DB: yourdbname
+      POSTGRES_USER: yourdbuser
+      POSTGRES_PASSWORD: yourdbpassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  populate_db:
+    build: ./back_end  # Use the same image as your back_end service
+    command: python manage.py import_doctors
+    depends_on:
+      - database
+    volumes:
+      - ./back_end:/app
+    entrypoint: ["sh", "-c"]
+    working_dir: /app
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+
+volumes:
+  postgres_data:

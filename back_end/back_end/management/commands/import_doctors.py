@@ -3,27 +3,32 @@ from django.core.management.base import BaseCommand
 from back_end.models import Doctor
 
 class Command(BaseCommand):
-    help = 'Import doctors from a JSON file'
+    help = 'Populate doctors from JSON files'
 
-    def add_arguments(self, parser):
-        parser.add_argument('json_file', type=str, help='Path to JSON file')
+    def handle(self, *args, **options):
+        with open('/app/back_end/derma_doct.json', 'r') as file:
+            derma_data = json.load(file)
 
-    def handle(self, *args, **kwargs):
-        json_file_path = kwargs['json_file'] #ML/Data/doctor_dict.json
-        with open(json_file_path, 'r') as file:
-            data = json.load(file)
-            self.import_doctors(data)
+        with open('/app/back_end/cardio_doct.json', 'r') as file:
+            cardio_data = json.load(file)
 
-    def import_doctors(self, data):
-        for classification in data.items():
-            print(classification[0]);
-            for specialty in classification[0].items():
-                print(" ",specialty[0]);
-                for doctor in specialty[0]:
-                    print("     ", doctor);
-                    Doctor.objects.create(
-                        name=doctor['name'],
-                        m_address=doctor['m_address'],
-                        specialty=specialty[0],
-                        classification=classification[0]
-                    )
+        # Function to extract data from nested JSON structure
+        def extract_data(data):
+            for specialty, sub_data in data.items():
+                for sub_specialty, items in sub_data.items():
+                    for category, doctors in items.items():
+                        for doctor in doctors:
+                            classification = 'dermatologist' if data is derma_data else 'cardiologist'
+    
+                            Doctor.objects.create(
+                                name=doctor['doctor_name'],
+                                m_address=doctor['doctor_address'],
+                                specialty=category if category else sub_specialty,
+                                classification= classification
+                            )
+                            print(doctor)
+
+        extract_data(derma_data)
+        extract_data(cardio_data)
+
+        self.stdout.write(self.style.SUCCESS('Successfully populated doctors'))

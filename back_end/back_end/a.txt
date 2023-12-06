@@ -1,2 +1,0 @@
-da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  74)             user_city = self.owner.city
-da14d230 (Maria Hernandez 2023-11-26 17:05:02 -0500  75)             self.LLMresponse = generate_llm_response(self.prompt, user_city)

@@ -16,6 +16,10 @@ echo "Creating a test user with username: "test" and password: "test""
 export DJANGO_SUPERUSER_PASSWORD="test"
 python3.11 manage.py createsuperuser --username "test" --email "test@gmail.com" --noinput
 
+# Populate the database
+echo "Populating the database"
+python3.11 manage.py import_doctors
+
 # Start server
 echo "Starting server"
 python3.11 manage.py runserver 0.0.0.0:8000
