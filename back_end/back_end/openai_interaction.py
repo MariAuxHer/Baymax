@@ -145,7 +145,7 @@ def generate_llm_response(prompt, user_city):
         else:
             print("TYPEOF")
             print(type(prompt))
-            classification_prompt = ["how do i deal with saggy skin"]
+            classification_prompt = [prompt]
             print(classification_prompt)
             print(type(classification_prompt))
             classification_results = export_model.predict(classification_prompt)
