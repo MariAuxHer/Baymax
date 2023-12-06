@@ -14,6 +14,7 @@ import tensorflow as tf
 from tensorflow.keras import layers
 from tensorflow.keras import losses
 from tensorflow.keras import models
+import re
 
 model = models.load_model('back_end/classification_model.keras')
 
@@ -53,7 +54,7 @@ OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 # Change the current working directory
 #os.chdir(os.path.dirname(os.path.abspath(__file__)))
 print("Current working directory openai:", os.getcwd())
-with open('/app/back_end/medical_specializations.json', 'r') as f:
+with open('back_end/medical_specializations.json', 'r') as f:
     medical_specializations = json.load(f)
 
 model_id = 'gpt-4'
