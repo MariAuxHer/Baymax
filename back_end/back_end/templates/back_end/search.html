@@ -82,7 +82,7 @@
 
         <!-- State Dropdown -->
         <div>
-            <label for="state">State/Province:</label>
+            <label for="state">State:</label>
             <select id="state">
                 <!-- Options for states will be loaded dynamically -->
             </select>
@@ -95,7 +95,7 @@
                 <!-- Options for cities will be loaded dynamically -->
             </select>
         </div>
-
+        
         {% comment %} <div>
             <label for="state">State:</label>
             <select id="state">
@@ -173,6 +173,9 @@
                 <option value="cardiology">Cardiology</option>
                 <!-- Other specializations -->
             </select>
+        </div>
+        <div>
+            <button id="submitButton" onclick="submitForm()">Submit</button>
         </div>
     </div>
 
