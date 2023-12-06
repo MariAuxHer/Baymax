@@ -1,4 +1,4 @@
-import {loadStates, loadCounties, loadCities } from "./utils.js";
+import {loadStates, loadCounties, loadCities, fetchDoctors} from "./utils.js";
 
 // Initial call to load countries when the page loads
 
@@ -34,62 +34,92 @@ document.getElementById('county').addEventListener('change', function() {
     }
 });
 
-// This function gets the value of a cookie by name
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
+
+async function submitForm() {
+    let city = document.getElementById('city');
+    city = city.options[city.selectedIndex].text;
+    let specialty = document.getElementById('specialization').value;
+
+    console.log("city " + city);
+    console.log("spec " + specialty);
+
+    let doctorsList = await fetchDoctors(specialty, city);
+
+    let doctorsListElement = document.getElementById('doctorsList');
+    doctorsListElement.innerHTML = ''; // Clear existing content
+
+    if (doctorsList && doctorsList.length > 0) {
+        let listHtml = doctorsList.map(doctor => 
+            `<div>
+                <p><strong>Name:</strong> ${doctor.Name}</p>
+                <p><strong>Address:</strong> ${doctor.Address}</p>
+                <p><strong>Phone:</strong> ${doctor.Phone}</p>
+            </div>`
+        ).join('');
+
+        doctorsListElement.innerHTML = listHtml;
+    } else {
+        doctorsListElement.innerHTML = '<p>No doctors found.</p>';
     }
-    return cookieValue;
 }
 
-// The submitForm function with the CSRF token included in the headers
-function submitForm() {
-    // Get the CSRF token from the cookie
-    const csrftoken = getCookie('csrftoken');
 
-    // Get the selected city's text content and the specialization value from the form elements
-    const citySelect = document.getElementById('city');
-    const selectedCity = citySelect.options[citySelect.selectedIndex].text; // Corrected line
-    const selectedSpecialization = document.getElementById('specialization').value;
+// This function gets the value of a cookie by name
+// function getCookie(name) {
+//     let cookieValue = null;
+//     if (document.cookie && document.cookie !== '') {
+//         const cookies = document.cookie.split(';');
+//         for (let i = 0; i < cookies.length; i++) {
+//             const cookie = cookies[i].trim();
+//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
+//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+//                 break;
+//             }
+//         }
+//     }
+//     return cookieValue;
+// }
 
-    // Prepare the search criteria, assuming the city names in the database are stored in a case-insensitive manner
-    const searchCriteria = {
-        city: selectedCity,
-        specialization: selectedSpecialization
-    };
+// // The submitForm function with the CSRF token included in the headers
+// function submitForm() {
+//     // Get the CSRF token from the cookie
+//     const csrftoken = getCookie('csrftoken');
 
-    // Make an AJAX POST request to your local search endpoint
-    console.log("body: ", JSON.stringify(searchCriteria));
-    fetch('/search', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': csrftoken
-        },
-        body: JSON.stringify(searchCriteria),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Handle the search results here
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Error during fetch:', error);
-    });
-}
+//     // Get the selected city's text content and the specialization value from the form elements
+//     const citySelect = document.getElementById('city');
+//     const selectedCity = citySelect.options[citySelect.selectedIndex].text; // Corrected line
+//     const selectedSpecialization = document.getElementById('specialization').value;
+
+//     // Prepare the search criteria, assuming the city names in the database are stored in a case-insensitive manner
+//     const searchCriteria = {
+//         city: selectedCity,
+//         specialization: selectedSpecialization
+//     };
+
+//     // Make an AJAX POST request to your local search endpoint
+//     console.log("body: ", JSON.stringify(searchCriteria));
+//     fetch('/search', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'X-CSRFToken': csrftoken
+//         },
+//         body: JSON.stringify(searchCriteria),
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         // Handle the search results here
+//         console.log(data);
+//     })
+//     .catch(error => {
+//         console.error('Error during fetch:', error);
+//     });
+// }
 
 window.onload = loadStates(6252001);  // Load the states of US
 window.submitForm = submitForm;
