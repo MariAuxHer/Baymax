@@ -7,7 +7,7 @@ def get_doctor_info(api_url, query_terms):
 
     # Specify the parameters for the API request
     params = {
-        'terms': query_terms,
+        'terms': 'cardiology',
         'maxList': 500,  # You can adjust this based on your needs
         'df': 'licenses.taxonomy.grouping,licenses.taxonomy.classification,licenses.taxonomy.specialization,name.full,addr_practice.full',
         'sf': 'licenses.taxonomy.grouping,licenses.taxonomy.classification,licenses.taxonomy.specialization,name.full,addr_practice.full'
