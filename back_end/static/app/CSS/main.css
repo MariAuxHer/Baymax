@@ -79,21 +79,39 @@ h2 {
     padding: 0.7em 0.7em;
 }
 
-.panel_nav {
-    width: max-content;
+.panel {
     display: grid;
     grid-template-rows: 1fr;
+    height: 100%;
+
+}
+
+.panel_nav {
+    align-self: end;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
     justify-self: end;
 }
 
 .panel_nav > a {
-    margin: 1em;
+
+    grid-column: 1/2;
+    margin: 1em auto;
     font-size: 1.4em;
     border: none;
     box-shadow: none;
     background-color: transparent;
     cursor: pointer;
     color: #d8d8d8;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.panel_nav > button {
+    grid-column: 1/2;
+    grid-row: auto/ span 1;
+    margin: 1em auto;
 }
 
 .navpanel_location_switch {

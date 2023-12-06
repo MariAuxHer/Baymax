@@ -51,7 +51,7 @@
     color: #5d5d5d;
 }
 
-form#messages {
+form#message_form {
     background:rgba(222, 222, 255, 0.95);
     margin: auto;
     position: fixed;
