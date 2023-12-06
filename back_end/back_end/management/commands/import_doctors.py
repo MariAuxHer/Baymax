@@ -16,17 +16,16 @@ class Command(BaseCommand):
 
             # Function to extract data from nested JSON structure
             def extract_data(data, classification):
-                for specialty, sub_data in data.items():
-                    for sub_specialty, items in sub_data.items():
-                        for category, doctors in items.items():
-                            for doctor in doctors:
-                                Doctor.objects.create(
-                                    name=doctor['doctor_name'],
-                                    m_address=doctor['doctor_address'],
-                                    specialty=category if category else sub_specialty,
-                                    classification=classification
-                                )
-                                print(doctor)
+                for specialty, doctors in data.items():
+                    for doctor in doctors:
+                        Doctor.objects.create(
+                            name=doctor['doctor_name'],
+                            m_address=doctor['doctor_address'],
+                            phone_number=doctor['phone'],
+                            specialty=specialty,
+                            classification=classification
+                        )
+                        print(doctor)
 
             extract_data(derma_data, 'dermatology')
             extract_data(cardio_data, 'cardiology')

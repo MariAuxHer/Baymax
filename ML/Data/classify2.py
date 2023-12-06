@@ -9,8 +9,8 @@ def get_doctor_info(api_url, query_terms):
     params = {
         'terms': query_terms,
         'maxList': 500,  # You can adjust this based on your needs
-        'df': 'licenses.taxonomy.grouping,licenses.taxonomy.classification,licenses.taxonomy.specialization,name.full,addr_practice.full',
-        'sf': 'licenses.taxonomy.grouping,licenses.taxonomy.classification,licenses.taxonomy.specialization,name.full,addr_practice.full'
+        'df': 'licenses.taxonomy.specialization,name.full,addr_practice.full,addr_practice.phone',
+        'sf': 'licenses.taxonomy.specialization,name.full,addr_practice.full,addr_practice.phone'
     }
 
     # Make the API request
@@ -20,6 +20,7 @@ def get_doctor_info(api_url, query_terms):
     if response.status_code == 200:
         # Parse the JSON response
         data = response.json()
+        # print(data);
         
         # Extract relevant information from the response
         results = data[3]
@@ -29,25 +30,18 @@ def get_doctor_info(api_url, query_terms):
 
         # Iterate through the results and populate the dictionary
         for result in results:
-            grouping, classification, specialization, doctor_name, doctor_address = result
+            specialization, doctor_name, doctor_address, phone = result
 
             # Populate the nested dictionary
-            if grouping not in doctor_dict:
-                doctor_dict[grouping] = {}
+            if specialization not in doctor_dict:
+                doctor_dict[specialization] = []
 
-            if classification not in doctor_dict[grouping]:
-                doctor_dict[grouping][classification] = {}
-
-            if specialization not in doctor_dict[grouping][classification]:
-                doctor_dict[grouping][classification][specialization] = []
-
-            # Use the NPI as a key for each doctor
-            npi = result[0]
             doctor_info = {
                 'doctor_name': doctor_name,
-                'doctor_address': doctor_address
+                'doctor_address': doctor_address,
+                'phone': phone,
             }
-            doctor_dict[grouping][classification][specialization].append(doctor_info)
+            doctor_dict[specialization].append(doctor_info)
 
         return doctor_dict
 
@@ -59,12 +53,12 @@ def get_doctor_info(api_url, query_terms):
 api_url = 'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3'
 
 # keep as empty string to get all doctors
-query_terms = 'cardiology'
+query_terms = 'dermatology'
 
 doctor_info_dict = get_doctor_info(api_url, query_terms)
 
 if doctor_info_dict:
-    output_file_path = 'back_end/back_end/cardio_doct.json'
+    output_file_path = 'back_end/back_end/derma_doct.json'
 
     with open(output_file_path, 'w') as json_file:
         json.dump(doctor_info_dict, json_file, indent=2)

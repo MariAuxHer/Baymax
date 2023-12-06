@@ -81,7 +81,7 @@ def search(request):
 
             # Serialize the data into a list of dictionaries
             doctor_data = [
-                {"name": doctor.name, "address": doctor.m_address, "specialty": doctor.specialty}
+                {"name": doctor.name, "address": doctor.m_address, "specialty": doctor.specialty, "phone": doctor.phone_number}
                 for doctor in doctors
             ]
 
