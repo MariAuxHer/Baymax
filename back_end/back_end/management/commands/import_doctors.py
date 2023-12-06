@@ -13,7 +13,16 @@ class Command(BaseCommand):
 
             with open('/app/back_end/cardio_doct.json', 'r') as file:
                 cardio_data = json.load(file)
-
+            
+            with open('/app/back_end/neuro_doct.json', 'r') as file:
+                neuro_data = json.load(file)
+            
+            with open('/app/back_end/opt_doct.json', 'r') as file:
+                opt_data = json.load(file)
+            
+            with open('/app/back_end/podia_doct.json', 'r') as file:
+                podia_data = json.load(file)
+            
             # Function to extract data from nested JSON structure
             def extract_data(data, classification):
                 for specialty, doctors in data.items():
@@ -29,6 +38,9 @@ class Command(BaseCommand):
 
             extract_data(derma_data, 'dermatology')
             extract_data(cardio_data, 'cardiology')
+            extract_data(neuro_data, 'neurology')
+            extract_data(opt_data, 'optometry')
+            extract_data(podia_data, 'podiatry')
 
             self.stdout.write(self.style.SUCCESS('Successfully populated doctors'))
         else:

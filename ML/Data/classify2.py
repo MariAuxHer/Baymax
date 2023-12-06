@@ -53,12 +53,12 @@ def get_doctor_info(api_url, query_terms):
 api_url = 'https://clinicaltables.nlm.nih.gov/api/npi_idv/v3'
 
 # keep as empty string to get all doctors
-query_terms = 'dermatology'
+query_terms = 'neurology'
 
 doctor_info_dict = get_doctor_info(api_url, query_terms)
 
 if doctor_info_dict:
-    output_file_path = 'back_end/back_end/derma_doct.json'
+    output_file_path = 'back_end/back_end/neuro_doct.json'
 
     with open(output_file_path, 'w') as json_file:
         json.dump(doctor_info_dict, json_file, indent=2)

@@ -33,6 +33,34 @@ document.getElementById('county').addEventListener('change', function() {
         document.getElementById('city').innerHTML = '<option value="">Select City</option>';
     }
 });
+function updateResultsDropdown(data) {
+    // Get the results dropdown element
+    const resultsDropdown = document.getElementById('results');
+
+    // Clear existing options
+    resultsDropdown.innerHTML = '';
+
+    // Check if data is not empty
+    if (data && data.length > 0) {
+        // Iterate over each result item
+        data.forEach(item => {
+            // Create an option element
+            const option = document.createElement('option');
+            option.value = item.name; // or any unique identifier of the item
+
+            // Set the text content of the option
+            option.innerHTML = `${item.name}<br>${item.address}<br>${item.phone}<br><br><br>`;
+
+            // Append the option to the dropdown
+            resultsDropdown.appendChild(option);
+        });
+    } else {
+        // Handle empty data scenario
+        const option = document.createElement('option');
+        option.textContent = 'No results found';
+        resultsDropdown.appendChild(option);
+    }
+}
 
 // This function gets the value of a cookie by name
 function getCookie(name) {
@@ -85,6 +113,7 @@ function submitForm() {
     .then(data => {
         // Handle the search results here
         console.log(data);
+        updateResultsDropdown(data);
     })
     .catch(error => {
         console.error('Error during fetch:', error);
