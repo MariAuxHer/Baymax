@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             // populate the panel with buttons
             const panel = document.getElementById('panelContainer')
             for (let i = conversations.length - 1; i >= 0; i--) {
-                console.log(await update_name(conversations[i].url, "new name"))
-                let name = conversations[i].name.substring(0, button_text_size)
-                name = name.padEnd(button_text_size)
+                update_name(conversations[i].url, "new name").then( (data) => {
+                    console.log(data)
+                })
 
                 add_conversation_button(conversations[i].url)
             }
@@ -117,8 +117,8 @@ function add_conversation_button(url) {
     conversation_button.setAttribute('id', panel.id + '_conversation_button_' + convo_count)
 
     conversation_button.addEventListener('click', () => {
-        load_conversation(url)
         conversation_url = url
+        load_conversation(url)
     })
 
     const delete_button = document.createElement('button')
