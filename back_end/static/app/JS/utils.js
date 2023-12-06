@@ -390,22 +390,22 @@ async function geoNamesFetch(endpoint, params) {
     return fetch(url).then(response => response.json());
 }
 
-// // Function to load countries
-// export async function loadCountries() {
-//     geoNamesFetch('countryInfoJSON', {})
-//         .then(data => {
-//             console.log("In country", data);
-//             let countrySelect = document.getElementById('country');
-//             countrySelect.innerHTML = '<option value="">Select Country</option>';
-//             data.geonames.forEach(country => {
-//                 let option = document.createElement('option');
-//                 option.value = country.geonameId; // Store the geonameId for the selected country
-//                 option.textContent = country.countryName;
-//                 countrySelect.appendChild(option);
-//             });
-//         })
-//         .catch(error => console.error('Error loading countries:', error));
-// }
+// Function to load countries
+export async function loadCountries() {
+    geoNamesFetch('countryInfoJSON', {})
+        .then(data => {
+            console.log("In country", data);
+            let countrySelect = document.getElementById('country');
+            countrySelect.innerHTML = '<option value="">Select Country</option>';
+            data.geonames.forEach(country => {
+                let option = document.createElement('option');
+                option.value = country.geonameId; // Store the geonameId for the selected country
+                option.textContent = country.countryName;
+                countrySelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error loading countries:', error));
+}
     
 // Function to load states for a given country
 export async function loadStates(geonameId) {
