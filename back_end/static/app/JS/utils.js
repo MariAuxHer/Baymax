@@ -434,7 +434,7 @@ export async function loadCounties(stateGeonameId) {
         .then(data => {
             console.log("In County", data);
             let countySelect = document.getElementById('county');
-            countySelect.innerHTML = '<option value="">Select County</option>';
+            countySelect.innerHTML = 'Select County';
             if (data.geonames) {
                 data.geonames.forEach(county => {
                     let option = document.createElement('option');
@@ -452,7 +452,7 @@ export async function loadCities(countyGeonameId) {
         .then(data => {
             console.log("In City", data);
             let citySelect = document.getElementById('city');
-            citySelect.innerHTML = '<option value="">Select City</option>';
+            citySelect.innerHTML = 'Select City';
             if (data.geonames) {
                 data.geonames.forEach(city => {
                     let option = document.createElement('option');

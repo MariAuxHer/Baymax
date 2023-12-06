@@ -70,20 +70,21 @@ def search(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            selected_city = data['city'].capitalize()  # Capitalize the city name as stored in the database
-            selected_specialization = data['specialization']
+            selected_city = data['city'].upper()  # Capitalize the city name as stored in the database
+            selected_classification = data['specialization'].lower()
 
             # Filter doctors by city (case-insensitive) and specialization
             doctors = Doctor.objects.filter(
-                m_address__icontains=selected_city, 
-                specialty__icontains=selected_specialization
-            )
+                m_address__icontains=selected_city,
+                classification__icontains=selected_classification
+                )
 
             # Serialize the data into a list of dictionaries
             doctor_data = [
                 {"name": doctor.name, "address": doctor.m_address, "specialty": doctor.specialty, "phone": doctor.phone_number}
                 for doctor in doctors
             ]
+            print(doctor_data)
 
             # Return the serialized data as JSON
             return JsonResponse(doctor_data, safe=False)

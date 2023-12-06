@@ -106,7 +106,7 @@ class Doctor(models.Model):
     name : str = models.CharField(max_length=500)
     m_address : str = models.CharField(max_length=500) # mailing address
     specialty: str = models.CharField(max_length=500)
-    classification = models.CharField(max_length=50, default='dermatology')
+    classification = models.CharField(max_length=50, default='dermatology') #or cardiology
     phone_number = models.CharField(max_length=50, default='555-555-5555')
     
     # populate more fields or do it in code
