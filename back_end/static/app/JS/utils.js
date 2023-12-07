@@ -465,8 +465,8 @@ export async function loadCities(countyGeonameId) {
         .catch(error => console.error('Error loading cities:', error));
 }
 
-export async function fetchDoctors(specialty, city) {
-    let url = `https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms=${specialty}&q=addr_practice.city:${city}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=5`;
+export async function fetchDoctors(specialty, city, max) {
+    let url = `https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms=${specialty}&q=addr_practice.city:${city}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=${max}`;
 
     console.log("url " + url);
     try {

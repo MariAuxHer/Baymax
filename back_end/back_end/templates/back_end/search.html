@@ -7,42 +7,11 @@
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/about.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/CSS/search.css' %}">
 
     <script type="module" src="{% static 'app/JS/search.js' %}"></script>
     <title>Search Page</title> 
 
-    <style>
-    
-        /* Additional styles for dropdown form */
-        .dropdown-container {
-            display: grid;
-            grid-template-rows: repeat(4, 1fr);
-            gap: 10px;
-            padding: 2em;
-            background: rgba(222, 222, 255, 0.95); 
-            border-radius: 1em;
-            box-shadow: 0 0 0.1em rgb(107, 100, 100);
-            margin-top: 100em;
-        }
-
-        select {
-            width: 100%;
-            padding: 0.5em;
-            border-radius: 0.5em;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 0.1em rgb(107, 100, 100);
-        }
-
-        label {
-            margin-bottom: 100em;
-        }
-
-        /* @media only screen and (max-width: 768px) {
-            .dropdown-container {
-                grid-template-rows: 1fr;
-            }
-        } */
-    </style>
 
 </head>
 
@@ -60,25 +29,9 @@
             <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
         </div>
     </aside>
-    
-    <!-- <div class="content">
-        <h2 id="searchTitle">Search</h2>
-        <div id="searchContainer">
-            <form action="search" method="GET">
-                <input type="text" name="search" id="searchBar" placeholder="Knoxville">
-                <input type="submit" value="Search" id="searchButton">
-            </form>
-        </div>
-    </div> -->
+
 
     <div class="dropdown-container" style="margin: 7em auto 0 auto; width: 50%;">
-        {% comment %} <!-- Country Dropdown -->
-        <div>
-            <label for="country">Country:</label>
-            <select id="country">
-                <!-- Options for countries will be loaded dynamically -->
-            </select>
-        </div> {% endcomment %}
 
         <!-- State Dropdown -->
         <div>
@@ -104,76 +57,6 @@
             </select>
         </div>
         
-        {% comment %} <div>
-            <label for="state">State:</label>
-            <select id="state">
-                    <option value="Alabama">Alabama</option>
-                    <option value="Alaska">Alaska</option>
-                    <option value="Arizona">Arizona</option>
-                    <option value="Arkansas">Arkansas</option>
-                    <option value="California">California</option>
-                    <option value="Colorado">Colorado</option>
-                    <option value="Connecticut">Connecticut</option>
-                    <option value="Delaware">Delaware</option>
-                    <option value="Florida">Florida</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Hawaii">Hawaii</option>
-                    <option value="Idaho">Idaho</option>
-                    <option value="Illinois">Illinois</option>
-                    <option value="Indiana">Indiana</option>
-                    <option value="Iowa">Iowa</option>
-                    <option value="Kansas">Kansas</option>
-                    <option value="Kentucky">Kentucky</option>
-                    <option value="Louisiana">Louisiana</option>
-                    <option value="Maine">Maine</option>
-                    <option value="Maryland">Maryland</option>
-                    <option value="Massachusetts">Massachusetts</option>
-                    <option value="Michigan">Michigan</option>
-                    <option value="Minnesota">Minnesota</option>
-                    <option value="Mississippi">Mississippi</option>
-                    <option value="Missouri">Missouri</option>
-                    <option value="Montana">Montana</option>
-                    <option value="Nebraska">Nebraska</option>
-                    <option value="Nevada">Nevada</option>
-                    <option value="New Hampshire">New Hampshire</option>
-                    <option value="New Jersey">New Jersey</option>
-                    <option value="New Mexico">New Mexico</option>
-                    <option value="New York">New York</option>
-                    <option value="North Carolina">North Carolina</option>
-                    <option value="North Dakota">North Dakota</option>
-                    <option value="Ohio">Ohio</option>
-                    <option value="Oklahoma">Oklahoma</option>
-                    <option value="Oregon">Oregon</option>
-                    <option value="Pennsylvania">Pennsylvania</option>
-                    <option value="Rhode Island">Rhode Island</option>
-                    <option value="South Carolina">South Carolina</option>
-                    <option value="South Dakota">South Dakota</option>
-                    <option value="Tennessee">Tennessee</option>
-                    <option value="Texas">Texas</option>
-                    <option value="Utah">Utah</option>
-                    <option value="Vermont">Vermont</option>
-                    <option value="Virginia">Virginia</option>
-                    <option value="Washington">Washington</option>
-                    <option value="West Virginia">West Virginia</option>
-                    <option value="Wisconsin">Wisconsin</option>
-                    <option value="Wyoming">Wyoming</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="city">City:</label>
-            <select id="city">
-                <!-- Options for cities go here -->
-            </select>
-        </div>
-
-        <div>
-            <label for="zipcode">Zip Code:</label>
-            <select id="zipcode">
-                <!-- Options for zip codes go here -->
-            </select>
-        </div> {% endcomment %}
-
         <div>
             <label for="specialization">Specialization:</label>
             <select id="specialization">
@@ -233,14 +116,42 @@
                 <!-- Other specializations -->
             </select>
         </div>
+
+        <div>
+            <label for="maximum">Maximum Number of Doctors:</label>
+            <select id="maximum">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        
+
         <div>
             <button id="submitButton" onclick="submitForm()">Submit</button>
         </div>
 
+    </div>
+
+    <div class="table-container">
         <div id="doctorsList"></div>
-
-
-
     </div>
 
 </body>

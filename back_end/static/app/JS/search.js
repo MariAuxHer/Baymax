@@ -1,17 +1,5 @@
 import {loadStates, loadCounties, loadCities, fetchDoctors} from "./utils.js";
 
-// Initial call to load countries when the page loads
-
-// // Event listener for country selection change
-// document.getElementById('country').addEventListener('change', function() {
-//     let geonameId = this.value; // Get the geonameId of the selected country
-//     if (geonameId) {
-//         loadStates(geonameId); // Pass the geonameId to loadStates function
-//     } else {
-//         document.getElementById('state').innerHTML = '<option value="">Select State/Province</option>';
-//     }
-//     document.getElementById('city').innerHTML = '<option value="">Select City/County</option>';
-// });
 
 // Event listener for state selection change
 document.getElementById('state').addEventListener('change', function() {
@@ -21,6 +9,7 @@ document.getElementById('state').addEventListener('change', function() {
         loadCounties(stateGeonameId); // Pass the state's geonameId to loadCities function
     } else {
         document.getElementById('county').innerHTML = '<option value="">Select County</option>';
+        document.getElementById('city').innerHTML = '<option value="">Select City</option>'; 
     }
 });
 
@@ -39,23 +28,31 @@ async function submitForm() {
     let city = document.getElementById('city');
     city = city.options[city.selectedIndex].text;
     let specialty = document.getElementById('specialization').value;
+    let max_doctors = document.getElementById('maximum').value;
 
-    console.log("city " + city);
-    console.log("spec " + specialty);
-
-    let doctorsList = await fetchDoctors(specialty, city);
+    let doctorsList = await fetchDoctors(specialty, city, max_doctors);
 
     let doctorsListElement = document.getElementById('doctorsList');
     doctorsListElement.innerHTML = ''; // Clear existing content
 
     if (doctorsList && doctorsList.length > 0) {
-        let listHtml = doctorsList.map(doctor => 
-            `<div>
-                <p><strong>Name:</strong> ${doctor.Name}</p>
-                <p><strong>Address:</strong> ${doctor.Address}</p>
-                <p><strong>Phone:</strong> ${doctor.Phone}</p>
-            </div>`
-        ).join('');
+
+        let listHtml = `
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+            </tr>
+            ${doctorsList.map(doctor => `
+                <tr>
+                    <td>${doctor.Name}</td>
+                    <td>${doctor.Address}</td>
+                    <td>${doctor.Phone}</td>
+                </tr>
+            `).join('')}
+        </table>
+        `;
 
         doctorsListElement.innerHTML = listHtml;
     } else {
@@ -121,5 +118,10 @@ async function submitForm() {
 //     });
 // }
 
-window.onload = loadStates(6252001);  // Load the states of US
-window.submitForm = submitForm;
+window.onload = function() {
+    loadStates(6252001); // Load the states of US
+    document.getElementById('state').innerHTML = '<option value="">Select State/Province</option>';
+    document.getElementById('county').innerHTML = '<option value="">Select County</option>';
+    document.getElementById('city').innerHTML = '<option value="">Select City</option>'; // Ensure "Select City" is set on page load
+    window.submitForm = submitForm;
+};
