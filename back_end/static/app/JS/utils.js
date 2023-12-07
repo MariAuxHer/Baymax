@@ -389,23 +389,6 @@ async function geoNamesFetch(endpoint, params) {
     url.search = new URLSearchParams(params).toString();
     return fetch(url).then(response => response.json());
 }
-
-// // Function to load countries
-// export async function loadCountries() {
-//     geoNamesFetch('countryInfoJSON', {})
-//         .then(data => {
-//             console.log("In country", data);
-//             let countrySelect = document.getElementById('country');
-//             countrySelect.innerHTML = '<option value="">Select Country</option>';
-//             data.geonames.forEach(country => {
-//                 let option = document.createElement('option');
-//                 option.value = country.geonameId; // Store the geonameId for the selected country
-//                 option.textContent = country.countryName;
-//                 countrySelect.appendChild(option);
-//             });
-//         })
-//         .catch(error => console.error('Error loading countries:', error));
-// }
     
 // Function to load states for a given country
 export async function loadStates(geonameId) {
@@ -489,25 +472,3 @@ export async function fetchDoctors(specialty, city, max) {
         console.error('Error fetching doctors:', error);
     }
 }
-
-// // Event listener for country selection change
-// document.getElementById('country').addEventListener('change', function() {
-//     let geonameId = this.value; // Get the geonameId of the selected country
-//     if (geonameId) {
-//         loadStates(geonameId); // Pass the geonameId to loadStates function
-//     } else {
-//         document.getElementById('state').innerHTML = '<option value="">Select State/Province</option>';
-//     }
-//     document.getElementById('city').innerHTML = '<option value="">Select City/County</option>';
-// });
-
-// // Event listener for state selection change
-// document.getElementById('state').addEventListener('change', function() {
-//     let stateGeonameId = this.value; // Get the geonameId of the selected state
-//     // let countryCode = document.getElementById('country').value;
-//     if (stateGeonameId) {
-//         loadCities(stateGeonameId); // Pass the state's geonameId to loadCities function
-//     } else {
-//         document.getElementById('city').innerHTML = '<option value="">Select City/County</option>';
-//     }
-// });

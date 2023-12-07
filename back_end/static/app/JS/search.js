@@ -4,7 +4,6 @@ import {loadStates, loadCounties, loadCities, fetchDoctors} from "./utils.js";
 // Event listener for state selection change
 document.getElementById('state').addEventListener('change', function() {
     let stateGeonameId = this.value; // Get the geonameId of the selected state
-    // let countryCode = document.getElementById('country').value;
     if (stateGeonameId) {
         loadCounties(stateGeonameId); // Pass the state's geonameId to loadCities function
     } else {
@@ -15,7 +14,6 @@ document.getElementById('state').addEventListener('change', function() {
 
 document.getElementById('county').addEventListener('change', function() {
     let countyGeonameId = this.value; // Get the geonameId of the selected state
-    // let countryCode = document.getElementById('country').value;
     if (countyGeonameId) {
         loadCities(countyGeonameId); // Pass the state's geonameId to loadCities function
     } else {

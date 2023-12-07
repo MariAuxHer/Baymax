@@ -77,7 +77,7 @@ tr:hover {background-color: #ddd;} /* Hover effect for rows */
 }
 
 #submitButton {
-    background-color: #9a72ac; /* Pastel blue background, you can adjust the color to match your panel */
+    background-color: #9a72ac; /* Pastel dark purple */
     color: white; /* White text color */
     border: none; /* Remove default border */
     padding: 10px 20px; /* Add some padding */
@@ -90,6 +90,6 @@ tr:hover {background-color: #ddd;} /* Hover effect for rows */
 }
 
 #submitButton:hover {
-    background-color: #b19cd9; /* Slightly darker shade on hover */
+    background-color: #b19cd9; /* Slightly lighter shade on hover */
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Increase shadow on hover for a "lifting" effect */
 }
