@@ -133,9 +133,9 @@ img {
 .collapsible {
     background-color: #4CAF50;
     color: #ffffff;
-    width: 85%;
+    width: 70%;
     padding: 15px;
-    margin: 15px;
+    margin: 10px;
     cursor: pointer;
     border: none;
     border-radius: 5px;

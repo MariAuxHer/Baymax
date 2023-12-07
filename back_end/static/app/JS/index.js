@@ -121,15 +121,31 @@ function add_conversation_button(url) {
         load_conversation(url)
     })
 
-    const delete_button = document.createElement('button')
-    delete_button.textContent = "del" // this line is temporary until we decide what it will look like
+    /*const delete_button = document.createElement('button')
+    delete_button.textContent = "def" // this line is temporary until we decide what it will look like
     delete_button.setAttribute('id', panel.id + '_delete_button_' + convo_count++)
 
     delete_button.addEventListener('click', () => {
         delete_conversation(url)
         conversation_options.remove()
         default_page(); 
-    })
+    }) */
+
+    const delete_button = document.createElement('button');
+    delete_button.setAttribute('id', panel.id + '_delete_button_' + convo_count++);
+    delete_button.style.backgroundImage = "url('/app/images/Trash.png')"; 
+    delete_button.style.backgroundSize = 'contain'; // Ensures the image fits the button
+    delete_button.style.backgroundRepeat = 'no-repeat';
+    delete_button.style.width = '30px'; 
+    delete_button.style.height = '30px'; 
+
+    delete_button.addEventListener('click', () => {
+        delete_conversation(url);
+        conversation_options.remove();
+        default_page(); 
+    }) 
+
+
 
     conversation_options.appendChild(conversation_button)
     conversation_options.appendChild(delete_button)
