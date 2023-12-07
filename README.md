@@ -1,3 +1,5 @@
+![Baymax Logo](https://github.com/MariAuxHer/Baymax/blob/dev/Baymax.png)
+
 # Baymax
 COSC340 Project
 
