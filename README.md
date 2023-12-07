@@ -14,11 +14,13 @@ MariAuxiHer / MariAuxHer, nevetsosu, Vinni0627, amals610, chesedcasycollins, jor
 Docker Compose
 
 ## Building and Running
-While in the root directory of the project, run "docker compose up -d --build"
+1. Run Docker Compose
+2. Set directory to be the root directory of the project
+3. While in the root directory of the project, run "docker compose up -d --build"
 
 ## Usage
-Using the website is relatively straightforward, you need to first create an account or log in 
-to be able to use the chatbot.
+Using the website is relatively straightforward. You need to create an account or log in 
+to be able to use the chatbot. Then, enter whatever medical prompt you would like.
 
 ## License Information
 Refer to LICENSE.txt
