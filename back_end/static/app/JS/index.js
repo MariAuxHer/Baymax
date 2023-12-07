@@ -133,11 +133,7 @@ function add_conversation_button(url) {
 
     const delete_button = document.createElement('button');
     delete_button.setAttribute('id', panel.id + '_delete_button_' + convo_count++);
-    delete_button.style.backgroundImage = "url('/app/images/Trash.png')"; 
-    delete_button.style.backgroundSize = 'contain'; // Ensures the image fits the button
-    delete_button.style.backgroundRepeat = 'no-repeat';
-    delete_button.style.width = '30px'; 
-    delete_button.style.height = '30px'; 
+    delete_button.className = 'delete-button'; 
 
     delete_button.addEventListener('click', () => {
         delete_conversation(url);

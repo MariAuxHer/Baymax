@@ -151,6 +151,17 @@ img {
     padding: 20px;
 }
 
+.delete-button {
+    background-image: url('/app/images/Trash.png'); 
+    background-size: contain; /* Ensures the image fits within the button */
+    background-repeat: no-repeat; 
+    background-position: center 5px;
+    width: 30px;  
+    height: 30px; 
+    border: none; 
+    cursor: pointer; 
+}
+
 @media(max-width: 768px) {
     #messages {
         width: 90%;
