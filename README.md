@@ -10,7 +10,7 @@ A website that allows conversations with an AI chatbot called Baymax, inspired b
 Maria Hernandez, Steven Dao, Vineeth Konjeti, Amal Sam, Casey Collins, Jordan Huff, Jonathan Tran
 
 ## Github Ids
-MariAuxiHer / MariAuxHer, nevetsosu, Vinni0627, amals610, chesedcasycollins, jordantrh, EliteJono 
+MariAuxiHer / MariAuxHer, nevetsosu, Vinni0627, amals610, chesedcaseycollins, jordantrh, EliteJono 
 
 ## Requirements
 Docker Compose
