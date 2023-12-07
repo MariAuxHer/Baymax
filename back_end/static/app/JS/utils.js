@@ -464,6 +464,32 @@ export async function loadCities(countyGeonameId) {
         })
         .catch(error => console.error('Error loading cities:', error));
 }
+
+export async function fetchDoctors(specialty, city, max) {
+    let url = `https://clinicaltables.nlm.nih.gov/api/npi_idv/v3/search?terms=${specialty}&q=addr_practice.city:${city}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=${max}`;
+
+    console.log("url " + url);
+    try {
+        let response = await fetch(url);
+
+        if (response.ok) {
+            let data = await response.json();
+            let doctorsList = data[3].map(item => ({
+                'Name': item[1],
+                'Address': item[2],
+                'Phone': item[3]
+            }));
+            console.log("\n\nDOCTOR LIST \n\n" + doctorsList);
+            return doctorsList;
+        } else {
+            console.error(`Failed to retrieve data: ${response.status}`);
+            return null;
+        }
+    } catch (error) {
+        console.error('Error fetching doctors:', error);
+    }
+}
+
 // // Event listener for country selection change
 // document.getElementById('country').addEventListener('change', function() {
 //     let geonameId = this.value; // Get the geonameId of the selected country
