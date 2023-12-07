@@ -1,5 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
+.dropdown-container {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    padding: 2em;
+    background: rgba(222, 222, 255, 0.95); 
+    border-radius: 1em;
+    box-shadow: 0 0 0.1em rgb(107, 100, 100);
+    margin-top: 100em;
+}
+
+select {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 0.1em rgb(107, 100, 100);
+}
+
+label {
+    margin-bottom: 100em;
+}
+
+/* CSS for the table */
+.table-container {
+    margin-top: 2em; /* Adjust the top margin to create space below the dropdown */
+    text-align: center; /* Center the table */
+    width: 80%; /* Adjust the width as needed */
+    margin-left: auto; /* These two lines center the table horizontally */
+    margin-right: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%; /* Make the table expand to the width of its container */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Add border to the cells */
+    padding: 8px; /* Add some padding for cell content */
+}
+
+th {
+    background-color: #f2f2f2; /* Different background for headers */
+    color: black;
+}
+
+tr:nth-child(even) {background-color: #f9f9f9;} /* Zebra striping for rows */
+
+tr:hover {background-color: #ddd;} /* Hover effect for rows */
 
 .content {
     margin: 2em;
@@ -24,4 +74,22 @@
 .content .searchContent {
     width: 200px;
     height: 50px;
+}
+
+#submitButton {
+    background-color: #9a72ac; /* Pastel blue background, you can adjust the color to match your panel */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Add some padding */
+    border-radius: 15px; /* Rounded corners */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for interactions */
+}
+
+#submitButton:hover {
+    background-color: #b19cd9; /* Slightly darker shade on hover */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Increase shadow on hover for a "lifting" effect */
 }
