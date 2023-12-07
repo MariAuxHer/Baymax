@@ -84,8 +84,17 @@
         <textarea id="message_textarea" name="message"></textarea>
         <button id="submit_message"><img src="{% static '/app/images/paper-plane.png' %}"></button>
         <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
+        <div class="more-doctor-info">
+            <p> To access a more extensive directory of medical professionals, please visit 
+            <a href="{% url 'search' %}"> here </a> </p>
+        </div>
     </form>
     
+    <!-- <div class="more-doctor-info">
+        <p> To access a more extensive directory of medical professionals, please visit 
+        <a href="{% url 'search' %}"> here </a> </p>
+    </div> -->
+
     <script>
         // Configure Hyphenopoly
         window.hyphenopoly = window.hyphenopoly || {};
