@@ -41,7 +41,7 @@ h2 {
 #panelContainer {
     z-index: 1000;
     width: 250px;
-    height: 92%;
+    height: 100%;
     position: fixed;
     top: 58px;
     left: 0px; /* Start visible in the viewport */
@@ -77,57 +77,6 @@ h2 {
     margin-top: 2em;
     margin-bottom: 4em;
     padding: 0.7em 0.7em;
-}
-
-.panel {
-    display: grid;
-    grid-template-rows: 1fr;
-    height: 100%;
-
-}
-
-.panel_nav {
-    align-self: end;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-self: end;
-}
-
-.panel_nav > a {
-
-    grid-column: 1/2;
-    margin: 1em auto;
-    font-size: 1.4em;
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
-    cursor: pointer;
-    color: #d8d8d8;
-    font-size: 1em;
-    text-decoration: none;
-}
-
-.panel_nav > button {
-    grid-column: 1/2;
-    grid-row: auto/ span 1;
-    margin: 1em auto;
-}
-
-.navpanel_location_switch {
-    visibility: hidden;
-}
-
-@media(max-width: 780px){
-
-    .navpanel_location_switch {
-        visibility: visible;
-    }
-
-    .navbar_location_switch {
-        visibility: hidden;
-    }
-
 }
 
 @media(max-width: 440px){
