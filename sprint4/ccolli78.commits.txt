@@ -1,0 +1,571 @@
+about.html
+
+013100f8 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 17:53:46 -0500  7)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+013100f8 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 17:53:46 -0500 14)     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+e339eba0 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 16)         <div class="nav_container">
+e339eba0 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 19)                 <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+e339eba0 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 20)             {% else %}
+e339eba0 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 21)                 <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+e339eba0 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 22)                 <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+e339eba0 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 23)             {% endif %}
+e339eba0 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 24)             <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+e339eba0 back_end/back_end/templates/back_end/about.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 25)         </div>
+d196d658 front_end/about.html                            (Chesed Casey Collins 2023-10-30 19:13:06 -0400 26)     </aside>
+4f6ef16e back_end/back_end/templates/back_end/about.html (Steven Dao           2023-11-11 23:13:03 -0500 49)                 <img src="{% static '/app/images/heros/Casey.jpg' %}" alt="Hero 3">
+994672aa front_end/about.html     
+
+index.html
+
+013100f8 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 17:53:46 -0500   7)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/index.css' %}">
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  12) 
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  13)     <script src="https://cdn.jsdelivr.net/npm/hyphenopoly@2.7.0/dist/Hyphenopoly_Loader.js"></script>
+7be2b55d front_end/index.html                            (Chesed Casey Collins 2023-11-12 10:47:29 -0500  16)     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+7be2b55d front_end/index.html                            (Chesed Casey Collins 2023-11-12 10:47:29 -0500  18)         <div class="nav_container">
+d7af68bd back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 10:51:30 -0500  20)             {% if not user.is_authenticated %} 
+d7af68bd back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 10:51:30 -0500  21)                 <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+d7af68bd back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 10:51:30 -0500  22)             {% else %}
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  23)                 <button id="toLoginPage" class="navbar_location_switch" onclick="window.location.href = 'signout'">Signout</button> 
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  24)                 <button id="toProfilePage" class="navbar_location_switch" onclick="window.location.href = 'profile'">Profile</button>
+d7af68bd back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 10:51:30 -0500  25)             {% endif %}
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  26)             <button id="toAboutPage" class="navbar_location_switch" onclick="window.location.href = 'about'">About</button>
+584dcf43 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-30 19:46:45 -0500  27)             <button class="togglePanelButton"><img src="{% static '/app/images/black_burger-removebg-preview.png' %}"></button>
+7be2b55d front_end/index.html                            (Chesed Casey Collins 2023-11-12 10:47:29 -0500  28)         </div>
+a1da1c4f front_end/index.html                            (Casey                2023-10-30 10:18:08 -0400  29)     </aside>
+a1da1c4f front_end/index.html                            (Casey                2023-10-30 10:18:08 -0400  30) 
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  31)     <div id="panelContainer">
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  32)       <!--Panel Stuff-->
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  33)       <div class="panel">
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  34)        <!--- <button id="default_button"></button> -->
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  35)         <button id="addConversation">New Chat</button>
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  36) 
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  37)         <div class="panel_nav">
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  38)             {% if not user.is_authenticated %} 
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  39)                 <a class="toLoginPage" href="login">Login</a> 
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  40)             {% else %}
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  41)                 <a class="toLoginPage" class="navpanel_location_switch" href="signout">Signout</a> 
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  42)                 <a class="toProfilePage" class="navpanel_location_switch" href="profile"">Profile</a>
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  43)             {% endif %}
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  44)             <a class="toAboutPage" class="navpanel_location_switch" href="about">About</a>
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  45)             <button class="togglePanelButton">Close</a>
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  46)         </div>
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  47) 
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  48)       </div>
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  49)       
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  50)     </div>
+4cd75595 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-12-01 20:56:45 -0500  51) 
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  52)     <div id="messages">
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  63)         <p class="left">I was wondering if after all these years you'd like to meet</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  64)         <p class="left">To go over everything</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  65)         <p class="right">They say that time's supposed to heal ya, but I ain't done much healing</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  66)         <p class="left">Hello, can you hear me?</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  67)         <p class="right">I'm in California dreaming about who we used to be</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  68)         <p class="left">When we were younger and free</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  69)         <p class="right">I've forgotten how it felt before the world fell at our feet</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  70)         <p class="right">There's such a difference between us</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  71)         <p class="left">And a million miles</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  72)         <p class="right">Hello from the other side</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  73)         <p class="right">I must've called a thousand times</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  74)         <p class="left">To tell you I'm sorry for everything that I've done</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  75)         <p class="left">But when I call, you never seem to be home</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  76)         <p class="left">Hello from the outside</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  77)         <p class="right">At least, I can say that I've tried</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  78)         <p class="left">To tell you I'm sorry for breaking your heart</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  79)         <p class="right">But it don't matter, it clearly doesn't tear you apart anymore</p>
+8f71bc9e front_end/index.html                            (Chesed Casey Collins 2023-10-30 01:31:11 -0400  81)     </div>
+14063de3 front_end/index.html                            (Chesed Casey Collins 2023-10-12 23:33:34 -0400  84)         <textarea id="message_textarea" name="message"></textarea>
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  89)     <script>
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  90)         // Configure Hyphenopoly
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  91)         window.hyphenopoly = window.hyphenopoly || {};
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  92)         window.hyphenopoly.config = {
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  93)             displaytoggle: false,
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  94)         };
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  95)     </script>
+e339eba0 back_end/back_end/templates/back_end/index.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  96)     <script src="https://cdn.jsdelivr.net/npm/hyphenopoly@2.7.0/dist/Hyphenopoly.js"></script>
+
+login.html
+
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  8)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+013100f8 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 17:53:46 -0500 16)     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 18)         <div class="nav_container">
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 19)             {% if not user.is_authenticated %} 
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 20)                 <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 21)             {% else %}
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 22)                 <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 23)                 <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 24)             {% endif %}
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 25)             <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 26)         </div>
+e339eba0 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 29)     <form id="login_form"> {% csrf_token %}
+fa17f9d9 front_end/login.html                            (Chesed Casey Collins 2023-10-29 19:02:14 -0400 33)             <input type="text" id="username" name="username">
+013100f8 back_end/back_end/templates/back_end/login.html (Chesed Casey Collins 2023-11-12 17:53:46 -0500 37)             <input type="password" id="password" name="password">
+
+profile.html
+
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  7)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 14)     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 16)         <div class="nav_container">
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 18)             {% if not user.is_authenticated %} 
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 19)                 <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 20)             {% else %}
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 21)                 <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 22)                 <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 23)             {% endif %}
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 24)             <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+e339eba0 back_end/back_end/templates/back_end/profile.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500 25)         </div>
+d196d658 front_end/profile.html                            (Chesed Casey Collins 2023-10-30 19:13:06 -0400 26)     </aside>
+
+signup.html
+
+e339eba0 back_end/back_end/templates/back_end/signup.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500   8)     <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+e339eba0 back_end/back_end/templates/back_end/signup.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  16)     <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+e339eba0 back_end/back_end/templates/back_end/signup.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  18)         <div class="nav_container">
+e339eba0 back_end/back_end/templates/back_end/signup.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  19)             <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+e339eba0 back_end/back_end/templates/back_end/signup.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  20)             <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+e339eba0 back_end/back_end/templates/back_end/signup.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  21)             <script type="module" src="{% static '/app/JS/signup.js' %}"></script>
+e339eba0 back_end/back_end/templates/back_end/signup.html (Chesed Casey Collins 2023-11-12 20:58:08 -0500  22)         </div>
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  25)     
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  26)     <h2>Create Your Account</h2>
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  28)         <div class="user form_child_div">
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  29)             <label for="username">Username: </label>
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  32)         <div class="pass form_child_div">
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  33)             <label for="password">Password: </label>
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  36)         <div class="email form_child_div">
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  37)             <label for="email">Email: </label>
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  40)         <div class="city  form_child_div">
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  41)             <label for="city">City: </label>
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  44)         <div class="state form_child_div">
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  45)             <label for="state">State: </label>
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500  99)         <div class="zipcode  form_child_div">
+436be196 back_end/back_end/templates/back_end/signup.html (Casey                2023-11-13 22:27:29 -0500 100)             <label for="zipcode">Zip Code: </label>
+
+about.css
+
+d196d658 front_end/CSS/about.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400  5)     margin-top: 15%;
+d196d658 front_end/CSS/about.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400 40) /*
+d196d658 front_end/CSS/about.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400 64) */
+
+index.css
+
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   1) #messages {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   2)     margin: auto;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   3)     margin-bottom: 10em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   4)     margin-top: 10em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   5)     width: 50%;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   6)     display: grid;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   7)     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   8)     grid-template-rows: min-content;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500   9)     padding: 0.7em 0.7em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  10)     border-radius: 1em;
+e339eba0 (Chesed Casey Collins 2023-11-12 20:58:08 -0500  11)     hyphens: auto;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  12) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  13) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  14) .left, .right {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  15)     width: fit-content;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  16)     margin: 1em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  17)     padding: 0.7em 0.7em;
+d1098132 (Casey                2023-11-13 09:40:53 -0500  18)     overflow: hidden;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  19)     border-radius: 1em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  20) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  21) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  23)     justify-self: start;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  24)     line-height: 1.8em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  25)     grid-column: 1/5;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  44) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  45) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  46) .right {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  47)     justify-self: end;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  48)     background: rgba(252, 245, 221, 0.8);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  49)     box-shadow: 0 0 0.1em rgb(107, 100, 100);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  50)     grid-column: 2/6;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  51)     color: #5d5d5d;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  52) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  53) 
+4cd75595 (Chesed Casey Collins 2023-12-01 20:56:45 -0500  54) form#messages {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  55)     background:rgba(222, 222, 255, 0.95);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  56)     margin: auto;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  57)     position: fixed;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  58)     bottom: 0;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  59)     left: 50%;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  60)     transform: translate(-50%);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  61)     width: 100%;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  62)     min-height: 7em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  63)     display: grid;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  64)     grid-template-columns: 70% 30%;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  65) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  66) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  67) textarea, .textarea_replacement {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  68)     opacity: 100%;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  69)     justify-self: end;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  70)     align-self: end;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  71)     resize: none;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  72)     width: 60%;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  73)     height: min-content;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  74)     max-height: 8rem;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  75)     margin: 2rem 0;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  76)     border: none;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  77)     border-radius: 1em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  78)     outline: none;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  79)     font-size: 1.3em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  80)     box-shadow: 0 0 0.2em rgb(95, 88, 176);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  81)     overflow: hidden;  
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  82)     overflow-y: auto; 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  83)     background: #fff; 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  84)     padding: 0.7em 0.7em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  85) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  86) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  87) textarea::-webkit-scrollbar, .textarea_replacement::-webkit-scrollbar {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  88)     width: 3px;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  89) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  90) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  91) textarea::-webkit-scrollbar-thumb, .textarea_replacement::-webkit-scrollbar-thumb {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  92)     width: 5px;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  93)     height: 2em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  94)     margin: 2px;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  95)     border-radius: 2px;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  96)     background: #1b1b1b;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  97) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  98) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500  99) button#submit_message {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 100)     align-self: end;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 101)     margin: 2rem 0;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 102)     color: #fff;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 103)     background: rgb(255, 44, 44);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 104)     width: 3.5em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 105)     height: 3.5em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 106)     display: grid;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 107)     border: none;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 108)     border-radius: 100%;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 109)     box-shadow: 0 0 0.2em rgb(21, 21, 21);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 110)     margin-left: 0.5em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 111) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 112) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 113) button#submit_message:hover {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 114)     background: rgb(255, 82, 82);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 115) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 116) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 117) button#submit_message:active {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 118)     background: rgb(205, 40, 40);
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 119) }
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 120) 
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 121) img {
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 122)     width: 2em;
+013100f8 (Chesed Casey Collins 2023-11-12 17:53:46 -0500 123)     margin: auto;
+4cd75595 (Chesed Casey Collins 2023-12-01 20:56:45 -0500 148) @media(max-width: 768px) {
+4cd75595 (Chesed Casey Collins 2023-12-01 20:56:45 -0500 154)         width: 90%;
+
+login.css
+
+d196d658 front_end/CSS/login.css           (Chesed Casey Collins 2023-10-30 19:13:06 -0400  4)     margin: auto;
+e339eba0 back_end/static/app/CSS/login.css (Chesed Casey Collins 2023-11-12 20:58:08 -0500 10)     /* height: 50%; */
+d196d658 front_end/CSS/login.css           (Chesed Casey Collins 2023-10-30 19:13:06 -0400 28) button#submit {
+d196d658 front_end/CSS/login.css           (Chesed Casey Collins 2023-10-30 19:13:06 -0400 43) button#submit:hover {
+d196d658 front_end/CSS/login.css           (Chesed Casey Collins 2023-10-30 19:13:06 -0400 47) button#submit:active {
+
+
+main.css
+
+7c124429 front_end/CSS/main.css           (Casey                2023-09-15 10:45:53 -0400   1) @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+7c124429 front_end/CSS/main.css           (Casey                2023-09-15 10:45:53 -0400   2) 
+7c124429 front_end/CSS/main.css           (Casey                2023-09-15 10:45:53 -0400   3) * {
+7c124429 front_end/CSS/main.css           (Casey                2023-09-15 10:45:53 -0400   4)     font-family: 'Comfortaa', cursive;
+ec13b8c4 front_end/CSS/main.css           (Casey                2023-09-15 11:40:16 -0400   5)     margin: 0;
+ec13b8c4 front_end/CSS/main.css           (Casey                2023-09-15 11:40:16 -0400   6)     padding: 0;
+ec13b8c4 front_end/CSS/main.css           (Casey                2023-09-15 11:40:16 -0400   7)     box-sizing: border-box;
+7c124429 front_end/CSS/main.css           (Casey                2023-09-15 10:45:53 -0400   8) }
+d196d658 front_end/CSS/main.css           (Chesed Casey Collins 2023-10-30 19:13:06 -0400  10) html {
+d196d658 front_end/CSS/main.css           (Chesed Casey Collins 2023-10-30 19:13:06 -0400  11)     scroll-behavior: smooth;
+436be196 back_end/static/app/CSS/main.css (Casey                2023-11-13 22:27:29 -0500  12)     font-size: 1rem;
+d196d658 front_end/CSS/main.css           (Chesed Casey Collins 2023-10-30 19:13:06 -0400  13) }
+7c124429 front_end/CSS/main.css           (Casey                2023-09-15 10:45:53 -0400  14) 
+44299215 front_end/CSS/main.css           (Casey                2023-09-15 09:52:41 -0400  15) body {
+53a7363d front_end/CSS/main.css           (Chesed Casey Collins 2023-10-30 19:20:32 -0400  16)     background: rgb(222, 222, 255);
+44299215 front_end/CSS/main.css           (Casey                2023-09-15 09:52:41 -0400  17)     width: 100%;
+44299215 front_end/CSS/main.css           (Casey                2023-09-15 09:52:41 -0400  18)     height: 100%;
+436be196 back_end/static/app/CSS/main.css (Casey                2023-11-13 22:27:29 -0500  19)     text-align: center;
+44299215 front_end/CSS/main.css           (Casey                2023-09-15 09:52:41 -0400  20) }
+44299215 front_end/CSS/main.css           (Casey                2023-09-15 09:52:41 -0400  21) 
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  22) h1 {
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  24)     font-size: 2.5em;
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  25)     position: fixed;
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  26)     top: 0;
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  27)     left: 0;
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  28)     z-index: 1;
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  29) }
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  30) 
+e7a50dd1 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-13 15:13:48 -0500  31) h2 {
+e7a50dd1 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-13 15:13:48 -0500  32)     margin: 0.5em;
+e7a50dd1 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-13 15:13:48 -0500  33)     font-size: 2.2em;
+e7a50dd1 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-13 15:13:48 -0500  34) }
+e7a50dd1 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-13 15:13:48 -0500  35) 
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  36) #toIndex {
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  37)     text-decoration: none;
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  38)     color: #ff3535;
+7be2b55d front_end/CSS/main.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  39) }
+e339eba0 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-12 20:58:08 -0500  53) 
+d1098132 back_end/static/app/CSS/main.css (Casey                2023-11-13 09:40:53 -0500  68) 
+d1098132 back_end/static/app/CSS/main.css (Casey                2023-11-13 09:40:53 -0500  69) .form_fail {
+d1098132 back_end/static/app/CSS/main.css (Casey                2023-11-13 09:40:53 -0500  70)     font-size: 0.8em;
+e339eba0 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-12 20:58:08 -0500  71)     color: red;
+e339eba0 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-12 20:58:08 -0500  72)     margin-bottom: 0.75em; 
+4bdca432 back_end/static/app/CSS/main.css (Casey                2023-11-13 18:23:19 -0500  73)     width: 30em;
+e339eba0 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-12 20:58:08 -0500  74)     background: rgba(252, 245, 221, 0.8);
+e339eba0 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-12 20:58:08 -0500  75)     box-shadow: 0 0 0.1em rgb(107, 100, 100);
+436be196 back_end/static/app/CSS/main.css (Casey                2023-11-13 22:27:29 -0500  76)     margin: auto;
+436be196 back_end/static/app/CSS/main.css (Casey                2023-11-13 22:27:29 -0500  77)     margin-top: 2em;
+436be196 back_end/static/app/CSS/main.css (Casey                2023-11-13 22:27:29 -0500  78)     margin-bottom: 4em;
+e339eba0 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-11-12 20:58:08 -0500  79)     padding: 0.7em 0.7em;
+d1098132 back_end/static/app/CSS/main.css (Casey                2023-11-13 09:40:53 -0500  80) }
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  82) .panel_nav {
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  83)     width: max-content;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  84)     display: grid;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  85)     grid-template-rows: 1fr;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  86)     justify-self: end;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  87) }
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  88) 
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  89) .panel_nav > a {
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  90)     margin: 1em;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  91)     font-size: 1.4em;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  92)     border: none;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  93)     box-shadow: none;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  94)     background-color: transparent;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  95)     cursor: pointer;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  96)     color: #d8d8d8;
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  97) }
+abaa15dd back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:32:06 -0500  98) 
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500  99) .navpanel_location_switch {
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 100)     visibility: hidden;
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 101) }
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 102) 
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 103) @media(max-width: 780px){
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 104) 
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 105)     .navpanel_location_switch {
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 106)         visibility: visible;
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 107)     }
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 108) 
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 109)     .navbar_location_switch {
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 110)         visibility: hidden;
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 111)     }
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 112) 
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 113) }
+4cd75595 back_end/static/app/CSS/main.css (Chesed Casey Collins 2023-12-01 20:56:45 -0500 114) 
+436be196 back_end/static/app/CSS/main.css (Casey                2023-11-13 22:27:29 -0500 115) @media(max-width: 440px){
+436be196 back_end/static/app/CSS/main.css (Casey                2023-11-13 22:27:29 -0500 116)     .form_fail {
+436be196 back_end/static/app/CSS/main.css (Casey                2023-11-13 22:27:29 -0500 117)         width: 80%;
+
+nav_bar.css
+
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500  9)     /* height: 4.3em; */
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 16) .nav_container {
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 17)     width: max-content;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 18)     display: grid;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 19)     grid-template-rows: 1fr;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 20)     justify-self: end;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 23) .navbar_container > button {
+4bdca432 back_end/static/app/CSS/nav_bar.css (Casey                2023-11-13 18:23:19 -0500 25)     font-size: 1.4em;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 34)     grid-column: 1/2;
+584dcf43 back_end/static/app/CSS/nav_bar.css (Chesed Casey Collins 2023-11-30 19:46:45 -0500 35)     grid-row: 1/2;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 36)     margin: 0.7em 1em;
+584dcf43 back_end/static/app/CSS/nav_bar.css (Chesed Casey Collins 2023-11-30 19:46:45 -0500 46)     grid-row: 1/2;
+4bdca432 back_end/static/app/CSS/nav_bar.css (Casey                2023-11-13 18:23:19 -0500 48)     font-size: 1.4em;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 49)     border: none;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 50)     box-shadow: none;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 51)     background-color: transparent;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 52)     cursor: pointer;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 53)     color: #d8d8d8;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 55) #toProfilePage {
+584dcf43 back_end/static/app/CSS/nav_bar.css (Chesed Casey Collins 2023-11-30 19:46:45 -0500 57)     grid-row: 1/2;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 58)     margin: 0.7em 1em;
+4bdca432 back_end/static/app/CSS/nav_bar.css (Casey                2023-11-13 18:23:19 -0500 59)     font-size: 1.4em;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 60)     border: none;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 61)     box-shadow: none;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 62)     background-color: transparent;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 63)     cursor: pointer;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 64)     color: #d8d8d8;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 66) #toAboutPage {
+584dcf43 back_end/static/app/CSS/nav_bar.css (Chesed Casey Collins 2023-11-30 19:46:45 -0500 68)     grid-row: 1/2;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 69)     margin: 0.7em 1em;
+4bdca432 back_end/static/app/CSS/nav_bar.css (Casey                2023-11-13 18:23:19 -0500 70)     font-size: 1.4em;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 71)     border: none;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 72)     box-shadow: none;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 73)     background-color: transparent;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 74)     cursor: pointer;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 75)     color: #d8d8d8;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 76) }
+a0ee1633 back_end/static/app/CSS/nav_bar.css (Chesed Casey Collins 2023-11-30 22:50:50 -0500 77) .togglePanelButton {
+584dcf43 back_end/static/app/CSS/nav_bar.css (Chesed Casey Collins 2023-11-30 19:46:45 -0500 79)     grid-row: 1/2;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 80)     margin: 0.7em 1em;
+4bdca432 back_end/static/app/CSS/nav_bar.css (Casey                2023-11-13 18:23:19 -0500 81)     font-size: 1.4em;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 82)     border: none;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 83)     box-shadow: none;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 84)     background-color: transparent;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 85)     cursor: pointer;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 86)     color: #d8d8d8;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 89) #toLoginPage:hover, #toProfilePage:hover, #toAboutPage:hover {
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 90)     color: #fdfdfd;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 93) #toLoginPage:active, #toProfilePage:active, #toAboutPage:active {
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 94)     color: #ada8a8;
+7be2b55d front_end/CSS/nav_bar.css           (Chesed Casey Collins 2023-11-12 10:47:29 -0500 95) } 
+
+profile.css
+
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400  3) form {
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400  5)     display: flex;
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400  6)     flex-direction: column;
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400  7)     align-items: center; /* Center horizontally */
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400  8)     justify-content: center; /* Center vertically */
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400  9)     height: 50vh;
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400 12) .info {
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400 13)     justify-content: center;
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400 14)     font-size: 1.2em;
+d196d658 front_end/CSS/profile.css (Chesed Casey Collins 2023-10-30 19:13:06 -0400 15)     margin-bottom: 10px;
+
+signup.css
+
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500   3) h2 {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500   5)     margin-top: 3em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500   6)     width: fit-content;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500   7)     text-align: center;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  10) form {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  11)     margin: auto;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  12)     margin-top: 1em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  13)     /* display: flex; */
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  14)     /* flex-direction: column;*/
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  15)     /* align-items: center; Center horizontally */
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  16)     /* justify-content: center; Center vertically */
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  17)     display: grid;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  18)     grid-template-columns: 1fr;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  19)     grid-template-rows: repeat(7, 1fr);
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  20)     width: 20em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  21)     text-align: left;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  24) .form_child_div {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  25)     width: 100%;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  26)     margin: .5em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  27)     display: grid;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  28)     grid-template-columns: 1fr 1fr;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  29)     grid-column: 1/2;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  32) label {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  36) input {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  37)     box-shadow: 0 0 0.2em rgb(95, 88, 176);
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  38)     overflow: hidden;   
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  39)     background: #fff; 
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  40)     padding: 0.7em 0.7em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  41)     border: none;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  42)     border-radius: 1em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  43)     outline: none;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  44)     width: 100%;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  45)     height: 2.3em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  49) select {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  50)     appearance: none; /* Remove default styles in some browsers */
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  51)     color: black; 
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  52)     background: #fff; 
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  53)     padding: 0.7em 0.7em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  54)     font-size: 0.85em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  55)     border: none;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  56)     border-radius: 1em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  57)     box-shadow: 0 0 0.2em rgb(95, 88, 176);
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  58)     width: 100%;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  59)     height: 2.3em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  62) option {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  64)     background-color: #fff;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  65)     color: black;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  69)     justify-self: center;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  70)     margin: 1em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  93) @media(max-width: 432px) {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  94)     form {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  95)         margin-bottom: 4em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  96)         align-items: start;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  97)         width: 60%;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  98)     }
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500  99)     .form_child_div {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 100)         display: grid;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 101)         grid-template-columns: 1fr;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 102)         grid-template-rows: 1fr 1fr;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 103)         margin: 1em;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 104)     }
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 107) @media(max-width: 320px) {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 108)     form {
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 109)         width: 80%;
+436be196 back_end/static/app/CSS/signup.css (Casey           2023-11-13 22:27:29 -0500 110)     }
+
+index.js
+
+abaa15dd back_end/static/app/JS/index.js (Chesed Casey Collins 2023-12-01 20:32:06 -0500 133) 
+01fd0291 back_end/static/app/JS/index.js (Chesed Casey Collins 2023-12-01 20:36:44 -0500 136)     let insert_anchor = document.querySelector(".panel_nav");
+01fd0291 back_end/static/app/JS/index.js (Chesed Casey Collins 2023-12-01 20:36:44 -0500 137)     panel.insertBefore(conversation_options, insert_anchor);
+
+login.js
+
+e339eba0 back_end/static/app/JS/login.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 18)         console.log(`Login failed: ${result.detail}`)
+e339eba0 back_end/static/app/JS/login.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 19)         
+d1098132 back_end/static/app/JS/login.js (Casey                2023-11-13 09:40:53 -0500 20)         let exists = document.querySelector(".form_fail");
+d1098132 back_end/static/app/JS/login.js (Casey                2023-11-13 09:40:53 -0500 21)         if (!exists) {
+d1098132 back_end/static/app/JS/login.js (Casey                2023-11-13 09:40:53 -0500 22)             let parent = document.querySelector("#login_form");
+d1098132 back_end/static/app/JS/login.js (Casey                2023-11-13 09:40:53 -0500 23)             let paragraph = document.createElement("p");
+d1098132 back_end/static/app/JS/login.js (Casey                2023-11-13 09:40:53 -0500 24)             paragraph.classList.add("form_fail");
+d1098132 back_end/static/app/JS/login.js (Casey                2023-11-13 09:40:53 -0500 25)             paragraph.innerHTML = "The username and/or password you entered does not match our records.";
+d1098132 back_end/static/app/JS/login.js (Casey                2023-11-13 09:40:53 -0500 26)             parent.appendChild(paragraph);
+d1098132 back_end/static/app/JS/login.js (Casey                2023-11-13 09:40:53 -0500 27)         }
+e339eba0 back_end/static/app/JS/login.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 28) 
+
+message_scroll.js
+
+d196d658 front_end/JS/message_scroll.js (Chesed Casey Collins 2023-10-30 19:13:06 -0400 1) window.onload = function() {
+d196d658 front_end/JS/message_scroll.js (Chesed Casey Collins 2023-10-30 19:13:06 -0400 2)     window.scrollTo(0, 500000); // Ensure reaching the bottom at the end
+d196d658 front_end/JS/message_scroll.js (Chesed Casey Collins 2023-10-30 19:13:06 -0400 3) };
+
+signup.js
+
+4bdca432 back_end/static/app/JS/signup.js (Casey           2023-11-13 18:23:19 -0500 85) 
+4bdca432 back_end/static/app/JS/signup.js (Casey           2023-11-13 18:23:19 -0500 86)         let exists = document.querySelector(".form_fail")
+436be196 back_end/static/app/JS/signup.js (Casey           2023-11-13 22:27:29 -0500 88)             let parent = document.querySelector("body");
+4bdca432 back_end/static/app/JS/signup.js (Casey           2023-11-13 18:23:19 -0500 93)         } else {
+4bdca432 back_end/static/app/JS/signup.js (Casey           2023-11-13 18:23:19 -0500 94)             let paragraph = document.querySelector(".form_fail");
+4bdca432 back_end/static/app/JS/signup.js (Casey           2023-11-13 18:23:19 -0500 95)             paragraph.innerHTML = user.detail;
+
+textarea_replacement.js
+
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400  1) // This script creates a div to replace the default text area because it is easier to edit
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400  2) 
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400  3) let textarea_replacement = document.createElement("div");       // making an editable div to replace a text area
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400  5) textarea_replacement.classList = "textarea_replacement"
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400  6) textarea_replacement.hidden = true;
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400  7) let submit_button = document.querySelector("#submit_message");
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400  8) let parent = document.querySelector("form");
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400  9) 
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 10) parent.insertBefore(textarea_replacement, submit_button);
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400 11) 
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 12) let textarea = document.querySelector("#message_textarea");
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400 13) let div = document.querySelector(".textarea_replacement");
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400 14) textarea.hidden = true;
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400 15) div.hidden = false;
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400 16) div.contentEditable = "true";
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 17) div.oninput = (e) => {                              // input into the editable div will be coppied int the hidden text area
+21e02d0d front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-09-21 11:02:25 -0400 18)     textarea.value = div.innerHTML;
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 20) div.addEventListener("keydown", function(event) {   // pressing enter will submit textarea instead of making a newline in the editable div
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 21)     if (event.key === "Enter") {
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 22)         event.preventDefault();
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 23)         submit_button.click();
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 24)     }
+14063de3 front_end/JS/textarea_replacement.js           (Chesed Casey Collins 2023-10-12 23:33:34 -0400 25) });
+e339eba0 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 26) parent.onsubmit = (e) => {                              
+e339eba0 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 27)     setTimeout(() => {
+e339eba0 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 28)         textarea.value = "";
+e339eba0 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 29)         div.innerHTML = "";
+e339eba0 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 30)     }, 0);
+e339eba0 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 31)     setTimeout(() => {
+e339eba0 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 32)         window.scrollTo(0, 500000);
+e339eba0 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 20:58:08 -0500 33)     }, 1);
+013100f8 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-12 17:53:46 -0500 34) };
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 49) const toggleButtons = document.querySelectorAll(".togglePanelButton");
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 50) const panelContainer = document.getElementById("panelContainer");
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 51) 
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 52) toggleButtons.forEach(function (button) {
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 53)   button.addEventListener("click", function () {
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 54)     if (panelContainer.style.left === "0px" || panelContainer.style.left === "") {
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 55)       // Panel is currently visible; hide it
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 56)       panelContainer.style.left = "-250px";
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 57)     } else {
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 58)       // Panel is hidden; show it
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 59)       panelContainer.style.left = "0px";
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 60)     }
+a0ee1633 back_end/static/app/JS/textarea_replacement.js (Chesed Casey Collins 2023-11-30 22:50:50 -0500 61)   });

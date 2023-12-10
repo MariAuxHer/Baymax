@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+h2 {
+    margin: auto;
+    margin-top: 3em;
+    width: fit-content;
+    text-align: center;
+}
+
+form {
+    margin: auto;
+    margin-top: 1em;
+    /* display: flex; */
+    /* flex-direction: column;*/
+    /* align-items: center; Center horizontally */
+    /* justify-content: center; Center vertically */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    width: 20em;
+    text-align: left;
+}
+
+.form_child_div {
+    width: 100%;
+    margin: .5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1/2;
+}
+
+label {
+    font-size: 1.2em;
+}
+
+input {
+    box-shadow: 0 0 0.2em rgb(95, 88, 176);
+    overflow: hidden;   
+    background: #fff; 
+    padding: 0.7em 0.7em;
+    border: none;
+    border-radius: 1em;
+    outline: none;
+    width: 100%;
+    height: 2.3em;
+    appearance: none;
+}
+
+select {
+    appearance: none; /* Remove default styles in some browsers */
+    color: black; 
+    background: #fff; 
+    padding: 0.7em 0.7em;
+    font-size: 0.85em;
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em rgb(95, 88, 176);
+    width: 100%;
+    height: 2.3em;
+}
+
+option {
+    justify-content: center;
+    background-color: #fff;
+    color: black;
+}
+
+button {
+    justify-self: center;
+    margin: 1em;
+    color: rgb(39, 37, 37);
+    background: rgb(255, 44, 44);
+    display: grid;
+    border: none;
+    width: 100px;
+    height: 25px;
+    box-shadow: 0 0 0.2em rgb(21, 21, 21);
+    font-size: large;
+    align-content: center;
+    border-radius: 1em;
+    outline: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(255, 82, 82);
+}
+
+button:active {
+    background: rgb(205, 40, 40);
+}
+
+@media(max-width: 432px) {
+    form {
+        margin-bottom: 4em;
+        align-items: start;
+        width: 60%;
+    }
+    .form_child_div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 1em;
+    }
+}
+
+@media(max-width: 320px) {
+    form {
+        width: 80%;
+    }
+}
+
+
+/* ul {
+    border: 0.5em hidden slateblue;
+    list-style: none;
+}
+
+li {
+    cursor: pointer;
+    padding: 10px;
+}
+
+li:hover {
+    background-color: rgb(75, 65, 147);
+} */

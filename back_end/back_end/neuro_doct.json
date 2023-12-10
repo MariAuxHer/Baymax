@@ -1,0 +1,2650 @@
+{
+  "": [
+    {
+      "doctor_name": "CUELLO ODERIZ, CAROLINA",
+      "doctor_address": "NEUROLOGY GENERAL (HMC) ANDRINA WALTERS 120 EAST SECOND ST., 3RD FLOORUPMC NORTHSHORE NEUROLOGY, ERIE, PA 16507",
+      "phone": "(315) 464-4570"
+    },
+    {
+      "doctor_name": "FREID, JAY",
+      "doctor_address": "111 NEUROLOGY WAY, MILFORD, DE 19963",
+      "phone": "(302) 422-0800"
+    },
+    {
+      "doctor_name": "HAMMER, SCOTT",
+      "doctor_address": "119 NEUROLOGY WAY, MILFORD, DE 19963",
+      "phone": "(302) 424-3900"
+    },
+    {
+      "doctor_name": "BARNES, CEDRIC",
+      "doctor_address": "119 NEUROLOGY WAY, MILFORD, DE 19963",
+      "phone": "(302) 424-3900"
+    },
+    {
+      "doctor_name": "COVELESKI, PETER",
+      "doctor_address": "111 NEUROLOGY WAY, MILFORD, DE 19963",
+      "phone": "(302) 422-0800"
+    },
+    {
+      "doctor_name": "GOUGH, SHALINI",
+      "doctor_address": "119 NEUROLOGY WAY, MILFORD, DE 19963",
+      "phone": "(302) 424-3900"
+    },
+    {
+      "doctor_name": "ADAMU, ABDULLAHI MUSA",
+      "doctor_address": "1501 KINGS HIGHWAY NEUROLOGY, SHREVEPORT, LA 71130",
+      "phone": "(318) 626-2482"
+    },
+    {
+      "doctor_name": "ARVAS, MUHAMMED IKBAL",
+      "doctor_address": "1501 KINGS HIGHWAY NEUROLOGY, SHREVEPORT, LA 71130",
+      "phone": "(318) 626-2482"
+    },
+    {
+      "doctor_name": "GILBREATH, HEATHER",
+      "doctor_address": "1935 MOTOR ST NEUROLOGY, DALLAS, TX 75235",
+      "phone": "(214) 456-8958"
+    },
+    {
+      "doctor_name": "ALHUSSEIN, HASSAN",
+      "doctor_address": "1501 KINGS HIGHWAY NEUROLOGY, SHREVEPORT, LA 71130",
+      "phone": "(318) 626-2482"
+    },
+    {
+      "doctor_name": "CARVAJAL-GONZALEZ, ALEXANDER",
+      "doctor_address": "1501 KINGS HIGHWAY NEUROLOGY, SHREVEPORT, LA 71130",
+      "phone": "(318) 626-2482"
+    },
+    {
+      "doctor_name": "SHEIBLEY, ANDREA",
+      "doctor_address": "700 CHILDRENS DR NEUROLOGY, COLUMBUS, OH 43205",
+      "phone": "(614) 722-9542"
+    },
+    {
+      "doctor_name": "WOLFE, RYAN",
+      "doctor_address": "601 ELMWOOD AVE, NEUROLOGY CLINIC, ROCHESTER, NY 14642",
+      "phone": "(585) 275-1200"
+    },
+    {
+      "doctor_name": "TEPPER, DEBORAH",
+      "doctor_address": "ONE MEDICAL CENTER DRIVE NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    },
+    {
+      "doctor_name": "ERNST, KATHERYN",
+      "doctor_address": "611 W PARK ST NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    },
+    {
+      "doctor_name": "BLACKWELL, MARISSA",
+      "doctor_address": "1215 LEE ST. NEUROLOGY 800394, CHARLOTTESVILLE, VA 22908",
+      "phone": "(434) 924-5306"
+    },
+    {
+      "doctor_name": "GOWER, CASEY",
+      "doctor_address": "NEUROLOGY DEPARTMENT 8901 WISCONSIN AVE, BETHESDA, MD 20889",
+      "phone": "(301) 400-1782"
+    },
+    {
+      "doctor_name": "JOHNSON, THOMAS",
+      "doctor_address": "601 ELMWOOD AVE NEUROLOGY CLINIC, ROCHESTER, NY 14642",
+      "phone": "(585) 275-1200"
+    },
+    {
+      "doctor_name": "COHEN, DYLAN",
+      "doctor_address": "450 CLARKSON AVE NEUROLOGY DEPT., BROOKLYN, NY 11203",
+      "phone": "(718) 270-2051"
+    },
+    {
+      "doctor_name": "TRIVIGNO MCNALLEN, ANN",
+      "doctor_address": "1250 E. MARSHALL ST. NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 323-2255"
+    },
+    {
+      "doctor_name": "ALBERT, GEORGE",
+      "doctor_address": "601 ELMWOOD AVE NEUROLOGY CLINIC, ROCHESTER, NY 14642",
+      "phone": "(585) 275-1200"
+    },
+    {
+      "doctor_name": "CHENG, MEGAN",
+      "doctor_address": "757 WESTWOOD PLAZA, NEUROLOGY, LOS ANGELES, CA 90095",
+      "phone": "(310) 794-1195"
+    },
+    {
+      "doctor_name": "ABERKORN, IRYNA",
+      "doctor_address": "1 MEDICAL CENTER DR NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-4211"
+    },
+    {
+      "doctor_name": "JAVED, FARRUKH",
+      "doctor_address": "WVU NEUROLOGY 1 STADIUM DRIVE, MORGANTOWN, WV 26507",
+      "phone": "(304) 598-6127"
+    },
+    {
+      "doctor_name": "MILES, JENNIFER",
+      "doctor_address": "ONE MEDICAL CENTER DRIVE NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    },
+    {
+      "doctor_name": "DU, MATTHEW",
+      "doctor_address": "757 WESTWOOD PLAZA, NEUROLOGY, LOS ANGELES, CA 90095",
+      "phone": "(310) 825-6681"
+    },
+    {
+      "doctor_name": "BARLET, MARGARET",
+      "doctor_address": "601 ELMWOOD AVE NEUROLOGY CLINIC, ROCHESTER, NY 14642",
+      "phone": "(585) 275-1200"
+    },
+    {
+      "doctor_name": "JUAREZ, ERICK",
+      "doctor_address": "757 WESTWOOD PLAZA, (NEUROLOGY), LOS ANGELES, CA 90095",
+      "phone": "(310) 825-7375"
+    },
+    {
+      "doctor_name": "PURKS, JENNIFER",
+      "doctor_address": "601 ELMWOOD AVE, NEUROLOGY CLINIC, ROCHESTER, NY 14642",
+      "phone": "(585) 275-1200"
+    },
+    {
+      "doctor_name": "GANZMAN, ADAM",
+      "doctor_address": "99 BEAUVOIR AVE OUTPATIENT NEUROLOGY, SUMMIT, NJ 07901",
+      "phone": "(908) 522-5545"
+    },
+    {
+      "doctor_name": "BROOKS, CHRISTOPHER",
+      "doctor_address": "55 LAKE AVE N NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 334-2527"
+    },
+    {
+      "doctor_name": "XIA, YUXING",
+      "doctor_address": "757 WESTWOOD PLAZA, NEUROLOGY, LOS ANGELES, CA 90095",
+      "phone": "(310) 825-6681"
+    },
+    {
+      "doctor_name": "SCHRODT, CLARE",
+      "doctor_address": "757 WESTWOOD PLAZA (NEUROLOGY), LOS ANGELES, CA 90095",
+      "phone": "(502) 974-3131"
+    },
+    {
+      "doctor_name": "FATIMA, FARWAH",
+      "doctor_address": "CAMC NEUROLOGY 415 MORRIS STREET, CHARLESTON, WV 25304",
+      "phone": "(304) 388-6441"
+    },
+    {
+      "doctor_name": "PATEL, ASHNI",
+      "doctor_address": "757 WESTWOOD PLAZA, NEUROLOGY, LOS ANGELES, CA 90095",
+      "phone": "(310) 825-6681"
+    },
+    {
+      "doctor_name": "NEELY, JOHN",
+      "doctor_address": "4150 CLEMENT ST NEUROLOGY DEPT, SAN FRANCISCO, CA 94121",
+      "phone": "(415) 750-2011"
+    },
+    {
+      "doctor_name": "PERK, JONATHAN",
+      "doctor_address": "339 HICKS ST LICH, NEUROLOGY DEPARTMENT, BROOKLYN, NY 11201",
+      "phone": "(718) 780-1124"
+    },
+    {
+      "doctor_name": "NASSERY, MOHAMMAD",
+      "doctor_address": "407 NORTH ST ARIANA PEDIATRIC NEUROLOGY, HYANNIS, MA 02601",
+      "phone": "(508) 790-5777"
+    },
+    {
+      "doctor_name": "LEE, SANGHYO",
+      "doctor_address": "450 CLARKSON AVENUE DEPARTMENT OF NEUROLOGY, BROOKLYN, NY 11203",
+      "phone": "(718) 270-4232"
+    },
+    {
+      "doctor_name": "CARRAN, MELISSA",
+      "doctor_address": "3 COOPER PLZ SUITE 215 (NEUROLOGY), CAMDEN, NJ 08103",
+      "phone": "(856) 342-2445"
+    },
+    {
+      "doctor_name": "GREEN, DEBORAH",
+      "doctor_address": "60 FENWOOD RD DEPARTMENT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-8060"
+    },
+    {
+      "doctor_name": "DOOLITTLE, CHARLES",
+      "doctor_address": "UC HEALTH NEUROLOGY 3113 BELLEVUE AVENUE, CINCINNATI, OH 45229",
+      "phone": "(513) 475-8730"
+    },
+    {
+      "doctor_name": "PESHWE, KRITHIKA UMESH",
+      "doctor_address": "DEPARTMENT OF NEUROLOGY 5TH FLOOR POC, MORGANTOWN, WV 26507",
+      "phone": "(304) 598-6127"
+    },
+    {
+      "doctor_name": "SHARMA, KUSH",
+      "doctor_address": "SUNY DOWNSTATE, 450 CLARKSON AVE NEUROLOGY, BROOKLYN, NY 11203",
+      "phone": "(718) 270-2051"
+    },
+    {
+      "doctor_name": "PYZIK, ERIKA",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "MILLER, JENNA",
+      "doctor_address": "3400 SPRUCE STREET DEPARTMENT OF NEUROLOGY, PHILADELPHIA, PA 19104",
+      "phone": "(215) 662-2700"
+    },
+    {
+      "doctor_name": "WANG, SHIH SYUAN",
+      "doctor_address": "450 CLARKSON AVENUE SUNY DOWNSTATE NEUROLOGY, BROOKLYN, NY 11203",
+      "phone": "(718) 270-4232"
+    },
+    {
+      "doctor_name": "CONNER, KELLY",
+      "doctor_address": "MEDICAL CENTER BLVD NEUROLOGY DEPT, WINSTON SALEM, NC 27157",
+      "phone": "(336) 716-4101"
+    },
+    {
+      "doctor_name": "MCCONATHY, EMILY",
+      "doctor_address": "3800 RESERVOIR ROAD DEPT OF NEUROLOGY, WASHINGTON, DC 20007",
+      "phone": "(202) 444-1037"
+    },
+    {
+      "doctor_name": "BLOCH, MATTHEW",
+      "doctor_address": "450 CLARKSON AVE SUNY DOWNSTATE , NEUROLOGY, BROOKLYN, NY 11203",
+      "phone": "(718) 270-2051"
+    },
+    {
+      "doctor_name": "ABULABAN, AHMAD",
+      "doctor_address": "20 YORK STREET YNHH NEUROLOGY, NEW HAVEN, CT 06510",
+      "phone": "(203) 688-4242"
+    },
+    {
+      "doctor_name": "WELLS, LAUREN",
+      "doctor_address": "4150 CLEMENT ST NEUROLOGY 117, SAN FRANCISCO, CA 94121",
+      "phone": "(415) 221-4810"
+    },
+    {
+      "doctor_name": "SUTER, BERNHARD",
+      "doctor_address": "6701 FANNIN ST PEDIATRIC NEUROLOGY DEPARTMENT, HOUSTON, TX 77030",
+      "phone": "(832) 822-1764"
+    },
+    {
+      "doctor_name": "SEEHRA, GURPREET",
+      "doctor_address": "757 WESTWOOD PLAZA (PEDIATRIC NEUROLOGY), LOS ANGELES, CA 90095",
+      "phone": "(310) 825-6196"
+    },
+    {
+      "doctor_name": "HUSSAIN, MUHAMMAD",
+      "doctor_address": "3 RIVERSIDE CIRCLE CARILION CLINIC NEUROLOGY, ROANOKE, VA 24016",
+      "phone": "(540) 566-8283"
+    },
+    {
+      "doctor_name": "RICCIARDI, KATIE",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "KLERMAN, ELIZABETH",
+      "doctor_address": "100 CAMBRIDGE ST 20TH FL- NEUROLOGY, BOSTON, MA 02114",
+      "phone": "(617) 643-2424"
+    },
+    {
+      "doctor_name": "SPYCHALLA, LAURA",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "GHOCHANI, YASMIN",
+      "doctor_address": "757 WESTWOOD PLZ NEUROLOGY PRELIM, LOS ANGELES, CA 90095",
+      "phone": "(310) 825-7375"
+    },
+    {
+      "doctor_name": "HEFFERNAN, MARGARET",
+      "doctor_address": "330 BROOKLINE AVE BEHAVIORAL NEUROLOGY DEPT., BOSTON, MA 02215",
+      "phone": "(617) 667-1317"
+    },
+    {
+      "doctor_name": "GOODMAN, ROY",
+      "doctor_address": "50 IRVING ST NW NEUROLOGY SERVICE, WASHINGTON, DC 20422",
+      "phone": "(202) 745-8145"
+    },
+    {
+      "doctor_name": "SEARL, MEGHAN",
+      "doctor_address": "221 LONGWOOD AVE BRIGHAM BEHAVIROAL NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-8060"
+    },
+    {
+      "doctor_name": "SABIN, STEPHEN",
+      "doctor_address": "22 S GREENE ST NEUROLOGY, N4W47B, BALTIMORE, MD 21201",
+      "phone": "(410) 328-5841"
+    },
+    {
+      "doctor_name": "JEAN, MAXIME",
+      "doctor_address": "601 ELMWOOD AVE NEUROLOGY CLINIC 681, ROCHESTER, NY 14642",
+      "phone": "(585) 275-1200"
+    },
+    {
+      "doctor_name": "PHILLIPS, LAURA",
+      "doctor_address": "330 BROOKLINE AVE COGNITIVE NEUROLOGY UNITY, BOSTON, MA 02215",
+      "phone": "(781) 718-7921"
+    },
+    {
+      "doctor_name": "JOHNSON, CHAD",
+      "doctor_address": "1250 E MARSHALL ST CHILD NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0442"
+    },
+    {
+      "doctor_name": "OGRODNIK, MAGDALENA",
+      "doctor_address": "DEPARTMENT OF NEUROLOGY 3601 4TH STREET, LUBBOCK, TX 79430",
+      "phone": "(806) 743-2391"
+    },
+    {
+      "doctor_name": "MONOHAN, ELIZABETH",
+      "doctor_address": "450 CLARKSON AVENUE DEPARTMENT OF NEUROLOGY, BROOKLYN, NY 11203",
+      "phone": "(718) 270-4232"
+    },
+    {
+      "doctor_name": "SIVAKUMAR, SHRUTHI",
+      "doctor_address": "450 CLARKSON AVE DEPT OF NEUROLOGY, BROOKLYN, NY 11203",
+      "phone": "(718) 270-2051"
+    },
+    {
+      "doctor_name": "DE RIESTHAL, MICHAEL",
+      "doctor_address": "1601 SW ARCHER RD NEUROLOGY SERVICE (127), GAINESVILLE, FL 32608",
+      "phone": "(352) 376-1611"
+    },
+    {
+      "doctor_name": "WANNON, AVI",
+      "doctor_address": "3800 RESERVOIR RD NW DEPT OF NEUROLOGY, WASHINGTON, DC 20007",
+      "phone": "(202) 444-2000"
+    },
+    {
+      "doctor_name": "BRADSHAW, CHARLES",
+      "doctor_address": "750 E ADAMS ST DEPARTMENT OF NEUROLOGY, SYRACUSE, NY 13210",
+      "phone": "(315) 464-5016"
+    },
+    {
+      "doctor_name": "RENTZ, DORENE",
+      "doctor_address": "221 LONGWOOD AVENUE BRIGHAM BEHAVIORAL NEUROLOGY GROUP, BOSTON, MA 02115",
+      "phone": "(617) 732-8060"
+    },
+    {
+      "doctor_name": "THOMSON, ELIZABETH",
+      "doctor_address": "4-2817 REILLEY RD NEUROLOGY CLINIC, FORT BRAGG, NC 28310",
+      "phone": "(910) 907-6000"
+    },
+    {
+      "doctor_name": "LAKUSTA-WONG, TAYLOR",
+      "doctor_address": "111 COLCHESTER AVENUE UVMMC, DEPARTMENT OF NEUROLOGY, BURLINGTON, VT 05401",
+      "phone": "(802) 847-2345"
+    },
+    {
+      "doctor_name": "UTT, JESSICA",
+      "doctor_address": "1250 E MARSHALL ST DEPT. OF NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 662-9185"
+    },
+    {
+      "doctor_name": "BLASCHUK, CHERYL",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5253"
+    },
+    {
+      "doctor_name": "JEFFERIES, KRISTEN",
+      "doctor_address": "729 ARAPEEN DR NEUROLOGY CLINIC, SALT LAKE CITY, UT 84108",
+      "phone": "(801) 587-8122"
+    },
+    {
+      "doctor_name": "RUCHO, MARY",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 334-2527"
+    },
+    {
+      "doctor_name": "MEADOWS, MARY-ELLEN",
+      "doctor_address": "221 LONGWOOD AVENUE BRIGHAM BEHAVIORAL NEUROLOGY GROUP, BOSTON, MA 02115",
+      "phone": "(617) 732-8060"
+    },
+    {
+      "doctor_name": "ROPPER, ALLAN",
+      "doctor_address": "75 FRANCIS ST # BB204 DEPARTMENT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-8047"
+    },
+    {
+      "doctor_name": "KAVALIR, MARY",
+      "doctor_address": "3901 RAINBOW BLVD DEPT OF NEUROLOGY, KANSAS CITY, KS 66160",
+      "phone": "(913) 588-4582"
+    },
+    {
+      "doctor_name": "SOLIS RAMIREZ, JONATHAN",
+      "doctor_address": "SUNY DOWNSTATE 450 CLARKSON AVENUE NEUROLOGY DEPARMENT, BROOKLYN, NY 11203",
+      "phone": "(718) 270-2051"
+    },
+    {
+      "doctor_name": "HENZE, WESLEY",
+      "doctor_address": "47 NEW SCOTLAND AVENUE, DEPT. OF NEUROLOGY, ALBANY, NY 12208",
+      "phone": "(518) 262-5226"
+    },
+    {
+      "doctor_name": "GOFF, KRISTEN",
+      "doctor_address": "1 MEDICAL CENTER DR DEPT. OF NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-7491"
+    },
+    {
+      "doctor_name": "TREESHIN, COREY",
+      "doctor_address": "43 NEW SCOTLAND AVENUE DEPT. OF NEUROLOGY, ALBANY, NY 12208",
+      "phone": "(518) 262-5377"
+    },
+    {
+      "doctor_name": "MENON, JHANVI",
+      "doctor_address": "400 CRAVEN RD DEPARTMENT OF NEUROLOGY, SAN MARCOS, CA 92078",
+      "phone": "(619) 952-3029"
+    },
+    {
+      "doctor_name": "VANDERWERF, JANICE",
+      "doctor_address": "1375 E 20TH AVE DEPT 2096, NEUROLOGY, DENVER, CO 80205",
+      "phone": "(303) 861-3380"
+    },
+    {
+      "doctor_name": "OSBORNE, GADEN",
+      "doctor_address": "47 NEW SCOTLAND AVE DEPARTMENT OF NEUROLOGY, ALBANY, NY 12208",
+      "phone": "(518) 262-3095"
+    },
+    {
+      "doctor_name": "LA PEAN KIRSCHNER, ALISON",
+      "doctor_address": "9200 W WISCONSIN AVE DEPT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5200"
+    },
+    {
+      "doctor_name": "MOIEN AFSHARI, FARZAD",
+      "doctor_address": "330 BROOKLINE AVE NEUROLOGY DEPARTMENT, BAKER 5, BOSTON, MA 02215",
+      "phone": "(617) 840-5778"
+    },
+    {
+      "doctor_name": "KOHLI, DISHA",
+      "doctor_address": "2500 N STATE ST DEPARTMENT OF NEUROLOGY, JACKSON, MS 39216",
+      "phone": "(601) 984-5514"
+    },
+    {
+      "doctor_name": "SUREDDI, SHAKTHI",
+      "doctor_address": "47 NEW SCOTLAND AVENUE, DEPT. OF NEUROLOGY, ALBANY, NY 12208",
+      "phone": "(518) 262-6488"
+    },
+    {
+      "doctor_name": "MARIN, REBECCA",
+      "doctor_address": "111 COLCHESTER AVE. UVM MEDICAL CENTER - NEUROLOGY, BURLINGTON, VT 05401",
+      "phone": "(802) 847-4589"
+    },
+    {
+      "doctor_name": "CHEN, SHEN EN",
+      "doctor_address": "2500 N. STATE STREET DEPARTMENT OF NEUROLOGY, JACKSON, MS 39216",
+      "phone": "(601) 984-5514"
+    },
+    {
+      "doctor_name": "HALL, CAMERON",
+      "doctor_address": "9500 EUCLID AVE H60 NEUROLOGY AND NEUROSURGERY, CLEVELAND, OH 44195",
+      "phone": "(989) 513-1970"
+    },
+    {
+      "doctor_name": "LANDIS, NICOLE",
+      "doctor_address": "2570 HAYMAKER RD PREMIER MEDICAL ASSOCIATES NEUROLOGY, MONROEVILLE, PA 15146",
+      "phone": "(412) 856-5530"
+    },
+    {
+      "doctor_name": "SKURJA, MICHAEL, JR.",
+      "doctor_address": "NAVAL HOSPTIAL, NEUROLOGY DEPARTMENT BOX 555191, CAMP PENDLETON, CA 92055",
+      "phone": "(760) 725-1384"
+    }
+  ],
+  "Neurology": [
+    {
+      "doctor_name": "KOFAHI, RAID",
+      "doctor_address": "111 NEUROLOGY WAY, MILFORD, DE 19963",
+      "phone": "(302) 422-0800"
+    },
+    {
+      "doctor_name": "DAVE, JAY",
+      "doctor_address": "111 NEUROLOGY WAY, MILFORD, DE 19963",
+      "phone": "(302) 422-0800"
+    },
+    {
+      "doctor_name": "VARGAS VIVES, DIANA",
+      "doctor_address": "285 BOULEVARD NE NEUROLOGY, ATLANTA, GA 30312",
+      "phone": "(404) 653-0039"
+    },
+    {
+      "doctor_name": "CASTRO-BORRERO, WANDA",
+      "doctor_address": "263 FARMINGTON AVE NEUROLOGY, FARMINGTON, CT 06030",
+      "phone": "(860) 679-4888"
+    },
+    {
+      "doctor_name": "SANSING, LAUREN",
+      "doctor_address": "263 FAMINGTON AVE NEUROLOGY, FARMINGTON, CT 06030",
+      "phone": "(860) 679-4888"
+    },
+    {
+      "doctor_name": "GREENSPAN, BEVERLY",
+      "doctor_address": "263 FARMINGTON AVE NEUROLOGY, FARMINGTON, CT 06030",
+      "phone": "(860) 679-4888"
+    },
+    {
+      "doctor_name": "MULLALLY, WILLIAM",
+      "doctor_address": "111 GROSSMAN DR NEUROLOGY, BRAINTREE, MA 02184",
+      "phone": "(781) 849-2265"
+    },
+    {
+      "doctor_name": "CHAO, STEVEN",
+      "doctor_address": "300 PASTEUR DR NEUROLOGY, PALO ALTO, CA 94305",
+      "phone": "(650) 725-6688"
+    },
+    {
+      "doctor_name": "CHEN, RONG",
+      "doctor_address": "602 W. UNIVERSITY AVENUE NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    },
+    {
+      "doctor_name": "KOEPPEN, ARNULF",
+      "doctor_address": "113 HOLLAND AVE NEUROLOGY SERVICE, ALBANY, NY 12208",
+      "phone": "(518) 626-6373"
+    },
+    {
+      "doctor_name": "DAVIES, CHARLES",
+      "doctor_address": "602 W. UNIVERSITY AVENUE NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    },
+    {
+      "doctor_name": "KIRCHMEIER-KROESSLER, KATHLEEN",
+      "doctor_address": "76 PARK ST NEUROLOGY PARTNERS, ATTLEBORO, MA 02703",
+      "phone": "(508) 431-2026"
+    },
+    {
+      "doctor_name": "KERNITSKY, LYDIA",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0442"
+    },
+    {
+      "doctor_name": "BARON, MARK",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9350"
+    },
+    {
+      "doctor_name": "TAYLOR, JOHN",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9873"
+    },
+    {
+      "doctor_name": "RUTKOWSKI, ELIZABETH",
+      "doctor_address": "1120 15TH ST NEUROLOGY DEPT, AUGUSTA, GA 30912",
+      "phone": "(706) 721-7051"
+    },
+    {
+      "doctor_name": "SMITH, ANDREW, III",
+      "doctor_address": "ONE MEDICAL CENTER DRIVE NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    },
+    {
+      "doctor_name": "TJANDRA, CHRISTINE",
+      "doctor_address": "975 SERENO DR H31 NEUROLOGY, VALLEJO, CA 94589",
+      "phone": "(707) 651-1090"
+    },
+    {
+      "doctor_name": "FELTON, WARREN, III",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-4806"
+    },
+    {
+      "doctor_name": "LESZCZYSZYN, DAVID",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0442"
+    },
+    {
+      "doctor_name": "DHAMNE, MEGHA",
+      "doctor_address": "1 BAYLOR PLZ NEUROLOGY DEPARTMENT, HOUSTON, TX 77030",
+      "phone": "(173) 798-6151"
+    },
+    {
+      "doctor_name": "LIU, JIE",
+      "doctor_address": "1654 UPHAM DR. DEP. NEUROLOGY, COLUMBUS, OH 43210",
+      "phone": "(614) 293-4448"
+    },
+    {
+      "doctor_name": "CLOUD, LESLIE",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-5512"
+    },
+    {
+      "doctor_name": "KHOSROWSHAHI, SAMINEH",
+      "doctor_address": "611 W. PARK ST. NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    },
+    {
+      "doctor_name": "ROZANSKY, GREGORY",
+      "doctor_address": "9200 W WISCONSIN AVE NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5235"
+    },
+    {
+      "doctor_name": "REIMER, RICHARD",
+      "doctor_address": "300 PASTEUR DR NEUROLOGY CLINIC, STANFORD, CA 94305",
+      "phone": "(650) 723-6469"
+    },
+    {
+      "doctor_name": "BOMPREZZI, ROBERTO",
+      "doctor_address": "55 LAKE AVE N NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 334-2527"
+    },
+    {
+      "doctor_name": "SOLOMON, ANDREW",
+      "doctor_address": "1 SOUTH PROSPECT ST. NEUROLOGY, BURLINGTON, VT 05403",
+      "phone": "(802) 847-4589"
+    },
+    {
+      "doctor_name": "BENNETT, JAMES, JR.",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9350"
+    },
+    {
+      "doctor_name": "BREMER, HARRY",
+      "doctor_address": "602 W. UNIVERSITY AVENUE NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    },
+    {
+      "doctor_name": "MEHTA, JAGJIVAN",
+      "doctor_address": "29 NORTHWEST BLVD FOUNDATION NEUROLOGY, NASHUA, NH 03063",
+      "phone": "(603) 577-8450"
+    },
+    {
+      "doctor_name": "CRANSTON, ROBERT",
+      "doctor_address": "602 W. UNIVERSITY AVENUE NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    },
+    {
+      "doctor_name": "DU, XINLI",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 662-9185"
+    },
+    {
+      "doctor_name": "TOWNE, ALAN",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9350"
+    },
+    {
+      "doctor_name": "KHAYALI, OMER",
+      "doctor_address": "9961 SIERRA AVE BSMT NEUROLOGY, FONTANA, CA 92335",
+      "phone": "(909) 427-5306"
+    },
+    {
+      "doctor_name": "GEORGSSON, HLYNUR",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9350"
+    },
+    {
+      "doctor_name": "MENZE, ALEXANDER",
+      "doctor_address": "101 BODIN CIR NEUROLOGY CLINIC, FAIRFIELD, CA 94535",
+      "phone": "(707) 423-5029"
+    },
+    {
+      "doctor_name": "MITTAL, SANJAY",
+      "doctor_address": "263 FARMINGTON AVE NEUROLOGY OFFICE, FARMINGTON, CT 06030",
+      "phone": "(860) 679-4888"
+    },
+    {
+      "doctor_name": "JOSEPH, LENORE",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9720"
+    },
+    {
+      "doctor_name": "DELORENZO, ROBERT",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9720"
+    },
+    {
+      "doctor_name": "BEKENSTEIN, JONATHAN",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9350"
+    },
+    {
+      "doctor_name": "KALRA, ARUN",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0442"
+    },
+    {
+      "doctor_name": "KILGO, WILLIAM",
+      "doctor_address": "2451 FILLINGIM ST 10F NEUROLOGY, MOBILE, AL 36617",
+      "phone": "(251) 445-8261"
+    },
+    {
+      "doctor_name": "WATERHOUSE, ELIZABETH",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9583"
+    },
+    {
+      "doctor_name": "MILES, MICHAEL",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0054"
+    },
+    {
+      "doctor_name": "MCNUSSEN, PATRICIA",
+      "doctor_address": "611 W PARK ST NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    },
+    {
+      "doctor_name": "DHUNGANA, SAMISH",
+      "doctor_address": "677 CHURCH STREET NEUROLOGY DEPARTMENT, MARUETTA, GA 30060",
+      "phone": "(281) 866-5077"
+    },
+    {
+      "doctor_name": "MONROE, RICHARD",
+      "doctor_address": "6 CARE LN NEUROLOGY, SARATOGA SPRINGS, NY 12866",
+      "phone": "(518) 581-1415"
+    },
+    {
+      "doctor_name": "CHAN, JOY",
+      "doctor_address": "16111 PLUMMER STREET NEUROLOGY SERVICE, SEPULVEDA, CA 91343",
+      "phone": "(310) 478-3711"
+    },
+    {
+      "doctor_name": "MCNAIR, NANCY",
+      "doctor_address": "1 FREEDOM WAY NEUROLOGY DEPT (257), AUGUSTA, GA 30904",
+      "phone": "(706) 733-0188"
+    },
+    {
+      "doctor_name": "MIRSEN, THOMAS",
+      "doctor_address": "3 COOPER PLZ SUITE 215 (NEUROLOGY), CAMDEN, NJ 08103",
+      "phone": "(856) 342-2445"
+    },
+    {
+      "doctor_name": "UHL, GEORGE",
+      "doctor_address": "4940 EASTERN AVE DEPT OF NEUROLOGY, BALTIMORE, MD 21224",
+      "phone": "(410) 550-2843"
+    },
+    {
+      "doctor_name": "MAKHIJA, MONICA",
+      "doctor_address": "55 LAKE AVE N NEUROLOGY RESIDENCY, WORCESTER, MA 01655",
+      "phone": "(508) 856-3083"
+    },
+    {
+      "doctor_name": "VOLPE, DARREN",
+      "doctor_address": "950 CAMPBELL AVE NEUROLOGY 127, WEST HAVEN, CT 06516",
+      "phone": "(203) 932-5711"
+    },
+    {
+      "doctor_name": "MILLER, JOSEPH, JR.",
+      "doctor_address": "NEUROLOGY CLINIC NATIONAL NAVAL MEDICAL CENTER, BETHESDA, MD 20889",
+      "phone": "(301) 295-4771"
+    },
+    {
+      "doctor_name": "HECOX, KURT",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "SCHERER, KATALIN",
+      "doctor_address": "2800 E AJO WAY NEUROLOGY DEPARTMENT, TUCSON, AZ 85713",
+      "phone": "(520) 694-8888"
+    },
+    {
+      "doctor_name": "MASEL, TODD",
+      "doctor_address": "301 UNIVERSITY BLVD DEPARTMENT OF NEUROLOGY, GALVESTON, TX 77555",
+      "phone": "(409) 772-8053"
+    },
+    {
+      "doctor_name": "MUNSON, RICHARD",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "GROOTHUIS, DENNIS",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "MINAGAR, ALIREZA",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 675-7737"
+    },
+    {
+      "doctor_name": "SCHWENDIMANN, ROBERT",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 813-2482"
+    },
+    {
+      "doctor_name": "MALLERY, ROBERT",
+      "doctor_address": "75 FRANCIS ST DEPARTMENT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-7432"
+    },
+    {
+      "doctor_name": "SLOANE, JACOB",
+      "doctor_address": "330 BROOKLINE AVE DEPARTMENT OF NEUROLOGY, BOSTON, MA 02215",
+      "phone": "(617) 667-3742"
+    },
+    {
+      "doctor_name": "HARDY, JOHN",
+      "doctor_address": "2280 HEMBY LN ECU PHYSICIANS NEUROLOGY, GREENVILLE, NC 27834",
+      "phone": "(252) 744-9400"
+    },
+    {
+      "doctor_name": "HAHN, CECIL",
+      "doctor_address": "300 LONGWOOD AVE. CHILDREN'S HOSPITAL, NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 355-8735"
+    },
+    {
+      "doctor_name": "WEN, PATRICK",
+      "doctor_address": "75 FRANCIS ST DEPT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-7432"
+    },
+    {
+      "doctor_name": "FISHER, MARC",
+      "doctor_address": "119 BELMONT ST DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01605",
+      "phone": "(508) 334-6641"
+    },
+    {
+      "doctor_name": "ANDERSON, MARK",
+      "doctor_address": "2500 N STATE ST UMMC - NEUROLOGY, JACKSON, MS 39216",
+      "phone": "(601) 984-5517"
+    },
+    {
+      "doctor_name": "ARCILA-LONDONO, XIMENA",
+      "doctor_address": "2799 W GRAND BLVD K11/NEUROLOGY, DETROIT, MI 48202",
+      "phone": "(313) 916-2835"
+    },
+    {
+      "doctor_name": "PENA-GOMEZ, JOSIE",
+      "doctor_address": "55 LAKE AVE N NEUROLOGY RESIDENCY, WORCESTER, MA 01655",
+      "phone": "(508) 334-1000"
+    },
+    {
+      "doctor_name": "HENTATI, AFIF",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "ANTONIOS, NADER",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    },
+    {
+      "doctor_name": "PATTERSON, KRISTINA",
+      "doctor_address": "3400 SPRUCE ST DEPARTMENT OF NEUROLOGY, PHILADELPHIA, PA 19104",
+      "phone": "(215) 662-2200"
+    },
+    {
+      "doctor_name": "LI, PING",
+      "doctor_address": "100 HIGH ST DEPARTMENT OF NEUROLOGY, BUFFALO, NY 14203",
+      "phone": "(716) 859-7501"
+    },
+    {
+      "doctor_name": "PIOTROWSKI, ANNA",
+      "doctor_address": "1275 YORK AVE NEUROLOGY DEPT, NEW YORK, NY 10065",
+      "phone": "(212) 639-2000"
+    },
+    {
+      "doctor_name": "BOUNNI, FIRAS",
+      "doctor_address": "260 TREMONT ST DEPT OF NEUROLOGY, BOSTON, MA 02116",
+      "phone": "(617) 636-5000"
+    },
+    {
+      "doctor_name": "ELLENBOGEN, JEFFREY",
+      "doctor_address": "55 FRUIT STREET WANG 720 (NEUROLOGY), BOSTON, MA 02114",
+      "phone": "(617) 724-7419"
+    },
+    {
+      "doctor_name": "SODHA, NARENDRAKUMAR",
+      "doctor_address": "119 BELMONT ST DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01605",
+      "phone": "(508) 334-6641"
+    },
+    {
+      "doctor_name": "GLATT, SANDER",
+      "doctor_address": "4801 E LINWOOD BLVD NEUROLOGY, KANSAS CITY, MO 64128",
+      "phone": "(816) 922-2525"
+    },
+    {
+      "doctor_name": "DAVIS, DEBRA",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 813-2482"
+    },
+    {
+      "doctor_name": "CHESSON, ANDREW, JR.",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 675-5241"
+    },
+    {
+      "doctor_name": "LIENDO, CESAR",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 813-2482"
+    },
+    {
+      "doctor_name": "DOBRIN, SOFIA",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY, BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "HOLTKAMP, MATTHEW",
+      "doctor_address": "8901 WISCONSIN AVE DEPARTMENT OF NEUROLOGY, BETHESDA, MD 20814",
+      "phone": "(301) 295-4771"
+    },
+    {
+      "doctor_name": "ESWARADASS, PRASANNA VENKATESAN",
+      "doctor_address": "KUMC NEUROLOGY 3825 CAMBRIDGE ST, KANSAS CITY, KS 66160",
+      "phone": "(913) 588-6094"
+    },
+    {
+      "doctor_name": "RATHORE, SUNIL",
+      "doctor_address": "1542 TULANE AVE NEUROLOGY DEPARTMENT, NEW ORLEANS, LA 70112",
+      "phone": "(504) 568-4081"
+    },
+    {
+      "doctor_name": "OWEGI, MARGARET",
+      "doctor_address": "55 LAKE AVE N NEUROLOGY DEPARTMENT, WORCESTER, MA 01655",
+      "phone": "(508) 334-2527"
+    },
+    {
+      "doctor_name": "BERTONI, JOHN",
+      "doctor_address": "UNMC NEUROLOGY 982045 NEBRASKA MEDICAL CENTER, OMAHA, NE 68198",
+      "phone": "(402) 552-2921"
+    },
+    {
+      "doctor_name": "SIVARAMAN NAIR, RAJ",
+      "doctor_address": "MEDICAL COLLEGE DEPARTMENT OF NEUROLOGY, CALICUT, KERALA 673008, IN",
+      "phone": "919846810903"
+    },
+    {
+      "doctor_name": "CHEN, LINDA",
+      "doctor_address": "317 W PUEBLO ST NEUROLOGY, SANTA BARBARA, CA 93105",
+      "phone": "(805) 681-7500"
+    },
+    {
+      "doctor_name": "EMBREE, LARRY, JR.",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 675-7737"
+    },
+    {
+      "doctor_name": "RODRIGUEZ, DORIS",
+      "doctor_address": "2950 CLEVELAND CLINIC BLVD NEUROLOGY DEPARTMENT, WESTON, FL 33331",
+      "phone": "(954) 659-5000"
+    },
+    {
+      "doctor_name": "PASKAVITZ, JAMES",
+      "doctor_address": "119 BELMONT ST DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01605",
+      "phone": "(508) 334-6641"
+    },
+    {
+      "doctor_name": "VALSAMIS, HELEN",
+      "doctor_address": "450 CLARKSON AVENUE DEPARTMENT OF NEUROLOGY, BROOKLYN, NY 11203",
+      "phone": "(718) 270-2768"
+    },
+    {
+      "doctor_name": "SPAIN, WILLIAM",
+      "doctor_address": "1660 S COLUMBIAN WAY NEUROLOGY 127, SEATTLE, WA 98108",
+      "phone": "(206) 764-2021"
+    },
+    {
+      "doctor_name": "MCMAHON, JOHN",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "ALEXANDER, MICHAEL",
+      "doctor_address": "330 BROOKLINE AVE NEUROLOGY BETH ISRAEL, BOSTON, MA 02215",
+      "phone": "(617) 667-4074"
+    },
+    {
+      "doctor_name": "LIN, HELEN",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "HIGGINS, DONALD, JR.",
+      "doctor_address": "113 HOLLAND AVE NEUROLOGY SERVICE (127), ALBANY, NY 12208",
+      "phone": "(518) 626-6391"
+    },
+    {
+      "doctor_name": "DASHE, JOHN FRANCIS",
+      "doctor_address": "750 WASHINGTON ST NEMC/DEP'T NEUROLOGY, BOSTON, MA 02111",
+      "phone": "(617) 636-5854"
+    },
+    {
+      "doctor_name": "HSIAO, JULIA",
+      "doctor_address": "3565 DEL AMO BLVD NEUROLOGY DEPARTMENT, TORRANCE, CA 90503",
+      "phone": "(310) 214-0811"
+    },
+    {
+      "doctor_name": "EUGENE, MARIE CARL",
+      "doctor_address": "263 FARMINGTON AVE NEUROLOGY MC-3835, FARMINGTON, CT 06030",
+      "phone": "(860) 679-4888"
+    },
+    {
+      "doctor_name": "IZZO, ANTHONY",
+      "doctor_address": "123 SUMMER ST DEPT. OF NEUROLOGY, WORCESTER, MA 01608",
+      "phone": "(508) 363-6066"
+    },
+    {
+      "doctor_name": "SEVERSON, CHRISTOPHER",
+      "doctor_address": "75 FRANCIS ST DEPT. OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-7432"
+    },
+    {
+      "doctor_name": "SCHWABE, MICHAEL",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-7510"
+    },
+    {
+      "doctor_name": "JAFFA, MATTHEW",
+      "doctor_address": "80 SEYMOUR STREET DEPARTMENT OF NEUROLOGY, HARTFORD, CT 06106",
+      "phone": "(860) 972-3621"
+    },
+    {
+      "doctor_name": "JACOBS, CLAIRE",
+      "doctor_address": "75 FRANCIS ST DEPARTMENT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-5500"
+    },
+    {
+      "doctor_name": "SCHRAG, MATTHEW",
+      "doctor_address": "3601 THE VANDERBILT CLINIC NEUROLOGY SUITE, NASHVILLE, TN 37232",
+      "phone": "(615) 322-3000"
+    },
+    {
+      "doctor_name": "FOGEL, BARRY",
+      "doctor_address": "221 LONGWOOD AVE BRIGHAM BEHAVIORAL NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-8231"
+    },
+    {
+      "doctor_name": "MASSAQUOI, STEVE",
+      "doctor_address": "55 FRUIT ST DEPARTMENT OF NEUROLOGY, BOSTON, MA 02114",
+      "phone": "(617) 726-2000"
+    },
+    {
+      "doctor_name": "SANDHU, BALJINDER",
+      "doctor_address": "PMG CEDAR NEUROLOGY 201 CEDAR SE, ALBUQUERQUE, NM 87106",
+      "phone": "(505) 563-6490"
+    },
+    {
+      "doctor_name": "HOMER, DANIEL",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "PRASAD, SASHANK",
+      "doctor_address": "75 FRANCIS ST DEPT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-7432"
+    },
+    {
+      "doctor_name": "MASSA, STEPHEN",
+      "doctor_address": "4150 CLEMENT ST NEUROLOGY (127), SAN FRANCISCO, CA 94121",
+      "phone": "(415) 221-4810"
+    },
+    {
+      "doctor_name": "EISENSTOCK, JORDAN",
+      "doctor_address": "119 BELMONT ST DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01605",
+      "phone": "(508) 334-6641"
+    },
+    {
+      "doctor_name": "WEINBERG, DAVID",
+      "doctor_address": "736 CAMBRIDGE ST CCP 8 NEUROLOGY, BRIGHTON, MA 02135",
+      "phone": "(617) 789-2380"
+    },
+    {
+      "doctor_name": "HARTMANN, JOHN",
+      "doctor_address": "1120 15TH ST DEPARTMENT OF NEUROLOGY, AUGUSTA, GA 30912",
+      "phone": "(706) 721-5988"
+    },
+    {
+      "doctor_name": "BUONANNO, FERDINANDO",
+      "doctor_address": "15 PARKMAN ST ACC720 NEUROLOGY ASSOCIATES, BOSTON, MA 02114",
+      "phone": "(617) 726-8459"
+    },
+    {
+      "doctor_name": "ZWEIG, RICHARD",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 675-7737"
+    },
+    {
+      "doctor_name": "KUCERA, JAN",
+      "doctor_address": "150 S HUNTINGTON AVE NEUROLOGY 127, BOSTON, MA 02130",
+      "phone": "(857) 364-4750"
+    },
+    {
+      "doctor_name": "LIM, SHI YUN",
+      "doctor_address": "800 OAK ST DEPARTMENT OF NEUROLOGY, FARMVILLE, VA 23901",
+      "phone": "(434) 315-2928"
+    },
+    {
+      "doctor_name": "KOEHN, LAURA",
+      "doctor_address": "710 BIRCHWOOD, SUITE 201 NEUROLOGY ASSOCIATES, BELLINGHAM, WA 98225",
+      "phone": "(360) 788-6870"
+    },
+    {
+      "doctor_name": "KOTHARI, RAVISH",
+      "doctor_address": "8 MED PARK STE 420 NEUROLOGY, COLUMBIA, SC 29203",
+      "phone": "(803) 545-6072"
+    },
+    {
+      "doctor_name": "DHINDSA, JASDEEP",
+      "doctor_address": "NEUROLOGY 1 MEDICAL PARK, STE 230, COLUMBIA, SC 29203",
+      "phone": "(803) 545-6050"
+    },
+    {
+      "doctor_name": "CHEN, CHIH-CHENG",
+      "doctor_address": "1608 WELLINGTON AVENUE WILMINGTON NEUROLOGY CLINIC, WILMINGTON, NC 28401",
+      "phone": "(910) 395-5521"
+    },
+    {
+      "doctor_name": "COONEY, JEFFREY",
+      "doctor_address": "932 MORREENE RD DEPARTMENT OF NEUROLOGY, DURHAM, NC 27705",
+      "phone": "(919) 668-2493"
+    },
+    {
+      "doctor_name": "CHISHOLM, KARA",
+      "doctor_address": "2 ESSEX CENTER DR NEUROLOGY DEPT, PEABODY, MA 01960",
+      "phone": "(978) 977-4110"
+    },
+    {
+      "doctor_name": "BOLAND, CARL",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 545-3621"
+    },
+    {
+      "doctor_name": "MATEEN, FARRAH",
+      "doctor_address": "55 FRUIT ST AC720, DEPARTMENT OF NEUROLOGY, BOSTON, MA 02114",
+      "phone": "(617) 726-2383"
+    },
+    {
+      "doctor_name": "LABUTTA, ROBERT",
+      "doctor_address": "6900 GEORGIA AVE NW DEPT. OF NEUROLOGY, WASHINGTON, DC 20307",
+      "phone": "(202) 782-3576"
+    },
+    {
+      "doctor_name": "BELLA, ISABELITA",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 856-2527"
+    },
+    {
+      "doctor_name": "WHITE, JUDY",
+      "doctor_address": "1106 HOSPITAL RD NEUROLOGY DEPARTMENT, FORT WALTON BEACH, FL 32547",
+      "phone": "(850) 863-8280"
+    },
+    {
+      "doctor_name": "CONNELLY, JENNIFER",
+      "doctor_address": "9200 W WISCONSIN AVE DEPT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5254"
+    },
+    {
+      "doctor_name": "MOODIE, JENNIFER",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 793-6566"
+    },
+    {
+      "doctor_name": "SCHWARZSCHILD, MICHAEL",
+      "doctor_address": "15 PARKMAN ST WAC 835 NEUROLOGY ASSOCIATES, BOSTON, MA 02114",
+      "phone": "(617) 726-5532"
+    },
+    {
+      "doctor_name": "MOO, LAUREN",
+      "doctor_address": "15 PARKMAN ST NEUROLOGY ASSOCIATES WAC 835, BOSTON, MA 02114",
+      "phone": "(617) 726-5533"
+    },
+    {
+      "doctor_name": "DISMONDY, MICHELLE",
+      "doctor_address": "IHA NEUROLOGY 14555 LEVAN ROAD, SUITE 116, LIVONIA, MI 48154",
+      "phone": "(734) 712-1400"
+    },
+    {
+      "doctor_name": "FLORCZAK, JONATHAN",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-9719"
+    },
+    {
+      "doctor_name": "MEHDIRATTA, MANU",
+      "doctor_address": "BIDMC,DEPT-NEUROLOGY 330 BROOKLINE AVENUE, BOSTON, MA 02215, CA",
+      "phone": "(617) 632-8911"
+    },
+    {
+      "doctor_name": "SWANSON, RAYMOND",
+      "doctor_address": "4150 CLEMENT ST (127) NEUROLOGY VAMC, SAN FRANCISCO, CA 94121",
+      "phone": "(415) 750-2011"
+    },
+    {
+      "doctor_name": "OH, UNSONG",
+      "doctor_address": "1250 E MARSHALL ST DEPARTMENT OF NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9350"
+    },
+    {
+      "doctor_name": "WILSON, ELAINE",
+      "doctor_address": "2 SAINT VINCENT CIR NEUROLOGY LAB, LITTLE ROCK, AR 72205",
+      "phone": "(501) 552-4930"
+    },
+    {
+      "doctor_name": "JIN, DONGKWAN",
+      "doctor_address": "3601 4TH ST TTUHSC, DEPARTMENT OF NEUROLOGY, LUBBOCK, TX 79430",
+      "phone": "(806) 743-3832"
+    },
+    {
+      "doctor_name": "PAKNESHAN, SHABNAM",
+      "doctor_address": "IHA NEUROLOGY 5333 MCAULEY DR. SUITE 6109, YPSILANTI, MI 48197",
+      "phone": "(734) 712-1400"
+    },
+    {
+      "doctor_name": "CUASCUT, FERNANDO",
+      "doctor_address": "7200 CAMBRIGDE ST. NEUROLOGY DEPARTMENT 9TH FLOOR, HOUSTON, TX 77030",
+      "phone": "(713) 798-6147"
+    },
+    {
+      "doctor_name": "KUBAT, BROOKE",
+      "doctor_address": "200 HAWKINS DR DEPT OF NEUROLOGY, IOWA CITY, IA 52242",
+      "phone": "(319) 356-2580"
+    },
+    {
+      "doctor_name": "DOW, AMANDA",
+      "doctor_address": "211 CHURCH ST DEPARTMENT OF NEUROLOGY, SARATOGA SPRINGS, NY 12866",
+      "phone": "(518) 587-3222"
+    },
+    {
+      "doctor_name": "VISHNUBHAKAT, SURYA",
+      "doctor_address": "NSUH DEPT OF NEUROLOGY 300 COMMUNITY DRIVE, MANHASSET, NY 11030",
+      "phone": "(516) 562-4302"
+    },
+    {
+      "doctor_name": "SOBEIH, MAGDI",
+      "doctor_address": "300 LONGWOOD AVE CH DEPARTMENT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 355-6388"
+    },
+    {
+      "doctor_name": "LIU, GUANG HAO",
+      "doctor_address": "200 HAWKINS DR DEPT OF NEUROLOGY, IOWA CITY, IA 52242",
+      "phone": "(203) 606-1934"
+    },
+    {
+      "doctor_name": "HOGAN, NICOLE",
+      "doctor_address": "NEUROLOGY DEPARTMENT 8 MEDICAL PARK, STE 420, COLUMBIA, SC 29203",
+      "phone": "(803) 545-6050"
+    },
+    {
+      "doctor_name": "VOLKELL, GARY",
+      "doctor_address": "47 NEW SCOTLAND AVE DEPT OF NEUROLOGY, ALBANY, NY 12208",
+      "phone": "(518) 262-5377"
+    },
+    {
+      "doctor_name": "WALLIS, ROI",
+      "doctor_address": "11301 WILSHIRE BLVD DEPT OF NEUROLOGY, LOS ANGELES, CA 90073",
+      "phone": "(310) 478-3711"
+    },
+    {
+      "doctor_name": "FRANCZAK, MALGORZATA",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5200"
+    },
+    {
+      "doctor_name": "WRAY, SHIRLEY",
+      "doctor_address": "15 PARKMAN ST WAC 837 NEUROLOGY ASSOCIATES, BOSTON, MA 02114",
+      "phone": "(617) 726-5537"
+    },
+    {
+      "doctor_name": "GROWDON, JOHN",
+      "doctor_address": "15 PARKMAN ST NEUROLOGY ASSOCIATES WAC 835, BOSTON, MA 02114",
+      "phone": "(617) 726-1728"
+    },
+    {
+      "doctor_name": "SCHERZER, CLEMENS",
+      "doctor_address": "15 PARKMAN ST WAC 835 NEUROLOGY ASSOCIATES, BOSTON, MA 02114",
+      "phone": "(617) 726-5532"
+    },
+    {
+      "doctor_name": "MATICH, ANNE",
+      "doctor_address": "4405 VANDEVER AVE DEPARTMENT OF NEUROLOGY, SAN DIEGO, CA 92120",
+      "phone": "(619) 528-5000"
+    },
+    {
+      "doctor_name": "HAWLEY, JASON",
+      "doctor_address": "8901 ROCKVILLE PIKE WRNMMC--DEPARTMENT OF NEUROLOGY, BETHESDA, MD 20889",
+      "phone": "(301) 775-8327"
+    },
+    {
+      "doctor_name": "LOUIS, ANNE",
+      "doctor_address": "751 S BASCOM AVE NEUROLOGY DEPARTMENT, SAN JOSE, CA 95128",
+      "phone": "(408) 885-5580"
+    },
+    {
+      "doctor_name": "MCCARTHY, DAVID, JR.",
+      "doctor_address": "75 FRANCIS STREET BWH DEPARTMENT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 732-6765"
+    },
+    {
+      "doctor_name": "HARRINGTON, GREGORY",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5208"
+    },
+    {
+      "doctor_name": "BINDER, JEFFREY",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5200"
+    },
+    {
+      "doctor_name": "BLINDAUER, KAREN",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5200"
+    },
+    {
+      "doctor_name": "KAMHOLZ, JOHN",
+      "doctor_address": "200 HAWKINS DR DEPARTMENT OF NEUROLOGY, IOWA CITY, IA 52242",
+      "phone": "(319) 356-1616"
+    },
+    {
+      "doctor_name": "MACKLIS, JEFFREY",
+      "doctor_address": "15 PARKMAN STREET NEUROLOGY ASSOCIATES WAC 835, BOSTON, MA 02114",
+      "phone": "(617) 726-8581"
+    },
+    {
+      "doctor_name": "SCHELL, AVRAM",
+      "doctor_address": "800 POLY PL DEPARTMENT OF NEUROLOGY-127, BROOKLYN, NY 11209",
+      "phone": "(718) 630-3724"
+    },
+    {
+      "doctor_name": "LIM, CHUN",
+      "doctor_address": "330 BROOKLINE AVE BIDMC, BEHAVIORAL NEUROLOGY - KS2, BOSTON, MA 02215",
+      "phone": "(617) 667-4074"
+    },
+    {
+      "doctor_name": "HAYWARD, LAWRENCE",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 856-4147"
+    },
+    {
+      "doctor_name": "RICHMAN, DAVID",
+      "doctor_address": "4860 Y ST UCDAVIS DEPARTMENT OF NEUROLOGY, SACRAMENTO, CA 95817",
+      "phone": "(916) 734-3514"
+    },
+    {
+      "doctor_name": "RAVIN, PAULA",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 856-2527"
+    },
+    {
+      "doctor_name": "DEMOPOULOS, ALEXIS",
+      "doctor_address": "NSUH - DEPT OF NEUROLOGY 300 COMMUNITY DRIVE, MANHASSET, NY 11030",
+      "phone": "(516) 562-4300"
+    },
+    {
+      "doctor_name": "MCMAHON, KEVIN",
+      "doctor_address": "417 S. KING STREET GRMG NEUROLOGY ASSOCIATES, SEGUIN, TX 78155",
+      "phone": "(830) 484-4608"
+    },
+    {
+      "doctor_name": "FLEMING, JASON",
+      "doctor_address": "185 QUEEN CITY AVE ELLIOT NEUROLOGY ASSOCIATES, MANCHESTER, NH 03101",
+      "phone": "(603) 663-4800"
+    },
+    {
+      "doctor_name": "PRELACK, MARISA",
+      "doctor_address": "3401 CIVIC CENTER BLVD DIVISION OF NEUROLOGY, PHILADELPHIA, PA 19104",
+      "phone": "(267) 254-9919"
+    },
+    {
+      "doctor_name": "FISHER, DEBORAH",
+      "doctor_address": "1375 E 20TH AVE SKYLINE BUILDING NEUROLOGY, DENVER, CO 80205",
+      "phone": "(303) 338-4545"
+    },
+    {
+      "doctor_name": "LUSTER, JOSHUA",
+      "doctor_address": "JBER 673 MDG , NEUROLOGY 5955 ZEAMER AVE, JBER, AK 99506",
+      "phone": "(907) 580-2546"
+    },
+    {
+      "doctor_name": "CHU, FELICIA",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 334-2527"
+    },
+    {
+      "doctor_name": "LUM, FRANKLIN",
+      "doctor_address": "2025 MORSE AVE DEPARTMENT OF NEUROLOGY - 2G, SACRAMENTO, CA 95825",
+      "phone": "(916) 973-5175"
+    },
+    {
+      "doctor_name": "BROWN, ROBERT, JR.",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 334-2527"
+    },
+    {
+      "doctor_name": "CARDONA, LUZMA",
+      "doctor_address": "UNM HOSPITAL NEUROLOGY 2211 LOMAS BLVD NE, ALBUQUERQUE, NM 87131",
+      "phone": "(505) 272-6225"
+    },
+    {
+      "doctor_name": "NARAYANAN, NANDAKUMAR",
+      "doctor_address": "200 HAWKINS DRIVE DEPARTMENT OF NEUROLOGY, IOWA CITY, IA 52245",
+      "phone": "(319) 356-7355"
+    },
+    {
+      "doctor_name": "MEHNDIRATTA, PRACHI",
+      "doctor_address": "1250 E MARSHALL ST DEPT. OF NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9350"
+    },
+    {
+      "doctor_name": "ABOUSAMRA, ANDREA",
+      "doctor_address": "IHA NEUROLOGY 5333 MCAULEY DRIVE SUITE 6109, YPSILANTI, MI 48197",
+      "phone": "(248) 734-7121"
+    },
+    {
+      "doctor_name": "FASSEL, MIKENZY",
+      "doctor_address": "200 HAWKINS DR DEPT OF NEUROLOGY, IOWA CITY, IA 52242",
+      "phone": "(319) 356-1616"
+    },
+    {
+      "doctor_name": "BOOK, DIANE",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5200"
+    },
+    {
+      "doctor_name": "O'DONNELL, PHILIP",
+      "doctor_address": "1250 E MARSHALL ST DEPT. OF NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 526-0682"
+    },
+    {
+      "doctor_name": "MALKIN, MARK",
+      "doctor_address": "1250 E MARSHALL ST DEPARTMENT OF NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-7999"
+    },
+    {
+      "doctor_name": "SCHWARTZ, WILLIAM",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 856-2527"
+    },
+    {
+      "doctor_name": "MITCHELL, ANN",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 856-2527"
+    },
+    {
+      "doctor_name": "RISKIND, PETER",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 793-6555"
+    },
+    {
+      "doctor_name": "SHINOBU, LESLIE",
+      "doctor_address": "15 PARKMAN ST WAC 830 NEUROLOGY ASSOCIATES, BOSTON, MA 02114",
+      "phone": "(617) 726-5532"
+    },
+    {
+      "doctor_name": "FRASER, JEFFREY",
+      "doctor_address": "751 S BASCOM AVE NEUROLOGY DEPARTMENT, SAN JOSE, CA 95128",
+      "phone": "(408) 885-5580"
+    },
+    {
+      "doctor_name": "HOTSON, JOHN",
+      "doctor_address": "751 S BASCOM AVE NEUROLOGY DEPARTMENT, SAN JOSE, CA 95128",
+      "phone": "(408) 885-5580"
+    },
+    {
+      "doctor_name": "BERTRAND, MARY",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "SPUDICH, SERENA",
+      "doctor_address": "15 YORK ST DEPARTMENT OF NEUROLOGY, NEW HAVEN, CT 06510",
+      "phone": "(203) 737-1969"
+    },
+    {
+      "doctor_name": "CHENG, JAUHTAI",
+      "doctor_address": "1601 BRENNER AVE VAMC DEPT OF NEUROLOGY, SALISBURY, NC 28144",
+      "phone": "(704) 638-3324"
+    },
+    {
+      "doctor_name": "KRISHNAMOORTHY, KALPATHY",
+      "doctor_address": "55 FRUIT ST YAW 6, PEDIATRIC NEUROLOGY, BOSTON, MA 02114",
+      "phone": "(617) 726-3877"
+    },
+    {
+      "doctor_name": "SANDROCK, ALFRED, JR.",
+      "doctor_address": "15 PARKMAN ST WAC 835 NEUROLOGY ASSOCIATES, BOSTON, MA 02114",
+      "phone": "(617) 724-3914"
+    },
+    {
+      "doctor_name": "KATZ, JEFFREY",
+      "doctor_address": "300 COMMUNITY DRIVE NSUH DEPARTMENT OF NEUROLOGY, MANHASSET, NY 11030",
+      "phone": "(516) 562-6064"
+    },
+    {
+      "doctor_name": "LEE, NORA",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 545-3621"
+    },
+    {
+      "doctor_name": "PAPPAS, AMY",
+      "doctor_address": "IHA NEUROLOGY 14555 LEVAN ROAD SUITE 116, LIVONIA, MI 48154",
+      "phone": "(734) 712-1400"
+    }
+  ],
+  "Family; Women's Health": [
+    {
+      "doctor_name": "CRUMP, EVELYN",
+      "doctor_address": "119 NEUROLOGY WAY, MILFORD, DE 19963",
+      "phone": "(302) 424-3900"
+    }
+  ],
+  "Neurodevelopmental Disabilities": [
+    {
+      "doctor_name": "HART, EDWARD",
+      "doctor_address": "57 HIGHLAND AVE NEUROLOGY, SALEM, MA 01970",
+      "phone": "(978) 354-2795"
+    },
+    {
+      "doctor_name": "SURGAN, VICTORIA",
+      "doctor_address": "254 EASTON AVE CHILD NEUROLOGY, NEW BRUNSWICK, NJ 08901",
+      "phone": "(732) 339-7870"
+    },
+    {
+      "doctor_name": "BOWE, CONSTANCE",
+      "doctor_address": "2825 50TH ST PEDIATRIC NEUROLOGY MIND INSTITUTE, SACRAMENTO, CA 95817",
+      "phone": "(916) 703-0258"
+    }
+  ],
+  "Neurology; Neurology": [
+    {
+      "doctor_name": "WEISKOPF, EMMA",
+      "doctor_address": "777 NORTH ST NEUROLOGY, PITTSFIELD, MA 01201",
+      "phone": "(413) 395-7694"
+    },
+    {
+      "doctor_name": "UFFORD, LAURENCE",
+      "doctor_address": "777 NORTH ST NEUROLOGY, PITTSFIELD, MA 01201",
+      "phone": "(413) 395-7694"
+    },
+    {
+      "doctor_name": "CULLER, GEORGE, IV",
+      "doctor_address": "ONE MEDICAL CENTER DR NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    },
+    {
+      "doctor_name": "HAMILTON, ROSS",
+      "doctor_address": "200 MERCY CIRCLE ATTN: NEUROLOGY, OCEANSIDE, CA 92056",
+      "phone": "(760) 719-3139"
+    },
+    {
+      "doctor_name": "LLANO, DANIEL",
+      "doctor_address": "611 W. PARK ST. NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    },
+    {
+      "doctor_name": "TESTA, CLAUDIA",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 662-9185"
+    },
+    {
+      "doctor_name": "RAYHILL, MELISSA",
+      "doctor_address": "5851 MAIN ST UBMD NEUROLOGY, WILLIAMSVILLE, NY 14221",
+      "phone": "(716) 932-6080"
+    },
+    {
+      "doctor_name": "SILLIMAN, SCOTT",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    },
+    {
+      "doctor_name": "PAKER, ASIF",
+      "doctor_address": "2100 DORCHESTER AVE DEPARTMENT OF NEUROLOGY, DORCHESTER, MA 02124",
+      "phone": "(617) 564-3771"
+    },
+    {
+      "doctor_name": "BAUTISTA, RAMON",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3961"
+    },
+    {
+      "doctor_name": "WANG, XIAO-QING",
+      "doctor_address": "185 QUEEN CITY AVE ELLIOT NEUROLOGY, MANCHESTER, NH 03101",
+      "phone": "(603) 669-0859"
+    },
+    {
+      "doctor_name": "LOVITZ, LORI",
+      "doctor_address": "2650 RIDGE AVE DEPARTMENT OF NEUROLOGY, EVANSTON, IL 60201",
+      "phone": "(847) 663-8200"
+    },
+    {
+      "doctor_name": "RUSSO, LOUIS",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    },
+    {
+      "doctor_name": "ANYANWU, CHINEKWU",
+      "doctor_address": "3 RIVERSIDE CIR DEPT OF NEUROLOGY, ROANOKE, VA 24016",
+      "phone": "(540) 224-5170"
+    },
+    {
+      "doctor_name": "HSIAO, ESTHER",
+      "doctor_address": "10800 MAGNOLIA AVE DEPT OF NEUROLOGY, RIVERSIDE, CA 92505",
+      "phone": "(951) 353-5919"
+    },
+    {
+      "doctor_name": "NEELY, EDWARD",
+      "doctor_address": "8901 WISCONSIN AVE WRNMMC DEPARTMENT OF NEUROLOGY, BETHESDA, MD 20889",
+      "phone": "(301) 295-4771"
+    },
+    {
+      "doctor_name": "KNOPF, LISA",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 972-9047"
+    },
+    {
+      "doctor_name": "EL-HUNJUL, MOHAMMED",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 972-3621"
+    },
+    {
+      "doctor_name": "BYRNE, THOMAS",
+      "doctor_address": "15 PARKMAN ST WAC 835 NEUROLOGY ASSOCIATES, BOSTON, MA 02114",
+      "phone": "(617) 724-0880"
+    },
+    {
+      "doctor_name": "VITEK, JERROLD",
+      "doctor_address": "516 DELAWARE STREET SE UMP NEUROLOGY CLINIC, MINNEAPOLIS, MN 55455",
+      "phone": "(612) 672-7422"
+    },
+    {
+      "doctor_name": "HUSMANN, KATHRIN",
+      "doctor_address": "3901 RAINBOW BLVD DEPT. OF NEUROLOGY, KANSAS CITY, KS 66160",
+      "phone": "(913) 588-6970"
+    },
+    {
+      "doctor_name": "HUDDLESTON, DANIEL",
+      "doctor_address": "20 GLENLAKE PKWY GLENLAKE DEPT OF NEUROLOGY, ATLANTA, GA 30328",
+      "phone": "(404) 365-0966"
+    },
+    {
+      "doctor_name": "ADE, SWETHA",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 972-3621"
+    },
+    {
+      "doctor_name": "BROD, STALEY",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5200"
+    },
+    {
+      "doctor_name": "EHRENFELD, HOWARD",
+      "doctor_address": "4475 S EASTERN AVE NEUROLOGY CLINIC, LAS VEGAS, NV 89119",
+      "phone": "(702) 669-5944"
+    }
+  ],
+  "Pediatrics": [
+    {
+      "doctor_name": "DORAN, KERRY",
+      "doctor_address": "700 CHILDRENS DR NEUROLOGY, COLUMBUS, OH 43205",
+      "phone": "(614) 722-2000"
+    },
+    {
+      "doctor_name": "PAWLIK, KATHLEEN",
+      "doctor_address": "3901 BEAUBIEN ST PEDIATRIC NEUROLOGY, DETROIT, MI 48201",
+      "phone": "(313) 933-8565"
+    },
+    {
+      "doctor_name": "HEARINGTON, DEBRA",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0445"
+    },
+    {
+      "doctor_name": "ANDREOLI, ASHLEY",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "FITZGERALD, CAROLINE",
+      "doctor_address": "300 LONGWOOD AVE FEGAN 11 NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 355-2063"
+    },
+    {
+      "doctor_name": "CLEGG, NANCY",
+      "doctor_address": "2222 WELBORN ST DEPARTMENT OF NEUROLOGY, DALLAS, TX 75219",
+      "phone": "(214) 559-8411"
+    },
+    {
+      "doctor_name": "YEE, MICHELLE",
+      "doctor_address": "2300 N CHILDRENS PLZ NEUROLOGY BOX 51, CHICAGO, IL 60614",
+      "phone": "(773) 880-4352"
+    },
+    {
+      "doctor_name": "USSERY, KELLY",
+      "doctor_address": "1250 E MARSHALL ST DEPARTMENT OF NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0442"
+    },
+    {
+      "doctor_name": "GOEDEKER, NATALIE",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    }
+  ],
+  "Neurology; Neurology; Neurology": [
+    {
+      "doctor_name": "KWIATKOWSKI, THOMAS, JR.",
+      "doctor_address": "777 NORTH ST NEUROLOGY, PITTSFIELD, MA 01201",
+      "phone": "(413) 395-7694"
+    },
+    {
+      "doctor_name": "CIMINO, MARCUS",
+      "doctor_address": "3400 SPRUCE ST NEUROLOGY DEPARTMENT, PHILADELPHIA, PA 19104",
+      "phone": "(215) 435-2438"
+    },
+    {
+      "doctor_name": "CHO, SHERWIN",
+      "doctor_address": "34800 BOB WILSON DR NEUROLOGY, SAN DIEGO, CA 92134",
+      "phone": "(619) 532-5648"
+    },
+    {
+      "doctor_name": "GHARIBSHAHI, SHAHRAM",
+      "doctor_address": "13652 CANTARA ST NEUROLOGY DEPARTMENT, PANORAMA CITY, CA 91402",
+      "phone": "(818) 375-1670"
+    },
+    {
+      "doctor_name": "BAZARSKY, ALLYSON",
+      "doctor_address": "111 COLCHESTER AVENUE UVM MEDICAL CENTER NEUROLOGY, BURLINGTON, VT 05401",
+      "phone": "(802) 862-5759"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology": [
+    {
+      "doctor_name": "GALL, TIMOTHY",
+      "doctor_address": "9040 JACKSON AVE NEUROLOGY, TACOMA, WA 98431",
+      "phone": "(253) 396-1440"
+    },
+    {
+      "doctor_name": "LUPO, PAMELA",
+      "doctor_address": "1 BAYLOR PLZ NEUROLOGY DEPT, HOUSTON, TX 77030",
+      "phone": "(713) 798-6151"
+    },
+    {
+      "doctor_name": "MORTON, LAWRENCE",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0442"
+    },
+    {
+      "doctor_name": "TEASLEY, JEAN",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0422"
+    },
+    {
+      "doctor_name": "HOLDER, JIMMY, JR.",
+      "doctor_address": "1 BAYLOR PLZ NEUROLOGY DEPT, HOUSTON, TX 77030",
+      "phone": "(713) 798-6151"
+    },
+    {
+      "doctor_name": "HARPER, AMY",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-0442"
+    },
+    {
+      "doctor_name": "GILBERT, DONALD",
+      "doctor_address": "3333 BURNET AVE ML 11006 NEUROLOGY, CINCINNATI, OH 45229",
+      "phone": "(513) 636-4222"
+    },
+    {
+      "doctor_name": "OLIVER, YOUNG",
+      "doctor_address": "CHILDREN'S HOSPITAL - NEUROLOGY 8200 DODGE STREET, OMAHA, NE 68114",
+      "phone": "(402) 955-5372"
+    },
+    {
+      "doctor_name": "RIEL-ROMERO, ROSARIO",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 813-2482"
+    },
+    {
+      "doctor_name": "HARMELINK, MATTHEW",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "MONDOK, LILETH JOY",
+      "doctor_address": "9000 W WISCONSIN AVENUE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "THOMAS, LAURA",
+      "doctor_address": "900 EAST 3RD STREET CHILD NEUROLOGY, CHATTANOOGA, TN 37403",
+      "phone": "(423) 778-5437"
+    },
+    {
+      "doctor_name": "TOTOIU, MINODORA",
+      "doctor_address": "455 S MAIN ST PSF NEUROLOGY, ORANGE, CA 92868",
+      "phone": "(714) 532-7555"
+    },
+    {
+      "doctor_name": "JIANG, MEI",
+      "doctor_address": "1000 N OAK AVE NEUROLOGY 4F2, MARSHFIELD, WI 54449",
+      "phone": "(715) 387-5868"
+    },
+    {
+      "doctor_name": "KHAN, NADIR",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "WRIGHT, RHONDA",
+      "doctor_address": "CHILDREN'S HOSPITAL - NEUROLOGY 8200 DODGE STREET, OMAHA, NE 68114",
+      "phone": "(402) 955-5372"
+    },
+    {
+      "doctor_name": "BIRNBAUM, DANIEL",
+      "doctor_address": "747 52ND ST DEPARTMENT OF NEUROLOGY, OAKLAND, CA 94609",
+      "phone": "(510) 428-3590"
+    },
+    {
+      "doctor_name": "TAHA, FIRAS",
+      "doctor_address": "977 48TH STREET MAIMONIDES PEDIATRIC NEUROLOGY, BROOKLYN, NY 11219",
+      "phone": "(718) 283-6652"
+    },
+    {
+      "doctor_name": "LARSEN, DOUGLAS",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "GALINDO, RAFAEL",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "BAUER HUANG, SARAH",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "SMYSER, CHRISTOPHER",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "KING, ALLISON",
+      "doctor_address": "CHILD NEUROLOGY 601 ELMWOOD AVE BOX 631, ROCHESTER, NY 14642",
+      "phone": "(585) 273-2858"
+    },
+    {
+      "doctor_name": "MOCHIDA, GANESHWARAN",
+      "doctor_address": "55 FRUIT ST YAW 6 PEDIATRIC NEUROLOGY, BOSTON, MA 02114",
+      "phone": "(617) 726-3402"
+    },
+    {
+      "doctor_name": "BERNES, SAUNDER",
+      "doctor_address": "1919 E THOMAS RD DEPARTMENT OF NEUROLOGY, PHOENIX, AZ 85016",
+      "phone": "(602) 933-0970"
+    },
+    {
+      "doctor_name": "TOMKO, STUART",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "RUDOCK, ROBERT, II",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "UEDA, KEISUKE",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "AGNER, SHANNON",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "WEISENBERG, JUDITH",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "VIEHOEVER, AMY",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "KARMARKAR, SWATI",
+      "doctor_address": "17580 I-45 SOUTH NEUROLOGY OFFICE, THE WOODLANDS, TX 77384",
+      "phone": "(936) 267-7711"
+    }
+  ],
+  "Acute Care; Acute Care": [
+    {
+      "doctor_name": "RODGERS-MUSIAL, YVETTE",
+      "doctor_address": "718 TEANECK RD NEUROLOGY, TEANECK, NJ 07666",
+      "phone": "(201) 833-7208"
+    }
+  ],
+  "Neurology; Neurocritical Care": [
+    {
+      "doctor_name": "LUKOVITS, TIMOTHY",
+      "doctor_address": "1 MEDICAL CENTER DR NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-2830"
+    },
+    {
+      "doctor_name": "ROBBINS, NATHANIEL",
+      "doctor_address": "1 MEDICAL CENTER DRIVE NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    },
+    {
+      "doctor_name": "TEPPER, STEWART",
+      "doctor_address": "1 MEDICAL CENTER DR DHMC/NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    },
+    {
+      "doctor_name": "STARK, ALEKSANDRA",
+      "doctor_address": "1 MEDICAL CENTER DR DH - NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    },
+    {
+      "doctor_name": "HALL, WILEY",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 856-2527"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Clinical Genetics (M.D.)": [
+    {
+      "doctor_name": "KALSNER, LOUISA",
+      "doctor_address": "282 WASHINGTON ST 2A NEUROLOGY, HARTFORD, CT 06106",
+      "phone": "(860) 545-9460"
+    }
+  ],
+  "Family": [
+    {
+      "doctor_name": "ADLAWAN, EINA JANE MARIE",
+      "doctor_address": "703 MAIN ST NEUROLOGY DEPARTMENT, PATERSON, NJ 07503",
+      "phone": "(973) 754-2005"
+    },
+    {
+      "doctor_name": "BLAKE, DANA",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-7999"
+    },
+    {
+      "doctor_name": "BLESSING, KELLY",
+      "doctor_address": "DUKE UNIVERSITY MEDICAL CTR NEUROLOGY, DURHAM, NC 27710",
+      "phone": "(919) 684-8969"
+    },
+    {
+      "doctor_name": "MCINTOSH, CELIA",
+      "doctor_address": "1425 PORTLAND AVE NEUROLOGY DEPARTMENT, ROCHESTER, NY 14621",
+      "phone": "(585) 922-4000"
+    },
+    {
+      "doctor_name": "WIECK, JULIA",
+      "doctor_address": "1 MEDICAL CENTER DR NEUROLOGY/EPILEPSY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    },
+    {
+      "doctor_name": "HAWKINS, ANGELA",
+      "doctor_address": "8201 E. RIVERSIDE BLVD PEDIATRIC NEUROLOGY, ROCKFORD, IL 61114",
+      "phone": "(815) 971-7667"
+    },
+    {
+      "doctor_name": "RANA, HARPINDERJIT",
+      "doctor_address": "701 PARK AVE NEUROLOGY DEPT- P5.412, MINNEAPOLIS, MN 55415",
+      "phone": "(612) 873-3523"
+    },
+    {
+      "doctor_name": "DUCH, DEANNA",
+      "doctor_address": "4475 S EASTERN AVE NEUROLOGY CLINIC, LAS VEGAS, NV 89119",
+      "phone": "(702) 669-5944"
+    },
+    {
+      "doctor_name": "BLUM, JENNIFER",
+      "doctor_address": "80 SEYMOUR ST HARTFORD HOSPITAL NEUROLOGY DEPARTMENT, HARTFORD, CT 06102",
+      "phone": "(860) 972-3621"
+    },
+    {
+      "doctor_name": "PAPPAS, MARYANNE",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 972-3621"
+    },
+    {
+      "doctor_name": "GLOVER, NICOLE",
+      "doctor_address": "703 MAIN ST NEUROLOGY APN- XAVIER 318, PATERSON, NJ 07503",
+      "phone": "(973) 745-2000"
+    },
+    {
+      "doctor_name": "SWINT, CHARLOTTE",
+      "doctor_address": "2015 UPPERGATE DR. DIVISION OF PEDIATRIC NEUROLOGY, ATLANTA, GA 30322",
+      "phone": "(404) 712-8857"
+    }
+  ],
+  "Neurology; Behavioral Neurology & Neuropsychiatry; Clinical Neurophysiology; Neurocritical Care": [
+    {
+      "doctor_name": "BUJARSKI, KRZYSZTOF",
+      "doctor_address": "1 MEDICAL CENTER DR NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5283"
+    }
+  ],
+  "Adult Health": [
+    {
+      "doctor_name": "JARQUIN-VALDIVIA, TAWANA",
+      "doctor_address": "A-0118 MCN VANDERBILT NEUROLOGY, NASHVILLE, TN 37232",
+      "phone": "(615) 936-1354"
+    },
+    {
+      "doctor_name": "RITTBERG, SHANNA",
+      "doctor_address": "1275 YORK AVE NEUROLOGY/NEUROSURGERY, NEW YORK, NY 10065",
+      "phone": "(212) 639-6920"
+    },
+    {
+      "doctor_name": "GORDILLO, MILAGROS",
+      "doctor_address": "1275 YORK AVE M7 NEUROLOGY, NEW YORK, NY 10065",
+      "phone": "(212) 639-6920"
+    },
+    {
+      "doctor_name": "BARRON, LORETTA",
+      "doctor_address": "300 BROOKLINE AVE TCC 8-NEUROLOGY, BOSTON, MA 02215",
+      "phone": "(617) 667-1665"
+    },
+    {
+      "doctor_name": "DANIEL, JANICE",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    }
+  ],
+  "Vascular Neurology; Neurocritical Care": [
+    {
+      "doctor_name": "ROJAS-SOTO, DIANA",
+      "doctor_address": "1 MEDICAL CENTER DR NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    }
+  ],
+  "Clinical Neurophysiology": [
+    {
+      "doctor_name": "ANSARI, MOHSIN",
+      "doctor_address": "1600 EUREKA RD NEUROLOGY DEPARTMENT, ROSEVILLE, CA 95661",
+      "phone": "(916) 784-5766"
+    },
+    {
+      "doctor_name": "BOHR, THOMAS",
+      "doctor_address": "11201 BENTON ST (127 NEUROLOGY), LOMA LINDA, CA 92357",
+      "phone": "(909) 583-6049"
+    }
+  ],
+  "Sleep Medicine; Sleep Medicine": [
+    {
+      "doctor_name": "TAYLOR, SAMUEL, JR.",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 323-2255"
+    }
+  ],
+  "Clinical": [
+    {
+      "doctor_name": "LAGEMAN, SARAH",
+      "doctor_address": "1250 E MARSHALL STREET NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-5512"
+    },
+    {
+      "doctor_name": "ABRAMOWITZ, HELANE",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY, BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "KAPUST, LISSA",
+      "doctor_address": "330 BROOKLINE AVE BEHAVIORAL NEUROLOGY K2, BOSTON, MA 02215",
+      "phone": "(617) 667-5150"
+    },
+    {
+      "doctor_name": "ROLLISON, MICHAEL",
+      "doctor_address": "1250 E MARSHALL ST DEPT. OF NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 360-4669"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Clinical Neurophysiology": [
+    {
+      "doctor_name": "MOSTAJELEAN, ALI",
+      "doctor_address": "747 52ND ST NEUROLOGY DEPARTMENT, OAKLAND, CA 94609",
+      "phone": "(510) 428-3590"
+    },
+    {
+      "doctor_name": "ZEMPEL, JOHN",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "WONG, MICHAEL",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "RYTHER, ROBIN",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    },
+    {
+      "doctor_name": "GURNETT, CHRISTINA",
+      "doctor_address": "1 CHILDRENS PL DIV NEUROLOGY PEDIATRICS, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-1408"
+    }
+  ],
+  "Neuromuscular Medicine; Neurocritical Care; Neurology": [
+    {
+      "doctor_name": "LAWSON, VICTORIA",
+      "doctor_address": "1 MEDICAL CENTER DR NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 653-1264"
+    }
+  ],
+  "Neurology; Neurology; Neurocritical Care": [
+    {
+      "doctor_name": "MOWCHUN, JUSTIN",
+      "doctor_address": "1 MEDICAL CENTER DR NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-5104"
+    }
+  ],
+  "Neurology; Clinical Neurophysiology": [
+    {
+      "doctor_name": "MATHEW, ELSA",
+      "doctor_address": "1250 E MARSHALL ST NEUROLOGY, RICHMOND, VA 23298",
+      "phone": "(804) 828-9869"
+    },
+    {
+      "doctor_name": "LOPEZ-BRESNAHAN, MARIA",
+      "doctor_address": "15 PARKMAN ST NEUROLOGY ASSOCIATES, BOSTON, MA 02114",
+      "phone": "(617) 726-8459"
+    },
+    {
+      "doctor_name": "ALTALIB, HAMADA",
+      "doctor_address": "950 CAMPBELL AVE NEUROLOGY-125, WEST HAVEN, CT 06516",
+      "phone": "(203) 937-4724"
+    },
+    {
+      "doctor_name": "PULLEY, MICHAEL",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    },
+    {
+      "doctor_name": "JOST, MARY BETH",
+      "doctor_address": "5TH & ROOSEVELT DEPT OF NEUROLOGY #127, HINES, IL 60141",
+      "phone": "(708) 202-8387"
+    },
+    {
+      "doctor_name": "BREUER, ANTHONY",
+      "doctor_address": "2280 HEMBY LN ECU PHYSICIANS NEUROLOGY, GREENVILLE, NC 27834",
+      "phone": "(999) 999-9999"
+    },
+    {
+      "doctor_name": "AMATO, ANTHONY",
+      "doctor_address": "15 PARKMAN ST NEUROLOGY ASSOCIATES WAC 835, BOSTON, MA 02114",
+      "phone": "(617) 724-3914"
+    },
+    {
+      "doctor_name": "KONANC, DAVID",
+      "doctor_address": "RALEIGH NEUROLOGY ASSOCIATES, PA 1540 SUNDAY DR., RALEIGH, NC 27607",
+      "phone": "(919) 782-3456"
+    }
+  ],
+  "Neurology; Vascular Neurology": [
+    {
+      "doctor_name": "MARJI, AMIN",
+      "doctor_address": "IHA NEUROLOGY 5333 MCAULEY DRIVE, YPSILANTI, MI 48197",
+      "phone": "(734) 712-1400"
+    },
+    {
+      "doctor_name": "VENKATASUBBA RAO, CHETHAN",
+      "doctor_address": "1 BAYLOR PLZ DEPARTMENT OF NEUROLOGY, HOUSTON, TX 77030",
+      "phone": "(713) 798-8472"
+    }
+  ],
+  "Medical": [
+    {
+      "doctor_name": "PATOULIDIS, JENNIFER",
+      "doctor_address": "800 WASHINGTON ST NEUROLOGY DEPT, BOSTON, MA 02111",
+      "phone": "(617) 636-8488"
+    },
+    {
+      "doctor_name": "CALLA REED, MELODY",
+      "doctor_address": "2650 RIDGE AVE DEPARTMENT OF NEUROLOGY, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    },
+    {
+      "doctor_name": "KEXEL, PAMELA",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "BRACISKA, ALLYSON",
+      "doctor_address": "80 SEYMOUR ST HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 972-3621"
+    },
+    {
+      "doctor_name": "COLLINS, TIMOTHY",
+      "doctor_address": "41 BURLINGTON MALL ROAD 7 WEST NEUROLOGY, BURLINGTON, MA 01805",
+      "phone": "(781) 234-4953"
+    },
+    {
+      "doctor_name": "IHRIG, ADAM",
+      "doctor_address": "IHA NEUROLOGY 5333 MCAULEY DRIVE STE 6109, YPSILANTI, MI 48197",
+      "phone": "(734) 712-1400"
+    }
+  ],
+  "Vascular Neurology; Vascular Neurology; Vascular Neurology": [
+    {
+      "doctor_name": "WANG, QINGLIANG",
+      "doctor_address": "611 W PARK ST NEUROLOGY, URBANA, IL 61801",
+      "phone": "(217) 383-3440"
+    }
+  ],
+  "Vascular Neurology; Vascular Neurology": [
+    {
+      "doctor_name": "HASSANI, SARA",
+      "doctor_address": "DUKE UNIVERSITY DEPARTMENT OF NEUROLOGY, DURHAM, NC 27710",
+      "phone": "(617) 922-5398"
+    },
+    {
+      "doctor_name": "HOSLEY, CATHERINE",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 545-3621"
+    }
+  ],
+  "Acute Care": [
+    {
+      "doctor_name": "LINDSEY, DEBRA",
+      "doctor_address": "1201 BROAD ROCK BLVD NEUROLOGY, RICHMOND, VA 23249",
+      "phone": "(804) 675-5931"
+    },
+    {
+      "doctor_name": "DEPPEN, JACQUELINE",
+      "doctor_address": "150 S HUNTINGTON AVE NEUROLOGY DEPARTMENT, BOSTON, MA 02130",
+      "phone": "(857) 364-4751"
+    },
+    {
+      "doctor_name": "QUIEN, ARMILLA",
+      "doctor_address": "3801 MIRANDA AVE MC127 - NEUROLOGY, PALO ALTO, CA 94304",
+      "phone": "(650) 849-0233"
+    },
+    {
+      "doctor_name": "COLEMAN, JULIA",
+      "doctor_address": "2211 LOMAS BLVD NE NEUROLOGY CLINIC, ALBUQUERQUE, NM 87106",
+      "phone": "(505) 272-3342"
+    },
+    {
+      "doctor_name": "BLASZAK, FAYE",
+      "doctor_address": "BON SECOURS NEUROLOGY 801 ROPER CREEK DRIVE, GREENVILLE, SC 29615",
+      "phone": "(864) 516-1170"
+    },
+    {
+      "doctor_name": "VOSS, ALLISON",
+      "doctor_address": "200 HAWKINS DR DEPARTMENT OF NEUROLOGY, IOWA CITY, IA 52242",
+      "phone": "(319) 384-5997"
+    },
+    {
+      "doctor_name": "PATEL, PREKSHA",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-3000"
+    }
+  ],
+  "Neurodevelopmental Disabilities; Neurology with Special Qualifications in Child Neurology": [
+    {
+      "doctor_name": "ZIMMERMAN, ANDREW",
+      "doctor_address": "55 LAKE AVE N PEDIATRIC NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(774) 442-5695"
+    }
+  ],
+  "Neurology; Clinical Neurophysiology; Neurocritical Care": [
+    {
+      "doctor_name": "COHEN, JEFFREY",
+      "doctor_address": "1 MEDICAL CENTER DR DHMC-NEUROLOGY, LEBANON, NH 03756",
+      "phone": "(603) 650-8589"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Undersea and Hyperbaric Medicine": [
+    {
+      "doctor_name": "WHELAN, HARRY",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    }
+  ],
+  "Neuroscience": [
+    {
+      "doctor_name": "ALLEN, NANCY",
+      "doctor_address": "150 S HUNTINGTON AVE NEUROLOGY 127, BOSTON, MA 02130",
+      "phone": "(857) 364-4773"
+    },
+    {
+      "doctor_name": "LYNCH, DEBORAH",
+      "doctor_address": "2650 RIDGE AVE NEUROLOGY, BURCH 309, EVANSTON, IL 60201",
+      "phone": "(847) 570-2570"
+    }
+  ],
+  "Psychiatry": [
+    {
+      "doctor_name": "JAFFE, STEPHEN",
+      "doctor_address": "1501 KINGS HWY DEPARTMENT OF NEUROLOGY, SHREVEPORT, LA 71103",
+      "phone": "(318) 675-7737"
+    },
+    {
+      "doctor_name": "FRUMIN, MELISSA",
+      "doctor_address": "221 LONGWOOD AVENUE BRIGHAM BEHAVIORAL NEUROLOGY GROUP, BOSTON, MA 02115",
+      "phone": "(617) 732-8060"
+    }
+  ],
+  "Neuropathology": [
+    {
+      "doctor_name": "ANDERSON, MATTHEW",
+      "doctor_address": "330 BROOKLINE AVE DEPT. OF NEUROLOGY, BOSTON, MA 02215",
+      "phone": "(617) 667-3090"
+    }
+  ],
+  "Neuromuscular Medicine; Neurology": [
+    {
+      "doctor_name": "GRUIS, KIRSTEN",
+      "doctor_address": "90 PRESIDENTIAL PLZ 4TH FLOOR - NEUROLOGY, SYRACUSE, NY 13202",
+      "phone": "(315) 464-4243"
+    }
+  ],
+  "Child & Adolescent Psychiatry": [
+    {
+      "doctor_name": "FUNG, FRANCE",
+      "doctor_address": "3401 CIVIC CENTER BLVD CHCA NEUROLOGY, PHILADELPHIA, PA 19104",
+      "phone": "(215) 590-1719"
+    }
+  ],
+  "Neuro-ophthalmology": [
+    {
+      "doctor_name": "SEAY, MEAGAN",
+      "doctor_address": "9500 EUCLID AVE DEPARTMENT OF NEUROLOGY, CLEVELAND, OH 44195",
+      "phone": "(216) 444-2200"
+    }
+  ],
+  "Adult Health; Gerontology; Primary Care": [
+    {
+      "doctor_name": "ALDRIDGE, JENNA",
+      "doctor_address": "2280 HEMBY LN ECU PHYSICIANS NEUROLOGY, GREENVILLE, NC 27834",
+      "phone": "(252) 744-9400"
+    }
+  ],
+  "Primary Care": [
+    {
+      "doctor_name": "FLANNERY, APRIL",
+      "doctor_address": "3333 BURNET AVE. NEUROLOGY ML 2015, CINCINNATI, OH 45229",
+      "phone": "(513) 636-4222"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Neurology with Special Qualifications in Child Neurology": [
+    {
+      "doctor_name": "PATEL, HEMA",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    },
+    {
+      "doctor_name": "CHAABAN, JANTI",
+      "doctor_address": "254 EASTON AVE PEDIATRIC NEUROLOGY, NEW BRUNSWICK, NJ 08901",
+      "phone": "(732) 745-8600"
+    },
+    {
+      "doctor_name": "FERNANDEZ, LUIS",
+      "doctor_address": "4401 PENN AVE PEDIATRIC NEUROLOGY - THIRD FLOOR, PITTSBURGH, PA 15224",
+      "phone": "(412) 692-5520"
+    }
+  ],
+  "Neurology; Clinical Neurophysiology; Neurology": [
+    {
+      "doctor_name": "BERGER, ALAN",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    },
+    {
+      "doctor_name": "URBAN, EDWARD",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    }
+  ],
+  "Neurology; Neurology; Neurology; Neurology": [
+    {
+      "doctor_name": "ARANKE, SHACHIE",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Neurology": [
+    {
+      "doctor_name": "JAIN, BADAL",
+      "doctor_address": "1600 ROCKLAND RD DIV. OF NEUROLOGY, WILMINGTON, DE 19803",
+      "phone": "(302) 651-5930"
+    }
+  ],
+  "Neurology; Sleep Medicine": [
+    {
+      "doctor_name": "KIRK, STEVE",
+      "doctor_address": "4111 BEN FRANKLIN BLVD RALEIGH NEUROLOGY, DURHAM, NC 27704",
+      "phone": "(919) 719-8834"
+    },
+    {
+      "doctor_name": "ANWER, URSULA",
+      "doctor_address": "119 BELMONT ST DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01605",
+      "phone": "(508) 334-6641"
+    },
+    {
+      "doctor_name": "VYDRIN, MIKHAIL",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 334-2527"
+    }
+  ],
+  "EEG; Electroneurodiagnostic": [
+    {
+      "doctor_name": "MARTZ, MERRILL",
+      "doctor_address": "800 POLY PL NEUROLOGY SERVICE (127), BROOKLYN, NY 11209",
+      "phone": "(718) 836-6600"
+    }
+  ],
+  "Neurocritical Care": [
+    {
+      "doctor_name": "OSTROVSKIY, GRIGORY",
+      "doctor_address": "30 PROSPECT AVE DEPARTMENT OF NEUROLOGY, HACKENSACK, NJ 07601",
+      "phone": "(551) 996-8100"
+    }
+  ],
+  "Clinical; Clinical": [
+    {
+      "doctor_name": "BELL, JEAN",
+      "doctor_address": "39400 PASEO PADRE PKWY NEUROLOGY DEPT., FREMONT, CA 94538",
+      "phone": "(510) 248-3354"
+    }
+  ],
+  "Critical Care Medicine; Adult Health": [
+    {
+      "doctor_name": "SCHNEPEL, LORETTA",
+      "doctor_address": "580 W 8TH ST UFJP NEUROLOGY, JACKSONVILLE, FL 32209",
+      "phone": "(904) 244-3960"
+    }
+  ],
+  "Neurology; Neurology; Neuroradiology": [
+    {
+      "doctor_name": "LINDZEN, ERIC",
+      "doctor_address": "2280 HEMBY LN ECU PHYSICIANS NEUROLOGY, GREENVILLE, NC 27834",
+      "phone": "(252) 744-9400"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Clinical Neurophysiology; Neurodevelopmental Disabilities": [
+    {
+      "doctor_name": "PEARL, PHILLIP",
+      "doctor_address": "300 LONGWOOD AVE NEUROLOGY - FEGAN 11, BOSTON, MA 02115",
+      "phone": "(617) 355-6000"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Neurology; Neurology": [
+    {
+      "doctor_name": "MONRAD, PRIYA",
+      "doctor_address": "9000 W WISCONSIN AVE PEDIATRIC NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 266-3464"
+    }
+  ],
+  "Neurology; Neurology with Special Qualifications in Child Neurology": [
+    {
+      "doctor_name": "HERBERT, MARTHA",
+      "doctor_address": "55 FRUIT ST YAW 6 PEDIATRIC NEUROLOGY, BOSTON, MA 02114",
+      "phone": "(617) 726-3402"
+    },
+    {
+      "doctor_name": "MCBURNEY, JOHN",
+      "doctor_address": "BON SECOURS NEUROLOGY 801 ROPER CREEK DRIVE, GREENVILLE, SC 29615",
+      "phone": "(864) 516-1170"
+    }
+  ],
+  "Neurology; Neurology; Clinical Neurophysiology; Clinical Neurophysiology": [
+    {
+      "doctor_name": "SHIN, HAE WON",
+      "doctor_address": "170 MANNING DR POB 2119, NEUROLOGY, CHAPEL HILL, NC 27514",
+      "phone": "(919) 966-6727"
+    }
+  ],
+  "Neuromuscular Medicine; Neuromuscular Medicine; Neurology; Neurology": [
+    {
+      "doctor_name": "PUWANANT, ARAYA",
+      "doctor_address": "MEDICAL CENTER BLVD DEPARTMENT OF NEUROLOGY, WINSTON-SALEM, NC 27157",
+      "phone": "(336) 713-2674"
+    }
+  ],
+  "Vascular Neurology; Neurology; Neurocritical Care": [
+    {
+      "doctor_name": "MUEHLSCHLEGEL, SUSANNE",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF NEUROLOGY, WORCESTER, MA 01655",
+      "phone": "(508) 334-2527"
+    }
+  ],
+  "Electroneurodiagnostic": [
+    {
+      "doctor_name": "WALKER, ELLEN",
+      "doctor_address": "IHA NEUROLOGY 5333 MCAULEY DRIVE STE 6109, YPSILANTI, MI 48197",
+      "phone": "(734) 712-1400"
+    }
+  ],
+  "Vascular Neurology; Neurology; Vascular Neurology": [
+    {
+      "doctor_name": "TAWAKUL, ABDULLAH",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5200"
+    }
+  ],
+  "Neurocritical Care; Neurology": [
+    {
+      "doctor_name": "ALKHATIB, OMAR",
+      "doctor_address": "9200 W WISCONSIN AVENUE NEUROLOGY/CRITICAL CARE, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-8710"
+    }
+  ],
+  "Medical; Surgical": [
+    {
+      "doctor_name": "SMITH, CARISSA",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 972-3621"
+    }
+  ],
+  "Neurology; Neurology; Neuromuscular Medicine": [
+    {
+      "doctor_name": "GUTMANN, LUDWIG",
+      "doctor_address": "200 HAWKINS DR DEPT OF NEUROLOGY, IOWA CITY, IA 52242",
+      "phone": "(319) 356-3096"
+    },
+    {
+      "doctor_name": "NANCE, CHRISTOPHER",
+      "doctor_address": "200 HAWKINS DR DEPT OF NEUROLOGY, IOWA CITY, IA 52242",
+      "phone": "(319) 356-8958"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Neurodevelopmental Disabilities": [
+    {
+      "doctor_name": "GUPTA, SURYA",
+      "doctor_address": "4803 KENTUCKY STREET CAMC PEDIATRIC NEUROLOGY, SOUTH CHARLESTON, WV 25309",
+      "phone": "(304) 766-7695"
+    }
+  ],
+  "Neurology; Neurology; Neurology; Clinical Neurophysiology": [
+    {
+      "doctor_name": "HUDSON, LAWRENCE",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 972-3621"
+    },
+    {
+      "doctor_name": "HOANG, TROY",
+      "doctor_address": "3800 RESERVOIR RD NW DEPARTMENT OF NEUROLOGY, WASHINGTON, DC 20007",
+      "phone": "(202) 444-2600"
+    }
+  ],
+  "Neurology; Neurology; Neurology; Neurology; Neurology": [
+    {
+      "doctor_name": "LYNCH, JOHN",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-9236"
+    }
+  ],
+  "Pharmacotherapy": [
+    {
+      "doctor_name": "MCAULEY, JAMES",
+      "doctor_address": "456 W 10TH AVE NEUROLOGY CLINIC - 1C, COLUMBUS, OH 43210",
+      "phone": "(614) 293-4882"
+    }
+  ],
+  "Neuromuscular Medicine": [
+    {
+      "doctor_name": "HAN, STEVE",
+      "doctor_address": "55 FRUIT STREET, MGH WAC 835, NEUROLOGY, BOSTON, MA 02114",
+      "phone": "(617) 726-5533"
+    }
+  ],
+  "Surgical": [
+    {
+      "doctor_name": "DE GUZMAN, ARNEL",
+      "doctor_address": "111 EAST 210TH STREET DEPT. OF NEUROLOGY, BRONX, NY 10467",
+      "phone": "(718) 920-4715"
+    }
+  ],
+  "Neurology; Neurocritical Care; Neuromuscular Medicine; Neurology with Special Qualifications in Child Neurology; Neurodevelopmental Disabilities; Pain Medicine; Sleep Medicine; Vascular Neurology": [
+    {
+      "doctor_name": "SHARMA, KANIKA",
+      "doctor_address": "200 HAWKINS DR DEPT OF NEUROLOGY, IOWA CITY, IA 52242",
+      "phone": "(319) 356-8752"
+    }
+  ],
+  "Pharmacist Clinician (PhC)/ Clinical Pharmacy Specialist": [
+    {
+      "doctor_name": "NGUYEN, VIET-HUONG",
+      "doctor_address": "11301 WILSHIRE BLVD DEPARTMENT OF NEUROLOGY, LOS ANGELES, CA 90073",
+      "phone": "(310) 268-3595"
+    }
+  ],
+  "Epilepsy; Neurology; Clinical Neurophysiology": [
+    {
+      "doctor_name": "BRUZZONE, MARIA",
+      "doctor_address": "1600 SW ARCHER RD DEPARTMENT OF NEUROLOGY, GAINEVILLE, FL 32610",
+      "phone": "(352) 273-5500"
+    }
+  ],
+  "Neurology; Neuromuscular Medicine": [
+    {
+      "doctor_name": "DANIEL, ANNIE",
+      "doctor_address": "80 SEYMOUR STREET HARTFORD HOSPITAL NEUROLOGY DEPT, HARTFORD, CT 06102",
+      "phone": "(860) 972-3621"
+    },
+    {
+      "doctor_name": "VOTA, SCOTT",
+      "doctor_address": "417 N 11TH ST NEUROLOGY - 7TH FLOOR, RICHMOND, VA 23298",
+      "phone": "(804) 828-9350"
+    }
+  ],
+  "Adolescent Medicine": [
+    {
+      "doctor_name": "ROSS, WENDY",
+      "doctor_address": "300 LONGWOOD AVE CH DEPARTMENT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 355-6388"
+    }
+  ],
+  "Sleep Medicine; Neurodevelopmental Disabilities; Neurology with Special Qualifications in Child Neurology; Neurology with Special Qualifications in Child Neurology": [
+    {
+      "doctor_name": "KOSSAK, BRIAN",
+      "doctor_address": "87 MCGREGOR ST DARTMOUTH HITCHCOCK - CHILD NEUROLOGY, MANCHESTER, NH 03102",
+      "phone": "(603) 695-2500"
+    }
+  ],
+  "Neurology; Undersea and Hyperbaric Medicine": [
+    {
+      "doctor_name": "HELMS, ANN",
+      "doctor_address": "9200 W WISCONSIN AVE DEPARTMENT OF NEUROLOGY, MILWAUKEE, WI 53226",
+      "phone": "(414) 805-5200"
+    }
+  ],
+  "Medical; Medical": [
+    {
+      "doctor_name": "CONNER-MERZ, HEATHER",
+      "doctor_address": "640 EAST OREGON RROAD NEUROLOGY & STROKE ASSOCIATES, LITITZ, PA 17543",
+      "phone": "(717) 569-8773"
+    }
+  ],
+  "Neurology with Special Qualifications in Child Neurology; Adolescent Medicine; Neurology": [
+    {
+      "doctor_name": "ROE, EUGENE",
+      "doctor_address": "300 LONGWOOD AVE CH DEPARTMENT OF NEUROLOGY, BOSTON, MA 02115",
+      "phone": "(617) 331-4715"
+    }
+  ]
+}

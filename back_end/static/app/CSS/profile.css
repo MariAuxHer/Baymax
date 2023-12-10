@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+form {
+    margin: 10.0em 1.0em;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 50vh;
+}
+
+.info {
+    justify-content: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#toInfoChange {
+    color: #7161ff;
+    margin-top: 20px;
+}

@@ -1,10 +1,17 @@
 // script to handle client-side requests to the server
 
 // Import the 'domain' module's 'create' method
+<<<<<<< HEAD
 const { create } = require('domain')
 
 // Import the 'fs' (File System) module for file operations
 var fs = require('fs')
+=======
+// const { create } = require('domain')
+//import someModule from './someModule.js';
+// Import the 'fs' (File System) module for file operations
+//var fs = require('fs')
+>>>>>>> origin/dev
 
 // pretty json
 const prettyjson = require('prettyjson')
@@ -151,6 +158,7 @@ async function login(username, password) {
     local_cookies = response.headers.getSetCookie() 
     console.log(local_cookies)
     if (local_cookies) {
+<<<<<<< HEAD
         for (let i = 0; i < 2; i++) {
             info = local_cookies[i].split(';')
             pair = info[0].split('=') 
@@ -159,12 +167,25 @@ async function login(username, password) {
 
         /*
             Alternative to dont hardcode 0 - 1 in the loop 
+=======
+        // for (let i = 0; i < 2; i++) {
+        //     info = local_cookies[i].split(';')
+        //     pair = info[0].split('=') 
+        //     cookies[pair[0]] = pair[1]
+        // }
+
+        
+        //    Alternative to dont hardcode 0 - 1 in the loop 
+>>>>>>> origin/dev
             local_cookies.forEach(cookieString => {
             const info = cookieString.split(';');
             const pair = info[0].split('=');
             cookies[pair[0]] = pair[1];
             });
+<<<<<<< HEAD
         */
+=======
+>>>>>>> origin/dev
 
         console.log("New cookies set: ")
         console.log(cookies)
@@ -396,7 +417,11 @@ async function post_conversation(name) {
 
     ADD HERE USER'S REGION (STATE, CITY, ZIP CODE)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 */
+<<<<<<< HEAD
 async function create_user(username, password, email) {
+=======
+async function create_user(username, password, email, city, state, zipcode) {
+>>>>>>> origin/dev
     console.log("CREATE_USER Start")
     const response = await fetch(CREATE_USER_URL, {
         method: "POST",
@@ -409,6 +434,12 @@ async function create_user(username, password, email) {
             username: username,
             password: password,
             email: email,
+<<<<<<< HEAD
+=======
+            city: city,
+            state: state,
+            zipcode: zipcode
+>>>>>>> origin/dev
         })
     })
 

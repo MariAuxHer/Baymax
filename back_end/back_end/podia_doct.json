@@ -1,0 +1,693 @@
+{
+  "Foot & Ankle Surgery": [
+    {
+      "doctor_name": "NEWKIRK, HEIDI",
+      "doctor_address": "590 COURT ST PODIATRY, KEENE, NH 03431",
+      "phone": "(603) 354-6668"
+    },
+    {
+      "doctor_name": "NICOLOSI, NICOLE",
+      "doctor_address": "9500 EUCLID AVE PODIATRY, CLEVELAND, OH 44195",
+      "phone": "(216) 444-2200"
+    },
+    {
+      "doctor_name": "EGERTSEN, MICHAEL",
+      "doctor_address": "10 N GREENE ST PODIATRY, BALTIMORE, MD 21201",
+      "phone": "(410) 605-7000"
+    },
+    {
+      "doctor_name": "JOHNSON, LINDSAY",
+      "doctor_address": "291 INDEPENDENCE DR PODIATRY DEPT., CHESTNUT HILL, MA 02467",
+      "phone": "(617) 541-6611"
+    },
+    {
+      "doctor_name": "OLENCHEK, ELLIOT",
+      "doctor_address": "3300 GALLOWS RD BLDG PODIATRY, FALLS CHURCH, VA 22042",
+      "phone": "(703) 776-6141"
+    },
+    {
+      "doctor_name": "SHI, YONG-HAN",
+      "doctor_address": "1301 CALIFORNIA ST PODIATRY DEPT, REDLANDS, CA 92374",
+      "phone": "(909) 809-3212"
+    },
+    {
+      "doctor_name": "ELLIE, JOHN, JR.",
+      "doctor_address": "1500 PORTLAND AVE PODIATRY SUITE, ROCHESTER, NY 14621",
+      "phone": "(585) 642-6100"
+    },
+    {
+      "doctor_name": "DIGIUSEPPE, MICHAEL",
+      "doctor_address": "18321 CLARK ST PODIATRY DEPARTMENT, TARZANA, CA 91356",
+      "phone": "(818) 633-9497"
+    },
+    {
+      "doctor_name": "ANDERSON, BRADY",
+      "doctor_address": "2500 OVERLOOK TERRACE PODIATRY DEPARTMENT, MADISON, WI 53705",
+      "phone": "(320) 250-6559"
+    },
+    {
+      "doctor_name": "PARKS, VIRGINIA",
+      "doctor_address": "8008 WESTPARK DRIVE DEPTARTMENT OF PODIATRY, MCLEAN, VA 22102",
+      "phone": "(703) 287-6475"
+    },
+    {
+      "doctor_name": "WILK, JAMES",
+      "doctor_address": "25821 VERMONT AVE ORTHOPEDICS/PODIATRY, HARBOR CITY, CA 90710",
+      "phone": "(424) 251-7100"
+    },
+    {
+      "doctor_name": "FILIPPI, MATTHEW",
+      "doctor_address": "313 MAPLE STREET MEADOWS PODIATRY, EAST LONGMEADOW, MA 01028",
+      "phone": "(413) 525-4311"
+    },
+    {
+      "doctor_name": "KLEINBRODT, DAVID",
+      "doctor_address": "5601 DE SOTO AVE PODIATRY, WOODLAND HILLS, CA 91367",
+      "phone": "(818) 719-2000"
+    },
+    {
+      "doctor_name": "BASILE, PHILIP",
+      "doctor_address": "330 MOUNT AUBURN ST DIVISION OF PODIATRY, CAMBRIDGE, MA 02138",
+      "phone": "(617) 499-5065"
+    },
+    {
+      "doctor_name": "VO, VICTORIA",
+      "doctor_address": "4500 S LANCASTER RD CLINIC 5 - PODIATRY, DALLAS, TX 75216",
+      "phone": "(214) 742-8387"
+    },
+    {
+      "doctor_name": "SHOMODY, SERENA",
+      "doctor_address": "590 COURT ST DARTMOUTH HITCHCOCK - PODIATRY, KEENE, NH 03431",
+      "phone": "(603) 354-5454"
+    },
+    {
+      "doctor_name": "PHAYNE, NAOMI",
+      "doctor_address": "650 JOEL DRIVE PODIATRY CLINIC, FORT CAMPBELL, KY 42223",
+      "phone": "(270) 798-8638"
+    },
+    {
+      "doctor_name": "PAPPALARDO, JENNIFER",
+      "doctor_address": "123 SUMMER ST DEPARTMENT OF PODIATRY, WORCESTER, MA 01608",
+      "phone": "(508) 363-7390"
+    },
+    {
+      "doctor_name": "ROWAN, GREGORY",
+      "doctor_address": "500 FOOTHILL DR PODIATRY, SALT LAKE CITY, UT 84148",
+      "phone": "(801) 582-1565"
+    },
+    {
+      "doctor_name": "ALAM, SHAFAYET",
+      "doctor_address": "SUNY DOWNSTATE PODIATRY DEPT 450 CLARKSON AVENUE, BROOKLYN, NY 11203",
+      "phone": "(718) 270-1537"
+    },
+    {
+      "doctor_name": "OPESE, ALPHA",
+      "doctor_address": "446A GUY PARK AVE. PODIATRY HEALTH CENTER, AMSTERDAM, NY 12010",
+      "phone": "(518) 770-7880"
+    },
+    {
+      "doctor_name": "MICHAEL, JEFFREY",
+      "doctor_address": "200 E STATE ST ATTN PODIATRY RESIDENTS, ALLIANCE, OH 44601",
+      "phone": "(330) 596-6000"
+    },
+    {
+      "doctor_name": "WANNAMAKER, AKENA",
+      "doctor_address": "1201 BROAD ROCK BLVD. PODIATRY CLINIC (112H), RICHMOND, VA 23249",
+      "phone": "(804) 675-6910"
+    },
+    {
+      "doctor_name": "RICHMAN, HOWARD",
+      "doctor_address": "36000 DARNALL LOOP PODIATRY CLINIC ( ROOM 1257 ), FORT HOOD, TX 76544",
+      "phone": "(254) 288-8196"
+    },
+    {
+      "doctor_name": "ZIMMERMAN, JEFFREY",
+      "doctor_address": "PODIATRY CLINIC WOMACK ARMY MEDICAL CENTER, FORT BRAGG, NC 28310",
+      "phone": "(910) 907-8666"
+    },
+    {
+      "doctor_name": "JOLLEY, TYLER",
+      "doctor_address": "2401 S 31ST ST OFFICE OF PODIATRY, TEMPLE, TX 76508",
+      "phone": "(435) 749-3903"
+    },
+    {
+      "doctor_name": "FORD, CARLI",
+      "doctor_address": "420 N. JAMES RD. SURGERY/PODIATRY, 2ND FLOOR, COLUMBUS, OH 43219",
+      "phone": "(614) 257-5200"
+    },
+    {
+      "doctor_name": "GOODMAN, BROOKE",
+      "doctor_address": "4150 CLEMENT ST PODIATRY SURGERY SERVICE 112, SAN FRANCISCO, CA 94121",
+      "phone": "(415) 221-4810"
+    },
+    {
+      "doctor_name": "CZARNECKI, WILLIAM",
+      "doctor_address": "2200 W HIGGINS RD SUBURBAN PODIATRY LTD #230, HOFFMAN ESTATES, IL 60195",
+      "phone": "(847) 884-8863"
+    },
+    {
+      "doctor_name": "SMITH, REBECCA",
+      "doctor_address": "2601 THORNTON LN ATTN: REBECCA SMITH, DEPT OF PODIATRY, TEMPLE, TX 76502",
+      "phone": "(432) 266-0209"
+    },
+    {
+      "doctor_name": "TOLLIVER, ROLAND, JR.",
+      "doctor_address": "FREEPORT PODIATRY SERVICES, LLC 1201 WEST EMPIRE STREET, FREEPORT, IL 61032",
+      "phone": "(815) 232-8015"
+    },
+    {
+      "doctor_name": "DURRANCE, EMILY",
+      "doctor_address": "10 N GREENE ST PODIATRY DEPT: 5A-119, BALTIMORE, MD 21201",
+      "phone": "(410) 605-7000"
+    },
+    {
+      "doctor_name": "JEX, MARSHALL",
+      "doctor_address": "25821 VERMONT AVE PODIATRY, 2ND FLOOR COASTLINE, HARBOR CITY, CA 90710",
+      "phone": "(480) 717-1272"
+    },
+    {
+      "doctor_name": "SREY, VEASNA",
+      "doctor_address": "USA MEDDAC, EVANS ARMY COMMUNITY HOSPITAL PODIATRY CLINIC, FORT CARSON, CO 80913",
+      "phone": "(719) 526-7435"
+    },
+    {
+      "doctor_name": "REISER, SHAWN",
+      "doctor_address": "1303 S LINDEN RD COMMUNITY PODIATRY GROUP SUITE D, FLINT, MI 48532",
+      "phone": "(215) 888-4358"
+    },
+    {
+      "doctor_name": "HAMMOND, RICHARD",
+      "doctor_address": "1531 S MADISON ST 4TH FLOOR (ORTHOPEDICS AND PODIATRY), APPLETON, WI 54915",
+      "phone": "(920) 996-3700"
+    },
+    {
+      "doctor_name": "YOUNAS, MOMNA",
+      "doctor_address": "506 6TH ST NEW YORK METHODIST HOSPITAL: PODIATRY DEPARTMENT, BROOKLYN, NY 11215",
+      "phone": "(718) 780-5012"
+    },
+    {
+      "doctor_name": "BISCEGLIA, CRAIG",
+      "doctor_address": "5001 N. PIEDRAS ST. EL PASO VAHCS--PODIATRY CLINIC, EL PASO, TX 79930",
+      "phone": "(915) 564-6100"
+    },
+    {
+      "doctor_name": "LEE, JAKE",
+      "doctor_address": "3772 HOWE ST HOWE ST. BUILDING, GROUND FLOOR, PODIATRY DEPARTMENT, OAKLAND, CA 94611",
+      "phone": "(510) 752-1231"
+    },
+    {
+      "doctor_name": "ADAMS, WILLIAM",
+      "doctor_address": "795 EL CAMINO REAL LEVEL 3, LEE BUILDING - DEPARTMENT OF PODIATRY, PALO ALTO, CA 94301",
+      "phone": "(650) 853-2986"
+    },
+    {
+      "doctor_name": "LIDDELL, JERRY",
+      "doctor_address": "4901 FOREST PARK AVE DIV SURG ACCS PODIATRY, STE 420, SAINT LOUIS, MO 63108",
+      "phone": "(314) 747-4769"
+    }
+  ],
+  "": [
+    {
+      "doctor_name": "MCGOWAN, MICHAEL",
+      "doctor_address": "234 GOODMAN ST PODIATRY, CINCINNATI, OH 45219",
+      "phone": "(513) 558-3668"
+    },
+    {
+      "doctor_name": "HENNING, JORDAN",
+      "doctor_address": "234 GOODMAN ST PODIATRY, CINCINNATI, OH 45219",
+      "phone": "(513) 558-3668"
+    },
+    {
+      "doctor_name": "BINGHAM, SHANIQUE",
+      "doctor_address": "428 COLUMBUS AVENUE PODIATRY, NEW HAVEN, CT 06519",
+      "phone": "(203) 503-3070"
+    },
+    {
+      "doctor_name": "PALMER, MELONIE",
+      "doctor_address": "1004 SOCIETY DR PALMER PODIATRY, CLAYMONT, DE 19703",
+      "phone": "(302) 792-1961"
+    },
+    {
+      "doctor_name": "SHROYER, ERICA",
+      "doctor_address": "1802 S MATTIS AVE PODIATRY, CHAMPAIGN, IL 61821",
+      "phone": "(217) 383-3260"
+    },
+    {
+      "doctor_name": "MEEHAN, PATRICIA",
+      "doctor_address": "585 SCHENECTADY AVE PODIATRY DEPARTMENT, BROOKLYN, NY 11203",
+      "phone": "(718) 604-5000"
+    },
+    {
+      "doctor_name": "ARMSTRONG, RICHARD",
+      "doctor_address": "342A GIFFORD ST FALMOUTH PODIATRY, FALMOUTH, MA 02540",
+      "phone": "(508) 540-5164"
+    },
+    {
+      "doctor_name": "SMITH, ANNE-LOUISE",
+      "doctor_address": "450 CLARKSON AVE (PODIATRY DEPARTMENT), BROOKLYN, NY 11203",
+      "phone": "(718) 624-8022"
+    },
+    {
+      "doctor_name": "TAYLOR, DANIEL",
+      "doctor_address": "1030 JEFFERSON AVE PODIATRY CLINIC., MEMPHIS, TN 38104",
+      "phone": "(901) 523-8990"
+    },
+    {
+      "doctor_name": "FOOTE, DENNIS",
+      "doctor_address": "USAHC SCHOFIELD BARRACKS PODIATRY CLINIC, SCHOFIELD BARRACKS, HI 96857",
+      "phone": "(808) 433-8629"
+    },
+    {
+      "doctor_name": "DINH, THANH",
+      "doctor_address": "185 PILGRIM RD DIVISION OF PODIATRY, BOSTON, MA 02215",
+      "phone": "(617) 632-8428"
+    },
+    {
+      "doctor_name": "ROSENBLUM, BARRY",
+      "doctor_address": "185 PILGRIM RD DIVISION OF PODIATRY, BOSTON, MA 02215",
+      "phone": "(617) 632-7074"
+    },
+    {
+      "doctor_name": "SEARBY, PHILIP",
+      "doctor_address": "425 HUEHL. #13 PREFERRED PODIATRY GROUP, NORTHBROOK, IL 60062",
+      "phone": "(847) 504-5000"
+    },
+    {
+      "doctor_name": "BAYLOR, ETHEL",
+      "doctor_address": "342A GIFFORD ST FALMOUTH PODIATRY, FALMOUTH, MA 02540",
+      "phone": "(508) 540-5164"
+    },
+    {
+      "doctor_name": "CORIATY, NATALIE",
+      "doctor_address": "975 SERENO DR PODIATRY DEPARTMENT, VALLEJO, CA 94589",
+      "phone": "(707) 651-1000"
+    },
+    {
+      "doctor_name": "TABB, YACARA",
+      "doctor_address": "843 MILLING AVE PODIATRY DEPT, LULING, LA 70070",
+      "phone": "(985) 785-5800"
+    },
+    {
+      "doctor_name": "LIMRATANA, IRENE",
+      "doctor_address": "450 CLARKSON AVE PODIATRY DEPARTMENT, BROOKLYN, NY 11203",
+      "phone": "(718) 270-1984"
+    },
+    {
+      "doctor_name": "PONIROS, GEORGIOS",
+      "doctor_address": "48 AUBURN ST AUBURN PODIATRY LLP, AUBURN, MA 01501",
+      "phone": "(508) 832-6075"
+    },
+    {
+      "doctor_name": "RODE, KURT",
+      "doctor_address": "114 WOODLAND ST DEPT OF PODIATRY, HARTFORD, CT 06105",
+      "phone": "(860) 714-5911"
+    },
+    {
+      "doctor_name": "PHAVIXAY, LAEMTHONG",
+      "doctor_address": "4100 W 3RD ST PODIATRY 112P, DAYTON, OH 45428",
+      "phone": "(937) 268-6511"
+    },
+    {
+      "doctor_name": "NEERINGS, BRIAN",
+      "doctor_address": "3650 STEVE REYNOLDS BLVD PODIATRY DEPT, DULUTH, GA 30096",
+      "phone": "(623) 848-0123"
+    },
+    {
+      "doctor_name": "GIURINI, JOHN",
+      "doctor_address": "185 PILGRIM RD DIVISION OF PODIATRY, BOSTON, MA 02215",
+      "phone": "(617) 632-7071"
+    },
+    {
+      "doctor_name": "LYONS, THOMAS",
+      "doctor_address": "185 PILGRIM RD DIVISION OF PODIATRY, BOSTON, MA 02215",
+      "phone": "(617) 632-7082"
+    },
+    {
+      "doctor_name": "TORRELL, RALPH",
+      "doctor_address": "210 FULTON ST WESTBURY PODIATRY PC, WESTBURY, NY 11590",
+      "phone": "(516) 333-6800"
+    },
+    {
+      "doctor_name": "KAGEL, PATRICK",
+      "doctor_address": "110 IRVING ST. NW DEPT OF PODIATRY, WASHINGTON, DC 20010",
+      "phone": "(202) 882-7917"
+    },
+    {
+      "doctor_name": "ATULURU, VARSHA",
+      "doctor_address": "110 IRVING ST. NW DEPT OF PODIATRY, WASHINGTON, DC 20010",
+      "phone": "(202) 882-7917"
+    },
+    {
+      "doctor_name": "COKER, DAVID",
+      "doctor_address": "732 HARRISON AVE BLDG 5TH FLOOR PODIATRY, BOSTON, MA 02118",
+      "phone": "(617) 414-6840"
+    },
+    {
+      "doctor_name": "SULLIVAN, PATRICIA",
+      "doctor_address": "48 AUBURN ST AUBURN PODIATRY LLP, AUBURN, MA 01501",
+      "phone": "(508) 832-6075"
+    },
+    {
+      "doctor_name": "JEONG, KEVIN",
+      "doctor_address": "374 STOCKHOLM ST DEPARTMENT OF PODIATRY, BROOKLYN, NY 11237",
+      "phone": "(425) 512-6870"
+    },
+    {
+      "doctor_name": "AVERY, AERIAL",
+      "doctor_address": "3936 SPRINGFIELD RD PODIATRY OFFICE, GLEN ALLEN, VA 23060",
+      "phone": "(804) 934-9340"
+    },
+    {
+      "doctor_name": "GLYSING-JENSEN, TROELS",
+      "doctor_address": "237 N ABERDEEN AVE LIFECARE PODIATRY, WAYNE, PA 19087",
+      "phone": "(610) 293-9383"
+    },
+    {
+      "doctor_name": "HUTTON, JENNIFER",
+      "doctor_address": "DELMAR MEDICAL OFFICE - PODIATRY 250 DELAWARE AVE, DELMAR, NY 12054",
+      "phone": "(518) 439-7176"
+    },
+    {
+      "doctor_name": "STEIN, MERYL",
+      "doctor_address": "200 CRESCENT CENTRE PARK DEPARTMENT OF PODIATRY, TUCKER, GA 30084",
+      "phone": "(770) 496-3505"
+    },
+    {
+      "doctor_name": "MASTERS, RENIA",
+      "doctor_address": "751 S BASCOM AVE PODIATRY DEPARTMENT, SAN JOSE, CA 95128",
+      "phone": "(408) 885-7821"
+    },
+    {
+      "doctor_name": "ROSS, STEPHEN",
+      "doctor_address": "700 2ND ST NE DEPT. OF PODIATRY, WASHINGTON, DC 20002",
+      "phone": "(202) 346-3355"
+    },
+    {
+      "doctor_name": "LOZON, SHANNON",
+      "doctor_address": "1445 MERRILL AVE PODIATRY ASSOCIATES OF WAUSAU, S.C., WAUSAU, WI 54401",
+      "phone": "(715) 675-2321"
+    },
+    {
+      "doctor_name": "KAPILA, ASHISH",
+      "doctor_address": "WELLSTAR PODIATRY 4441 ATLANTA RD SE SUITE 215, SMYRNA, GA 30080",
+      "phone": "(470) 956-4165"
+    },
+    {
+      "doctor_name": "MINERVINO, RALPH",
+      "doctor_address": "400 FORT HILL AVE PODIATRY CLINIC #129, CANANDAIGUA, NY 14424",
+      "phone": "(585) 393-8108"
+    },
+    {
+      "doctor_name": "FULLER, HEIDI",
+      "doctor_address": "732 HARRISON AVE PODIATRY CLINIC 5TH FLOOR, BOSTON, MA 02118",
+      "phone": "(617) 414-6841"
+    },
+    {
+      "doctor_name": "JORGENSON, RYAN",
+      "doctor_address": "PREFERRED PODIATRY GROUP 425 HUEHL ROAD #13, NORTHBROOK, IL 60062",
+      "phone": "(847) 504-5000"
+    },
+    {
+      "doctor_name": "SPANKO, JEFFREY",
+      "doctor_address": "751 S BASCOM AVE PODIATRY DEPT, SAN JOSE, CA 95128",
+      "phone": "(408) 885-5930"
+    },
+    {
+      "doctor_name": "DIVAIO, CAROL",
+      "doctor_address": "55 FRUIT ST YAW 3056 PODIATRY GROUP, BOSTON, MA 02114",
+      "phone": "(617) 726-3487"
+    },
+    {
+      "doctor_name": "WALLS, ANTHONY",
+      "doctor_address": "7400 MERTON MINTER ST PODIATRY CLINIC, SAN ANTONIO, TX 78229",
+      "phone": "(210) 617-5300"
+    },
+    {
+      "doctor_name": "YATES, SCOTT",
+      "doctor_address": "55 FRUIT STREET YAW 3056 PODIATRY GROUP, BOSTON, MA 02114",
+      "phone": "(617) 726-3487"
+    },
+    {
+      "doctor_name": "JOURDAN, MICHAEL",
+      "doctor_address": "PODIATRY ASSOCIATES OF WAUSAU, S.C. 1445 MERRILL AVE, WAUSAU, WI 54401",
+      "phone": "(715) 675-2321"
+    },
+    {
+      "doctor_name": "LANDRETTI, THOMAS",
+      "doctor_address": "1445 MERRILL AVE PODIATRY ASSOCIATES OF WAUSAU, S.C., WAUSAU, WI 54401",
+      "phone": "(715) 675-2321"
+    },
+    {
+      "doctor_name": "MGBAKO, OBINNA",
+      "doctor_address": "715 CENTRAL AVENUE IN CARE OF WESTFIELD PODIATRY, WESTFIELD, NJ 07090",
+      "phone": "(908) 232-3346"
+    },
+    {
+      "doctor_name": "WALTERS, JEFFREY",
+      "doctor_address": "425 HUEHL RD #13 PREFERRED PODIATRY GROUP PC, NORTHBROOK, IL 60062",
+      "phone": "(847) 504-5000"
+    },
+    {
+      "doctor_name": "LAGANA, FRANCES",
+      "doctor_address": "55 LAKE AVE N DEPARTMENT OF ORTHOPEDICS/PODIATRY, WORCESTER, MA 01655",
+      "phone": "(774) 443-4711"
+    },
+    {
+      "doctor_name": "BROWN, DANIEL",
+      "doctor_address": "6 ESSEX CENTER DR SUITE 208 - PEABODY PODIATRY, PEABODY, MA 01960",
+      "phone": "(978) 531-9969"
+    },
+    {
+      "doctor_name": "SAKEVICH, TARA",
+      "doctor_address": "820 S DAMEN AVE 7TH FLOOR - PODIATRY DEPARTMENT, CHICAGO, IL 60612",
+      "phone": "(312) 569-7264"
+    },
+    {
+      "doctor_name": "REDDY, MALIKA",
+      "doctor_address": "150 BERGEN STREET PODIATRY SEVICE RM G-142, NEWARK, NJ 07103",
+      "phone": "(973) 972-5088"
+    },
+    {
+      "doctor_name": "GELLING, WILLIAM",
+      "doctor_address": "1445 MERRILL AVE PODIATRY ASSOCIATES OF WAUSAU, S.C., WAUSAU, WI 54401",
+      "phone": "(715) 675-2321"
+    },
+    {
+      "doctor_name": "SCHADE, VALERIE",
+      "doctor_address": "MADIGAN ARMY MEDICAL CTR MCHJ-SOP MAMC ATTN PODIATRY, TACOMA, WA 98431",
+      "phone": "(253) 968-1790"
+    },
+    {
+      "doctor_name": "RIGAUD, PHILIPPE",
+      "doctor_address": "227 MADISON ST DEPARTMENT OF PODIATRY, 5TH FLOOR, NEW YORK, NY 10002",
+      "phone": "(212) 238-7614"
+    },
+    {
+      "doctor_name": "MEKA, NNEKA",
+      "doctor_address": "1514 JEFFERSON HWY 5TH FLOOR CLINIC ATRIUM, PODIATRY, NEW ORLEANS, LA 70121",
+      "phone": "(504) 842-6850"
+    },
+    {
+      "doctor_name": "FELD, JEFFREY",
+      "doctor_address": "936A GENERAL BOOTH BLVD PODIATRY ASSOCIATES OF VIRGINIA, VIRGINIA BEACH, VA 23451",
+      "phone": "(757) 228-1955"
+    },
+    {
+      "doctor_name": "BASKWILL, DAVID",
+      "doctor_address": "25 MONUMENT ROAD APPLE HILL PODIATRY ASSOC SUITE 130, YORK, PA 17403",
+      "phone": "(717) 741-9055"
+    },
+    {
+      "doctor_name": "SANDE, HERVEY",
+      "doctor_address": "451 CLARKSON AVENUE KINGS COUNTY HOSPITAL OPD PODIATRY CLINIC, BROOKLYN, NY 11203",
+      "phone": "(718) 245-3545"
+    },
+    {
+      "doctor_name": "HAYATA, NANCY",
+      "doctor_address": "7098 EDINGER AVE BEACH CITIES PODIATRY GROUP INC, HUNTINGTON BEACH, CA 92647",
+      "phone": "(714) 848-3663"
+    },
+    {
+      "doctor_name": "WINDER, MICHELLE",
+      "doctor_address": "701 PARK AVE HENNEPIN COUNTY MEDICAL CENTER, PODIATRY DEPARTMENT, MINNEAPOLIS, MN 55415",
+      "phone": "(815) 302-8274"
+    },
+    {
+      "doctor_name": "DEBOSKEY, JOSEPH",
+      "doctor_address": "6392 SOUTH BIG A RD TRI COUNTY PODIATRY LLC, TOCCOA, GA 30577",
+      "phone": "(706) 282-5092"
+    },
+    {
+      "doctor_name": "BANKS, LELIA",
+      "doctor_address": "MCGUIRE VA MEDICAL CTR 1201 BROAD ROCK BLVD, PODIATRY (112H), RICHMOND, VA 23249",
+      "phone": "(804) 675-5000"
+    },
+    {
+      "doctor_name": "PATEL, SANJAY",
+      "doctor_address": "4910 MASSACHUSETTS AVE NW MID-ATLANTIC PODIATRY ASSOCIATES- SUITE 315, WASHINGTON, DC 20016",
+      "phone": "(347) 553-8618"
+    },
+    {
+      "doctor_name": "KHOSHNEVISZADEH, MOHSEN",
+      "doctor_address": "2400 MOUNT ZION PKWY SOUTHWOOD MEDICAL CENTER - DEPT OF PODIATRY, JONESBORO, GA 30236",
+      "phone": "(770) 603-3547"
+    },
+    {
+      "doctor_name": "TAYLOR, LAKISHA",
+      "doctor_address": "5645 MAIN ST PODIATRY OFFICE NEW YORK HOSPITAL OF QUEENS, FLUSHING, NY 11355",
+      "phone": "(718) 670-1507"
+    },
+    {
+      "doctor_name": "WEISS, MICHAEL",
+      "doctor_address": "1020 N MASON RD DIV SURG ACCS PODIATRY, STE 225, SAINT LOUIS, MO 63141",
+      "phone": "(314) 747-4769"
+    },
+    {
+      "doctor_name": "ERMITANO, NEIL",
+      "doctor_address": "1020 N MASON RD DIV SURG ACCS PODIATRY, STE 225, SAINT LOUIS, MO 63141",
+      "phone": "(314) 747-4769"
+    },
+    {
+      "doctor_name": "VALENTINO, TERRY",
+      "doctor_address": "36000 DARNALL LOOP CARL R DARNALL ARMY MEDICAL CENTER PODIATRY CLINIC, FORT HOOD, TX 76544",
+      "phone": "(254) 288-8196"
+    }
+  ],
+  "Foot & Ankle Surgery; Foot & Ankle Surgery": [
+    {
+      "doctor_name": "MUSMANNO, JOSEPH",
+      "doctor_address": "450 TURNER ST NHBC - PODIATRY, PENSACOLA, FL 32508",
+      "phone": "(850) 452-5213"
+    },
+    {
+      "doctor_name": "MITCHELL, DIANNE",
+      "doctor_address": "3000 Q ST 4TH FLOOR PODIATRY, SACRAMENTO, CA 95816",
+      "phone": "(916) 733-3359"
+    },
+    {
+      "doctor_name": "JOHNSON, PRYNCESS",
+      "doctor_address": "1201 BROAD ROCK BLVD PODIATRY DEPT, RICHMOND, VA 23249",
+      "phone": "(804) 675-5000"
+    },
+    {
+      "doctor_name": "BUI, DUNG",
+      "doctor_address": "25825 VERMONT AVE DEPT. ORTHOPEDICS/PODIATRY, HARBOR CITY, CA 90710",
+      "phone": "(310) 517-2870"
+    },
+    {
+      "doctor_name": "BROUILLETTE, JEREMY",
+      "doctor_address": "1970 ROANOKE BLVD BLDG 143, PODIATRY DEPARTMENT, SALEM, VA 24153",
+      "phone": "(540) 982-2463"
+    },
+    {
+      "doctor_name": "CIBULA, CHARLES",
+      "doctor_address": "4508 CHADWICK RD CEDAR VALLEY PODIATRY PC, CEDAR FALLS, IA 50613",
+      "phone": "(319) 277-4508"
+    },
+    {
+      "doctor_name": "STANTON, BRIAN",
+      "doctor_address": "4881 SUGAR MAPLE DR ORTHOPEDICS AND PODIATRY, WRIGHT PATTERSON AFB, OH 45433",
+      "phone": "(937) 257-9416"
+    },
+    {
+      "doctor_name": "LIVENGOOD, MELVIN",
+      "doctor_address": "1601 BRENNER AVE VA MEDICAL CENTER SURGERY DEPT/ PODIATRY, SALISBURY, NC 28144",
+      "phone": "(704) 638-9000"
+    },
+    {
+      "doctor_name": "DHANOTA PABLA, NISHI",
+      "doctor_address": "3100 DUBLIN BLVD. KAISER, 3RD FLOOR, DEPARTMENT OF PODIATRY, DUBLIN, CA 94568",
+      "phone": "(925) 295-4130"
+    }
+  ],
+  "Primary Podiatric Medicine; Primary Podiatric Medicine": [
+    {
+      "doctor_name": "ATKIN, JAMES",
+      "doctor_address": "PODIATRY CLINIC VAMC, PERRY POINT, MD 21902",
+      "phone": "(410) 642-2411"
+    }
+  ],
+  "Foot Surgery": [
+    {
+      "doctor_name": "GALLI, KAREN",
+      "doctor_address": "3900 WOODLAND AVE PODIATRY (112), PHILADELPHIA, PA 19104",
+      "phone": "(215) 823-5800"
+    },
+    {
+      "doctor_name": "CHARBONNET, CHRISTAL",
+      "doctor_address": "4243 RICHMOND AVE RICHMOND PODIATRY, STATEN ISLAND, NY 10312",
+      "phone": "(718) 554-4098"
+    },
+    {
+      "doctor_name": "HOM, JOHN",
+      "doctor_address": "751 S BASCOM AVE PODIATRY DEPT, SAN JOSE, CA 95128",
+      "phone": "(408) 885-7821"
+    },
+    {
+      "doctor_name": "YAN, JOYCE",
+      "doctor_address": "4150 CLEMENT ST PODIATRY, SURGICAL SERVICES, SAN FRANCISCO, CA 94121",
+      "phone": "(415) 221-4810"
+    },
+    {
+      "doctor_name": "ELLINGTON, TRACY",
+      "doctor_address": "650 DAKOTA SUITE B, FOX VALLEY PODIATRY OF MCHENRY COUNTRY, CRYSTAL LAKE, IL 60012",
+      "phone": "(815) 788-8680"
+    }
+  ],
+  "Acute Care; Acute Care": [
+    {
+      "doctor_name": "WYNINEGAR, RACHEL",
+      "doctor_address": "25 SOUTH RIVER ROAD ORTHOPAEDICS/PODIATRY, BEDFORD, NH 03110",
+      "phone": "(603) 695-2998"
+    }
+  ],
+  "Primary Podiatric Medicine": [
+    {
+      "doctor_name": "VUONG, BILL",
+      "doctor_address": "260 16TH AVE SUITE 116 GENUINE PODIATRY SERVICES, DAYTON, TN 37321",
+      "phone": "(423) 775-5400"
+    }
+  ],
+  "Foot & Ankle Surgery; Foot & Ankle Surgery; Foot Surgery; Radiology; Sports Medicine; Public Medicine; Primary Podiatric Medicine": [
+    {
+      "doctor_name": "KAMAL, OENDRILA",
+      "doctor_address": "25825 VERMONT AVE DEPARTMENT OF PODIATRY, HARBOR CITY, CA 90710",
+      "phone": "(310) 517-2982"
+    }
+  ],
+  "Foot & Ankle Surgery; Primary Podiatric Medicine; Sports Medicine": [
+    {
+      "doctor_name": "TRUONG, DAVID",
+      "doctor_address": "4500 S LANCASTER RD CLINIC 5 - PODIATRY, DALLAS, TX 75216",
+      "phone": "(214) 742-8387"
+    }
+  ],
+  "Foot Surgery; Radiology; Sports Medicine; Foot & Ankle Surgery; Public Medicine; Primary Podiatric Medicine": [
+    {
+      "doctor_name": "LANDSMAN, ADAM",
+      "doctor_address": "55 FRUIT STREET DEPT. OF ORTHOPAEDICS/PODIATRY SERVICE, BOSTON, MA 02114",
+      "phone": "(617) 726-3487"
+    }
+  ],
+  "Foot & Ankle Surgery; Foot and Ankle Surgery": [
+    {
+      "doctor_name": "KILPATRICK, RICHMOND",
+      "doctor_address": "201 CEDAR ST SE STE 46304TH PMG CEDAR PODIATRY, ALBUQUERQUE, NM 87106",
+      "phone": "(505) 563-6400"
+    }
+  ],
+  "Clinical": [
+    {
+      "doctor_name": "VAZQUEZ ARANGO, LUCIA",
+      "doctor_address": "1413 AVE FERNANDEZ JUNCOS PODIATRY CENTER BUILDING SUITE 3 E, SAN JUAN, PR 00909",
+      "phone": "(787) 723-3583"
+    }
+  ],
+  "Adult Reconstructive Orthopaedic Surgery": [
+    {
+      "doctor_name": "LEE, DIANA",
+      "doctor_address": "270 INTERNATIONAL CIRCLE BUILDING 3, 2ND FLOOR PODIATRY, ROOM #4029, SAN JOSE, CA 95119",
+      "phone": "(408) 972-3303"
+    }
+  ]
+}

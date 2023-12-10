@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/about.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/CSS/search.css' %}">
+
+    <script type="module" src="{% static 'app/JS/search.js' %}"></script>
+    <title>Search Page</title> 
+
+
+</head>
+
+<body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+    <aside id="navbar">
+        <div class="nav_container">
+            <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+            {% if not user.is_authenticated %} 
+                <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+            {% else %}
+                <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+                <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+            {% endif %}
+            <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+        </div>
+    </aside>
+
+
+    <div class="dropdown-container" style="margin: 7em auto 0 auto; width: 50%;">
+
+        <!-- State Dropdown -->
+        <div>
+            <label for="state">State:</label>
+            <select id="state">
+                <!-- Options for states will be loaded dynamically -->
+            </select>
+        </div>
+
+        <!-- County Dropdown -->
+        <div>
+            <label for="county">County:</label>
+            <select id="county">
+                <!-- Options for cities will be loaded dynamically -->
+            </select>
+        </div>
+
+         <!-- City Dropdown -->
+         <div>
+            <label for="city">City:</label>
+            <select id="city">
+                <!-- Options for cities will be loaded dynamically -->
+            </select>
+        </div>
+        
+        <div>
+            <label for="specialization">Specialization:</label>
+            <select id="specialization">
+                <option value="dermatology">Dermatology</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="allergy-immunology">Allergy Immunology</option>
+                <option value="anesthesiology">Anesthesiology</option>
+                <option value="emergency-medicine">Emergency</option>
+                <option value="family-medicine">Family Medicine</option>
+                <option value="general-practice">General Practice</option>
+                <option value="hospitalist">Hospitalist</option>
+                <option value="independent-medical-examiner">Independent Medical Examiner</option>
+                <option value="internal-medicine">Internal Medicine</option>
+                <option value="legal-medicine">Legal Medicine</option>
+                <option value="medical-genetics">Medical Genetics</option>
+                <option value="sports-medicine">Sports Medicine</option>
+                <option value="nuclear-medicine">Nuclear Medicine</option>
+                <option value="obstetrics-gynecology">Obstetrics and Gynecology</option>
+                <option value="oral-maxillofacial-surgery">Oral Maxillofacial Surgery</option>
+                <option value="orthopaedic-surgery">Orthopaedic Surgery</option>
+                <option value="pain-medicine">Pain Medicine</option>
+                <option value="pathology">Pathology</option>
+                <option value="pediatrics">Pediatrics</option>
+                <option value="physical-medicine-rehabilitation">Physical Medicine Rehabilitation</option>
+                <option value="plastic-surgery">Plastic Surgery</option>
+                <option value="preventive-medicine">Preventive Medicine</option>
+                <option value="psychiatry">Psychiatry</option>
+                <option value="neurology">Neurology</option>
+                <option value="radiology">Radiology</option>
+                <option value="surgery">Surgery</option>
+                <option value="transplant-surgery">Transplant Surgery</option>
+                <option value="urology">Urology</option>
+                <option value="behavior-analyst">Behavior Analyst</option>
+                <option value="clinical-neuropsychologist">Clinical Neuropsychologist</option>
+                <option value="counselor">Counselor</option>
+                <option value="marriage-family-therapist">Marriage Family Therapist</option>
+                <option value="psychoanalyst">Psychoanalyst</option>
+                <option value="psychologist">Psychologist</option>
+                <option value="social-worker">Social Worker</option>
+                <option value="dental-assistant">Dental Assistant</option>
+                <option value="dental-hygienist">Dental Hygienist</option>
+                <option value="dentist">Dentist</option>
+                <option value="dietitian">Dietitian</option>
+                <option value="nutritionist">Nutritionist</option>
+                <option value="licensed-practical-nurse">Licensed Practical Nurse</option>
+                <option value="licensed-psychiatric-technician">Licensed Psychiatric Technician</option>
+                <option value="registered-nurse">Registered Nurse</option>
+                <option value="home-health-aide">Home Health Aide</option>
+                <option value="religious-nonmedical-nursing-personnel">Religious Nonmedical Nursing Personnel</option>
+                <option value="acupuncturist">Acupuncturist</option>
+                <option value="community-health-worker">Community Health Worker</option>
+                <option value="health-wellness-coach">Health Wellness Coach</option>
+                <option value="homeopath">Homeopath</option>
+                <option value="midwife">Midwife</option>
+                <option value="military-health-care-provider">Military Health Care Provider</option>
+                
+                <!-- Other specializations -->
+            </select>
+        </div>
+
+        <div>
+            <label for="maximum">Maximum Number of Doctors:</label>
+            <select id="maximum">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        
+
+        <div>
+            <button id="submitButton" onclick="submitForm()">Submit</button>
+        </div>
+
+    </div>
+
+    <div class="table-container">
+        <div id="doctorsList"></div>
+    </div>
+
+</body>
+</html>
