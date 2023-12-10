@@ -16,20 +16,35 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from . import api_views, views
 import back_end_auth.urls
 from rest_framework import routers
 
 api_router = routers.DefaultRouter()
 
-api_router.register(r'conversations', views.ConversationViewSet, basename = 'conversation')
-api_router.register(r'interactions', views.InteractionViewSet, basename = 'interaction')    
-api_router.register(r'users', views.UserViewSet, basename = 'user')
+api_router.register(r'conversations', api_views.ConversationViewSet, basename = 'conversation')
+api_router.register(r'interactions', api_views.InteractionViewSet, basename = 'interaction')    
+api_router.register(r'users', api_views.UserViewSet, basename = 'customuser')
     
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(back_end_auth.urls)),
     path('api/', include(api_router.urls)),
+<<<<<<< HEAD
     path('api/createuser', views.CreateUser.as_view()),
     path('', views.index)
+=======
+    path('api/createuser', api_views.CreateUser.as_view()),
+
+    path('', views.index),
+    path('profile', views.profile),
+    path('login', views.login),
+    path('signup', views.signup),
+    path('about', views.about),
+    path('test', views.test),
+    path('signout', views.signout),
+    path('changeprofile', views.changeprofile),
+    path('search', views.search, name='search'),
+
+>>>>>>> origin/dev
 ]

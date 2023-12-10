@@ -1,0 +1,857 @@
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400   2) import openai
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400   3) import json
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400   4) import re
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400   5) import requests
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400   6) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400   7) medical_specializations = {
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400   8)     "multi-specialist": "Multi-Specialty",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400   9)     "single specialist": "Single Specialty",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  10)     "allergist & immunologist": "Allergy & Immunology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  11)     "anesthesiologist": "Anesthesiology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  12)     "clinical pharmacologist": "Clinical Pharmacology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  13)     "colon & rectal surgeon": "Colon & Rectal Surgery",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  14)     "dermatologist": "Dermatology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  15)     "electrodiagnostic medicine specialist": "Electrodiagnostic Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  16)     "emergency medicine physician": "Emergency Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  17)     "primary care physician": "Family Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  18)     "general practitioner": "General Practice",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  19)     "hospitalist": "Hospitalist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  20)     "independent medical examiner": "Independent Medical Examiner",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  21)     "integrative medicine specialist": "Integrative Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  22)     "internist": "Internal Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  23)     "legal medicine specialist": "Legal Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  24)     "medical geneticist": "Medical Genetics",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  25)     "neurological surgeon": "Neurological Surgery",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  26)     "neuromusculoskeletal medicine & omm specialist": "Neuromusculoskeletal Medicine & OMM",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  27)     "neuromusculoskeletal medicine, sports medicine specialist": "Neuromusculoskeletal Medicine, Sports Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  28)     "nuclear medicine specialist": "Nuclear Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  29)     "obstetrician & gynecologist": "Obstetrics & Gynecology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  30)     "ophthalmologist": "Ophthalmology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  31)     "oral & maxillofacial surgeon": "Oral & Maxillofacial Surgery",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  32)     "orthopaedic surgeon": "Orthopaedic Surgery",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  33)     "otolaryngologist": "Otolaryngology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  34)     "pain medicine specialist": "Pain Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  35)     "pathologist": "Pathology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  36)     "pediatrician": "Pediatrics",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  37)     "phlebologist": "Phlebology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  38)     "physical medicine & rehabilitation specialist": "Physical Medicine & Rehabilitation",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  39)     "plastic surgeon": "Plastic Surgery",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  40)     "preventive medicine specialist": "Preventive Medicine",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  41)     "psychiatrist & neurologist": "Psychiatry & Neurology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  42)     "radiologist": "Radiology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  43)     "surgeon": "Surgery",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  44)     "thoracic surgeon (cardiothoracic vascular surgeon)": "Thoracic Surgery (Cardiothoracic Vascular Surgery)",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  45)     "transplant surgeon": "Transplant Surgery",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  46)     "urologist": "Urology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  47)     "assistant behavior analyst": "Assistant Behavior Analyst",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  48)     "behavior technician": "Behavior Technician",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  49)     "behavior analyst": "Behavior Analyst",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  50)     "clinical neuropsychologist": "Clinical Neuropsychologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  51)     "counselor": "Counselor",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  52)     "drama therapist": "Drama Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  53)     "marriage & family therapist": "Marriage & Family Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  54)     "poetry therapist": "Poetry Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  55)     "psychoanalyst": "Psychoanalyst",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  56)     "psychologist": "Psychologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  57)     "social worker": "Social Worker",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  58)     "chiropractor": "Chiropractor",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  59)     "advanced practice dental therapist": "Advanced Practice Dental Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  60)     "dental assistant": "Dental Assistant",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  61)     "dental hygienist": "Dental Hygienist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  62)     "dental laboratory technician": "Dental Laboratory Technician",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  63)     "dental therapist": "Dental Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  64)     "dentist": "Dentist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  65)     "denturist": "Denturist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  66)     "oral medicinist": "Oral Medicinist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  67)     "dietary manager": "Dietary Manager",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  68)     "dietetic technician, registered": "Dietetic Technician, Registered",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  69)     "dietitian, registered": "Dietitian, Registered",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  70)     "nutritionist": "Nutritionist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  71)     "emergency medical technician, basic": "Emergency Medical Technician, Basic",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  72)     "emergency medical technician, intermediate": "Emergency Medical Technician, Intermediate",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  73)     "emergency medical technician, paramedic": "Emergency Medical Technician, Paramedic",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  74)     "personal emergency response attendant": "Personal Emergency Response Attendant",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  75)     "optometrist": "Optometrist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  76)     "technician/technologist": "Technician/Technologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  77)     "licensed practical nurse": "Licensed Practical Nurse",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  78)     "licensed psychiatric technician": "Licensed Psychiatric Technician",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  79)     "licensed vocational nurse": "Licensed Vocational Nurse",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  80)     "registered nurse": "Registered Nurse",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  81)     "adult companion": "Adult Companion",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  82)     "chore provider": "Chore Provider",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  83)     "day training/habilitation specialist": "Day Training/Habilitation Specialist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  84)     "doula": "Doula",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  85)     "home health aide": "Home Health Aide",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  86)     "homemaker": "Homemaker",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  87)     "nurse's aide": "Nurse's Aide",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  88)     "nursing home administrator": "Nursing Home Administrator",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  89)     "religious nonmedical nursing personnel": "Religious Nonmedical Nursing Personnel",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  90)     "religious nonmedical practitioner": "Religious Nonmedical Practitioner",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  91)     "technician": "Technician",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  92)     "acupuncturist": "Acupuncturist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  93)     "case manager/care coordinator": "Case Manager/Care Coordinator",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  94)     "clinical ethicist": "Clinical Ethicist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  95)     "community health worker": "Community Health Worker",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  96)     "contractor": "Contractor",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  97)     "driver": "Driver",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  98)     "funeral director": "Funeral Director",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400  99)     "genetic counselor, ms": "Genetic Counselor, MS",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 100)     "health & wellness coach": "Health & Wellness Coach",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 101)     "health educator": "Health Educator",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 102)     "homeopath": "Homeopath",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 103)     "interpreter": "Interpreter",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 104)     "lactation consultant, non-rn": "Lactation Consultant, Non-RN",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 105)     "midwife, lay": "Midwife, Lay",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 106)     "mechanotherapist": "Mechanotherapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 107)     "midwife": "Midwife",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 108)     "military health care provider": "Military Health Care Provider",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 109)     "naprapath": "Naprapath",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 110)     "naturopath": "Naturopath",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 111)     "peer specialist": "Peer Specialist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 112)     "medical genetics, ph.d. medical genetics": "Medical Genetics, Ph.D. Medical Genetics",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 113)     "prevention professional": "Prevention Professional",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 114)     "reflexologist": "Reflexologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 115)     "sleep specialist, phd": "Sleep Specialist, PhD",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 116)     "specialist": "Specialist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 117)     "veterinarian": "Veterinarian",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 118)     "pharmacist": "Pharmacist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 119)     "pharmacy technician": "Pharmacy Technician",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 120)     "advanced practice midwife": "Advanced Practice Midwife",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 121)     "anesthesiologist assistant": "Anesthesiologist Assistant",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 122)     "clinical nurse specialist": "Clinical Nurse Specialist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 123)     "nurse anesthetist, certified registered": "Nurse Anesthetist, Certified Registered",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 124)     "nurse practitioner": "Nurse Practitioner",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 125)     "physician assistant": "Physician Assistant",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 126)     "assistant, podiatric": "Assistant, Podiatric",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 127)     "podiatrist": "Podiatrist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 128)     "anaplastologist": "Anaplastologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 129)     "art therapist": "Art Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 130)     "clinical exercise physiologist": "Clinical Exercise Physiologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 131)     "dance therapist": "Dance Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 132)     "developmental therapist": "Developmental Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 133)     "kinesiotherapist": "Kinesiotherapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 134)     "massage therapist": "Massage Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 135)     "mastectomy fitter": "Mastectomy Fitter",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 136)     "music therapist": "Music Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 137)     "occupational therapist": "Occupational Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 138)     "occupational therapy assistant": "Occupational Therapy Assistant",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 139)     "orthotic fitter": "Orthotic Fitter",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 140)     "orthotist": "Orthotist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 141)     "pedorthist": "Pedorthist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 142)     "physical therapist": "Physical Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 143)     "physical therapy assistant": "Physical Therapy Assistant",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 144)     "prosthetist": "Prosthetist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 145)     "pulmonary function technologist": "Pulmonary Function Technologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 146)     "recreation therapist": "Recreation Therapist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 147)     "recreational therapist assistant": "Recreational Therapist Assistant",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 148)     "rehabilitation counselor": "Rehabilitation Counselor",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 149)     "rehabilitation practitioner": "Rehabilitation Practitioner",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 150)     "respiratory therapist, certified": "Respiratory Therapist, Certified",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 151)     "respiratory therapist, registered": "Respiratory Therapist, Registered",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 152)     "specialist/technologist": "Specialist/Technologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 153)     "audiologist": "Audiologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 154)     "audiologist-hearing aid fitter": "Audiologist-Hearing Aid Fitter",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 155)     "hearing instrument specialist": "Hearing Instrument Specialist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 156)     "speech-language pathologist": "Speech-Language Pathologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 157)     "student in an organized health care education/training program": "Student in an Organized Health Care Education/Training Program",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 158)     "perfusionist": "Perfusionist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 159)     "radiologic technologist": "Radiologic Technologist",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 160)     "radiology practitioner assistant": "Radiology Practitioner Assistant",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 161)     "specialist/technologist cardiovascular": "Specialist/Technologist Cardiovascular",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 162)     "specialist/technologist, health information": "Specialist/Technologist, Health Information",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 163)     "specialist/technologist, other": "Specialist/Technologist, Other",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 164)     "specialist/technologist, pathology": "Specialist/Technologist, Pathology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 165)     "technician, cardiology": "Technician, Cardiology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 166)     "technician, health information": "Technician, Health Information",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 167)     "technician, other": "Technician, Other",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 168)     "technician, pathology": "Technician, Pathology",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 169)     "case management": "Case Management",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 170)     "community/behavioral health": "Community/Behavioral Health",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 171)     "day training, developmentally disabled services": "Day Training, Developmentally Disabled Services",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 172)     "early intervention provider agency": "Early Intervention Provider Agency",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 173)     "foster care agency": "Foster Care Agency",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 174)     "home health": "Home Health",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 175)     "home infusion": "Home Infusion",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 176)     "hospice care, community based": "Hospice Care, Community Based",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 177)     "in home supportive care": "In Home Supportive Care",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 178)     "local education agency (lea)": "Local Education Agency (LEA)",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 179)     "nursing care": "Nursing Care",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 180)     "program of all-inclusive care for the elderly (pace) provider organization": "Program of All-Inclusive Care for the Elderly (PACE) Provider Organization",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 181)     "public health or welfare": "Public Health or Welfare",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 182)     "supports brokerage": "Supports Brokerage",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 183)     "voluntary or charitable": "Voluntary or Charitable",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 184)     "clinic/center": "Clinic/Center",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 185)     "epilepsy unit": "Epilepsy Unit",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 186)     "medicare defined swing bed unit": "Medicare Defined Swing Bed Unit",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 187)     "psychiatric unit": "Psychiatric Unit",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 188)     "rehabilitation unit": "Rehabilitation Unit",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 189)     "rehabilitation, substance use disorder unit": "Rehabilitation, Substance Use Disorder Unit",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 190)     "christian science sanitorium": "Christian Science Sanitorium",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 191)     "chronic disease hospital": "Chronic Disease Hospital",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 192)     "general acute care hospital": "General Acute Care Hospital",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 193)     "long term care hospital": "Long Term Care Hospital",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 194)     "military hospital": "Military Hospital",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 195)     "psychiatric hospital": "Psychiatric Hospital",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 196)     "rehabilitation hospital": "Rehabilitation Hospital",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 197)     "religious nonmedical health care institution": "Religious Nonmedical Health Care Institution",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 198)     "special hospital": "Special Hospital",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 199)     "clinical medical laboratory": "Clinical Medical Laboratory",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 200)     "dental laboratory": "Dental Laboratory",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 201)     "military clinical medical laboratory": "Military Clinical Medical Laboratory",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 202)     "physiological laboratory": "Physiological Laboratory",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 203)     "exclusive provider organization": "Exclusive Provider Organization",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 204)     "health maintenance organization": "Health Maintenance Organization",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 205)     "point of service": "Point of Service",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 206)     "preferred provider organization": "Preferred Provider Organization",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 207)     "alzheimer center (dementia center)": "Alzheimer Center (Dementia Center)",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 208)     "assisted living facility": "Assisted Living Facility",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 209)     "christian science facility": "Christian Science Facility",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 210)     "custodial care facility": "Custodial Care Facility",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 211)     "hospice, inpatient": "Hospice, Inpatient",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 212)     "intermediate care facility, intellectual disabilities": "Intermediate Care Facility, Intellectual Disabilities",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 213)     "intermediate care facility, mental illness": "Intermediate Care Facility, Mental Illness",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 214)     "nursing facility/intermediate care facility": "Nursing Facility/Intermediate Care Facility",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 215)     "skilled nursing facility": "Skilled Nursing Facility",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 216)     "lodging": "Lodging",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 217)     "meals": "Meals",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 218)     "community based residential treatment facility, mental illness": "Community Based Residential Treatment Facility, Mental Illness",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 219)     "community based residential treatment facility, intellectual and/or developmental disabilities": "Community Based Residential Treatment Facility, Intellectual and/or Developmental Disabilities",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 220)     "psychiatric residential treatment facility": "Psychiatric Residential Treatment Facility",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 221)     "residential treatment facility, emotionally disturbed children": "Residential Treatment Facility, Emotionally Disturbed Children",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 222)     "residential treatment facility, intellectual and/or developmental disabilities": "Residential Treatment Facility, Intellectual and/or Developmental Disabilities",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 223)     "residential treatment facility, physical disabilities": "Residential Treatment Facility, Physical Disabilities",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 224)     "substance abuse rehabilitation facility": "Substance Abuse Rehabilitation Facility",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 225)     "respite care": "Respite Care",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 226)     "blood bank": "Blood Bank",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 227)     "department of veterans affairs (va) pharmacy": "Department of Veterans Affairs (VA) Pharmacy",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 228)     "durable medical equipment & medical supplies": "Durable Medical Equipment & Medical Supplies",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 229)     "emergency response system companies": "Emergency Response System Companies",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 230)     "eye bank": "Eye Bank",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 231)     "eyewear supplier": "Eyewear Supplier",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 232)     "hearing aid equipmentist": "Hearing Aid Equipment",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 233)     "home delivered mealist": "Home Delivered Meals",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 234)     "indian health service tribal urban indian health pharmacist": "Indian Health Service/Tribal/Urban Indian Health (I/T/U) Pharmacy",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 235)     "medical foods supplierist": "Medical Foods Supplier",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 236)     "military u.s. coast guard pharmacist": "Military/U.S. Coast Guard Pharmacy",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 237)     "non pharmacy dispensing siteist": "Non-Pharmacy Dispensing Site",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 238)     "organ procurement organizationist": "Organ Procurement Organization",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 239)     "pharmacist": "Pharmacy",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 240)     "portable x ray and or other portable diagnostic imaging supplierist": "Portable X-ray and/or Other Portable Diagnostic Imaging Supplier",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 241)     "prosthetic orthotic supplierist": "Prosthetic/Orthotic Supplier",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 242)     "air carrierist": "Air Carrier",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 243)     "ambulance": "Ambulance",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 244)     "bus": "Bus",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 245)     "military u.s. coast guard transportist": "Military/U.S. Coast Guard Transport",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 246)     "non emergency medical transport vanist": "Non-emergency Medical Transport (VAN)",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 247)     "private vehicleist": "Private Vehicle",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 248)     "secured medical transport vanist": "Secured Medical Transport (VAN)",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 249)     "taxi": "Taxi",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 250)     "train": "Train",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 251)     "transportation brokerist": "Transportation Broker",
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 252)     "transportation network companyist": "Transportation Network Company"
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 253) }
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 254) 
+236acb40 (MariAuxiHer     2023-10-30 15:32:44 -0400 257) # set the API_KEY I can't set mine because if I do, openai will disable my api key
+236acb40 (MariAuxiHer     2023-10-30 15:32:44 -0400 258) # This code wont work without an API_KEY though. For the next sprint, I will switch to 
+236acb40 (MariAuxiHer     2023-10-30 15:32:44 -0400 259) # making calls to PaLM API since this one is free and more than likely don't have the issue
+236acb40 (MariAuxiHer     2023-10-30 15:32:44 -0400 260) # of being unable to be shared in public repositories. 
+236acb40 (MariAuxiHer     2023-10-30 15:32:44 -0400 261) # API_KEY = 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 262) openai.api_key = API_KEY
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 263) model_id = 'gpt-4'
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 264) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 265) def fetch_doctors(specialty, city):
+236acb40 (MariAuxiHer     2023-10-30 15:32:44 -0400 266)     url = ("https://clinicaltables.nlm.nih.gov/api/npi_idv/sv3/search?terms={}&"
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 267)            "q=addr_practice.city:{}&df=NPI,name.full,addr_practice.full,addr_practice.phone&maxList=500").format(specialty, city)
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 268) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 269)     response = requests.get(url)
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 270) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 271)     if response.status_code == 200:
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 272)         data = response.json()
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 273)         #print(json.dumps(data, indent=4))
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 274) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 275)         doctors_list = []
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 276)         for item in data[3]:
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 277)             doctor_info = {
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 278)                 'Name': item[1],
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 279)                 'Address': item[2],
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 280)                 'Phone': item[3]
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 281)             }
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 282)             doctors_list.append(doctor_info)
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 283)         return doctors_list
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 284)     else:
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 285)         print(f'Failed to retrieve data: {response.status_code}')
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 286)         return None
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 287) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 288) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 289) def chatgpt_conversation(conversation_log):
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 290)     response = openai.ChatCompletion.create(
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 291)         model=model_id,
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 292)         messages=conversation_log
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 293)     )
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 294) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 295)     conversation_log.append({
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 296)         'role': response.choices[0].message.role, 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 297)         'content': response.choices[0].message.content.strip()
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 298)     })
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 299)     return conversation_log
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 300) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 301) conversations = []
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 302) # system, user, assistant
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 303) #conversations.append({'role': 'system', 'content': 'Im a medical chatbox assistant, how may I help you?'})
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 304) #conversations = chatgpt_conversation(conversations)
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 305) #print('{0}: {1}\n'.format(conversations[-1]['role'].strip(), conversations[-1]['content'].strip()))
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 306) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 307) while True:
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 308)     prompt = input('User: ')
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 309)     conversations.append({'role': 'user', 'content': prompt})
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 310)     conversations = chatgpt_conversation(conversations)
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 311)     print()
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 312)     print('{0}: {1}\n'.format(conversations[-1]['role'].strip(), conversations[-1]['content'].strip()))
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 313)     gptresponse = conversations[-1]['content'].strip().lower()
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 314)     print(gptresponse)
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 315)     for specialization in medical_specializations: 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 316)         if re.findall(rf"\b{specialization}\b", gptresponse):
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 317)             value = medical_specializations[specialization]
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 318)             print(f"Key: {specialization}, Value: {value}")
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 319)             
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 320)             # Specify the classification you are interested in
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 321)             specialty = value.replace(" ", "+")
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 322)             city = "Los+Angeles"  # URL encoded space as +, to adhere to URL encoding standards
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 323)             doctors = fetch_doctors(specialty, city)
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 324) 
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 325)             if doctors:
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 326)                 for idx, doctor in enumerate(doctors, 1):
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 327)                     print(f"{idx}. Name: {doctor['Name']}, Address: {doctor['Address']}, Phone: {doctor['Phone']}")
+eb4b4907 (MariAuxiHer     2023-10-29 16:20:28 -0400 328)             else:
+236acb40 (MariAuxiHer     2023-10-30 15:32:44 -0400 329)                 print("No doctors found or failed to retrieve data.")
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  2) #from django.contrib.auth.models import User
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  3) from django.contrib.auth.models import AbstractUser
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  6) # Custom User 
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  7) class CustomUser(AbstractUser):
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  8)     city = models.CharField(max_length=255)
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  9)     state = models.CharField(max_length=255)
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 10)     zipcode = models.CharField(max_length=10)
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 11) 
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 12)     groups = models.ManyToManyField(
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 13)         'auth.Group',
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 14)         verbose_name='groups',
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 15)         blank=True,
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 16)         related_name="customuser_set",
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 17)         related_query_name="customuser",
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 18)         help_text=(
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 19)             'The groups this user belongs to. A user will get all permissions '
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 20)             'granted to each of their groups.'
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 21)         ),
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 22)     )
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 23)     user_permissions = models.ManyToManyField(
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 24)         'auth.Permission',
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 25)         verbose_name='user permissions',
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 26)         blank=True,
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 27)         related_name="customuser_set",
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 28)         related_query_name="customuser",
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 29)         help_text='Specific permissions for this user.',
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 30)     )
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 31) 
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 34)     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 59)     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True)
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  10) from back_end.models import Conversation, Interaction, CustomUser
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  11) #from django.contrib.auth.models import User 
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400  22)     queryset = CustomUser.objects.all().order_by('-date_joined')
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 102)         city = request.data['city']
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 103)         state = request.data['state']
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 104)         zipcode = request.data['zipcode']
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 106)         if (not username or not password or not email or not city or not state or not zipcode):
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 107)             return Response({'detail' : 'Missing one or more of the following fields: username, password, email, city, state, zipcode.'}, status = status.HTTP_400_BAD_REQUEST)
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 117)         if (CustomUser.objects.filter(username = username).count() != 0):
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 134)         # MAYBE LATER VALIDATE CITY, STATE, AND ZIP CODE (like whether the state/city, zip code exists or not in the US)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 135) 
+be373fdc (Maria Hernandez 2023-10-30 16:16:49 -0400 137)         user = CustomUser.objects.create(username = username, email = email, city=city, state=state, zipcode=zipcode)
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400  4)     <!-- <script src="utils.js"></script> -->
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 28)         <div class="city">
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 29)             City:
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 30)             <input type="text" id="city">
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 31)         </div>
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 32)         <div class="state">
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 33)             State:
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 34)             <input type="text" id="state">
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 35)         </div>
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 36)         <div class="zipcode">
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 37)             Zip Code:
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 38)             <input type="text" id="zipcode">
+1f4df002 front_end/signup.html      (Maria Hernandez 2023-10-30 16:18:35 -0400 39)         </div>
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  68) .city {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  69)     justify-content: center;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  70)     font-size: 1.2em;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  71) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  72) #city {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  73)     margin-left: 66px;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  74)     margin-bottom: 10px;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  75) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  76) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  77) .state {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  78)     justify-content: center;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  79)     font-size: 1.2em;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  80) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  81) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  82) #state {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  83)     margin-left: 50px;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  84)     margin-bottom: 10px;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  85) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  86) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  87) .zipcode {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  88)     justify-content: center;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  89)     font-size: 1.2em;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  90) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  91) #zipcode {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  92)     margin-left: 10px;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  93)     margin-bottom: 10px;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  94) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  95) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   1) // script to handle client-side requests to the server
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   2) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   3) // Import the 'domain' module's 'create' method
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   4) // const { create } = require('domain')
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   5) //import someModule from './someModule.js';
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   6) // Import the 'fs' (File System) module for file operations
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   7) //var fs = require('fs')
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   8) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400   9) // Define constants for server host and URL endpoints
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  10) const HOST = 'localhost:80'
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  11) const REST_AUTH_URL = `http://${HOST}/auth/`
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  12) const REST_API_URL =  `http://${HOST}/api/`
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  13) const CSRF_URL = REST_AUTH_URL + 'csrf'
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  14) const LOGIN_URL = REST_AUTH_URL + 'login'
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  15) const LOGOUT_URL = REST_AUTH_URL + 'logout'
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  16) const SESSION_URL = REST_AUTH_URL + 'session'
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  17) const WHOAMI_URL = REST_AUTH_URL + 'whoami'
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  18) const CREATE_USER_URL = REST_API_URL + "createuser"
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  19) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  20) const CONVERSATIONS_URL = REST_API_URL + 'conversations'
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  21) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  22) // Object to hold cookie values
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  23) let cookies = {}
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  24) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  25) // Variable to track login state
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  26) let logged_in = false
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  27) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  28) /*
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  29)     Returns the Json after calling the CSRF_URL for a CSRF Token
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  30) */
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  31) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  32) // Function to fetch a CSRF token from the server -> sends a GET request to the server's /csrf endpoint.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  33) async function fetch_csrf() {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  34) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  35)     // Prepare headers for the request
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  36)     header = {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  37)         "Content-Type": "application/json",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  38)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  39) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  40)     // Include sessionid cookie in the headers if it exists
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  41)     // In JavaScript, dictionaries (or objects) can have fields added to them dynamically.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  42)     if (cookies['sessionid']) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  43)         header.sessionid = cookies['sessionid']
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  44)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  45) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  46)     // Make a GET request to the CSRF_URL to obtain a CSRF token.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  47)     const response = await fetch(CSRF_URL, {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  48)         headers: header
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  49)     });
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  50) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  51)     // If the request fails, write the error data to a file for debugging.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  52)     if (!response.ok) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  53)         // response.text().then((data) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  54)         //     if (data) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  55)         //         fs.writeFile("getcsrf_html.html", data, (err) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  56)         //             if (err) console.log(`error: ${err}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  57)         //         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  58)         //     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  59)         //         console.log("data is null")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  60)         //     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  61)         // })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  62) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  63)         return 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  64)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  65) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  66)     // On a successful response, extract the X-CSRFToken from the response headers
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  67)     // and store it in the cookies object for later use.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  68)     // On the server side, in views.py, the CSRF class's get method sets the X-CSRFToken header.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  69)     cookies['csrftoken'] = response.headers.get("X-CSRFToken")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  70) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  71) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  72) // Function to perform login
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  73) async function login(username, password) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  74)     console.log("LOGIN START")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  75) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  76)     // Before proceeding with login, ensure that a CSRF token has been fetched.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  77)     if (!cookies['csrftoken']) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  78)         console.log("csrfToken is null. Canceling Login.")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  79)         return
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  80)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  81) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  82)     // Make a POST request to the LOGIN_URL to perform login.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  83)     // Include the CSRF token in both the Cookie and X-CSRFToken headers.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  84)     // On the server side, in views.py, the LoginView class's post method handles login.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  85)     // await fetch is the method used to make the request
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  86)     const response = await fetch(LOGIN_URL, {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  87)         method: "POST",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  88)         headers: {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  89) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  90)             // accessing the value associated with the key 'csrftoken' in the cookies object.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  91)             "Cookie": `csrftoken=${cookies['csrftoken']}`,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  92)             "X-CSRFToken": cookies['csrftoken'],
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  93)             "Content-Type": "application/json",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  94)         },
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  95)         body: JSON.stringify({
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  96)             username: username,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  97)             password: password
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  98)         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400  99)     })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 100) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 101)     // If logout is successful, update the logged_in variable.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 102)     // the variable will be used in other functions to check whether an user is logged in or not
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 103)     // If logout fails, write the error data to a file for debugging.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 104)     if (response.ok) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 105)         console.log("LOGIN Response OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 106)         const json = await response.json()
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 107)         console.log(json)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 108)         logged_in = true;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 109)     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 110)         console.log("LOGIN Response NOT OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 111)         // await response.text().then((data) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 112)         //     if (data) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 113)         //         fs.writeFile("login_html.html", data, (err) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 114)         //             if (err) console.log(`error: ${err}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 115)         //         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 116)         //     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 117)         //         console.log("data is null")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 118)         //     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 119)         // })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 120) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 121)         logged_in = false
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 122)         return
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 123)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 124)     
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 125) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 126)     /* 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 127)         Setting the sessionid cookie
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 128)         The sessionid cookie is typically set when a user logs in, and it's used by the server to maintain the
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 129)         user's session. In your Django application, when the login function is called and the login is successful, 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 130)         the sessionid cookie is set by Django's session middleware and sent back to the client in the HTTP response.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 131)     */
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 132)     local_cookies = response.headers.getSetCookie() 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 133)     console.log(local_cookies)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 134)     if (local_cookies) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 135)         // for (let i = 0; i < 2; i++) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 136)         //     info = local_cookies[i].split(';')
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 137)         //     pair = info[0].split('=') 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 138)         //     cookies[pair[0]] = pair[1]
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 139)         // }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 140) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 141)         
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 142)         //    Alternative to dont hardcode 0 - 1 in the loop 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 143)             local_cookies.forEach(cookieString => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 144)             const info = cookieString.split(';');
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 145)             const pair = info[0].split('=');
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 146)             cookies[pair[0]] = pair[1];
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 147)             });
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 148) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 149)         console.log("New cookies set: ")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 150)         console.log(cookies)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 151)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 152)     
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 153)     console.log(`Setting new CSTF TOKEN to: ${cookies['csrftoken']}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 154)     
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 155)     console.log("LOGIN END")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 156) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 157) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 158) // Function to perform logout
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 159) async function logout() {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 160)     console.log("LOGOUT Start")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 161) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 162)     // Before proceeding with logout, ensure that the user is logged in.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 163)     if (!logged_in) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 164)         console.log("Not logged in, aborting.")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 165)         return
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 166)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 167) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 168)     // Make a GET request to the LOGOUT_URL to perform logout.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 169)     // Include the sessionid cookie in the headers if it exists.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 170)     // On the server side, in views.py, the LogoutView class's get method handles logout.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 171)     const response = await fetch(LOGOUT_URL, {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 172)         method: "GET",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 173)         headers: {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 174)             "Cookie": `sessionid=${cookies['sessionid']}`,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 175)             "Content-Type": "application/json",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 176)         }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 177)     })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 178) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 179)     // Handle the response based on its status.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 180)     // If logout is successful, update the logged_in variable.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 181)     // If logout fails, write the error data to a file for debugging.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 182)     if (response.ok) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 183)         console.log("LOGOUT Response OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 184)         const json = await response.json()
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 185)         console.log(json)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 186)         logged_in = false;
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 187)     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 188)         console.log("LOGOUT Response NOT OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 189)         // response.text().then((data) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 190)         //     if (data) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 191)         //         fs.writeFile("logout_html.html", data, (err) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 192)         //             if (err) console.log(`error: ${err}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 193)         //         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 194)         //     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 195)         //         console.log("data is null")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 196)         //     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 197)         // })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 198) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 199)         logged_in = true
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 200)         return
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 201)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 202) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 203)     console.log("LOGOUT End")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 204) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 205) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 206) /*
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 207)     URL Endpoint: WHOAMI_URL
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 208)     Purpose: This function is designed to retrieve the username of the currently logged-in user. 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 209)     On the server side, the WhoAmIView class handles this request and responds with the username 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 210)     of the authenticated user. This can be useful for displaying the user's name on the client-side 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 211)     or for other user-specific tasks.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 212) */
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 213) async function whoami() {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 214)     console.log("WHOAMI Start")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 215)     if (!logged_in) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 216)         console.log("Not logged in, aborting.")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 217)         return
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 218)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 219)     
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 220)     const response = await fetch(WHOAMI_URL, {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 221)         method: "GET",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 222)         headers: {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 223)             "Cookie": `sessionid=${cookies['sessionid']}`,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 224)             "Content-Type": "application/json"
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 225)         }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 226)       })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 227) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 228)       if (response.ok) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 229)         console.log("WHOAMI Response OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 230)         const json = await response.json()
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 231)         console.log(json)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 232)     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 233)         console.log("WHOAMI Response NOT OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 234)         // response.text().then((data) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 235)         //     if (data) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 236)         //         fs.writeFile("whoami_html.html", data, (err) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 237)         //             if (err) console.log(`error: ${err}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 238)         //         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 239)         //     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 240)         //         console.log("data is null")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 241)         //     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 242)         // })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 243)     } 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 244) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 245)     console.log("WHOAMI End")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 246) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 247) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 248) /*
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 249)     This function checks if there's an active session for the user. On the server side, 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 250)     the SessionView class handles this request and responds with an indication of whether 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 251)     the user is authenticated. This can be useful for checking the login status of the user 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 252)     and updating the UI accordingly.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 253) */
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 254) async function session() {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 255)     console.log("SESSION Start")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 256)     if (!logged_in) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 257)         console.log("Not logged in, aborting.")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 258)         return
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 259)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 260) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 261)     const response = await fetch(SESSION_URL, {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 262)         method: "GET",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 263)         headers: {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 264)             "Cookie": `sessionid=${cookies['sessionid']}`,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 265)             "Content-Type": "application/json"
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 266)         }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 267)     })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 268) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 269)     if (response.ok) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 270)         console.log("SESSION Response OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 271)         const json = await response.json()
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 272)         console.log(json)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 273)     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 274)         console.log("SESSION Response NOT OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 275)         // response.text().then((data) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 276)         //     if (data) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 277)         //         fs.writeFile("session_html.html", data, (err) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 278)         //             if (err) console.log(`error: ${err}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 279)         //         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 280)         //     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 281)         //         console.log("data is null")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 282)         //     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 283)         // })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 284)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 285) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 286)     console.log("SESSION End")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 287) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 288) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 289) /*
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 290)     This function fetches the list of conversations associated with the authenticated user. 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 291)     Although the server-side handler isn't shown in the provided Python script, typically, 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 292)     this endpoint would query the database for conversations related to the logged-in user and
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 293)     return them in the response. This function helps in displaying the user's conversations on the client-side.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 294) */
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 295) async function get_conversations() {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 296)     console.log("GET_CONVERSATIONS Start")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 297)     if (!logged_in) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 298)         console.log("Not logged in, aborting.")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 299)         return
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 300)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 301)     const response = await fetch (CONVERSATIONS_URL, {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 302)         method: "GET",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 303)         headers: {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 304)             "Cookie": `sessionid=${cookies['sessionid']}`,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 305)             "Content-Type": "application/json"
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 306)         }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 307)     })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 308) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 309)     if (response.ok) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 310)         console.log("CONVERSATIONS Response OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 311)         const json = await response.json()
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 312)         console.log(JSON.stringify(json))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 313)     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 314)         console.log("CONVERSATIONS Response NOT OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 315)         // response.text().then((data) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 316)         //     if (data) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 317)         //         fs.writeFile("conversations_html.html", data, (err) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 318)         //             if (err) console.log(`error: ${err}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 319)         //         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 320)         //     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 321)         //         console.log("data is null")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 322)         //     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 323)         // })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 324)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 325) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 326)     console.log("GET_CONVERSATIONS End")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 327) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 328) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 329) /*
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 330)     This function attempts to create a new conversation on the server by sending a POST request to the CONVERSATIONS_URL endpoint.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 331)     The CSRF token is sent in the headers to comply with the server's CSRF protection mechanism, and the name of the conversation 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 332)     is sent in the request body.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 333) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 334) */
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 335) async function post_conversation(name) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 336)     console.log("POST_CONVERSATION Start")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 337) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 338)     const response = await fetch(CONVERSATIONS_URL + "/", {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 339)         method: "POST",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 340)         headers: {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 341)             "Cookie": `csrftoken=${cookies['csrftoken']};sessionid=${cookies['sessionid']}`,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 342)             "X-CSRFToken": cookies['csrftoken'],
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 343)             "Content-Type": "application/json",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 344)         },
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 345)         body: JSON.stringify({
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 346)             name: name
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 347)         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 348)     })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 349) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 350)     if (response.ok) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 351)         console.log("CONVERSATIONS POST Response OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 352)         const json = await response.json()
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 353)         console.log(JSON.stringify(json))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 354)     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 355)         console.log("CONVERSATIONS POST Response NOT OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 356)         // response.text().then((data) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 357)         //     if (data) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 358)         //         fs.writeFile("conversationsPOST_html.html", data, (err) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 359)         //             if (err) console.log(`error: ${err}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 360)         //         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 361)         //     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 362)         //         console.log("data is null")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 363)         //     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 364)         // })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 365)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 366) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 367) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 368)     console.log("POST_CONVERSATION End")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 369) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 370) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 371) /* 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 372)     The create_user function in your JavaScript file is designed to send a POST request to the server 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 373)     to create a new user account, which corresponds to a sign-up action on the client-side. The user's 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 374)     username, password, and email are sent in the request body to the server, which presumably handles 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 375)     the account creation logic on its end.
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 376) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 377)     ADD HERE USER'S REGION (STATE, CITY, ZIP CODE)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 378) */
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 379) async function create_user(username, password, email, city, state, zipcode) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 380)     console.log("CREATE_USER Start")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 381)     const response = await fetch(CREATE_USER_URL, {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 382)         method: "POST",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 383)         headers: {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 384)             "Cookie": `csrftoken=${cookies['csrftoken']}`,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 385)             "X-CSRFToken": cookies['csrftoken'],
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 386)             "Content-Type": "application/json",
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 387)         },
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 388)         body: JSON.stringify({
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 389)             username: username,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 390)             password: password,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 391)             email: email,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 392)             city: city,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 393)             state: state,
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 394)             zipcode: zipcode
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 395)         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 396)     })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 397) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 398)     
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 399)     if (response.ok) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 400)         console.log("CREATE_USER POST Response OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 401)         const json = await response.json()
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 402)         console.log(JSON.stringify(json))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 403)     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 404)         console.log("CREATE_USER Response NOT OK")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 405)         // response.text().then((data) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 406)         //     if (data) {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 407)         //         fs.writeFile("createUser_html.html", data, (err) => {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 408)         //             if (err) console.log(`error: ${err}`)
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 409)         //         })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 410)         //     } else {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 411)         //         console.log("data is null")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 412)         //     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 413)         // })
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 414)     }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 415) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 416)     console.log("CREATE_USER End")
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 417) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 418) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 419) // Main
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 420) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 421) async function main() {
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 422)     fetch_csrf()
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 423)     // .then(() => create_user("test", "test", "stevendao100@gmail.com"))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 424)     // .then(() => login("test", "test"))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 425)     // .then(() => whoami())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 426)     // .then(() => session())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 427)     // .then(() => get_conversations())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 428)     // .then(() => fetch_csrf())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 429)     // .then(() => post_conversation("data one two"))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 430)     // .then(() => logout())   
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 431)     // .then(() => fetch_csrf())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 432)     // .then(() => create_user("test2", "aMoreSophosticatedPassword100", "stevendao100@gmail.com"))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 433)     // .then(() => login("test2", "aMoreSophosticatedPassword100"))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 434)     // .then(() => logout())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 435)     // .then(() => fetch_csrf())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 436)     .then(() => create_user("test", "NotTooShortOfAPassword", "stevendao100@gmail.com"))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 437)     .then(() => login("test", "NotTooShortOfAPassword"))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 438)     .then(() => whoami())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 439)     .then(() => session())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 440)     .then(() => get_conversations())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 441)     .then(() => fetch_csrf())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 442)     .then(() => post_conversation("data one two"))
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 443)     .then(() => logout())
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 444)     
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 445) }
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 446) 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 447) main(); 
+1f4df002 (Maria Hernandez 2023-10-30 16:18:35 -0400 448) 

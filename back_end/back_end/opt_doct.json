@@ -1,0 +1,1306 @@
+{
+  "": [
+    {
+      "doctor_name": "GARCIA-MANFREDI, ADAM",
+      "doctor_address": "MAMC OPTOMETRY, TACOMA, WA 98431",
+      "phone": "(253) 968-2797"
+    },
+    {
+      "doctor_name": "LIN, MENG",
+      "doctor_address": "110A MINOR ADDITION SCHOOL OF OPTOMETRY CRC 110A MINOR ADDITION, SCHOOL OF OPTOMETRY, CRC, BERKELEY, CA 94720",
+      "phone": "(510) 643-9252"
+    },
+    {
+      "doctor_name": "CHOW, ALEXANDER",
+      "doctor_address": "OPTOMETRY CLINIC, UNIT #15021, APO, AP 96218",
+      "phone": "(315) 737-4801"
+    },
+    {
+      "doctor_name": "ATKIN, SHARON",
+      "doctor_address": "OPTOMETRY CLINIC VAMC, PERRY POINT, MD 21902",
+      "phone": "(410) 642-2411"
+    },
+    {
+      "doctor_name": "ZUBER, TODD",
+      "doctor_address": "4705 WEITZEL STREET OPTOMETRY CLINIC, TIMNATH, CO 80547",
+      "phone": "(970) 416-6130"
+    },
+    {
+      "doctor_name": "WEBB, PAUL",
+      "doctor_address": "2080 CHILD STREET OPTOMETRY CLINIC, JACKSONVILLE, FL 32212",
+      "phone": "(904) 546-7129"
+    },
+    {
+      "doctor_name": "OSHINSKIE, LEONARD",
+      "doctor_address": "555 WILLARD AVE OPTOMETRY CLINIC, NEWINGTON, CT 06111",
+      "phone": "(860) 667-6742"
+    },
+    {
+      "doctor_name": "KUNG, DAVID",
+      "doctor_address": "320 LENNON LN OPTOMETRY, WALNUT CREEK, CA 94598",
+      "phone": "(209) 476-5123"
+    },
+    {
+      "doctor_name": "HILLARD, JACOB",
+      "doctor_address": "150 S HUNTINGTON AVE OPTOMETRY, BOSTON, MA 02130",
+      "phone": "(617) 232-9500"
+    },
+    {
+      "doctor_name": "HUGHES, GARY",
+      "doctor_address": "9300 DEWITT LOOP OPTOMETRY, FORT BELVOIR, VA 22060",
+      "phone": "(770) 862-0367"
+    },
+    {
+      "doctor_name": "SIMMONS, DAVID",
+      "doctor_address": "NNSY OPTOMETRY DEPT, BLDG 277, PORTSMOUTH, VA 23709",
+      "phone": "(757) 953-6491"
+    },
+    {
+      "doctor_name": "KIM, HANNA",
+      "doctor_address": "9040 JACKSON AVE PCSL - OPTOMETRY, TACOMA, WA 98431",
+      "phone": "(516) 375-4593"
+    },
+    {
+      "doctor_name": "FONG, CRAIG",
+      "doctor_address": "1650 RESPONSE RD OPTOMETRY DEPARTMENT, SACRAMENTO, CA 95815",
+      "phone": "(916) 614-4015"
+    },
+    {
+      "doctor_name": "DARKENWALD, KAREN",
+      "doctor_address": "1650 RESPONSE RD OPTOMETRY DEPT., SACRAMENTO, CA 95815",
+      "phone": "(916) 614-4015"
+    },
+    {
+      "doctor_name": "HUANG, IRIS",
+      "doctor_address": "12 B AVE OPTOMETRY CLINIC, ZUNI, NM 87327",
+      "phone": "(505) 782-7485"
+    },
+    {
+      "doctor_name": "WONG, KAREN",
+      "doctor_address": "79 MIDDLEVIILLE RD. OPTOMETRY 123, NORTHPORT, NY 11768",
+      "phone": "(631) 261-4400"
+    },
+    {
+      "doctor_name": "LALIBERTE, STEPHANIE",
+      "doctor_address": "855 MANKATO AVE OPTOMETRY DEPARTMENT, WINONA, MN 55987",
+      "phone": "(507) 454-3650"
+    },
+    {
+      "doctor_name": "POSTMA, JOEL",
+      "doctor_address": "MADIGAN HOSPITAL OPTOMETRY SERVICE, FT LEWIS, WA 98467",
+      "phone": "(253) 968-4661"
+    },
+    {
+      "doctor_name": "LEE, CAROL",
+      "doctor_address": "1306 GLENDALE GALLERIA TEAGLE OPTOMETRY, GLENDALE, CA 91210",
+      "phone": "(818) 956-0873"
+    },
+    {
+      "doctor_name": "LEE, ANITA",
+      "doctor_address": "100 BREA MALL SEARS OPTOMETRY, BREA, CA 92821",
+      "phone": "(714) 990-4353"
+    },
+    {
+      "doctor_name": "GALE, BARAK",
+      "doctor_address": "124 21ST AVE OPTOMETRY CENTER, SEATTLE, WA 98122",
+      "phone": "(206) 325-1100"
+    },
+    {
+      "doctor_name": "STEVENS, CLAUDE",
+      "doctor_address": "1804 SE ENSIGN LN OPTOMETRY, WARRENTON, OR 97146",
+      "phone": "(503) 338-4101"
+    },
+    {
+      "doctor_name": "STANGER, LORENE",
+      "doctor_address": "200 GWEE-SHUT RD OPTOMETRY, SILETZ, OR 97380",
+      "phone": "(541) 444-9630"
+    },
+    {
+      "doctor_name": "NIELSEN, DANIEL",
+      "doctor_address": "611 W PARK ST OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "JOHNSON, KATHRYN",
+      "doctor_address": "UC BERKELEY SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 642-0945"
+    },
+    {
+      "doctor_name": "COLLINS, BRENT",
+      "doctor_address": "2080 CHILD STREET OPTOMETRY CLINIC, JACKSONVILLE, FL 32214",
+      "phone": "(904) 542-7300"
+    },
+    {
+      "doctor_name": "NGUYEN, MICHELLE",
+      "doctor_address": "5533 SW 64TH ST OPTOMETRY, GAINESVILLE, FL 32608",
+      "phone": "(352) 271-5967"
+    },
+    {
+      "doctor_name": "PRESUTTO, AARON",
+      "doctor_address": "3458 NEELY ROAD OPTOMETRY CLINIC, WRIGHTSTOWN, NJ 08562",
+      "phone": "(609) 754-9685"
+    },
+    {
+      "doctor_name": "BROWN, MICHELLE",
+      "doctor_address": "6439 GARNERS FERRY RD OPTOMETRY, COLUMBIA, SC 29209",
+      "phone": "(419) 989-5893"
+    },
+    {
+      "doctor_name": "DALAL, NEVILLE",
+      "doctor_address": "113 LINCOLN ST COSTCO - OPTOMETRY, WOODSTOCK, GA 30188",
+      "phone": "(770) 694-7208"
+    },
+    {
+      "doctor_name": "FARON, JAMES",
+      "doctor_address": "602 W. UNIVERSITY AVENUE OPHTHALMOLOGY/OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "BLAKE, HERBERT",
+      "doctor_address": "OPTOMETRY CLINIC MADIGAN ARMY MEDICAL CENTER, TACOMA, WA 98431",
+      "phone": "(253) 968-2790"
+    },
+    {
+      "doctor_name": "DITTEMORE, DIRK",
+      "doctor_address": "550 POPE AVE OPTOMETRY CLINIC, FORT LEAVENWORTH, KS 66027",
+      "phone": "(913) 684-6750"
+    },
+    {
+      "doctor_name": "HAEGERSTROM-PORTNOY, GUNILLA",
+      "doctor_address": "SCHOOL OF OPTOMETRY UNIVERSITY OF CALIFORNIA, BERKELEY, CA 94720",
+      "phone": "(510) 642-9966"
+    },
+    {
+      "doctor_name": "ALI, OLIVER",
+      "doctor_address": "1970 ROANOKE BLVD OPTOMETRY SECTION (112E1), SALEM, VA 24153",
+      "phone": "(540) 982-2463"
+    },
+    {
+      "doctor_name": "CUNNINGHAM, BRAD",
+      "doctor_address": "1061 HARMON AVE OPTOMETRY CLINIC, FORT STEWART, GA 31314",
+      "phone": "(912) 435-5389"
+    },
+    {
+      "doctor_name": "DOAN, DORA",
+      "doctor_address": "4060 FAIRMOUNT AVE OPTOMETRY DEPARTMENT, SAN DIEGO, CA 92105",
+      "phone": "(619) 961-0803"
+    },
+    {
+      "doctor_name": "BHAKHRANI, SANA",
+      "doctor_address": "10800 MAGNOLIA AVE KAISER PERMANENTE OPTOMETRY, RIVERSIDE, CA 92505",
+      "phone": "(951) 353-4490"
+    },
+    {
+      "doctor_name": "GRAY, DOUGLAS",
+      "doctor_address": "602 W. UNIVERSITY AVENUE OPHTHALMOLOGY / OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "KAHRHOFF, MARK",
+      "doctor_address": "KEESLER MEDICAL CENTER OPTOMETRY CLINIC, KEESLER AFB, MS 39534",
+      "phone": "(228) 377-6161"
+    },
+    {
+      "doctor_name": "SANDERS, BRANDON",
+      "doctor_address": "1607 SAINT JAMES CT OPTOMETRY CLINIC, TALLAHASSEE, FL 32308",
+      "phone": "(850) 878-0191"
+    },
+    {
+      "doctor_name": "NGUYEN, ALBERT",
+      "doctor_address": "501 J ST 2ND FLOOR - OPTOMETRY, SACRAMENTO, CA 95814",
+      "phone": "(916) 248-9122"
+    },
+    {
+      "doctor_name": "MALEE, THOMAS",
+      "doctor_address": "602 W UNIVERSITY AVENUE OPHTHALMOLOGY/OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "FINNEY, DENIS",
+      "doctor_address": "UNIVERSITY OF CALIFORNIA SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "PICKETT, JULIE",
+      "doctor_address": "OPTOMETRY CLINIC, BLDG P-10501, FT. DRUM, NY 13602",
+      "phone": "(315) 772-2234"
+    },
+    {
+      "doctor_name": "LABRUNDA, PATRICIA",
+      "doctor_address": "5 GRACE CHURCH ST OPTOMETRY, PORT CHESTER, NY 10573",
+      "phone": "(914) 937-8899"
+    },
+    {
+      "doctor_name": "WILLIAMS, JOHN",
+      "doctor_address": "611 W. PARK ST. OPHTHALMOLOGY/OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "THOMAS, TANU",
+      "doctor_address": "602 W. UNIVERSITY AVENUE OPHTHALMOLOGY / OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "OSHIRO-JOHNSON, CHERIE",
+      "doctor_address": "3105 FIELDS SOUTH DR. OPTHALMOLOGY/OPTOMETRY, CHAMPAIGN, IL 61822",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "SANGHANI, MITALI",
+      "doctor_address": "79 MIDDLEVILLE RD OPTOMETRY SERVICE 123, NORTHPORT, NY 11768",
+      "phone": "(631) 261-4400"
+    },
+    {
+      "doctor_name": "JOHNS, MERLIN",
+      "doctor_address": "OPTOMETRY CLINIC MADIGAN ARMY MEDICAL CENTER, TACOMA, WA 98431",
+      "phone": "(253) 968-2790"
+    },
+    {
+      "doctor_name": "OHL, D. SCOTT",
+      "doctor_address": "611 W PARK ST OPHTHALMOLOGY/OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "ELLIS, DAVID",
+      "doctor_address": "602 W. UNIVERSITY AVENUE OPHTHALMOLOGY/OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "VERDON, WAYNE",
+      "doctor_address": "SCHOOL OF OPTOMETRY UNIVERSITY OF CALIFORNIA, BERKELEY, CA 94720",
+      "phone": "(510) 643-0683"
+    },
+    {
+      "doctor_name": "DOYLE, BRIAN",
+      "doctor_address": "5500 ARMSTRONG RD OPTOMETRY CLINIC, BATTLE CREEK, MI 49037",
+      "phone": "(269) 966-5600"
+    },
+    {
+      "doctor_name": "BOWERMAN, LISA",
+      "doctor_address": "700 19TH ST S OPTOMETRY 112C, BIRMINGHAM, AL 35233",
+      "phone": "(205) 933-8101"
+    },
+    {
+      "doctor_name": "BROWN, MICHAEL",
+      "doctor_address": "14406 NE 20TH AVE OPTOMETRY DEPARTMENT, VANCOUVER, WA 98686",
+      "phone": "(360) 418-6001"
+    },
+    {
+      "doctor_name": "EMPEY, GREGORY",
+      "doctor_address": "220 SYLVANIA AVE OPTOMETRY DEPARTMENT, SANTA CRUZ, CA 95060",
+      "phone": "(831) 460-1480"
+    },
+    {
+      "doctor_name": "JOHNSON, DAVID",
+      "doctor_address": "611 W. PARK ST. OPTHALMOLOGY/OPTOMETRY, URBANA, IL 61801",
+      "phone": "(217) 383-3150"
+    },
+    {
+      "doctor_name": "KELLY, ALLICIA",
+      "doctor_address": "1100 N COLLEGE AVE OPTOMETRY CLINIC, FAYETTEVILLE, AR 72703",
+      "phone": "(479) 443-4301"
+    },
+    {
+      "doctor_name": "GOULD, JEFFERY",
+      "doctor_address": "18TH MDG OPTOMETRY CLINIC UNIT 5267, APO, AP 96368",
+      "phone": "011816117304039"
+    },
+    {
+      "doctor_name": "WALTER, PENNY",
+      "doctor_address": "8901 WISCONSIN AVE NNMC, OPTOMETRY CLINIC, BETHESDA, MD 20889",
+      "phone": "(301) 295-0070"
+    },
+    {
+      "doctor_name": "BUTANI, AMRITA",
+      "doctor_address": "25825 VERMONT AVE OPTOMETRY DEPARTMENT, HARBOR CITY, CA 90710",
+      "phone": "(800) 780-1230"
+    },
+    {
+      "doctor_name": "KALBERER, DANIELLE",
+      "doctor_address": "79 MIDDLEVILLE RD OPTOMETRY SERVICE 123, NORTHPORT, NY 11768",
+      "phone": "(631) 261-4400"
+    },
+    {
+      "doctor_name": "HAMILTON, ROBERT",
+      "doctor_address": "1804 SE ENSIGN LN OPTOMETRY DEPARTMENT, WARRENTON, OR 97146",
+      "phone": "(503) 338-4114"
+    },
+    {
+      "doctor_name": "ALTO, JOHN",
+      "doctor_address": "7300 WYNDHAM DR EYE SERVICES - OPTOMETRY DEPARTMENT, SACRAMENTO, CA 95823",
+      "phone": "(916) 525-6400"
+    },
+    {
+      "doctor_name": "FINNEGAN, LYNN",
+      "doctor_address": "NORTHPORT VAMC-OPTOMETRY SERVICE 79 MIDDLEVILE RD, NORTHPORT, NY 11768",
+      "phone": "(631) 261-4400"
+    },
+    {
+      "doctor_name": "HOFF, ANGELIA",
+      "doctor_address": "200 MERCY CIRCLE NHCP OPTOMETRY DEPT, CAMP PENDLETON, CA 92055",
+      "phone": "(760) 719-4822"
+    },
+    {
+      "doctor_name": "EWAN, MARION",
+      "doctor_address": "1 JARRETT WHITE RD OPTOMETRY SERVICE, TRIPLER AMC, HI 96859",
+      "phone": "(808) 433-3211"
+    },
+    {
+      "doctor_name": "YEE, SARA",
+      "doctor_address": "81 BROADWAY LN BROADWAY EYEWORKS OPTOMETRY, WALNUT CREEK, CA 94596",
+      "phone": "(925) 930-7484"
+    },
+    {
+      "doctor_name": "PANG, ALICE",
+      "doctor_address": "141 LAKEWOOD CENTER MALL OPTOMETRY INSIDE TARGET, LAKEWOOD, CA 90712",
+      "phone": "(562) 529-3298"
+    },
+    {
+      "doctor_name": "TIERNEY, JOHN, JR.",
+      "doctor_address": "1601 SW ARCHER RD OPTOMETRY CLINIC (11C), GAINESVILLE, FL 32608",
+      "phone": "(352) 376-1611"
+    },
+    {
+      "doctor_name": "RETT, DOUG",
+      "doctor_address": "150 S HUNTINGTON AVE OPTOMETRY 8TH FLOOR, BOSTON, MA 02130",
+      "phone": "(617) 548-9208"
+    },
+    {
+      "doctor_name": "WALKER, PATRICIA",
+      "doctor_address": "1225 MADISON AVE SOUTHERN COLLEGE OF OPTOMETRY, MEMPHIS, TN 38104",
+      "phone": "(901) 722-3250"
+    },
+    {
+      "doctor_name": "CARLSON, ROBERT, JR.",
+      "doctor_address": "IHS OPTOMETRY CLINIC 317 MAIN STREET, EAGLE BUTTE, SD 57625",
+      "phone": "(605) 964-3008"
+    },
+    {
+      "doctor_name": "KONDO, HELEN",
+      "doctor_address": "630 SHATTO PL FL 1 OPTOMETRY, LOS ANGELES, CA 90005",
+      "phone": "(213) 380-1670"
+    },
+    {
+      "doctor_name": "LAU, EVA",
+      "doctor_address": "5601 DE SOTO AVE OPTOMETRY DEPARTMENT, WOODLAND HILLS, CA 91367",
+      "phone": "(818) 719-2000"
+    },
+    {
+      "doctor_name": "POLONENKO, TANYA",
+      "doctor_address": "UCB SCHOOL OF OPTOMETRY 200 MINOR HL, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "TRUONG, TRESCA",
+      "doctor_address": "975 SERENO DR KAISER PERMANENTE- OPTOMETRY DEPARTMENT, VALLEJO, CA 94589",
+      "phone": "(707) 651-1085"
+    },
+    {
+      "doctor_name": "LETZRING, KRISTA",
+      "doctor_address": "2501 W 22ND ST OPTOMETRY CLINIC, SIOUX FALLS, SD 57105",
+      "phone": "(319) 231-9346"
+    },
+    {
+      "doctor_name": "DENTON, LINDSAY",
+      "doctor_address": "271 FORT RICHARDSON AVE OPTOMETRY CLINIC, GOODFELLOW AFB, TX 76908",
+      "phone": "(325) 654-3120"
+    },
+    {
+      "doctor_name": "PHI, KENNETH",
+      "doctor_address": "351 E TEMPLE ST OPTOMETRY 112C, LOS ANGELES, CA 90012",
+      "phone": "(213) 253-2677"
+    },
+    {
+      "doctor_name": "YUAN, KEVIN",
+      "doctor_address": "5901 E 7TH ST OPTOMETRY DEPARTMENT, LONG BEACH, CA 90822",
+      "phone": "(844) 808-2020"
+    },
+    {
+      "doctor_name": "EVERS, STEVEN",
+      "doctor_address": "3920 E ASHWOOD RD HEALTH SERVICES-OPTOMETRY, MADRAS, OR 97741",
+      "phone": "(541) 325-3450"
+    },
+    {
+      "doctor_name": "MCCLUER, CRAIG",
+      "doctor_address": "2131 PEPPERRELL ST BLDG 3350 / OPTOMETRY, LACKLAND AFB, TX 78236",
+      "phone": "(210) 292-6582"
+    },
+    {
+      "doctor_name": "MELORE, GERALD",
+      "doctor_address": "2043 COLLEGE WAY COLLEGE OF OPTOMETRY, FOREST GROVE, OR 97116",
+      "phone": "(503) 352-2202"
+    },
+    {
+      "doctor_name": "AU, ALICE",
+      "doctor_address": "5601 DE SOTO AVE OPTOMETRY DEPARTMENT, WOODLAND HILLS, CA 91367",
+      "phone": "(818) 719-4330"
+    },
+    {
+      "doctor_name": "CHUNG, JENIFER",
+      "doctor_address": "3400 DELTA FAIR BLVD EYECARE CLINIC-OPTOMETRY, ANTIOCH, CA 94509",
+      "phone": "(925) 779-4378"
+    },
+    {
+      "doctor_name": "NG, ANGELA",
+      "doctor_address": "87 ELIZABETH STREET PACIFIC OPTOMETRY, P.C., NEW YORK, NY 10013",
+      "phone": "(212) 219-8260"
+    },
+    {
+      "doctor_name": "PEACHES, JANIE",
+      "doctor_address": "167 NORTH MAIN STREET OPTOMETRY DEPT, TUBA CITY, AZ 86045",
+      "phone": "(928) 283-2748"
+    },
+    {
+      "doctor_name": "COURSON, ELIZABETH",
+      "doctor_address": "289 IRELAND AVE IRACH OPTOMETRY CLINIC, FORT KNOX, KY 40121",
+      "phone": "(502) 624-9663"
+    },
+    {
+      "doctor_name": "HSIEH, JOYCE",
+      "doctor_address": "5601 DE SOTO AVE OPTOMETRY DEPARTMENT, WOODLAND HILLS, CA 91367",
+      "phone": "(818) 719-4330"
+    },
+    {
+      "doctor_name": "ARVANITOGIANNIS, ANGELIKI",
+      "doctor_address": "2094 ALBANY POST ROAD OPTOMETRY 620-123, MONROSE, NY 10548",
+      "phone": "(347) 302-8701"
+    },
+    {
+      "doctor_name": "PHAM, NINH",
+      "doctor_address": "9025 SPENCER HWY DOCTOR OF OPTOMETRY, LA PORTE, TX 77571",
+      "phone": "(281) 542-9350"
+    },
+    {
+      "doctor_name": "GEE, SHARLENE",
+      "doctor_address": "3565 DEL AMO BLVD OPTOMETRY 2ND FL., TORRANCE, CA 90503",
+      "phone": "(310) 214-0811"
+    },
+    {
+      "doctor_name": "BLAKE, ALEXANDER",
+      "doctor_address": "9201 BIG HORN BLVD OPTOMETRY DEPT, ELK GROVE, CA 95758",
+      "phone": "(916) 478-5580"
+    },
+    {
+      "doctor_name": "LEE, RUSSELL",
+      "doctor_address": "7300 N FRESNO ST PALM 2, OPTOMETRY, FRESNO, CA 93720",
+      "phone": "(559) 448-4622"
+    },
+    {
+      "doctor_name": "THAI, HUNG",
+      "doctor_address": "710 LAWRENCE EXPY OPTOMETRY - DEPT. 486, SANTA CLARA, CA 95051",
+      "phone": "(408) 851-4100"
+    },
+    {
+      "doctor_name": "HADLEY, HELEN",
+      "doctor_address": "MARTIN ARMY COMMUNITY HOSPITAL EENT-OPTOMETRY, FORT BENNING, GA 31905",
+      "phone": "(706) 544-3648"
+    },
+    {
+      "doctor_name": "JOHNSTON,, WILLIAM, JR.",
+      "doctor_address": "510 BUTLER AVE SURGICAL SERVICE / OPTOMETRY CLINIC, MARTINSBURG, WV 25405",
+      "phone": "(304) 263-0811"
+    },
+    {
+      "doctor_name": "LEIF, JOSHUA",
+      "doctor_address": "2727 W HOLCOMBE BLVD 4TH FLOOR, OPTOMETRY, HOUSTON, TX 77025",
+      "phone": "(713) 442-0000"
+    },
+    {
+      "doctor_name": "CHEUNG, WING",
+      "doctor_address": "87 ELIZABETH ST PACIFIC OPTOMETRY, P.C., NEW YORK, NY 10013",
+      "phone": "(212) 219-8260"
+    },
+    {
+      "doctor_name": "KWAN, STEPHEN",
+      "doctor_address": "9201 BIG HORN BLVD OPTOMETRY DEPARTMENT, ELK GROVE, CA 95758",
+      "phone": "(916) 478-5580"
+    },
+    {
+      "doctor_name": "EDMONDSON, WILLIAM",
+      "doctor_address": "1245 MADISON AVE SOUTHERN COLLEGE OF OPTOMETRY, MEMPHIS, TN 38104",
+      "phone": "(901) 722-3390"
+    },
+    {
+      "doctor_name": "PARK, TONY",
+      "doctor_address": "61-35 JUNCTION BLVD COSTCO OPTOMETRY, REGO PARK, NY 11374",
+      "phone": "(718) 760-7862"
+    },
+    {
+      "doctor_name": "MAZZARELLA, JARETT",
+      "doctor_address": "1601 BRENNER AVE 11-1 (OPTOMETRY SERVICE), SALISBURY, NC 28144",
+      "phone": "(814) 241-6519"
+    },
+    {
+      "doctor_name": "FARRIS, JACK",
+      "doctor_address": "KIMBROUGH AMBULATORY CARE CENTER ATTN: OPTOMETRY, FORT MEADE, MD 21044",
+      "phone": "(301) 677-8378"
+    },
+    {
+      "doctor_name": "LEAVITT, RONALD",
+      "doctor_address": "1650 COCRANE CIRCLE MEDDAC OPTOMETRY CLINIC, FT CARSON, CO 80913",
+      "phone": "(719) 526-7462"
+    },
+    {
+      "doctor_name": "GENTRY, MICHAEL",
+      "doctor_address": "LHC OPTOMETRY 5979 DESERT STORM AVE., FORT CAMPBELL, KY 42223",
+      "phone": "(270) 956-0304"
+    },
+    {
+      "doctor_name": "OSTERHOUDT, MICHAEL",
+      "doctor_address": "15301 WARREN SHINGLE RD OPTOMETRY CLINIC, BEALE AFB, CA 95903",
+      "phone": "(530) 634-2592"
+    },
+    {
+      "doctor_name": "SANZOTTA, SCOTT",
+      "doctor_address": "MAINZ KASTEL OPTOMETRY CLINIC UNIT 29645, APO, AE 09096, DE",
+      "phone": "011496134204930"
+    },
+    {
+      "doctor_name": "CHU, KAI LAI",
+      "doctor_address": "1430 SOUTH ASHLAND AVENUE OPTOMETRY DEPT WITHIN, CHICAGO, IL 60608",
+      "phone": "(312) 270-8988"
+    },
+    {
+      "doctor_name": "HE, SISSI",
+      "doctor_address": "COLLEGE OF OPTOMETRY 2043 COLLEGE WAY, FOREST GROVE, OR 97116",
+      "phone": "(503) 352-2020"
+    },
+    {
+      "doctor_name": "KINZER, EILENE",
+      "doctor_address": "147 SYCAMORE ST KENTUCKY COLLEGE OF OPTOMETRY, PIKEVILLE, KY 41501",
+      "phone": "(606) 218-5514"
+    },
+    {
+      "doctor_name": "BOS, KEVIN",
+      "doctor_address": "100 CHERRY ST SE OPTOMETRY CLINIC, GRAND RAPIDS, MI 49503",
+      "phone": "(616) 965-8200"
+    },
+    {
+      "doctor_name": "HANKS, PATRICIA",
+      "doctor_address": "FORT GORDON PXTRA, BLDG. 35200 OPTOMETRY CENTER, FORT GORDON, GA 30905",
+      "phone": "(706) 771-9403"
+    },
+    {
+      "doctor_name": "PARSONS, STEVEN",
+      "doctor_address": "975 SERENO DR KAISER MEDICAL CENTER, OPTOMETRY DEPT., VALLEJO, CA 94589",
+      "phone": "(707) 651-2992"
+    },
+    {
+      "doctor_name": "BRIGHT, DAVID",
+      "doctor_address": "11301 WILSHIRE BLVD WLAHCS - OPTOMETRY 691/123, LOS ANGELES, CA 90073",
+      "phone": "(310) 268-3332"
+    },
+    {
+      "doctor_name": "TRAN, KATHY",
+      "doctor_address": "200 MINOR HL UC BERKELEY SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "HUANG, JING",
+      "doctor_address": "2043 COLLEGE WAY PACIFIC UNIVERSITY OPTOMETRY COLLEGE, FOREST GROVE, OR 97116",
+      "phone": "(925) 698-7120"
+    },
+    {
+      "doctor_name": "TRAN, KENNETH",
+      "doctor_address": "200 MINOR HALL UC BERKELEY SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "GWO, JOANNE",
+      "doctor_address": "1600 EL CAMINO REAL OPTOMETRY DEPARTMENT, SOUTH SAN FRANCISCO, CA 94080",
+      "phone": "(650) 992-5881"
+    },
+    {
+      "doctor_name": "FARLEY, KEITH",
+      "doctor_address": "855 HOUSTON NORTHCUTT BLVD PRIMARY CARE OPTOMETRY, MT PLEASANT, SC 29464",
+      "phone": "(843) 881-2525"
+    },
+    {
+      "doctor_name": "DOBRZELEWSKI, MITCHELL",
+      "doctor_address": "12900 S US-27 #7 DEWITT OPTOMETRY PC, DEWITT, MI 48820",
+      "phone": "(517) 669-4411"
+    },
+    {
+      "doctor_name": "REINDERS, STEVEN",
+      "doctor_address": "14000 FAIRVIEW DR PARK NICOLLET CLINIC-BURNSVILLE OPTOMETRY, BURNSVILLE, MN 55337",
+      "phone": "(952) 993-8700"
+    },
+    {
+      "doctor_name": "KICHURA, RONALD",
+      "doctor_address": "5955 ZEAMER AVE 3 MDG OPTOMETRY CLINIC, ELMENDORF AFB, AK 99506",
+      "phone": "(907) 580-1150"
+    },
+    {
+      "doctor_name": "CRIST, ANDREW",
+      "doctor_address": "420 N JAMES RD EYE CLINIC SERVICES - OPTOMETRY, COLUMBUS, OH 43219",
+      "phone": "(614) 257-5642"
+    },
+    {
+      "doctor_name": "GUTIERREZ, AMANDA",
+      "doctor_address": "52 MEDICAL GROUP, OPTOMETRY CLINIC SPANGDAHELM AB, GERMANY, APO, AE 54529",
+      "phone": "(210) 842-6957"
+    },
+    {
+      "doctor_name": "BUCHER, EMILY",
+      "doctor_address": "77 WAINWRIGHT DR BUILDING 86 (123) OPTOMETRY, WALLA WALLA, WA 99362",
+      "phone": "(509) 525-5200"
+    },
+    {
+      "doctor_name": "PHAM, ALEXANDER",
+      "doctor_address": "EYE CARUMBA OPTOMETRY FOUR EMBARCADERO CENTER, LL3, SAN FRANCISCO, CA 94111",
+      "phone": "(415) 772-8282"
+    },
+    {
+      "doctor_name": "YOSHIYAMA, KERRI",
+      "doctor_address": "UC BERKELEY SCHOOL OF OPTOMETRY 230 MINOR HALL, BERKELEY, CA 94720",
+      "phone": "(510) 642-0945"
+    },
+    {
+      "doctor_name": "DUL, MITCHELL",
+      "doctor_address": "33 W 42ND ST COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-5818"
+    },
+    {
+      "doctor_name": "NAZARIANS, SARINE",
+      "doctor_address": "13652 CANTARA ST OPTOMETRY NORTH 2 BUILDING, PANORAMA CITY, CA 91402",
+      "phone": "(818) 375-3672"
+    },
+    {
+      "doctor_name": "MALIK, QURTULLEAN",
+      "doctor_address": "2094 ALBANY POST RD OPTOMETRY SERVICE(620-123), MONTROSE, NY 10548",
+      "phone": "(609) 638-0102"
+    },
+    {
+      "doctor_name": "CHANG, CHRISTINA",
+      "doctor_address": "1551 SLOAT BLVD C/O VISIONARIUM OPTOMETRY, SAN FRANCISCO, CA 94132",
+      "phone": "(415) 753-5338"
+    },
+    {
+      "doctor_name": "TUTKO, MARISSA",
+      "doctor_address": "UC BERKELEY SCHOOL OF OPTOMETRY 200 MINOR HALL, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "PETERS, DEXEL",
+      "doctor_address": "144 KARLSRUHE STRASSE BLDG 3617, OPTOMETRY, HEIDELBERG, BADEN-WURTTEMBERG 69123, DE",
+      "phone": "011496221173407"
+    },
+    {
+      "doctor_name": "BUTLER, JAY",
+      "doctor_address": "374TH MEDICAL GROUP/OPTOMETRY YOKOTA AIR BASE, JAPAN, APO, AP 96328",
+      "phone": "(315) 225-8400"
+    },
+    {
+      "doctor_name": "HOLTMAN, KEVIN",
+      "doctor_address": "910 MAPLE ST KAISER DEPARTMENT OF OPTOMETRY, REDWOOD CITY, CA 94063",
+      "phone": "(650) 299-2111"
+    },
+    {
+      "doctor_name": "DECUIR, BRIAN",
+      "doctor_address": "5601 DE SOTO AVE DEPT. OF OPTOMETRY, WOODLAND HILLS, CA 91367",
+      "phone": "(818) 719-4353"
+    },
+    {
+      "doctor_name": "REBER, DOUGLAS",
+      "doctor_address": "525 ROBERTS LN OILDALE COMM HEALTH CENTER, OPTOMETRY, BAKERSFIELD, CA 93308",
+      "phone": "(661) 392-7850"
+    },
+    {
+      "doctor_name": "DEANGELIS, CHRISTOPHER",
+      "doctor_address": "633RD MEDICAL GROUP, OPTOMETRY DEPARTMENT 77 NEALY AVE., HAMPTON, VA 23665",
+      "phone": "(630) 835-6077"
+    },
+    {
+      "doctor_name": "HUR, CHEE",
+      "doctor_address": "25825 VERMONT AVE KAISER PERMANENTE OPTOMETRY DEPARTMENT, HARBOR CITY, CA 90710",
+      "phone": "(800) 780-1230"
+    },
+    {
+      "doctor_name": "SHAN, CHANDRA",
+      "doctor_address": "13652 CANTARA ST NORTH 2, OPTOMETRY DEPARTMENT, PANORAMA CITY, CA 91402",
+      "phone": "(818) 375-3672"
+    },
+    {
+      "doctor_name": "YU, VIKKI",
+      "doctor_address": "230 MINOR HALL UC BERKELEY SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 642-0945"
+    },
+    {
+      "doctor_name": "MAASARANI, SARAH",
+      "doctor_address": "200 MINOR HALL UC BERKELEY SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "BONN, SHARI",
+      "doctor_address": "3458 NEELY ROAD OPTOMETRY CLINIC, MCGUIRE AIR FORCE BASE, NJ 08641",
+      "phone": "(609) 754-9685"
+    },
+    {
+      "doctor_name": "AUZA, RAUL",
+      "doctor_address": "1001 N GRAND AVE OKLAHOMA COLLEGE OF OPTOMETRY, TAHLEQUAH, OK 74464",
+      "phone": "(231) 580-9587"
+    },
+    {
+      "doctor_name": "FONG, DENNIS",
+      "doctor_address": "230 MINOR HALL UC BERKELEY SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 643-7965"
+    },
+    {
+      "doctor_name": "BUSCHE, JAMES",
+      "doctor_address": "1307 ALBION AVE., STE. 102 ASSOCIATE OPTOMETRY, P.A., FAIRMONT, MN 56031",
+      "phone": "(507) 238-4228"
+    },
+    {
+      "doctor_name": "SIMMONS, MELISSA",
+      "doctor_address": "559 VINCENT ST BLDG 959 OPTOMETRY CLINIC, COLORADO SPRINGS, CO 80914",
+      "phone": "(318) 456-6625"
+    },
+    {
+      "doctor_name": "SIMON, KEITH",
+      "doctor_address": "604 ROSE AVE VENICE FAMILY CLINIC/OPTOMETRY DEPT., VENICE, CA 90291",
+      "phone": "(310) 392-8636"
+    },
+    {
+      "doctor_name": "CHU, MARLENA",
+      "doctor_address": "U.C. BERKELEY SCHOOL OF OPTOMETRY 200 MINOR HALL, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "WONG, NATALIE",
+      "doctor_address": "17273 STATE ROUTE 104 OPTOMETRY CLINIC, BLDG 27, CHILLICOTHE, OH 45601",
+      "phone": "(740) 773-1141"
+    },
+    {
+      "doctor_name": "FRISBY, STEVEN",
+      "doctor_address": "9201 BIG HORN BLVD KAISER PERMANENTE OPTOMETRY DEPT, ELK GROVE, CA 95758",
+      "phone": "(916) 478-5591"
+    },
+    {
+      "doctor_name": "WHITESIDE, MEREDITH",
+      "doctor_address": "690 MINOR HALL - SCHOOL OF OPTOMETRY UNIVERSITY OF CALIFORNIA, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "WEBSTER, CHAN",
+      "doctor_address": "LRMC OPTOMETRY SERVICE ATTN:MCEU-LCM-MSO, UNIT 33100, APO, AE 09180, DE",
+      "phone": "(314) 590-7028"
+    },
+    {
+      "doctor_name": "BRENCHER, HOLGER",
+      "doctor_address": "USA MEDDAC OPTOMETRY CLINIC 11050 MT BELVEDERE BLVD, FORT DRUM, NY 13602",
+      "phone": "(315) 772-1801"
+    },
+    {
+      "doctor_name": "ERICKSON, DINA",
+      "doctor_address": "PACIFIC UNIVERSITY COLLEGE OF OPTOMETRY 2043 COLLEGE WAY, FOREST GROVE, OR 97116",
+      "phone": "(503) 352-3007"
+    },
+    {
+      "doctor_name": "NGUYEN, NANCY",
+      "doctor_address": "UNIVERSITY OF CALIFORNIA SCHOOL OF OPTOMETRY 230 MINOR HALL, BERKELEY, CA 94720",
+      "phone": "(510) 642-0945"
+    },
+    {
+      "doctor_name": "BRUECKNER, KARIN",
+      "doctor_address": "7900 W QUINCY AVE OPTOMETRY OFFICE INSIDE COSTCO OPTICAL, LITTLETON, CO 80123",
+      "phone": "(303) 948-1400"
+    },
+    {
+      "doctor_name": "KNIGHT, BILLIE",
+      "doctor_address": "UNIVERSITY OF CALIFORNIA SCHOOL OF OPTOMETRY 100 MINOR HALL, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "NIELSEN, ERIC",
+      "doctor_address": "90 HOPE DR OPTOMETRY CLINIC, MOUNTAIN HOME A F B, ID 83648",
+      "phone": "(208) 828-7250"
+    },
+    {
+      "doctor_name": "CLARK, PATRICK, JR.",
+      "doctor_address": "101 BODIN CIR 60 MDG/AMDS OPTOMETRY CLINIC, TRAVIS AFB, CA 94535",
+      "phone": "(707) 423-7171"
+    },
+    {
+      "doctor_name": "GARMAN, KAYLEE",
+      "doctor_address": "PACIFIC UNIVERSITY COLLEGE OF OPTOMETRY 2043 COLLEGE WAY, FOREST GROVE, OR 97116",
+      "phone": "(503) 352-2020"
+    },
+    {
+      "doctor_name": "MEYER, MICHAEL",
+      "doctor_address": "3241 S MICHIGAN AVE # 386 ILLINOIS COLLEGE OF OPTOMETRY, CHICAGO, IL 60616",
+      "phone": "(949) 312-7220"
+    },
+    {
+      "doctor_name": "YEU, CHELMIN",
+      "doctor_address": "2607 PRESTON RD EYE CARE 4 YEU (JCP OPTOMETRY), FRISCO, TX 75034",
+      "phone": "(214) 494-4589"
+    },
+    {
+      "doctor_name": "LEE, SHANNON",
+      "doctor_address": "HWY 491 NORTH NORTHERN NAVAJO MEDICAL CENTER OPTOMETRY DEPT, SHIPROCK, NM 87420",
+      "phone": "(505) 368-6001"
+    },
+    {
+      "doctor_name": "KLASS, BRITTANY",
+      "doctor_address": "DUNHAM ARMY HEALTH CLINIC OPTOMETRY 450 GIBNER ROAD, CARLISLE BARRACKS, PA 17013",
+      "phone": "(717) 245-3056"
+    },
+    {
+      "doctor_name": "HUGHES, VICKI",
+      "doctor_address": "3553 WHIPPLE RD BLDG B KAISER PERMANENTE, OPTOMETRY, UNION CITY, CA 94587",
+      "phone": "(510) 675-4577"
+    },
+    {
+      "doctor_name": "SAVIOLA, JAMES",
+      "doctor_address": "8901 WISCONSIN AVE NATIONAL NAVAL MEDICAL CENTER - OPTOMETRY DEPARTMENT, BETHESDA, MD 20889",
+      "phone": "(301) 295-1339"
+    },
+    {
+      "doctor_name": "HIGUCHI, TRACY",
+      "doctor_address": "1515 N VERMONT AVE OPTOMETRY DEPARTMENT 6TH FLOOR, LOS ANGELES, CA 90027",
+      "phone": "(323) 783-4510"
+    },
+    {
+      "doctor_name": "TRUONG, JAMES",
+      "doctor_address": "ROBINSON HEALTH CLINIC, OPTOMETRY BLDG # C1722 TAGATAY RD, FORT BRAGG, NC 28310",
+      "phone": "(910) 907-9512"
+    },
+    {
+      "doctor_name": "RHOADS, ALLAN",
+      "doctor_address": "92 AMDS / OPTOMETRY 701 HOSPITAL LOOP, SUITE 355, FAIRCHILD AFB, WA 99011",
+      "phone": "(509) 247-5114"
+    },
+    {
+      "doctor_name": "SHERMAN, JEROME",
+      "doctor_address": "33 W 42ND ST SUNY COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-5862"
+    },
+    {
+      "doctor_name": "VAUGHN, MATTHEW",
+      "doctor_address": "33 W 42ND ST SUNY COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(732) 267-2607"
+    },
+    {
+      "doctor_name": "SWAN, MARK",
+      "doctor_address": "1124 S STATE ST MICHIGAN COLLEGE OF OPTOMETRY, BIG RAPIDS, MI 49307",
+      "phone": "(231) 591-2222"
+    },
+    {
+      "doctor_name": "REVELLI, EDWARD",
+      "doctor_address": "UNIVERSITY OF CALIFORNIA 230 MINOR HALL SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 642-0945"
+    },
+    {
+      "doctor_name": "BRYANT, TRAVIS",
+      "doctor_address": "5979 DESERT STORM AVE. LAPOINTE HEALTH CLNIC OPTOMETRY, FT. CAMPBELL, KY 42223",
+      "phone": "(270) 412-9113"
+    },
+    {
+      "doctor_name": "HARDGRAVE, NICHOLAS",
+      "doctor_address": "36TH MEDICAL GROUP-ANDERSEN AFB CLINIC/OPTOMETRY UNIT 14010, APO, AP 96543",
+      "phone": "(671) 366-6749"
+    },
+    {
+      "doctor_name": "CHEE, MEGAN",
+      "doctor_address": "1001 N GRAND AVE NSU OKLAHOMA COLLEGE OF OPTOMETRY, TAHLEQUAH, OK 74464",
+      "phone": "(918) 444-4031"
+    },
+    {
+      "doctor_name": "VALDEZ, LYNN",
+      "doctor_address": "EYE CARUMBA OPTOMETRY 4 EMBARCADERO CENTER, LOBBY LEVEL, SAN FRANCISCO, CA 94111",
+      "phone": "(415) 772-8282"
+    },
+    {
+      "doctor_name": "SLOAN, SUSAN",
+      "doctor_address": "1061 HARMON AVE, OPTOMETRY WINN ARMY COMMUNITY HOSPITAL, FORT STEWART, GA 31314",
+      "phone": "(912) 435-6155"
+    },
+    {
+      "doctor_name": "BURGER, DENNIS",
+      "doctor_address": "200 MINOR HALL SCHOOL OF OPTOMETRY UNIVERSITY OF CALIFORNIA, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "RULLAN, MAYRA",
+      "doctor_address": "118 CALLE ELEONOR ROOSEVELT IAU SCHOOL OF OPTOMETRY, SAN JUAN, PR 00918",
+      "phone": "(787) 765-1915"
+    },
+    {
+      "doctor_name": "SHENOUDA-AWAD, NANCY",
+      "doctor_address": "VA HUDSON VALLEY -FDR CAMPUS, OPTOMETRY SERVICE (620-123), MONTROSE, NY 10548",
+      "phone": "(914) 737-4400"
+    },
+    {
+      "doctor_name": "M. MAHVELATI, TARA",
+      "doctor_address": "33 W 42ND ST - SUNY COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(347) 972-8292"
+    },
+    {
+      "doctor_name": "BOVENZI, MATTHEW",
+      "doctor_address": "33 W. 42ND ST. SUNY COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-4000"
+    },
+    {
+      "doctor_name": "PANICCIA, STEFANIA",
+      "doctor_address": "500 CARRETERA JOHN WILL HARRIS IAUPR SCHOOL OF OPTOMETRY, BAYAMON, PR 00957",
+      "phone": "(787) 765-1915"
+    },
+    {
+      "doctor_name": "JONES, ANNA",
+      "doctor_address": "650 JOEL DR ATTN: LAPOINTE HEALTH CLINIC OPTOMETRY, FORT CAMPBELL, KY 42223",
+      "phone": "(270) 956-0304"
+    },
+    {
+      "doctor_name": "KAMPANI, REECHA",
+      "doctor_address": "10701 EAST BLVD VA MEDICAL CENTER OPTOMETRY SECTION (112W), CLEVELAND, OH 44106",
+      "phone": "(216) 791-3800"
+    },
+    {
+      "doctor_name": "NUSGART, ADAM",
+      "doctor_address": "PERRY POINT VA MEDICAL CENTER OPTOMETRY CLINIC (11CI), PERRY POINT, MD 21902",
+      "phone": "(410) 642-2411"
+    },
+    {
+      "doctor_name": "TAKHER, SUKHDEEP",
+      "doctor_address": "1145 COLUSA AVE STE C NU VISION OPTOMETRY, YUBA CITY, CA 95991",
+      "phone": "(530) 751-1325"
+    },
+    {
+      "doctor_name": "REESE, HEATHER",
+      "doctor_address": "8333 N DAVIS HWY MEDICAL CENTER CLINIC OPTOMETRY DEPT, PENSACOLA, FL 32514",
+      "phone": "(850) 474-8100"
+    },
+    {
+      "doctor_name": "LUPLOW, DEAN",
+      "doctor_address": "1124 S STATE ST MICHIGAN COLLEGE OF OPTOMETRY, BIG RAPIDS, MI 49307",
+      "phone": "(231) 591-2020"
+    },
+    {
+      "doctor_name": "COHN, BARBARA",
+      "doctor_address": "1000 HOSPITAL ROAD CROW INDIAN HEALTH SERVICE- OPTOMETRY, CROW AGENCY, MT 59022",
+      "phone": "(406) 638-3313"
+    },
+    {
+      "doctor_name": "NG, JASON",
+      "doctor_address": "2575 YORBA LINDA BLVD SOUTHERN CALIFORNIA COLLEGE OF OPTOMETRY, FULLERTON, CA 92831",
+      "phone": "(714) 449-7459"
+    },
+    {
+      "doctor_name": "RANDALL, JOHN",
+      "doctor_address": "2043 COLLEGE WAY PACIFIC UNIVERSITY COLLEGE OF OPTOMETRY, FOREST GROVE, OR 97116",
+      "phone": "(503) 352-2020"
+    },
+    {
+      "doctor_name": "SCHUETTENBERG, SUSAN",
+      "doctor_address": "33 W 42ND ST SUNY COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-4000"
+    },
+    {
+      "doctor_name": "MILLS, MEGAN",
+      "doctor_address": "700 19TH ST S VA MEDICAL CENTER, OPTOMETRY (112C), BIRMINGHAM, AL 35233",
+      "phone": "(205) 933-8101"
+    },
+    {
+      "doctor_name": "ZABALA, KRISTINE",
+      "doctor_address": "33 W 42ND ST SUNY COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-4001"
+    },
+    {
+      "doctor_name": "MIJANGOS, SERGIO",
+      "doctor_address": "5001 SERGEANT RD STE 35 MIJANGOS OPTOMETRY INC, SIOUX CITY, IA 51106",
+      "phone": "(712) 224-4600"
+    },
+    {
+      "doctor_name": "STOUT, ANTHONY",
+      "doctor_address": "ALBUQUERQUE INDIAN HEALTH CENTER- OPTOMETRY CLINIC 801 VASSAR DR. N.E., ALBUQUERQUE, NM 87106",
+      "phone": "(505) 248-4037"
+    },
+    {
+      "doctor_name": "ISAACS, SCOTT",
+      "doctor_address": "901 AVENUE OF THE AMERICAS HERALD SQUARE OPTOMETRY/LENSCRAFTERS, NEW YORK, NY 10001",
+      "phone": "(212) 967-4177"
+    },
+    {
+      "doctor_name": "BARR, JOSEPH",
+      "doctor_address": "338 W 10TH AVE OHIO STATE UNIVERSITY COLLEGE OF OPTOMETRY, COLUMBUS, OH 43210",
+      "phone": "(614) 292-0437"
+    },
+    {
+      "doctor_name": "MELLING, SCOTT",
+      "doctor_address": "HANAU HEALTH CLINIC ATTN: OPTOMETRY UNIT 20193 BOX 0030, APO, AE 09165, DE",
+      "phone": "061815006605"
+    },
+    {
+      "doctor_name": "BELL, BARBORA",
+      "doctor_address": "495 CASTRO ST MOUNTAIN VIEW OPTOMETRY & CONTACT LENS CLINIC, MOUNTAIN VIEW, CA 94041",
+      "phone": "(650) 967-6649"
+    },
+    {
+      "doctor_name": "CACIOPPO, WENDY",
+      "doctor_address": "915 N ST SE BLDG 175 WNY BHC OPTOMETRY CLINIC, WASHINGTON, DC 20374",
+      "phone": "(202) 433-0503"
+    },
+    {
+      "doctor_name": "BADE, ANNETTE",
+      "doctor_address": "3200 S UNIVERSITY DR NSU COLLEGE OF OPTOMETRY SUITE 1402, DAVIE, FL 33328",
+      "phone": "(954) 262-1402"
+    },
+    {
+      "doctor_name": "BOONE, PAULA",
+      "doctor_address": "BLD. 277 OPTOMETRY DEPARTMENT NORFOLK NAVAL SHIPYARD BRANCH HEALTH CLINIC, PORTSMOUTH, VA 23709",
+      "phone": "(757) 953-6490"
+    },
+    {
+      "doctor_name": "DUNPHY, ROBERT",
+      "doctor_address": "150 S HUNTINGTON AVE OPTOMETRY (112) RM 8B-46, JAMAICA PLAIN, MA 02130",
+      "phone": "(857) 364-5120"
+    },
+    {
+      "doctor_name": "DAMIANI, THOMAS",
+      "doctor_address": "UNIT 29623, BOX 0059 WIESBADEN HEALTH CLINIC (ATTN: OPTOMETRY CLINIC), APO, AE 09096",
+      "phone": "0114915114264029"
+    },
+    {
+      "doctor_name": "SHEN, KATHLEEN",
+      "doctor_address": "495 CASTRO ST MOUNTAIN VIEW OPTOMETRY & CONTACT LENS CLINIC, MOUNTAIN VIEW, CA 94041",
+      "phone": "(650) 967-6649"
+    },
+    {
+      "doctor_name": "RHEAM, DEBORAH",
+      "doctor_address": "495 CASTRO ST MOUNTAIN VIEW OPTOMETRY & CONTACT LENS CLINIC, MOUNTAIN VIEW, CA 94041",
+      "phone": "(650) 967-6649"
+    },
+    {
+      "doctor_name": "SCHWADERER, KENNETH",
+      "doctor_address": "495 CASTRO ST MOUNTAIN VIEW OPTOMETRY & CONTACT LENS CLINIC, MOUNTAIN VIEW, CA 94041",
+      "phone": "(650) 967-6649"
+    },
+    {
+      "doctor_name": "MADONNA, RICHARD",
+      "doctor_address": "33 W 42ND ST SUNY STATE COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-4060"
+    },
+    {
+      "doctor_name": "DISTER, ROBERT",
+      "doctor_address": "UNIVERSITY OF CALIFORNIA BERKELEY SCHOOL OF OPTOMETRY MINOR HALL (MC2020), BERKELEY, CA 94720",
+      "phone": "(510) 643-2999"
+    },
+    {
+      "doctor_name": "BLACK, GREGORY",
+      "doctor_address": "3200 S UNIVERSITY DR NSU COLLEGE OF OPTOMETRY SUITE 1402, DAVIE, FL 33328",
+      "phone": "(954) 262-1402"
+    },
+    {
+      "doctor_name": "BASKETT, JOHN",
+      "doctor_address": "1151 GALLERIA BLVD STE 240 C/O EYE DESIGNS OPTOMETRY, ROSEVILLE, CA 95678",
+      "phone": "(916) 772-3937"
+    },
+    {
+      "doctor_name": "LIGHTHIZER, JENNA",
+      "doctor_address": "1001 N GRAND AVE NORTHEASTERN STATE UNIVERSITY COLLEGE OF OPTOMETRY, TAHLEQUAH, OK 74464",
+      "phone": "(918) 458-2109"
+    },
+    {
+      "doctor_name": "RICHTER, SCOTT",
+      "doctor_address": "33 WEST 42ND STREET SUNY, COLLEGE OF OPTOMETRY, NEW YORK CITY, NY 10036",
+      "phone": "(212) 938-5864"
+    },
+    {
+      "doctor_name": "SZETO, ELLEN",
+      "doctor_address": "495 CASTRO ST MOUNTAIN VIEW OPTOMETRY & CONTACT LENS CLINIC, MOUNTAIN VIEW, CA 94041",
+      "phone": "(650) 967-6649"
+    },
+    {
+      "doctor_name": "LAUL, ANUPAM",
+      "doctor_address": "33 W 42ND ST UNIVERSITY EYE CENTER - SUNY OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-4001"
+    },
+    {
+      "doctor_name": "LUECKENHOFF, MARY",
+      "doctor_address": "1 BARNES JEWISH HOSPITAL PLZ DIV OPTOMETRY, 1ST FL, SAINT LOUIS, MO 63110",
+      "phone": "(314) 362-6123"
+    },
+    {
+      "doctor_name": "KWAN, LESLEY",
+      "doctor_address": "11301 WILSHIRE BLVD OPTOMETRY 123, RM 2118, BLDG 304, LOS ANGELES, CA 90073",
+      "phone": "(310) 478-3711"
+    },
+    {
+      "doctor_name": "KAWAZOE, KERILYN",
+      "doctor_address": "11301 WILSHIRE BLVD OPTOMETRY DEPARTMENT - BLDG 304 - 2-111, LOS ANGELES, CA 90073",
+      "phone": "(310) 478-3711"
+    },
+    {
+      "doctor_name": "PRESTON, ADAM",
+      "doctor_address": "OPTOMETRY DEPARTMENT 4881 SUGAR MAPLE DRIVE, WRIGHT PATTERSON AIR FORCE BASE, OH 45433",
+      "phone": "(937) 257-9309"
+    },
+    {
+      "doctor_name": "HUR, LINDA",
+      "doctor_address": "495 CASTRO STREET MOUNTAIN VIEW OPTOMETRY AND CONTACT LENS CLINIC, MOUNTAIN VIEW, CA 94041",
+      "phone": "(650) 967-6649"
+    },
+    {
+      "doctor_name": "ROMAN, RUBEN",
+      "doctor_address": "118 ELEONOR ROOSEVELT INTERAMERICAN UNIV. OF PR SCHOOL OF OPTOMETRY, HATO REY, PR 00918",
+      "phone": "(787) 765-1915"
+    },
+    {
+      "doctor_name": "FOUTCH, BRIAN",
+      "doctor_address": "1 UNIVERSITY BLVD 331 MARILLAC HALL, UMSL COLLEGE OF OPTOMETRY, SAINT LOUIS, MO 63121",
+      "phone": "(314) 516-5499"
+    },
+    {
+      "doctor_name": "PADILLA, KERRIE",
+      "doctor_address": "WOMACK ARMY MEDICAL CTR JOEL HEALTH CLINIC OPTOMETRY LOGISTICS RD, FORT BRAGG, NC 28310",
+      "phone": "(910) 907-6587"
+    },
+    {
+      "doctor_name": "MORALES, JUAN",
+      "doctor_address": "CALLE ELEANOR ROOSEVELT #118 INTER AMERICAN UNIVERSITY SCHOOL OF OPTOMETRY, HATO REY, PR 00919",
+      "phone": "(787) 765-1915"
+    },
+    {
+      "doctor_name": "JUNG, JEAN",
+      "doctor_address": "2094 ALBANY POST ROAD VA HUDSON VALLEY HEALTHCARE SYSTEM OPTOMETRY SERVICE, MONTROSE, NY 10548",
+      "phone": "(914) 737-4400"
+    },
+    {
+      "doctor_name": "FREDDO, THOMAS",
+      "doctor_address": "UNIVERSITY OF WATERLOO SCHOOL OF OPTOMETRY CLINICS 200 UNIVERSITY AVE, WEST, WATERLOO, ONTARIO N2L3G1, CA",
+      "phone": "(519) 888-4567"
+    },
+    {
+      "doctor_name": "SANCHEZ, TERESA",
+      "doctor_address": "11301 WILSHIRE BLVD OPTOMETRY CLINIC (123) BLDG.304 RM 2-111, LOS ANGELES, CA 90073",
+      "phone": "(310) 478-3711"
+    },
+    {
+      "doctor_name": "MCEWAN, VICTORIA",
+      "doctor_address": "2094 ALBANY POST RD VA HUDSON VALLEY HEALTH CARE SYSTEM - OPTOMETRY SERVICE, MONTROSE, NY 10548",
+      "phone": "(914) 737-4400"
+    },
+    {
+      "doctor_name": "O'BRIEN, JOHN",
+      "doctor_address": "OPTOMETRY FAMILY HEALTH SERVICES WOMACK ARMY MEDICAL CENTER, BLDG 4-2817, FORT BRAGG, NC 28310",
+      "phone": "(910) 907-7106"
+    },
+    {
+      "doctor_name": "CHU, EDWARD",
+      "doctor_address": "5901 E 7TH ST BRC BUILDING 166, 2ND FLOOR, OPTOMETRY SERVICE, LONG BEACH, CA 90822",
+      "phone": "(844) 808-2020"
+    },
+    {
+      "doctor_name": "WONG, NANCY",
+      "doctor_address": "100 ALBANY POST RD VA HUDSON VALLEY HEALTH CARE SYSTEM - OPTOMETRY SERVICE, MONTROSE, NY 10548",
+      "phone": "(914) 737-4400"
+    },
+    {
+      "doctor_name": "ROUSE, LINDA",
+      "doctor_address": "3200 S UNIVERSITY DR NSU COLLEGE OF OPTOMETRY THE EYE INSTITUTE SUITE 1408, DAVIE, FL 33328",
+      "phone": "(954) 262-1408"
+    },
+    {
+      "doctor_name": "PHOUN, SHELLEY YIJY",
+      "doctor_address": "KAISER PERMANENTE LAMC DEPARTMENT OF OPTOMETRY 1515 N VERMONT AVENUE, 6TH FLOOR, LOS ANGELES, CA 90027",
+      "phone": "(800) 954-8000"
+    }
+  ],
+  "Pediatrics": [
+    {
+      "doctor_name": "FISHER, SARAH",
+      "doctor_address": "UC BERKELEY SCHOOL OF OPTOMETRY, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "OREL-BIXLER, DEBORAH",
+      "doctor_address": "SCHOOL OF OPTOMETRY UNIVERSITY OF CALIFORNIA, BERKELEY, BERKELEY, CA 94720",
+      "phone": "(510) 642-2402"
+    },
+    {
+      "doctor_name": "LEE, DEBORA",
+      "doctor_address": "UC BERKELEY SCHOOL OF OPTOMETRY MINOR HALL, BERKELEY, CA 94720",
+      "phone": "(510) 388-1941"
+    },
+    {
+      "doctor_name": "HOENIG, MARIANNE",
+      "doctor_address": "BINOCULAR VISION CLINIC SCHOOL OF OPTOMETRY UNIVERSITY OF CALIFORNIA BERKELEY, BERKELEY, CA 94720",
+      "phone": "(510) 642-2020"
+    },
+    {
+      "doctor_name": "BARTOLONE, AMELIA",
+      "doctor_address": "33 WEST 42ND ST SUNY STATE COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-4000"
+    },
+    {
+      "doctor_name": "VRICELLA, MARILYN",
+      "doctor_address": "33 W 42ND ST OPTOMETRIC CENTER SUNY COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-4157"
+    }
+  ],
+  "Low Vision Rehabilitation": [
+    {
+      "doctor_name": "INGALLA, SHANIDA",
+      "doctor_address": "3801 MIRANDA AVE OPTOMETRY #112, PALO ALTO, CA 94304",
+      "phone": "(650) 493-5000"
+    },
+    {
+      "doctor_name": "FLOM, ROANNE",
+      "doctor_address": "OSU COLLEGE OF OPTOMETRY 338 W. 10TH AVE., COLUMBUS, OH 43210",
+      "phone": "(614) 688-3337"
+    },
+    {
+      "doctor_name": "INNES, ALAN",
+      "doctor_address": "SUNY STATE COLLEGE OF OPTOMETRY 33 WEST 42 ST., NEW YORK, NY 10036",
+      "phone": "(212) 938-5866"
+    }
+  ],
+  "Corneal and Contact Management; Low Vision Rehabilitation; Sports Vision": [
+    {
+      "doctor_name": "MARSAC, DANIEL",
+      "doctor_address": "4100 W 3RD ST 112E OPTOMETRY, DAYTON, OH 45428",
+      "phone": "(248) 701-5878"
+    }
+  ],
+  "Corneal and Contact Management": [
+    {
+      "doctor_name": "WYATT, TYLER",
+      "doctor_address": "500 FOOTHILL DR OPTOMETRY DEPARTMENT (112), SALT LAKE CITY, UT 84148",
+      "phone": "(801) 582-1565"
+    },
+    {
+      "doctor_name": "YEH, THAO",
+      "doctor_address": "360 MINOR HALL, MS 2020 UC BERKELEY, SCHOOL OF OPTOMETRY, CLINICAL RESEARCH CTR, BERKELEY, CA 94720",
+      "phone": "(510) 642-9649"
+    },
+    {
+      "doctor_name": "BARTOLOME OPTOMETRY CORP, JENNIFER",
+      "doctor_address": "10977 VENTURA BLVD, STUDIO CITY, CA 91604",
+      "phone": "(818) 763-6666"
+    }
+  ],
+  "Vision Therapy": [
+    {
+      "doctor_name": "KUNDART, JAMES",
+      "doctor_address": "PACIFIC UNIVERSITY COLLEGE OF OPTOMETRY 2043 COLLEGE WAY, FOREST GROVE, OR 97116",
+      "phone": "(503) 352-2020"
+    },
+    {
+      "doctor_name": "LAUKKANEN, HANNU",
+      "doctor_address": "2043 COLLEGE WAY PACIFIC UNIVERSITY COLLEGE OF OPTOMETRY, FOREST GROVE, OR 97116",
+      "phone": "(503) 352-2751"
+    },
+    {
+      "doctor_name": "ALBANESE, JANINE",
+      "doctor_address": "33 WEST 42ND ST SUNY COLLEGE OF OPTOMETRY, NEW YORK, NY 10036",
+      "phone": "(212) 938-5836"
+    }
+  ],
+  "Optician": [
+    {
+      "doctor_name": "COOK, ROSEMARY",
+      "doctor_address": "3200 S UNIVERSITY DR NSU COLLEGE OF OPTOMETRY SUITE 1402, DAVIE, FL 33328",
+      "phone": "(954) 262-1402"
+    }
+  ]
+}

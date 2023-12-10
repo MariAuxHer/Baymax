@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+
+    <title>Baymax</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/hyphenopoly@2.7.0/dist/Hyphenopoly_Loader.js"></script>
+</head>
+<body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+    <aside id="navbar">
+        <div class="nav_container">
+            <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+            {% if not user.is_authenticated %} 
+                <button id="toLoginPage" class="navbar_anchors" onclick="window.location.href = 'login'">Login</button> 
+            {% else %}
+                <button id="toLoginPage" class="navbar_anchors" onclick="window.location.href = 'signout'">Signout</button> 
+                <button id="toProfilePage" class="navbar_anchors" onclick="window.location.href = 'profile'">Profile</button>
+            {% endif %}
+            <button id="toAboutPage" class="navbar_anchors" onclick="window.location.href = 'about'">About</button>
+            <button class="togglePanelButton"><img src="{% static '/app/images/black_burger-removebg-preview.png' %}"></button>
+        </div>
+    </aside>
+
+    <div id="panelContainer">
+      <!--Panel Stuff-->
+      <div class="panel">
+       <!--- <button id="default_button"></button> -->
+        <button id="addConversation">New Chat</button>
+
+      </div>
+
+      <div class="panel_nav">
+          {% if not user.is_authenticated %} 
+              <a class="toLoginPage" href="login">Login</a> 
+          {% else %}
+              <a class="toLoginPage" class="navpanel_anchors" href="signout">Signout</a> 
+              <a class="toProfilePage" class="navpanel_anchors" href="profile">Profile</a>
+          {% endif %}
+          <a class="toAboutPage" class="navpanel_anchors" href="about">About</a>
+          <button class="togglePanelButton">Close</a>
+      </div>
+      
+    </div>
+
+    <div id="messages">
+        {% if interaction_set %} 
+            {% for interaction in interaction_set %}
+                <p class="right"> {{ interaction.prompt }} </p>
+                <p class="left"> {{ interaction.LLMresponse }} </p>
+            {% endfor %}
+        {% else %}
+            <p class="left">Hello, it's me</p>
+        {% endif %}
+
+        <!-- <p class="right">Hello, it's me</p>
+        <p class="left">I was wondering if after all these years you'd like to meet</p>
+        <p class="left">To go over everything</p>
+        <p class="right">They say that time's supposed to heal ya, but I ain't done much healing</p>
+        <p class="left">Hello, can you hear me?</p>
+        <p class="right">I'm in California dreaming about who we used to be</p>
+        <p class="left">When we were younger and free</p>
+        <p class="right">I've forgotten how it felt before the world fell at our feet</p>
+        <p class="right">There's such a difference between us</p>
+        <p class="left">And a million miles</p>
+        <p class="right">Hello from the other side</p>
+        <p class="right">I must've called a thousand times</p>
+        <p class="left">To tell you I'm sorry for everything that I've done</p>
+        <p class="left">But when I call, you never seem to be home</p>
+        <p class="left">Hello from the outside</p>
+        <p class="right">At least, I can say that I've tried</p>
+        <p class="left">To tell you I'm sorry for breaking your heart</p>
+        <p class="right">But it don't matter, it clearly doesn't tear you apart anymore</p>
+        <p class="left">Hello, how are you?. It's so typical of me to talk about myself, I'm sorry. I hope that you're well. Did you ever make it out of that town where nothing ever happened?</p> -->
+    </div>
+    
+    <form id="message_form">{% csrf_token %}
+        <textarea id="message_textarea" name="message"></textarea>
+        <button id="submit_message"><img src="{% static '/app/images/paper-plane.png' %}"></button>
+        <!--img attribution "<a href="https://www.flaticon.com/free-icons/paper-plane" title="paper-plane icons">Paper-plane icons created by DinosoftLabs - Flaticon</a>"-->
+        <div class="more-doctor-info">
+            <p> To access a more extensive directory of medical professionals, please visit 
+            <a href="{% url 'search' %}"> here </a> </p>
+        </div>
+    </form>
+    
+    <!-- <div class="more-doctor-info">
+        <p> To access a more extensive directory of medical professionals, please visit 
+        <a href="{% url 'search' %}"> here </a> </p>
+    </div> -->
+
+    <script>
+        // Configure Hyphenopoly
+        window.hyphenopoly = window.hyphenopoly || {};
+        window.hyphenopoly.config = {
+            displaytoggle: false,
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/hyphenopoly@2.7.0/dist/Hyphenopoly.js"></script>
+    <script type="module" src="{% static '/app/JS/index.js' %}"> </script>
+    <script src="{% static '/app/JS/textarea_replacement.js' %}"></script>
+    <script src="{% static '/app/JS/message_scroll.js' %}"></script>
+</body>
+</html>

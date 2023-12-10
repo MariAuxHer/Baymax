@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+    <title>Baymax | Profile</title>
+</head>
+
+<body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+    <aside id="navbar">
+        <div class="nav_container">
+            <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+            {% if not user.is_authenticated %} 
+                <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+            {% else %}
+                <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+                <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+            {% endif %}
+            <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+        </div>
+    </aside>
+    <form>
+        <h2>Profile Information</h2>
+
+        <div class="info" id="user">
+            Username: {{ user.username}}
+        </div>
+        <div class="info" id="email">
+            Email: {{ user.email }}
+        </div>
+        <div class="info" id="city">
+            City: {{ user.city }}
+        </div>
+        <div class="info" id="state">
+            State: {{ user.state }}
+        </div>
+        <div class="info" id="zipcode">
+            Zip Code: {{ user.zipcode }}
+        </div>
+
+        <a href="changeprofile" id="toInfoChange">Change profile information</a>
+    </form>
+    
+</body>
+</html>

@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework import status
 
 from django.middleware.csrf import get_token
+from back_end.serializers import UserSerializer
 
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -31,7 +32,7 @@ class CSRF(APIView):
         return response
     
     def post(request, format=None):
-        return Response({'detail': 'There is no POST here.'}, status = status.HTTP_403_FORBIDDEN)
+        return Response({'detail': 'There is no POST here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
@@ -56,29 +57,34 @@ class LoginView(APIView):
         return Response({'detail': 'Successfully logged in.'}, status = status.HTTP_200_OK)
     
     def get(self, request, format=None):
-        return Response({'detail': 'There is no GET here.'}, status = status.HTTP_403_FORBIDDEN)
+        return Response({'detail': 'There is no GET here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
 
 class LogoutView(APIView):
     authentication_classes = [SessionAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get(self, request, format = None):
-        # if not request.user.is_authenticated:
-        #     return JsonResponse({'detail': 'You\'re not logged in.'}, status = status.HTTP_200_OK)
-
+        # Handle when not logged in
+        if not request.user.is_authenticated:
+            return JsonResponse({'detail': 'You\'re not logged in.'}, status = status.HTTP_200_OK)
+        
+        # Handle when logged in
         logout(request)
         return JsonResponse({'detail': 'Successfully logged out.'}, status = status.HTTP_200_OK)
     
     def post (self, request, format=None):
-         return Response({'detail': 'There is no POST here.'}, status = status.HTTP_403_FORBIDDEN)
+         return Response({'detail': 'There is no POST here.'}, status = status.HTTP_405_METHOD_NOT_ALLOWED)
     
 class SessionView(APIView):
     authentication_classes = [SessionAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     @staticmethod
     def get(request, format=None):
-        return Response({'isAuthenticated': True})
+        if request.user.is_authenticated:
+            return Response({'isAuthenticated': True}, status = status.HTTP_200_OK)
+        else:
+            return Response({'isAuthenticated': False}, status = status.HTTP_200_OK)
 
 
 class WhoAmIView(APIView):
@@ -87,4 +93,4 @@ class WhoAmIView(APIView):
 
     @staticmethod
     def get(request, format=None):
-        return Response({'username': request.user.username})
+        return Response(UserSerializer(request.user, context = {'request': request}).data)

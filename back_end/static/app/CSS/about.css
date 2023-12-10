@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.content {
+    margin: 2em;
+    margin-top: 15%;
+    text-align: center;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: .5em;
+}
+
+.hero {
+    width: 150px;
+    margin: 1em;
+    text-align: center;
+}
+
+.hero img {
+    min-width: 125%;
+    max-width: 125%;
+    height: auto; /*Allows the image to maintain its aspect ratio. */
+    min-height: 275px;
+    max-height: 275px; 
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+
+.hero-info {
+    margin-top: 10px;
+}
+
+.hero-name {
+    font-weight: bold;
+}
+
+.description {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f8f8; /* Optional: background color */
+    color: #333; /* Optional: text color */
+    font-size: 1em;  /* Optional: adjust font size */
+} 

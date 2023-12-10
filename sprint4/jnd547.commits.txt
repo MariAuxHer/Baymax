@@ -1,0 +1,220 @@
+// signup.html
+a8084175 back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-11-26 21:03:41 -0500 101)             <input type="number" id="zipcode" minlength="5" maxlength="5">
+b868c63c back_end/back_end/templates/back_end/signup.html (Jonathan Tran        2023-12-01 16:36:47 -0500 102)             <ul id="zipcode_autofill"></ul>
+
+
+
+// changeprofile.html
+a8084175 (Jonathan Tran 2023-11-26 21:03:41 -0500 106)             <input type="number" id="zipcode" minlength="5" maxlength="5">
+b868c63c (Jonathan Tran 2023-12-01 16:36:47 -0500 107)             <ul id="zipcode_autofill"></ul>
+
+
+
+
+// signup.css
+b868c63c back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 16:36:47 -0500  46)     appearance: none;
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 111) }
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 112) 
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 113) 
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 114) /* ul {
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 115)     border: 0.5em hidden slateblue;
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 116)     list-style: none;
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 117) }
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 118) 
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 119) li {
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 120)     cursor: pointer;
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 121)     padding: 10px;
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 122) }
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 123) 
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 124) li:hover {
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 125)     background-color: rgb(75, 65, 147);
+f766eec0 back_end/static/app/CSS/signup.css (Jonathan Tran   2023-12-01 17:52:06 -0500 126) } */
+
+
+
+
+
+// changeprofile.css
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  98) 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  99) /* ul {
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 100)     border: 0.5em hidden slateblue;
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 101)     list-style: none;
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 102) }
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 103) 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 104) li {
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 105)     cursor: pointer;
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 106)     padding: 10px;
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 107) }
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 108) 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 109) li:hover {
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 110)     background-color: rgb(75, 65, 147);
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 111) } */
+
+
+
+
+
+// changeprofile.js
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  16) })
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  17) 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  18) 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  19) 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  20) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  21) // Trying to add zipcode suggestions and autofill state and city
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  22) let zipcode = document.getElementById("zipcode");
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  23) zipcode.addEventListener('change', async () => {  
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  24)     console.log("change");
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  25) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  26)     if (zipcode.value.trim().length >= 3) {
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  27)         let cur_input = zipcode.value.trim();
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  28)         // let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  29)         // res = await res.json();
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  30) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  31)         // console.log(res);
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  32) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  33)         // Need to find a proper zipcode lookup api...
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  34) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  35)     }
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  36) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  37) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  38)     // Autofill state and city
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  39)     if (zipcode.value.trim().length === 5) {
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  40)         let cur_input = zipcode.value.trim();
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  41)         let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  42)         res = await res.json();
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  43) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  44)         console.log(res);
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  45) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  46)         console.log(res.places);
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  47)         if (res.places != null) {
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  48)             let arr = res.places[0];
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  49)             console.log(arr);
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  50)             console.log(arr["place name"])
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  51)             console.log(arr["state"])
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  52)             document.getElementById("city").value = arr["place name"];
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  53)             document.getElementById("state").value = arr["state"];
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  54)         }
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  55)         
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  56)     }
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  59) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  60) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500  61) 
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  74) 
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  75)     // Email validation
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  88)         return;
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  89)     }
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  90)     console.log(emailValidCheck.test(accountInfo.email))
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  91) 
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  92)     // Zipcode validation
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  93)     console.log(accountInfo.zipcode);
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  94)     let digits = accountInfo.zipcode;
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  95)     if (digits.trim().length != 5) {
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500  96)         console.log(digits.length);
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  97)         console.log('Invalid zipcode')
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  98) 
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500  99)         let exists = document.querySelector("form_fail")
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500 100)         if (!exists) {
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500 101)             let parent = document.querySelector("#change_form");
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500 102)             let paragraph = document.createElement("p");
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500 103)             paragraph.classList.add("form_fail");
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500 104)             paragraph.innerHTML = "Invalid zipcode";
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500 105)             parent.appendChild(paragraph);
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500 106)         }
+7fd2c0d8 (Jonathan Tran 2023-11-26 21:52:15 -0500 107)         return;
+a0049c4f (Jonathan Tran 2023-11-13 18:15:36 -0500 108)     }
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 109)     if (zipcode.value.trim().length === 5) {
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 110)         let cur_input = zipcode.value.trim();
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 111)         let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 112)         res = await res.json();
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 113) 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 114)         console.log(res);
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 115) 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 116)         if (res.country == null) {
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 117)             console.log("Invalid zipcode")
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 118)             return;
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 119)         }
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 120)         console.log(res.country);
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 121)     } 
+f766eec0 (Jonathan Tran 2023-12-01 17:52:06 -0500 124) 
+e0f12e58 (Jonathan Tran 2023-12-01 22:30:00 -0500 125) 
+
+
+
+
+// signup.js
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500   4) // Trying to add zipcode suggestions
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500   5) let zipcode = document.getElementById("zipcode");
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500   6) zipcode.addEventListener('change', async () => {  
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500   7)     console.log("change");
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500   8) 
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500   9)     if (zipcode.value.trim().length >= 3) {
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  10)         let cur_input = zipcode.value.trim();
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  11)         // let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  12)         // res = await res.json();
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  13) 
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  14)         // console.log(res);
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  15) 
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  16)         // Need to find a proper zipcode lookup api...
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  17) 
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  18)     }
+ebae350e back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:57:19 -0500  19) 
+ebae350e back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:57:19 -0500  20) 
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  21)     // Autofill state and city
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  22)     if (zipcode.value.trim().length === 5) {
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  23)         let cur_input = zipcode.value.trim();
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  24)         let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  25)         res = await res.json();
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  26) 
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  27)         console.log(res);
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  28) 
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  29)         console.log(res.places);
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  30)         if (res.places != null) {
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  31)             let arr = res.places[0];
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  32)             console.log(arr);
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  33)             console.log(arr["place name"])
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  34)             console.log(arr["state"])
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  35)             document.getElementById("city").value = arr["place name"];
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  36)             document.getElementById("state").value = arr["state"];
+ebae350e back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:57:19 -0500  37)         }
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  38)         
+e0f12e58 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 22:30:00 -0500  39)     }
+b868c63c back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:36:47 -0500  40) })
+b868c63c back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:36:47 -0500  41) 
+b868c63c back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:36:47 -0500  42) 
+b868c63c back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:36:47 -0500  43) 
+b868c63c back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:36:47 -0500  44) 
+b868c63c back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:36:47 -0500  45) 
+b868c63c back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 16:36:47 -0500  46) 
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  62)     // Zipcode validation
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  63)     console.log(accountInfo.zipcode);
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  64)     let digits = accountInfo.zipcode;
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  65)     if (digits.trim().length != 5) {
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  66)         console.log(digits.length);
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  67)         console.log('Zipcode needs to be 5 digits long.')
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  68) 
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  69)         let exists = document.querySelector("form_fail")
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  70)         if (!exists) {
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  71)             let parent = document.querySelector("#change_form");
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  72)             let paragraph = document.createElement("p");
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  73)             paragraph.classList.add("form_fail");
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  74)             paragraph.innerHTML = "Zipcode needs to be 5 digits long.";
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  75)             parent.appendChild(paragraph);
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  76)         }
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  77)         return;
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  78)     }
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  79)     if (zipcode.value.trim().length === 5) {
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  80)         let cur_input = zipcode.value.trim();
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  81)         let res = await fetch(`https://api.zippopotam.us/US/${cur_input}`);
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  82)         res = await res.json();
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  83) 
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  84)         console.log(res);
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  85) 
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  86)         if (res.country == null) {
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  87)             console.log("Invalid zipcode")
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  88)             return;
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  89)         }
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  90)         console.log(res.country);
+f766eec0 back_end/static/app/JS/signup.js (Jonathan Tran   2023-12-01 17:52:06 -0500  91)     }
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  92) 
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  93) 
+7fd2c0d8 back_end/static/app/JS/signup.js (Jonathan Tran   2023-11-26 21:52:15 -0500  94) 

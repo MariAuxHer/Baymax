@@ -1,0 +1,71 @@
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 357) 
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 358) export async function delete_conversation(conversation_url) {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 359)     // assign a csrf
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 360)     if (!(await set_csrf())) {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 361)        return null
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 362)     }
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 363)     
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 364)     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 365)     const response = await fetch(conversation_url, {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 366)         method: "DELETE",
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 367)         headers: {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 368)             "X-CSRFToken": csrftoken,
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 369)             "Content-Type": "application/json",
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 370)         }
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 371)     })
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 372) 
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 373)     if (log_response(response, "delete_conversation")) {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 374)         console.log("DELETE_CONVERSATION Response OK")
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 375)     } else {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 376) 
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 377)         console.log("DELETE_CONVERSATION Response NOT OK")
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 378)         return null
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 379)     }
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 380) }
+2a588a04 (Steven Dao        2023-12-01 19:21:49 -0500   1) import { log_conversations, session, post_prompt, post_conversation, update_name, delete_conversation } from "./utils.js";
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500   1) import { log_conversations, session, post_prompt, post_conversation, update_name, delete_conversation } from "./utils.js";
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500  33)                 add_conversation_button(conversations[i].url)
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 111)     const panel = document.getElementById('panelContainer')
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 112)     const conversation_options = document.createElement('div')
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 114)     const conversation_button = document.createElement('button')
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 115)     conversation_button.className = "collapsible"
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 116)     conversation_button.textContent = "Conversation " + convo_count
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 117)     conversation_button.setAttribute('id', panel.id + '_conversation_button_' + convo_count)
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 119)     conversation_button.addEventListener('click', () => {
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 124)     const delete_button = document.createElement('button')
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 125)     delete_button.textContent = "del" // this line is temporary until we decide what it will look like
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 126)     delete_button.setAttribute('id', panel.id + '_delete_button_' + convo_count++)
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 127) 
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 128)     delete_button.addEventListener('click', () => {
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 129)         delete_conversation(url)
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 130)         conversation_options.remove()
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 131)         default_page(); 
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 132)     })
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 133) 
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 134)     conversation_options.appendChild(conversation_button)
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 135)     conversation_options.appendChild(delete_button)
+72b4bc59 (Steven Dao 2023-12-01 19:44:29 -0500 136)     panel.appendChild(conversation_options)
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 357) 
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 358) export async function delete_conversation(conversation_url) {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 359)     // assign a csrf
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 360)     if (!(await set_csrf())) {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 361)        return null
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 362)     }
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 363)     
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 364)     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 365)     const response = await fetch(conversation_url, {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 366)         method: "DELETE",
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 367)         headers: {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 368)             "X-CSRFToken": csrftoken,
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 369)             "Content-Type": "application/json",
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 370)         }
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 371)     })
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 372) 
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 373)     if (log_response(response, "delete_conversation")) {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 374)         console.log("DELETE_CONVERSATION Response OK")
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 375)     } else {
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 376) 
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 377)         console.log("DELETE_CONVERSATION Response NOT OK")
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 378)         return null
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 379)     }
+2a588a04 (Steven Dao 2023-12-01 19:21:49 -0500 380) }

@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/about.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/CSS/nav_bar.css' %}">
+    <title>Big Hero 7</title> 
+</head>
+
+<body>
+    <h1 id="Baymax"><a href="/" id="toIndex">Baymax</a></h1>
+    <aside id="navbar">
+        <div class="nav_container">
+            <button id="toggleSearchButton" onclick="window.location.href = 'search'"><img src="{% static '/app/images/magnifying-glass-glyph.png' %}"></button>
+            {% if not user.is_authenticated %} 
+                <button id="toLoginPage" onclick="window.location.href = 'login'">Login</button> 
+            {% else %}
+                <button id="toLoginPage" onclick="window.location.href = 'signout'">Signout</button> 
+                <button id="toProfilePage" onclick="window.location.href = 'profile'">Profile</button>
+            {% endif %}
+            <button id="toAboutPage" onclick="window.location.href = 'about'">About</button>
+        </div>
+    </aside>
+    
+    <div class="content">
+        <h2>Meet Big Hero 7</h2>
+        <div class="hero-container">
+            <!-- Hero 1 -->
+            <div class="hero">
+                <img src="{% static '/app/images/heros/Amal.jpg' %}" alt="Hero 1">
+                <div class="hero-info">
+                    <p class="hero-name">Amal Sam</p>
+                    <p class="hero-role">Front-End</p>
+                </div>
+            </div>
+            <!-- Hero 2 -->
+            <div class="hero">
+                <img src="{% static '/app/images/heros/nevets.jpg' %}" alt="Hero 2">
+                <div class="hero-info">
+                    <p class="hero-name">Steven Dao</p>
+                    <p class="hero-role">Back-End</p>
+                </div>
+            </div>
+            <!-- Hero 3 -->
+            <div class="hero">
+                <img src="{% static '/app/images/heros/Casey.jpg' %}" alt="Hero 3">
+                <div class="hero-info">
+                    <p class="hero-name">Casey Collins </p>
+                    <p class="hero-role">Front-End</p>
+                </div>
+            </div>
+            
+            <!-- Hero 4 -->
+            <div class="hero">
+                <img src="{% static '/app/images/heros/Maria.png' %}" alt="Hero 4">
+                <div class="hero-info">
+                    <p class="hero-name">Maria Hernandez</p>
+                    <p class="hero-role">Back-End</p>
+                </div>
+            </div>
+            
+            <!-- Hero 5 -->
+            <div class="hero">
+                <img src="{% static '/app/images/heros/Jonathan.jpg' %}" alt="Hero 5">
+                <div class="hero-info">
+                    <p class="hero-name">Jonathan Tran</p>
+                    <p class="hero-role">Front-End</p>
+                </div>
+            </div>
+            
+            <!-- Hero 6 -->
+            <div class="hero">
+                <img src="{% static '/app/images/heros/Vinni.jpg' %}" alt="Hero 6">
+                <div class="hero-info">
+                    <p class="hero-name">Vinni Konjeti</p>
+                    <p class="hero-role">Back-End</p>
+                </div>
+            </div>
+            
+            <!-- Hero 7 -->
+            <div class="hero">
+                <img src="{% static '/app/images/heros/Jordan.jpg' %}" alt="Hero 7">
+                <div class="hero-info">
+                    <p class="hero-name">Jordan Huff</p>
+                    <p class="hero-role">Back-End</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="description">
+        <p>Baymax is an innovative AI Medical Assistant designed to revolutionize the healthcare experience. 
+            It combines the advanced capabilities of ChatGPT 4 with a user-friendly interface, providing general health and wellness guidance and location-based doctor referrals. 
+            The project focuses on making complex medical information easily navigable and accessible, addressing common hesitations in seeking initial health consultations. 
+            With its integrated machine learning features, Baymax offers personalized health information, ensuring user queries are met with accurate and relevant responses.</p>
+    </div>
+    </body>
+    </html>
+    
+</body>
+</html>
